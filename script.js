@@ -30,9 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('heroSearch').addEventListener('keydown', function(e) {
         if (e.key === 'Enter') searchParts();
     });
-
-    // Contact form
-    setupContactForm();
 });
 
 // === CATALOG ===
@@ -366,43 +363,7 @@ function handleDetails(msg) {
         addBotMessage('Не совсем понял. Если хотите найти другую деталь — напишите "ещё". Если всё устраивает — "спасибо".');
     }
 }
-
-// === CONTACT FORM ===
-function setupContactForm() {
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        const orig = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
-        btn.disabled = true;
-
-        const data = new FormData(form);
-        const params = new URLSearchParams();
-        params.append('name', data.get('name'));
-        params.append('contact', data.get('contact'));
-        params.append('carInfo', data.get('carInfo'));
-        params.append('partInfo', data.get('partInfo'));
-
-        fetch('https://script.google.com/macros/s/AKfycbySg4aJpMDgaBMpMw56Qpw6yuIGnJJ2vncj_xo5WEDu4hUjVIvONnaMaFrFx8DyNgCs/exec', {
-            method: 'POST',
-            body: params
-        })
-        .then(r => {
-            if (!r.ok) throw new Error();
-            alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
-            form.reset();
-        })
-        .catch(() => {
-            alert('Произошла ошибка. Попробуйте позже или свяжитесь по телефону: +7 (964) 003-09-64.');
-        })
-        .finally(() => {
-            btn.innerHTML = orig;
-            btn.disabled = false;
-        });
-    });
-}
-
+ 
 // === PARTNERS ===
 function renderPartners() {
     const grid = document.getElementById('partnersGrid');
