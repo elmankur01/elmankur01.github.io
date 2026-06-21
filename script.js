@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Init catalog
     populateFilters();
     currentFilteredParts = PARTS_DB;
-    renderCatalog(currentFilteredParts);
+    renderCatalog([]);
 
     // Init partners
     renderPartners();
@@ -142,10 +142,17 @@ function filterParts() {
 function renderCatalog(parts) {
     const grid = document.getElementById('catalogGrid');
     const empty = document.getElementById('catalogEmpty');
+    const make = document.getElementById('filterMake').value;
+    const model = document.getElementById('filterModel').value;
 
     if (parts.length === 0) {
         grid.innerHTML = '';
         empty.style.display = 'block';
+        if (!make && !model) {
+            empty.innerHTML = '<i class="fas fa-car"></i><p style="font-size:1.1rem;margin-top:10px;">Выберите марку и модель автомобиля, чтобы увидеть подходящие запчасти</p>';
+        } else {
+            empty.innerHTML = '<i class="fas fa-box-open"></i><p>Ничего не найдено. Попробуйте изменить параметры поиска.</p>';
+        }
         return;
     }
     empty.style.display = 'none';
