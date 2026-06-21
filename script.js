@@ -164,11 +164,14 @@ function renderCatalog(parts) {
             <div class="part-desc">${p.make} ${p.model} ${p.year} · ${p.engine}${p.note ? '<br><em>' + p.note + '</em>' : ''}</div>
             <div class="part-oem" onclick="copyOEM(this)">${p.oem}</div>
             <div class="part-stores">
-                ${getStoreLinks(p.oem).map(s => `
-                    <a href="${s.fullUrl}" target="_blank" rel="noopener" class="store-btn" style="--store-color:${s.color}" onclick="trackClick('${s.name}','${p.oem}')">
-                        <i class="${s.icon}"></i> ${s.name} <span class="ad-label">Реклама</span>
-                    </a>
-                `).join('')}
+                ${document.getElementById('filterModel').value
+                    ? getStoreLinks(p.oem).map(s => `
+                        <a href="${s.fullUrl}" target="_blank" rel="noopener" class="store-btn" style="--store-color:${s.color}" onclick="trackClick('${s.name}','${p.oem}')">
+                            <i class="${s.icon}"></i> ${s.name} <span class="ad-label">Реклама</span>
+                        </a>
+                    `).join('')
+                    : '<span class="part-store-hint">Выберите модель, чтобы перейти в магазин</span>'
+                }
             </div>
             <div class="part-card-footer">
                 <span class="part-stock ${p.inStock ? 'in-stock' : 'on-order'}">

@@ -446,6 +446,12 @@ ul { list-style: none; }
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 .store-btn i { font-size: 0.7rem; }
+.part-store-hint {
+    font-size: 0.75rem;
+    color: var(--gray);
+    font-style: italic;
+    opacity: 0.7;
+}
 
 /* Partners section */
 .partners {
