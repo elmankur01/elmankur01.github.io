@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Cookie consent
+    if (!localStorage.getItem('ap_cookies_accepted')) {
+        document.getElementById('cookieBanner').classList.add('show');
+    }
+
     // Burger menu
     const burger = document.querySelector('.burger-menu');
     const navList = document.querySelector('.nav-list');
@@ -29,6 +34,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hero search
     document.getElementById('heroSearch').addEventListener('keydown', function(e) {
         if (e.key === 'Enter') searchParts();
+    });
+});
+
+function acceptCookies() {
+    localStorage.setItem('ap_cookies_accepted', 'true');
+    document.getElementById('cookieBanner').classList.remove('show');
+}
+
+function openPrivacy() {
+    document.getElementById('privacyModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePrivacy() {
+    document.getElementById('privacyModal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// Close modal on overlay click
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('privacyModal').addEventListener('click', function(e) {
+        if (e.target === this) closePrivacy();
     });
 });
 
@@ -111,7 +138,7 @@ function renderCatalog(parts) {
             <div class="part-stores">
                 ${getStoreLinks(p.oem).map(s => `
                     <a href="${s.fullUrl}" target="_blank" rel="noopener" class="store-btn" style="--store-color:${s.color}" onclick="trackClick('${s.name}','${p.oem}')">
-                        <i class="${s.icon}"></i> ${s.name}
+                        <i class="${s.icon}"></i> ${s.name} <span class="ad-label">Реклама</span>
                     </a>
                 `).join('')}
             </div>
@@ -261,7 +288,7 @@ function addResultCard(parts) {
                     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;">
                         ${getStoreLinks(p.oem).map(s => `
                             <a href="${s.fullUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;background:${s.color};color:white;padding:4px 10px;border-radius:6px;font-size:0.75rem;text-decoration:none;" onclick="trackClick('${s.name}','${p.oem}')">
-                                <i class="${s.icon}"></i> ${s.name}
+                                <i class="${s.icon}"></i> ${s.name} <span class="ad-label" style="background:rgba(255,255,255,0.25);font-size:0.6rem;padding:1px 5px;border-radius:3px;">Реклама</span>
                             </a>
                         `).join('')}
                     </div>
@@ -385,7 +412,7 @@ function renderPartners() {
                 <h3>${s.name}</h3>
                 <p>Поиск по OEM-номеру, оригиналы и аналоги.<br><small style="opacity:0.6">${s.network}</small></p>
                 <a href="${exampleUrl}" target="_blank" rel="noopener" class="partner-link" style="border-color:${s.color};color:${s.color}">
-                    <i class="${s.icon}"></i> Перейти в ${s.name}
+                    <i class="${s.icon}"></i> Перейти в ${s.name} <span class="ad-label">Реклама</span>
                 </a>
             </div>
         `;

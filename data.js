@@ -192,9 +192,11 @@ function findPartsForCar(make, model, year, engine, partQuery) {
 // ==========================================
 // 🔗 ПАРТНЁРСКИЕ МАГАЗИНЫ (настрой под себя)
 // ==========================================
-// После подтверждения в Takprodam и MyLead:
+// После подтверждения в Takprodam (Admitad):
 // 1. Замени campaignId на полученные ID для каждого оффера
-// 2. Если ссылка не работает — поправь urlTemplate под формат магазина
+// 2. Замени erid на токены из ОРД (или получи через Admitad)
+// 3. Если ссылка не работает — поправь urlTemplate под формат магазина
+// Примечание: advertiser нужно уточнить в партнёрской программе
 
 const STORES = [
   {
@@ -204,16 +206,20 @@ const STORES = [
     type: "takprodam",
     color: "#007bff",
     icon: "fa-solid fa-cart-shopping",
-    network: "Takprodam (Admitad) ~2.1%"
+    network: "Takprodam (Admitad) ~2.1%",
+    erid: "",
+    advertiser: "ООО «Экзист»"
   },
   {
-    name: "Autodoc.ru",
-    urlTemplate: "https://www.autodoc.ru/search?keyword={OEM}",
-    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_MYLEAD",
-    type: "mylead",
+    name: "Rossko.ru",
+    urlTemplate: "https://rossko.ru/search?q={OEM}",
+    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
+    type: "takprodam",
     color: "#28a745",
     icon: "fa-solid fa-truck",
-    network: "MyLead ~3.15-6%"
+    network: "Takprodam (Admitad)",
+    erid: "",
+    advertiser: "ООО «Росско»"
   },
   {
     name: "Autopiter.ru",
@@ -222,7 +228,9 @@ const STORES = [
     type: "takprodam",
     color: "#dc3545",
     icon: "fa-solid fa-gear",
-    network: "Takprodam (Admitad) ~4%"
+    network: "Takprodam (Admitad) ~4%",
+    erid: "",
+    advertiser: "ООО «Автопитер»"
   },
   {
     name: "AvtoALL.ru",
@@ -231,7 +239,9 @@ const STORES = [
     type: "takprodam",
     color: "#6f42c1",
     icon: "fa-solid fa-wrench",
-    network: "Takprodam (Admitad) ~3.5%"
+    network: "Takprodam (Admitad) ~3.5%",
+    erid: "",
+    advertiser: "ООО «АвтоВсе»"
   }
 ];
 
@@ -240,16 +250,8 @@ function getStoreLinks(oem) {
     const directUrl = s.urlTemplate.replace('{OEM}', oem);
     const isConfigured = s.campaignId && !s.campaignId.startsWith('ЗАМЕНИТЬ');
     if (!isConfigured) {
-      // ID не настроен — прямая ссылка (комиссии нет)
       return { ...s, fullUrl: directUrl };
     }
-    if (s.type === 'mylead') {
-      return {
-        ...s,
-        fullUrl: `https://mylead.global/go/${s.campaignId}/?url=${encodeURIComponent(directUrl)}`
-      };
-    }
-    // Takprodam / Admitad
     return {
       ...s,
       fullUrl: `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`

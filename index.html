@@ -168,7 +168,7 @@
                     <div class="about-card">
                         <i class="fas fa-coins"></i>
                         <h3>4. Вы экономите</h3>
-                        <p>Я получаю комиссию от магазина, вам — цена как обычно. Бесплатный сервис.</p>
+                        <p>Ссылки на магазины являются рекламными. Я получаю комиссию от магазина, вам — цена как обычно. Бесплатный сервис.</p>
                     </div>
                 </div>
             </div>
@@ -198,7 +198,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="year"></span> AutoParts. Все права защищены.</p>
+                <p>&copy; <span id="year"></span> AutoParts. Все права защищены. <a href="#" onclick="openPrivacy(); return false;" style="color:rgba(255,255,255,0.6);text-decoration:underline;">Политика конфиденциальности</a></p>
             </div>
         </div>
     </footer>
@@ -223,6 +223,47 @@
             <div class="chat-input">
                 <input type="text" id="chatInput" placeholder="Напишите марку и модель авто..." onkeydown="if(event.key==='Enter') sendMessage()">
                 <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-content">
+            <p>Мы используем локальное хранилище браузера для подсчёта переходов по партнёрским ссылкам. Продолжая использовать сайт, вы соглашаетесь с <a href="#" onclick="openPrivacy(); return false;">Политикой конфиденциальности</a>.</p>
+            <button onclick="acceptCookies()" class="btn btn-primary" style="white-space:nowrap;">Принять</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Политика конфиденциальности</h2>
+                <button class="modal-close" onclick="closePrivacy()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Какие данные мы собираем</h3>
+                <p>Мы не собираем персональные данные пользователей. На сайте не используются формы сбора личной информации. Единственное, что сохраняется в вашем браузере (localStorage) — анонимная статистика кликов по партнёрским ссылкам для внутреннего учёта.</p>
+
+                <h3>2. Партнёрские ссылки</h3>
+                <p>Все ссылки на магазины-партнёры являются рекламными. При переходе по ним магазин может использовать собственные файлы cookie и собирать статистику. Сайт AutoParts не передаёт никаких данных магазинам — только OEM-артикул детали в параметрах ссылки.</p>
+
+                <h3>3. Сторонние сервисы</h3>
+                <p>На сайте используются:</p>
+                <ul>
+                    <li>Google Fonts (шрифт Inter) — загружается с серверов Google</li>
+                    <li>Font Awesome (иконки) — загружается с CDN</li>
+                    <li>Takprodam (Admitad) — партнёрская сеть для аффилиатных ссылок</li>
+                </ul>
+                <p>Эти сервисы могут собирать техническую информацию (IP-адрес, тип браузера, версию ОС) в соответствии со своими политиками конфиденциальности.</p>
+
+                <h3>4. Cookie-файлы</h3>
+                <p>Наш сайт не использует файлы cookie. Вместо этого используется localStorage браузера для хранения анонимной статистики кликов. Эти данные не покидают ваш браузер и не передаются третьим лицам.</p>
+
+                <h3>5. Контакты</h3>
+                <p>По вопросам, связанным с обработкой данных, пишите на: <a href="mailto:elmankur01@gmail.com">elmankur01@gmail.com</a></p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closePrivacy()" class="btn btn-primary">Закрыть</button>
             </div>
         </div>
     </div>
