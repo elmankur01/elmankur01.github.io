@@ -42,6 +42,11 @@ function acceptCookies() {
     document.getElementById('cookieBanner').classList.remove('show');
 }
 
+function rejectCookies() {
+    localStorage.setItem('ap_cookies_accepted', 'false');
+    document.getElementById('cookieBanner').classList.remove('show');
+}
+
 function openPrivacy() {
     document.getElementById('privacyModal').classList.add('show');
     document.body.style.overflow = 'hidden';
@@ -52,10 +57,23 @@ function closePrivacy() {
     document.body.style.overflow = '';
 }
 
-// Close modal on overlay click
+function openTerms() {
+    document.getElementById('termsModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeTerms() {
+    document.getElementById('termsModal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+// Close modals on overlay click
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('privacyModal').addEventListener('click', function(e) {
         if (e.target === this) closePrivacy();
+    });
+    document.getElementById('termsModal').addEventListener('click', function(e) {
+        if (e.target === this) closeTerms();
     });
 });
 

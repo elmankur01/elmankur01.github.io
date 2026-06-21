@@ -260,6 +260,7 @@ function getStoreLinks(oem) {
 }
 
 function trackClick(storeName, oem) {
+  if (localStorage.getItem('ap_cookies_accepted') !== 'true') return;
   let clicks = JSON.parse(localStorage.getItem('ap_clicks') || '[]');
   clicks.push({ store: storeName, oem, date: new Date().toISOString() });
   localStorage.setItem('ap_clicks', JSON.stringify(clicks));
