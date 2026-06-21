@@ -1,3 +1,9 @@
+function escapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+}
+
 let currentPage = 1;
 const PAGE_SIZE = 20;
 let currentFilteredParts = [];
@@ -283,10 +289,14 @@ function addUserMessage(text) {
     const chat = document.getElementById('chatMessages');
     const div = document.createElement('div');
     div.className = 'msg user';
-    div.innerHTML = `
-        <div class="msg-avatar"><i class="fas fa-user"></i></div>
-        <div class="msg-content">${text}</div>
-    `;
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.innerHTML = '<i class="fas fa-user"></i>';
+    const content = document.createElement('div');
+    content.className = 'msg-content';
+    content.textContent = text;
+    div.appendChild(avatar);
+    div.appendChild(content);
     chat.appendChild(div);
     chat.scrollTop = chat.scrollHeight;
 }
@@ -405,7 +415,7 @@ function handlePartSearch(msg) {
     const parts = findPartsForCar(carContext.make, carContext.model, carContext.year, carContext.engine, msg);
 
     if (parts.length === 0) {
-        addBotMessage(`К сожалению, не удалось найти детали "${msg}" для ${carContext.make} ${carContext.model} в нашей базе. Попробуйте уточнить название: <strong>колодки</strong>, <strong>фильтр</strong>, <strong>амортизатор</strong>. Либо проверьте по VIN-коду для точного подбора.`);
+        addBotMessage(`К сожалению, не удалось найти детали "${escapeHtml(msg)}" для ${escapeHtml(carContext.make)} ${escapeHtml(carContext.model)} в нашей базе. Попробуйте уточнить название: <strong>колодки</strong>, <strong>фильтр</strong>, <strong>амортизатор</strong>. Либо проверьте по VIN-коду для точного подбора.`);
         addQuickReplies(['Колодки тормозные', 'Масляный фильтр', 'Воздушный фильтр', 'Амортизаторы', 'Свечи']);
         return;
     }
