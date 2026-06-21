@@ -726,6 +726,145 @@ const PARTS_DB = [
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Лампа головного света H4", oem: "H4-12V60W", brand: "Philips", inStock: true },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Кузов", name: "Щетки стеклоочистителя бескаркасные 26\"", oem: "WW-26-BF", brand: "Bosch", inStock: true },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Кузов", name: "Щетки стеклоочистителя бескаркасные 22\"", oem: "WW-22-BF", brand: "Bosch", inStock: true },
+
+    // ===== НОВЫЕ КАТЕГОРИИ ПО МАРКАМ =====
+
+    // --- Toyota: Рулевое управление, Трансмиссия, Топливная, Зажигание ---
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "45504-33210", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "90919-02257", brand: "Denso", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "23221-0T010", brand: "Denso", inStock: false },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Трансмиссия", name: "Масло ATF WS 4л", oem: "08886-81510", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Электроника", name: "Датчик ABS передний", oem: "89541-33210", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Отопление и кондиционирование", name: "Радиатор отопителя (печки)", oem: "87107-33210", brand: "Toyota", inStock: false },
+
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "45504-42030", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "90919-02257", brand: "Denso", inStock: true },
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Топливная система", name: "Топливный фильтр", oem: "23300-0R010", brand: "Toyota", inStock: true },
+
+    { make: "Toyota", model: "Corolla (E210)", year: "2019-2024", engine: "1.6 бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "45504-02270", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Corolla (E210)", year: "2019-2024", engine: "1.6 бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "90919-02257", brand: "Denso", inStock: true },
+
+    // --- BMW: Рулевое управление, Зажигание, Отопление ---
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "32106892745", brand: "BMW", inStock: true },
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Система зажигания", name: "Катушка зажигания", oem: "12138648939", brand: "Bosch", inStock: true },
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "16118634549", brand: "Bosch", inStock: false },
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Отопление и кондиционирование", name: "Радиатор отопителя (печки)", oem: "64119361503", brand: "Mahle", inStock: false },
+
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "32106892745", brand: "BMW", inStock: true },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Система зажигания", name: "Катушка зажигания", oem: "12138648939", brand: "Bosch", inStock: true },
+
+    // --- Mercedes: Рулевое, Зажигание, Топливная ---
+    { make: "Mercedes", model: "C-Class (W206)", year: "2021-2024", engine: "1.5 бензин (C200)", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "2233300013", brand: "Mercedes-Benz", inStock: true },
+    { make: "Mercedes", model: "C-Class (W206)", year: "2021-2024", engine: "1.5 бензин (C200)", category: "Система зажигания", name: "Катушка зажигания", oem: "0041595803", brand: "Bosch", inStock: true },
+    { make: "Mercedes", model: "C-Class (W206)", year: "2021-2024", engine: "1.5 бензин (C200)", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "0004700504", brand: "Bosch", inStock: false },
+
+    // --- VW: Рулевое, Зажигание, Топливная, Электроника ---
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "5Q0423811", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "06K905110D", brand: "Bosch", inStock: true },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Топливная система", name: "Топливный насос высокого давления", oem: "06K127026P", brand: "Bosch", inStock: false },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Электроника", name: "Датчик ABS", oem: "5Q0907379E", brand: "Bosch", inStock: true },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Отопление и кондиционирование", name: "Моторчик отопителя (печки)", oem: "5Q1819021", brand: "VAG", inStock: false },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TDI дизель", category: "Топливная система", name: "Форсунка дизельная", oem: "04L130277Q", brand: "Bosch", inStock: false },
+
+    { make: "Volkswagen", model: "Tiguan II", year: "2016-2024", engine: "2.0 TSI бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "5Q0423811", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Tiguan II", year: "2016-2024", engine: "2.0 TSI бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "06K905110D", brand: "Bosch", inStock: true },
+
+    // --- Hyundai: Рулевое, Зажигание, Топливная, Электроника ---
+    { make: "Hyundai", model: "Sonata (DN8)", year: "2020-2024", engine: "2.0 бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "56820-L1000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Sonata (DN8)", year: "2020-2024", engine: "2.0 бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "27301-2G100", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Sonata (DN8)", year: "2020-2024", engine: "2.0 бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "31110-L1000", brand: "Hyundai", inStock: false },
+    { make: "Hyundai", model: "Sonata (DN8)", year: "2020-2024", engine: "2.0 бензин", category: "Отопление и кондиционирование", name: "Компрессор кондиционера", oem: "97701-L1000", brand: "Hyundai", inStock: false },
+
+    { make: "Hyundai", model: "Tucson (NX4)", year: "2021-2024", engine: "1.6 T-GDI бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "56820-N9000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Tucson (NX4)", year: "2021-2024", engine: "1.6 T-GDI бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "27301-2G100", brand: "Hyundai", inStock: true },
+
+    // --- Kia: Рулевое, Зажигание, Топливная ---
+    { make: "Kia", model: "K5 (DL3)", year: "2020-2024", engine: "2.0 бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "56820-L1000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "K5 (DL3)", year: "2020-2024", engine: "2.0 бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "27301-2G100", brand: "Kia", inStock: true },
+    { make: "Kia", model: "K5 (DL3)", year: "2020-2024", engine: "2.0 бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "31110-L1000", brand: "Kia", inStock: false },
+
+    { make: "Kia", model: "Sportage (NQ5)", year: "2022-2024", engine: "2.0 бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "56820-N9000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Sportage (NQ5)", year: "2022-2024", engine: "2.0 бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "27301-2G100", brand: "Kia", inStock: true },
+
+    // --- Lada: Рулевое, Сцепление, Зажигание, Топливная ---
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "21210-3414028", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Трансмиссия", name: "Комплект сцепления", oem: "21900-1601080", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "21110-3705010", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "21900-1139008", brand: "Lada", inStock: false },
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Электроника", name: "Датчик ABS", oem: "21900-3560012", brand: "Lada", inStock: true },
+
+    { make: "Lada", model: "Granta", year: "2011-2024", engine: "1.6 8V бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "21080-3414028", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Granta", year: "2011-2024", engine: "1.6 8V бензин", category: "Трансмиссия", name: "Комплект сцепления", oem: "21080-1601080", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Granta", year: "2011-2024", engine: "1.6 8V бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "21110-3705010", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Granta", year: "2011-2024", engine: "1.6 8V бензин", category: "Выхлопная система", name: "Глушитель задний", oem: "21080-1203008", brand: "Lada", inStock: false },
+
+    // --- Renault: Рулевое, Сцепление, Зажигание ---
+    { make: "Renault", model: "Duster II", year: "2021-2024", engine: "1.3 TCe бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "48520-6483R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Duster II", year: "2021-2024", engine: "1.3 TCe бензин", category: "Трансмиссия", name: "Комплект сцепления", oem: "30205-6483R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Duster II", year: "2021-2024", engine: "1.3 TCe бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "22401-6483R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Duster II", year: "2021-2024", engine: "1.3 TCe бензин", category: "Выхлопная система", name: "Катализатор", oem: "20110-6483R", brand: "Renault", inStock: false },
+
+    { make: "Renault", model: "Logan II", year: "2015-2024", engine: "1.6 бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "48520-9625R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Logan II", year: "2015-2024", engine: "1.6 бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "22401-9625R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Logan II", year: "2015-2024", engine: "1.6 бензин", category: "Трансмиссия", name: "Масло КПП 75W-80 2л", oem: "7711497024", brand: "Renault", inStock: true },
+
+    // --- Nissan: Рулевое, Зажигание, Топливная ---
+    { make: "Nissan", model: "Qashqai J12", year: "2021-2024", engine: "1.3 DIG-T бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "48520-JP00C", brand: "Nissan", inStock: true },
+    { make: "Nissan", model: "Qashqai J12", year: "2021-2024", engine: "1.3 DIG-T бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "22448-JP00A", brand: "NGK", inStock: true },
+    { make: "Nissan", model: "Qashqai J12", year: "2021-2024", engine: "1.3 DIG-T бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "17040-JP00C", brand: "Nissan", inStock: false },
+
+    // --- Mazda: Рулевое, Зажигание ---
+    { make: "Mazda", model: "CX-5 (KF)", year: "2017-2024", engine: "2.0 SkyActiv бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "KDY0-32-280", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "CX-5 (KF)", year: "2017-2024", engine: "2.0 SkyActiv бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "PE01-18-100", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "CX-5 (KF)", year: "2017-2024", engine: "2.0 SkyActiv бензин", category: "Отопление и кондиционирование", name: "Компрессор кондиционера", oem: "KDY0-61-450", brand: "Denso", inStock: false },
+    { make: "Mazda", model: "CX-5 (KF)", year: "2017-2024", engine: "2.0 SkyActiv бензин", category: "Электроника", name: "Датчик ABS", oem: "KDY0-43-7E0", brand: "Mazda", inStock: true },
+
+    // --- Ford: Рулевое, Зажигание ---
+    { make: "Ford", model: "Focus IV", year: "2018-2024", engine: "1.5 EcoBoost бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "2392163", brand: "Ford", inStock: true },
+    { make: "Ford", model: "Focus IV", year: "2018-2024", engine: "1.5 EcoBoost бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "1755677", brand: "Ford", inStock: true },
+    { make: "Ford", model: "Focus IV", year: "2018-2024", engine: "1.5 EcoBoost бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "2392163", brand: "Ford", inStock: false },
+
+    // --- Skoda: Рулевое, Зажигание, Топливная ---
+    { make: "Skoda", model: "Octavia A8", year: "2020-2024", engine: "1.4 TSI бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "5Q0423811", brand: "VAG", inStock: true },
+    { make: "Skoda", model: "Octavia A8", year: "2020-2024", engine: "1.4 TSI бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "06K905110D", brand: "Bosch", inStock: true },
+    { make: "Skoda", model: "Octavia A8", year: "2020-2024", engine: "1.4 TSI бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "5Q0919087M", brand: "Bosch", inStock: false },
+
+    // --- Audi: Рулевое, Зажигание ---
+    { make: "Audi", model: "A4 (B9)", year: "2016-2024", engine: "2.0 TFSI бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "8W0423811", brand: "VAG", inStock: true },
+    { make: "Audi", model: "A4 (B9)", year: "2016-2024", engine: "2.0 TFSI бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "06K905110D", brand: "Bosch", inStock: true },
+
+    // --- Китайские бренды: Рулевое, Зажигание, Топливная ---
+    { make: "Chery", model: "Tiggo 4", year: "2019-2024", engine: "1.5T бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "T15-3414028", brand: "Chery", inStock: true },
+    { make: "Chery", model: "Tiggo 4", year: "2019-2024", engine: "1.5T бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "F01R-00002", brand: "Chery", inStock: true },
+
+    { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "1019020100", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "F01R-00002", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "1019070100", brand: "Geely", inStock: false },
+
+    { make: "Haval", model: "Jolion", year: "2021-2024", engine: "1.5T бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "3414028X", brand: "Haval", inStock: true },
+    { make: "Haval", model: "Jolion", year: "2021-2024", engine: "1.5T бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "F01R-00002", brand: "Haval", inStock: true },
+    { make: "Haval", model: "Jolion", year: "2021-2024", engine: "1.5T бензин", category: "Трансмиссия", name: "Масло DSG (робот) 2л", oem: "DSG-OIL-2L", brand: "Haval", inStock: true },
+
+    { make: "Exeed", model: "TXL", year: "2021-2024", engine: "2.0T бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "EXD-3414028", brand: "Exeed", inStock: true },
+    { make: "Exeed", model: "TXL", year: "2021-2024", engine: "2.0T бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "EXD-F01R2", brand: "Exeed", inStock: true },
+
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "OMD-3414028", brand: "Omoda", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "F01R-00002", brand: "Omoda", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Топливная система", name: "Топливный насос (бензонасос)", oem: "OMD-1107010", brand: "Omoda", inStock: false },
+
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Рулевое управление", name: "Наконечник рулевой тяги", oem: "CHA-3414028", brand: "Changan", inStock: true },
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Система зажигания", name: "Катушка зажигания", oem: "F01R-00002", brand: "Changan", inStock: true },
+
+    // --- Универсальные: новые категории ---
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Трансмиссия", name: "Масло ATF Dexron III 1л", oem: "ATF-D3-1L", brand: "Mobil", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Трансмиссия", name: "Масло трансмиссионное 80W-90 4л", oem: "TRANS-80W90", brand: "Castrol", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электроника", name: "Датчик температуры ОЖ", oem: "SENSOR-TEMP", brand: "Bosch", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электроника", name: "Датчик давления масла", oem: "SENSOR-OIL-P", brand: "Bosch", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Система зажигания", name: "Катушка зажигания универсальная", oem: "IGN-COIL-U", brand: "Bosch", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Выхлопная система", name: "Гофра выхлопной системы", oem: "EXH-BELLOW", brand: "Walker", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Отопление и кондиционирование", name: "Фреон R134a 300г", oem: "AC-R134A", brand: "Honeywell", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Отопление и кондиционирование", name: "Компрессор кондиционера универсальный", oem: "AC-COMP-U", brand: "Denso", inStock: false },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Топливная система", name: "Форсунка универсальная", oem: "INJ-UNIV", brand: "Bosch", inStock: false },
 ];
 
 // Extract unique values for filters
