@@ -192,50 +192,69 @@ function findPartsForCar(make, model, year, engine, partQuery) {
 // ==========================================
 // 🔗 ПАРТНЁРСКИЕ МАГАЗИНЫ (настрой под себя)
 // ==========================================
-// У всех магазинов есть CPA-партнёрки через Admitad / MyLead.
-// 1. Зарегистрируйся на https://www.admitad.ru и https://mylead.global
-// 2. Подключи офферы Exist, Autodoc, Autopiter, AvtoALL
-// 3. Замени ID ниже на свои
+// После подтверждения в Takprodam и MyLead:
+// 1. Замени campaignId на полученные ID для каждого оффера
+// 2. Если ссылка не работает — поправь urlTemplate под формат магазина
+
 const STORES = [
   {
     name: "Exist.ru",
-    url: "https://www.exist.ru/pages/?pid=SEARCH&search={OEM}",
-    affiliateParam: "&rid=ADMITAD_EXIST_ID",
+    urlTemplate: "https://www.exist.ru/pages/?pid=SEARCH&search={OEM}",
+    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
+    type: "takprodam",
     color: "#007bff",
     icon: "fa-solid fa-cart-shopping",
-    network: "Admitad (комиссия ~2.1%)"
+    network: "Takprodam (Admitad) ~2.1%"
   },
   {
     name: "Autodoc.ru",
-    url: "https://www.autodoc.ru/search?keyword={OEM}",
-    affiliateParam: "&aff_id=MYLEAD_AUTODOC_ID",
+    urlTemplate: "https://www.autodoc.ru/search?keyword={OEM}",
+    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_MYLEAD",
+    type: "mylead",
     color: "#28a745",
     icon: "fa-solid fa-truck",
-    network: "MyLead (комиссия 3.15-6%)"
+    network: "MyLead ~3.15-6%"
   },
   {
     name: "Autopiter.ru",
-    url: "https://autopiter.ru/search?q={OEM}",
-    affiliateParam: "&admitad_id=ADMITAD_AUTOPITER_ID",
+    urlTemplate: "https://autopiter.ru/search?q={OEM}",
+    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
+    type: "takprodam",
     color: "#dc3545",
     icon: "fa-solid fa-gear",
-    network: "Admitad (комиссия ~4%)"
+    network: "Takprodam (Admitad) ~4%"
   },
   {
     name: "AvtoALL.ru",
-    url: "https://avtoall.ru/search/?text={OEM}",
-    affiliateParam: "&admitad_id=ADMITAD_AVTOALL_ID",
+    urlTemplate: "https://avtoall.ru/search/?text={OEM}",
+    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
+    type: "takprodam",
     color: "#6f42c1",
     icon: "fa-solid fa-wrench",
-    network: "Admitad (комиссия ~3.5%)"
+    network: "Takprodam (Admitad) ~3.5%"
   }
 ];
 
 function getStoreLinks(oem) {
-  return STORES.map(s => ({
-    ...s,
-    fullUrl: s.url.replace('{OEM}', oem) + s.affiliateParam
-  }));
+  return STORES.map(s => {
+    const directUrl = s.urlTemplate.replace('{OEM}', oem);
+    const isConfigured = s.campaignId && !s.campaignId.startsWith('ЗАМЕНИТЬ');
+    if (!isConfigured) {
+      // ID не настроен — прямая ссылка (комиссии нет)
+      return { ...s, fullUrl: directUrl };
+    }
+    if (s.type === 'mylead') {
+      return {
+        ...s,
+        fullUrl: `https://mylead.global/go/${s.campaignId}/?url=${encodeURIComponent(directUrl)}`
+      };
+    }
+    // Takprodam / Admitad
+    return {
+      ...s,
+      fullUrl: `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`
+    };
+  });
 }
 
 function trackClick(storeName, oem) {

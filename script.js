@@ -368,12 +368,23 @@ function handleDetails(msg) {
 function renderPartners() {
     const grid = document.getElementById('partnersGrid');
     grid.innerHTML = STORES.map(s => {
+        const exampleOem = '04465-33220';
+        const directUrl = s.urlTemplate.replace('{OEM}', exampleOem);
+        const isConfigured = s.campaignId && !s.campaignId.startsWith('ЗАМЕНИТЬ');
+        let exampleUrl;
+        if (isConfigured) {
+            exampleUrl = s.type === 'mylead'
+                ? `https://mylead.global/go/${s.campaignId}/?url=${encodeURIComponent(directUrl)}`
+                : `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
+        } else {
+            exampleUrl = directUrl;
+        }
         return `
             <div class="partner-card" style="border-color:${s.color}44;">
                 <i class="${s.icon}" style="color:${s.color}"></i>
                 <h3>${s.name}</h3>
                 <p>Поиск по OEM-номеру, оригиналы и аналоги.<br><small style="opacity:0.6">${s.network}</small></p>
-                <a href="${s.url.replace('{OEM}', 'EXAMPLE')}${s.affiliateParam}" target="_blank" rel="noopener" class="partner-link" style="border-color:${s.color};color:${s.color}">
+                <a href="${exampleUrl}" target="_blank" rel="noopener" class="partner-link" style="border-color:${s.color};color:${s.color}">
                     <i class="${s.icon}"></i> Перейти в ${s.name}
                 </a>
             </div>
