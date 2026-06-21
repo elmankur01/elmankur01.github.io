@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "=================================="
-echo "  AutoParts - Local Dev Server    "
+echo "  AvtoPartsPro - Local Dev Server "
 echo "=================================="
 echo ""
 echo "  http://localhost:4000"
