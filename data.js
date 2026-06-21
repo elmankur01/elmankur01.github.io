@@ -122,9 +122,6 @@ const PARTS_DB = [
     // Universal parts (across many cars)
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Масла и жидкости", name: "Антифриз красный (G12) 5л", oem: "81114-AA240", brand: "Motul", inStock: true },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Масла и жидкости", name: "Масло ATF Dexron VI 1л", oem: "ATF-D6-1L", brand: "Mobil", inStock: true },
-    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Масла и жидкости", name: "Омывайка зимняя -30°C 5л", oem: "WASH-WIN-30", brand: "Generic", inStock: true },
-    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Лампа головного света H7", oem: "H7-12V-55W", brand: "Osram", inStock: true },
-    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Лампа головного света H4", oem: "H4-12V-60/55W", brand: "Philips", inStock: true },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Свеча зажигания", oem: "FR7KII33X", brand: "NGK", inStock: true, note: "Подходит для Toyota, BMW, Mazda" },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Аккумулятор 60Ah", oem: "60044-К", brand: "Varta", inStock: true },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Аккумулятор 75Ah", oem: "75022-К", brand: "Bosch", inStock: false, note: "Под заказ, 2-3 дня" },
