@@ -363,6 +363,369 @@ const PARTS_DB = [
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Аккумулятор 100Ah", oem: "100Ah-К", brand: "Varta", inStock: false },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Кузов", name: "Щетки стеклоочистителя 26+16", oem: "WW-2616", brand: "Bosch", inStock: true },
     { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Кузов", name: "Щетки стеклоочистителя 28+14", oem: "WW-2814", brand: "Bosch", inStock: true },
+
+    // ========== TOYOTA (дополнения) ==========
+    // Land Cruiser 300
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "04465-60690", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Тормозная система", name: "Колодки тормозные задние", oem: "04466-60680", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Фильтры", name: "Масляный фильтр", oem: "04152-38010", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Фильтры", name: "Воздушный фильтр двигателя", oem: "17801-71030", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Фильтры", name: "Салонный фильтр", oem: "87139-60830", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Подвеска", name: "Амортизатор передний", oem: "48510-69415", brand: "Toyota", inStock: false },
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Подвеска", name: "Стойка стабилизатора передняя", oem: "48820-60090", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Land Cruiser 300", year: "2022-2024", engine: "3.5TT бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "90919-01276", brand: "NGK", inStock: true },
+
+    // Highlander
+    { make: "Toyota", model: "Highlander", year: "2020-2024", engine: "2.5 гибрид", category: "Тормозная система", name: "Колодки тормозные передние", oem: "04465-48040", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Highlander", year: "2020-2024", engine: "2.5 гибрид", category: "Фильтры", name: "Масляный фильтр", oem: "04152-YZZA1", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Highlander", year: "2020-2024", engine: "2.5 гибрид", category: "Фильтры", name: "Воздушный фильтр", oem: "17801-0C030", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Highlander", year: "2020-2024", engine: "2.5 гибрид", category: "Фильтры", name: "Салонный фильтр", oem: "87139-07110", brand: "Toyota", inStock: true },
+
+    // Дополнительные детали для Camry
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Двигатель", name: "Ремень ГРМ (цепь)", oem: "13568-0K010", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "43550-33230", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "89467-33210", brand: "Denso", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Охлаждение", name: "Радиатор охлаждения", oem: "16400-0C070", brand: "Toyota", inStock: false },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Двигатель", name: "Прокладка клапанной крышки", oem: "11213-0T010", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Camry", year: "2018-2024", engine: "2.5 бензин", category: "Привод", name: "Ролик натяжной ремня генератора", oem: "16620-0C010", brand: "Toyota", inStock: true },
+
+    // Дополнительные детали для RAV4
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Двигатель", name: "Ремень ГРМ (цепь)", oem: "13568-0R010", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "43550-42030", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "89467-42100", brand: "Denso", inStock: true },
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Тормозная система", name: "Диски тормозные передние", oem: "43512-42210", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "RAV4", year: "2019-2024", engine: "2.0 бензин", category: "Двигатель", name: "Натяжитель цепи ГРМ", oem: "13540-0R010", brand: "Toyota", inStock: true },
+
+    // Дополнительные детали для Corolla
+    { make: "Toyota", model: "Corolla (E210)", year: "2019-2024", engine: "1.6 бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "43550-02270", brand: "Toyota", inStock: true },
+    { make: "Toyota", model: "Corolla (E210)", year: "2019-2024", engine: "1.6 бензин", category: "Охлаждение", name: "Помпа водяная", oem: "16100-0T031", brand: "Aisin", inStock: true },
+    { make: "Toyota", model: "Corolla (E210)", year: "2019-2024", engine: "1.6 бензин", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "89467-02210", brand: "Denso", inStock: true },
+    { make: "Toyota", model: "Corolla (E210)", year: "2019-2024", engine: "1.6 бензин", category: "Двигатель", name: "Прокладка ГБЦ", oem: "11101-0T010", brand: "Toyota", inStock: false },
+
+    // ========== BMW (дополнения) ==========
+    // X3
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Тормозная система", name: "Колодки тормозные передние", oem: "34116879240", brand: "Textar", inStock: true },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Тормозная система", name: "Колодки тормозные задние", oem: "34116879241", brand: "Textar", inStock: true },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Фильтры", name: "Масляный фильтр", oem: "11428507683", brand: "BMW", inStock: true },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Фильтры", name: "Воздушный фильтр двигателя", oem: "13718604229", brand: "BMW", inStock: true },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Фильтры", name: "Салонный фильтр", oem: "64319361503", brand: "BMW", inStock: true },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Подвеска", name: "Амортизатор передний", oem: "37106892745", brand: "Sachs", inStock: false },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Подвеска", name: "Стойка стабилизатора передняя", oem: "31356861821", brand: "BMW", inStock: true },
+    { make: "BMW", model: "X3 (G01)", year: "2018-2024", engine: "2.0 бензин (xDrive30i)", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "12218648939", brand: "NGK", inStock: true },
+
+    // Дополнительные детали для 3 Series
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Двигатель", name: "Цепь ГРМ", oem: "11318685095", brand: "BMW", inStock: true },
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Подвеска", name: "Подшипник ступицы передний", oem: "31206892745", brand: "SKF", inStock: true },
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "11788648939", brand: "Bosch", inStock: true },
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Охлаждение", name: "Радиатор охлаждения", oem: "17118634549", brand: "Mahle", inStock: false },
+    { make: "BMW", model: "3 Series (G20)", year: "2019-2024", engine: "2.0 бензин (320i)", category: "Двигатель", name: "Прокладка клапанной крышки", oem: "11128634549", brand: "BMW", inStock: true },
+
+    // Дополнительные детали для X5
+    { make: "BMW", model: "X5 (G05)", year: "2019-2024", engine: "3.0 бензин (xDrive40i)", category: "Подвеска", name: "Подшипник ступицы передний", oem: "31206892745", brand: "SKF", inStock: true },
+    { make: "BMW", model: "X5 (G05)", year: "2019-2024", engine: "3.0 бензин (xDrive40i)", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "11788648939", brand: "Bosch", inStock: true },
+    { make: "BMW", model: "X5 (G05)", year: "2019-2024", engine: "3.0 бензин (xDrive40i)", category: "Охлаждение", name: "Помпа водяная", oem: "11518634549", brand: "Mahle", inStock: true },
+
+    // ========== MERCEDES (дополнения) ==========
+    // GLE
+    { make: "Mercedes", model: "GLE (W167)", year: "2019-2024", engine: "3.0 бензин (GLE450)", category: "Тормозная система", name: "Колодки тормозные передние", oem: "0004208907", brand: "Mercedes-Benz", inStock: true },
+    { make: "Mercedes", model: "GLE (W167)", year: "2019-2024", engine: "3.0 бензин (GLE450)", category: "Тормозная система", name: "Колодки тормозные задние", oem: "0004209407", brand: "Mercedes-Benz", inStock: true },
+    { make: "Mercedes", model: "GLE (W167)", year: "2019-2024", engine: "3.0 бензин (GLE450)", category: "Фильтры", name: "Масляный фильтр", oem: "0001801109", brand: "Mercedes-Benz", inStock: true },
+    { make: "Mercedes", model: "GLE (W167)", year: "2019-2024", engine: "3.0 бензин (GLE450)", category: "Фильтры", name: "Воздушный фильтр", oem: "0001803600", brand: "Mercedes-Benz", inStock: true },
+    { make: "Mercedes", model: "GLE (W167)", year: "2019-2024", engine: "3.0 бензин (GLE450)", category: "Фильтры", name: "Салонный фильтр", oem: "0008305200", brand: "MANN-FILTER", inStock: true },
+
+    // Дополнительные детали для C-Class
+    { make: "Mercedes", model: "C-Class (W206)", year: "2021-2024", engine: "1.5 бензин (C200)", category: "Подвеска", name: "Подшипник ступицы передний", oem: "2233300013", brand: "SKF", inStock: true },
+    { make: "Mercedes", model: "C-Class (W206)", year: "2021-2024", engine: "1.5 бензин (C200)", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "0041595803", brand: "Bosch", inStock: true },
+    { make: "Mercedes", model: "C-Class (W206)", year: "2021-2024", engine: "1.5 бензин (C200)", category: "Охлаждение", name: "Термостат", oem: "0002030504", brand: "Mahle", inStock: true },
+    { make: "Mercedes", model: "C-Class (W206)", year: "2021-2024", engine: "1.5 бензин (C200)", category: "Двигатель", name: "Ремень поликлиновой", oem: "0009931596", brand: "Continental", inStock: true },
+
+    // ========== VOLKSWAGEN (дополнения) ==========
+    // Touareg III
+    { make: "Volkswagen", model: "Touareg III", year: "2018-2024", engine: "3.0 TSI бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "5Q0698151F", brand: "Textar", inStock: true },
+    { make: "Volkswagen", model: "Touareg III", year: "2018-2024", engine: "3.0 TSI бензин", category: "Фильтры", name: "Масляный фильтр", oem: "06J115403Q", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Touareg III", year: "2018-2024", engine: "3.0 TSI бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "5Q0129620B", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Touareg III", year: "2018-2024", engine: "3.0 TSI бензин", category: "Фильтры", name: "Салонный фильтр", oem: "5Q0819439B", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Touareg III", year: "2018-2024", engine: "3.0 TSI бензин", category: "Подвеска", name: "Амортизатор передний", oem: "5Q0413031DP", brand: "Sachs", inStock: false },
+    { make: "Volkswagen", model: "Touareg III", year: "2018-2024", engine: "3.0 TDI дизель", category: "Фильтры", name: "Масляный фильтр", oem: "04L115466K", brand: "VAG", inStock: true },
+
+    // Golf VIII
+    { make: "Volkswagen", model: "Golf VIII", year: "2020-2024", engine: "1.4 TSI бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "5Q0698151F", brand: "Textar", inStock: true },
+    { make: "Volkswagen", model: "Golf VIII", year: "2020-2024", engine: "1.4 TSI бензин", category: "Фильтры", name: "Масляный фильтр", oem: "06J115403Q", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Golf VIII", year: "2020-2024", engine: "1.4 TSI бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "5Q0129620B", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Golf VIII", year: "2020-2024", engine: "1.4 TSI бензин", category: "Фильтры", name: "Салонный фильтр", oem: "5Q0819439B", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Golf VIII", year: "2020-2024", engine: "1.4 TSI бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "06K905601A", brand: "NGK", inStock: true },
+
+    // Дополнительные детали для Passat
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Двигатель", name: "Цепь ГРМ", oem: "06K109158J", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "5Q0407621J", brand: "SKF", inStock: true },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "06K906262K", brand: "Bosch", inStock: true },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TSI бензин", category: "Охлаждение", name: "Радиатор охлаждения", oem: "5Q0121251P", brand: "VAG", inStock: false },
+    { make: "Volkswagen", model: "Passat B8", year: "2015-2023", engine: "2.0 TDI дизель", category: "Подвеска", name: "Подшипник ступицы задний", oem: "5Q0501611E", brand: "SKF", inStock: true },
+
+    // Дополнительные детали для Tiguan
+    { make: "Volkswagen", model: "Tiguan II", year: "2016-2024", engine: "2.0 TSI бензин", category: "Двигатель", name: "Цепь ГРМ", oem: "06K109158J", brand: "VAG", inStock: true },
+    { make: "Volkswagen", model: "Tiguan II", year: "2016-2024", engine: "2.0 TSI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "5Q0407621J", brand: "SKF", inStock: true },
+    { make: "Volkswagen", model: "Tiguan II", year: "2016-2024", engine: "2.0 TSI бензин", category: "Охлаждение", name: "Помпа водяная", oem: "06K121600D", brand: "VAG", inStock: true },
+
+    // ========== HYUNDAI (дополнения) ==========
+    // Santa Fe
+    { make: "Hyundai", model: "Santa Fe (TM)", year: "2018-2024", engine: "2.2 CRDi дизель", category: "Тормозная система", name: "Колодки тормозные передние", oem: "58101-B8000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Santa Fe (TM)", year: "2018-2024", engine: "2.2 CRDi дизель", category: "Тормозная система", name: "Колодки тормозные задние", oem: "58102-B8000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Santa Fe (TM)", year: "2018-2024", engine: "2.2 CRDi дизель", category: "Фильтры", name: "Масляный фильтр", oem: "26300-35530", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Santa Fe (TM)", year: "2018-2024", engine: "2.2 CRDi дизель", category: "Фильтры", name: "Воздушный фильтр", oem: "28113-B8000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Santa Fe (TM)", year: "2018-2024", engine: "2.2 CRDi дизель", category: "Фильтры", name: "Салонный фильтр", oem: "97133-B8000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Santa Fe (TM)", year: "2018-2024", engine: "2.2 CRDi дизель", category: "Фильтры", name: "Топливный фильтр", oem: "31922-2F000", brand: "Hyundai", inStock: true },
+
+    // Elantra
+    { make: "Hyundai", model: "Elantra (CN7)", year: "2021-2024", engine: "2.0 бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "58101-L5A10", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Elantra (CN7)", year: "2021-2024", engine: "2.0 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "26300-35530", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Elantra (CN7)", year: "2021-2024", engine: "2.0 бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "28113-L1000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Elantra (CN7)", year: "2021-2024", engine: "2.0 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "97133-L1000", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Elantra (CN7)", year: "2021-2024", engine: "1.6 T-GDI бензин", category: "Тормозная система", name: "Диски тормозные передние", oem: "51712-L2000", brand: "Hyundai", inStock: true },
+
+    // Дополнительные детали для Sonata & Tucson
+    { make: "Hyundai", model: "Sonata (DN8)", year: "2020-2024", engine: "2.0 бензин", category: "Двигатель", name: "Ремень ГРМ (цепь)", oem: "24321-2G100", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Sonata (DN8)", year: "2020-2024", engine: "2.0 бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "51750-L1000", brand: "SKF", inStock: true },
+    { make: "Hyundai", model: "Tucson (NX4)", year: "2021-2024", engine: "1.6 T-GDI бензин", category: "Двигатель", name: "Цепь ГРМ", oem: "24321-2G100", brand: "Hyundai", inStock: true },
+    { make: "Hyundai", model: "Tucson (NX4)", year: "2021-2024", engine: "1.6 T-GDI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "51750-N9000", brand: "SKF", inStock: true },
+    { make: "Hyundai", model: "Tucson (NX4)", year: "2021-2024", engine: "1.6 T-GDI бензин", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "39210-2G100", brand: "Bosch", inStock: true },
+
+    // ========== KIA (дополнения) ==========
+    // Seltos
+    { make: "Kia", model: "Seltos (SP2)", year: "2020-2024", engine: "2.0 бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "58101-L5A10", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Seltos (SP2)", year: "2020-2024", engine: "2.0 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "26300-35530", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Seltos (SP2)", year: "2020-2024", engine: "2.0 бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "28113-L1000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Seltos (SP2)", year: "2020-2024", engine: "2.0 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "97133-L1000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Seltos (SP2)", year: "2020-2024", engine: "1.6 T-GDI бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "58101-N9000", brand: "Kia", inStock: true },
+
+    // Sorento
+    { make: "Kia", model: "Sorento (MQ4)", year: "2021-2024", engine: "2.5 T-GDI бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "58101-P2000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Sorento (MQ4)", year: "2021-2024", engine: "2.5 T-GDI бензин", category: "Тормозная система", name: "Колодки тормозные задние", oem: "58102-P2000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Sorento (MQ4)", year: "2021-2024", engine: "2.5 T-GDI бензин", category: "Фильтры", name: "Масляный фильтр", oem: "26300-35530", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Sorento (MQ4)", year: "2021-2024", engine: "2.5 T-GDI бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "28113-P2000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Sorento (MQ4)", year: "2021-2024", engine: "2.5 T-GDI бензин", category: "Фильтры", name: "Салонный фильтр", oem: "97133-P2000", brand: "Kia", inStock: true },
+
+    // Cerato
+    { make: "Kia", model: "Cerato (BD)", year: "2019-2024", engine: "2.0 бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "58101-L5A10", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Cerato (BD)", year: "2019-2024", engine: "2.0 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "26300-35530", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Cerato (BD)", year: "2019-2024", engine: "2.0 бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "28113-L1000", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Cerato (BD)", year: "2019-2024", engine: "2.0 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "97133-L1000", brand: "Kia", inStock: true },
+
+    // Дополнительные детали для K5, Sportage
+    { make: "Kia", model: "K5 (DL3)", year: "2020-2024", engine: "2.0 бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "51750-L1000", brand: "SKF", inStock: true },
+    { make: "Kia", model: "K5 (DL3)", year: "2020-2024", engine: "2.5 бензин", category: "Двигатель", name: "Цепь ГРМ", oem: "24321-2G100", brand: "Kia", inStock: true },
+    { make: "Kia", model: "Sportage (NQ5)", year: "2022-2024", engine: "2.0 бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "51750-N9000", brand: "SKF", inStock: true },
+    { make: "Kia", model: "Sportage (NQ5)", year: "2022-2024", engine: "1.6 T-GDI бензин", category: "Подвеска", name: "Амортизатор задний", oem: "55350-N9000", brand: "Hyundai", inStock: false },
+    { make: "Kia", model: "Rio (YB)", year: "2017-2023", engine: "1.6 бензин", category: "Подвеска", name: "Стойка стабилизатора передняя", oem: "54830-R1000", brand: "Kia", inStock: true },
+
+    // ========== FORD (дополнения) ==========
+    // Explorer
+    { make: "Ford", model: "Explorer VI", year: "2020-2024", engine: "2.3 EcoBoost бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "2181763", brand: "Ford", inStock: true },
+    { make: "Ford", model: "Explorer VI", year: "2020-2024", engine: "2.3 EcoBoost бензин", category: "Фильтры", name: "Масляный фильтр", oem: "1896233", brand: "Ford", inStock: true },
+    { make: "Ford", model: "Explorer VI", year: "2020-2024", engine: "2.3 EcoBoost бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "2180592", brand: "Ford", inStock: true },
+    { make: "Ford", model: "Explorer VI", year: "2020-2024", engine: "2.3 EcoBoost бензин", category: "Фильтры", name: "Салонный фильтр", oem: "2196941", brand: "Ford", inStock: true },
+    { make: "Ford", model: "Explorer VI", year: "2020-2024", engine: "2.3 EcoBoost бензин", category: "Подвеска", name: "Амортизатор передний", oem: "2475658", brand: "Ford", inStock: false },
+
+    // Дополнительные детали для Focus, Kuga
+    { make: "Ford", model: "Focus IV", year: "2018-2024", engine: "1.5 EcoBoost бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "2392163", brand: "SKF", inStock: true },
+    { make: "Ford", model: "Focus IV", year: "2018-2024", engine: "1.5 EcoBoost бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "1755677", brand: "NGK", inStock: true },
+    { make: "Ford", model: "Focus IV", year: "2018-2024", engine: "1.5 EcoBoost бензин", category: "Охлаждение", name: "Термостат", oem: "1238103", brand: "Mahle", inStock: true },
+    { make: "Ford", model: "Kuga III", year: "2021-2024", engine: "2.5 бензин гибрид", category: "Подвеска", name: "Подшипник ступицы передний", oem: "2392163", brand: "SKF", inStock: true },
+    { make: "Ford", model: "Kuga III", year: "2021-2024", engine: "2.5 бензин гибрид", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "1755677", brand: "NGK", inStock: true },
+
+    // ========== NISSAN (дополнения) ==========
+    // Murano
+    { make: "Nissan", model: "Murano Z52", year: "2015-2024", engine: "3.5 бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "D1060-1BA0A", brand: "Nissan", inStock: true },
+    { make: "Nissan", model: "Murano Z52", year: "2015-2024", engine: "3.5 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "15208-65V0A", brand: "Nissan", inStock: true },
+    { make: "Nissan", model: "Murano Z52", year: "2015-2024", engine: "3.5 бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "16546-1BA0A", brand: "Nissan", inStock: true },
+    { make: "Nissan", model: "Murano Z52", year: "2015-2024", engine: "3.5 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "27273-1BA0A", brand: "Nissan", inStock: true },
+    { make: "Nissan", model: "Murano Z52", year: "2015-2024", engine: "3.5 бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "22401-1BA0A", brand: "NGK", inStock: true },
+
+    // Дополнительные детали для Qashqai
+    { make: "Nissan", model: "Qashqai J12", year: "2021-2024", engine: "1.3 DIG-T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "40202-JP00C", brand: "SKF", inStock: true },
+    { make: "Nissan", model: "Qashqai J12", year: "2021-2024", engine: "1.3 DIG-T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "22401-JP00A", brand: "NGK", inStock: true },
+    { make: "Nissan", model: "Qashqai J12", year: "2021-2024", engine: "1.3 DIG-T бензин", category: "Охлаждение", name: "Помпа водяная", oem: "21010-JP00A", brand: "Aisin", inStock: true },
+    { make: "Nissan", model: "X-Trail T33", year: "2022-2024", engine: "2.0 бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "40202-JP00C", brand: "SKF", inStock: true },
+
+    // ========== MAZDA (дополнения) ==========
+    // CX-30
+    { make: "Mazda", model: "CX-30 (DM)", year: "2020-2024", engine: "2.0 SkyActiv бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "KDY0-26-38Z", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "CX-30 (DM)", year: "2020-2024", engine: "2.0 SkyActiv бензин", category: "Фильтры", name: "Масляный фильтр", oem: "WLY7-14-302", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "CX-30 (DM)", year: "2020-2024", engine: "2.0 SkyActiv бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "KDY0-13-Z40", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "CX-30 (DM)", year: "2020-2024", engine: "2.0 SkyActiv бензин", category: "Фильтры", name: "Салонный фильтр", oem: "KDY0-61-J6X", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "CX-30 (DM)", year: "2020-2024", engine: "2.0 SkyActiv бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "PE01-18-110", brand: "NGK", inStock: true },
+
+    // Mazda3
+    { make: "Mazda", model: "Mazda3 (BP)", year: "2019-2024", engine: "2.0 SkyActiv бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "KDY0-26-38Z", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "Mazda3 (BP)", year: "2019-2024", engine: "2.0 SkyActiv бензин", category: "Фильтры", name: "Масляный фильтр", oem: "WLY7-14-302", brand: "Mazda", inStock: true },
+    { make: "Mazda", model: "Mazda3 (BP)", year: "2019-2024", engine: "2.0 SkyActiv бензин", category: "Фильтры", name: "Салонный фильтр", oem: "KDY0-61-J6X", brand: "Mazda", inStock: true },
+
+    // Дополнительные детали для CX-5, Mazda6
+    { make: "Mazda", model: "CX-5 (KF)", year: "2017-2024", engine: "2.0 SkyActiv бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "KDY0-26-37Z", brand: "SKF", inStock: true },
+    { make: "Mazda", model: "CX-5 (KF)", year: "2017-2024", engine: "2.0 SkyActiv бензин", category: "Охлаждение", name: "Термостат", oem: "PE01-15-171", brand: "Mahle", inStock: true },
+    { make: "Mazda", model: "Mazda6 (GJ)", year: "2013-2024", engine: "2.0 SkyActiv бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "GJYA-26-37Z", brand: "SKF", inStock: true },
+    { make: "Mazda", model: "Mazda6 (GJ)", year: "2013-2024", engine: "2.0 SkyActiv бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "PE01-18-110", brand: "NGK", inStock: true },
+
+    // ========== SKODA (дополнения) ==========
+    // Rapid
+    { make: "Skoda", model: "Rapid", year: "2012-2024", engine: "1.6 бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "5Q0698151F", brand: "Textar", inStock: true },
+    { make: "Skoda", model: "Rapid", year: "2012-2024", engine: "1.6 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "06J115403Q", brand: "VAG", inStock: true },
+    { make: "Skoda", model: "Rapid", year: "2012-2024", engine: "1.6 бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "5Q0129620B", brand: "VAG", inStock: true },
+    { make: "Skoda", model: "Rapid", year: "2012-2024", engine: "1.6 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "5Q0819439B", brand: "VAG", inStock: true },
+
+    // Superb
+    { make: "Skoda", model: "Superb III", year: "2015-2024", engine: "2.0 TSI бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "5Q0698151F", brand: "Textar", inStock: true },
+    { make: "Skoda", model: "Superb III", year: "2015-2024", engine: "2.0 TSI бензин", category: "Тормозная система", name: "Колодки тормозные задние", oem: "5Q0698451G", brand: "Textar", inStock: true },
+    { make: "Skoda", model: "Superb III", year: "2015-2024", engine: "2.0 TSI бензин", category: "Фильтры", name: "Масляный фильтр", oem: "06J115403Q", brand: "VAG", inStock: true },
+    { make: "Skoda", model: "Superb III", year: "2015-2024", engine: "2.0 TSI бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "5Q0129620B", brand: "VAG", inStock: true },
+    { make: "Skoda", model: "Superb III", year: "2015-2024", engine: "2.0 TSI бензин", category: "Фильтры", name: "Салонный фильтр", oem: "5Q0819439B", brand: "VAG", inStock: true },
+    { make: "Skoda", model: "Superb III", year: "2015-2024", engine: "2.0 TSI бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "06K905601A", brand: "NGK", inStock: true },
+
+    // Дополнительные детали для Octavia, Kodiaq
+    { make: "Skoda", model: "Octavia A8", year: "2020-2024", engine: "1.4 TSI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "5Q0407621J", brand: "SKF", inStock: true },
+    { make: "Skoda", model: "Octavia A8", year: "2020-2024", engine: "1.4 TSI бензин", category: "Двигатель", name: "Цепь ГРМ", oem: "06K109158J", brand: "VAG", inStock: true },
+    { make: "Skoda", model: "Kodiaq", year: "2017-2024", engine: "2.0 TSI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "5Q0407621J", brand: "SKF", inStock: true },
+    { make: "Skoda", model: "Kodiaq", year: "2017-2024", engine: "2.0 TSI бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "06K905601A", brand: "NGK", inStock: true },
+
+    // ========== AUDI (дополнения) ==========
+    // Q3
+    { make: "Audi", model: "Q3 (F3)", year: "2019-2024", engine: "2.0 TFSI бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "5Q0698151F", brand: "Textar", inStock: true },
+    { make: "Audi", model: "Q3 (F3)", year: "2019-2024", engine: "2.0 TFSI бензин", category: "Фильтры", name: "Масляный фильтр", oem: "06J115403Q", brand: "VAG", inStock: true },
+    { make: "Audi", model: "Q3 (F3)", year: "2019-2024", engine: "2.0 TFSI бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "5Q0129620B", brand: "VAG", inStock: true },
+    { make: "Audi", model: "Q3 (F3)", year: "2019-2024", engine: "2.0 TFSI бензин", category: "Фильтры", name: "Салонный фильтр", oem: "5Q0819439B", brand: "VAG", inStock: true },
+
+    // Q7
+    { make: "Audi", model: "Q7 (4M)", year: "2015-2024", engine: "3.0 TFSI бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "4M0698151F", brand: "Textar", inStock: true },
+    { make: "Audi", model: "Q7 (4M)", year: "2015-2024", engine: "3.0 TFSI бензин", category: "Фильтры", name: "Масляный фильтр", oem: "06J115403Q", brand: "VAG", inStock: true },
+    { make: "Audi", model: "Q7 (4M)", year: "2015-2024", engine: "3.0 TFSI бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "4M0129620A", brand: "VAG", inStock: true },
+    { make: "Audi", model: "Q7 (4M)", year: "2015-2024", engine: "3.0 TFSI бензин", category: "Фильтры", name: "Салонный фильтр", oem: "4M0819439", brand: "VAG", inStock: true },
+
+    // Дополнительные детали для A4, A6, Q5
+    { make: "Audi", model: "A4 (B9)", year: "2016-2024", engine: "2.0 TFSI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "8W0407621B", brand: "SKF", inStock: true },
+    { make: "Audi", model: "A4 (B9)", year: "2016-2024", engine: "2.0 TFSI бензин", category: "Двигатель", name: "Цепь ГРМ", oem: "06K109158J", brand: "VAG", inStock: true },
+    { make: "Audi", model: "A6 (C8)", year: "2018-2024", engine: "3.0 TFSI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "4K0407621B", brand: "SKF", inStock: true },
+    { make: "Audi", model: "Q5 (80A)", year: "2018-2024", engine: "2.0 TFSI бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "80A407621", brand: "SKF", inStock: true },
+    { make: "Audi", model: "Q5 (80A)", year: "2018-2024", engine: "2.0 TFSI бензин", category: "Двигатель", name: "Цепь ГРМ", oem: "06K109158J", brand: "VAG", inStock: true },
+
+    // ========== RENAULT (дополнения) ==========
+    // Arkana
+    { make: "Renault", model: "Arkana", year: "2020-2024", engine: "1.3 TCe бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "41060-6483R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Arkana", year: "2020-2024", engine: "1.3 TCe бензин", category: "Фильтры", name: "Масляный фильтр", oem: "15208-6500R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Arkana", year: "2020-2024", engine: "1.3 TCe бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "16546-6483R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Arkana", year: "2020-2024", engine: "1.3 TCe бензин", category: "Фильтры", name: "Салонный фильтр", oem: "27273-6483R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Arkana", year: "2020-2024", engine: "1.3 TCe бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "22401-6283R", brand: "NGK", inStock: true },
+    { make: "Renault", model: "Arkana", year: "2020-2024", engine: "1.6 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "15208-6500R", brand: "Renault", inStock: true },
+
+    // Kaptur
+    { make: "Renault", model: "Kaptur", year: "2016-2024", engine: "1.6 бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "41060-9625R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Kaptur", year: "2016-2024", engine: "1.6 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "15208-6500R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Kaptur", year: "2016-2024", engine: "1.6 бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "16546-9625R", brand: "Renault", inStock: true },
+    { make: "Renault", model: "Kaptur", year: "2016-2024", engine: "1.6 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "27273-9625R", brand: "Renault", inStock: true },
+
+    // Дополнительные детали для Duster, Logan
+    { make: "Renault", model: "Duster II", year: "2021-2024", engine: "1.3 TCe бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "40202-6483R", brand: "SKF", inStock: true },
+    { make: "Renault", model: "Duster II", year: "2021-2024", engine: "1.3 TCe бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "22401-6483R", brand: "NGK", inStock: true },
+    { make: "Renault", model: "Logan II", year: "2015-2024", engine: "1.6 бензин", category: "Подвеска", name: "Амортизатор передний", oem: "56210-9625R", brand: "Renault", inStock: true },
+
+    // ========== LADA (дополнения) ==========
+    // Niva Travel
+    { make: "Lada", model: "Niva Travel", year: "2021-2024", engine: "1.8 8V бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "21210-3501080", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Niva Travel", year: "2021-2024", engine: "1.8 8V бензин", category: "Фильтры", name: "Масляный фильтр", oem: "21080-1012005", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Niva Travel", year: "2021-2024", engine: "1.8 8V бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "21210-1109080", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Niva Travel", year: "2021-2024", engine: "1.8 8V бензин", category: "Фильтры", name: "Салонный фильтр", oem: "21230-8122010", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Niva Travel", year: "2021-2024", engine: "1.8 8V бензин", category: "Подвеска", name: "Амортизатор передний", oem: "21210-2905002", brand: "Lada", inStock: true },
+
+    // XRAY
+    { make: "Lada", model: "XRAY", year: "2016-2024", engine: "1.6 16V бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "21110-3501080", brand: "Lada", inStock: true },
+    { make: "Lada", model: "XRAY", year: "2016-2024", engine: "1.6 16V бензин", category: "Фильтры", name: "Масляный фильтр", oem: "21080-1012005", brand: "Lada", inStock: true },
+    { make: "Lada", model: "XRAY", year: "2016-2024", engine: "1.6 16V бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "21129-1109080", brand: "Lada", inStock: true },
+    { make: "Lada", model: "XRAY", year: "2016-2024", engine: "1.6 16V бензин", category: "Фильтры", name: "Салонный фильтр", oem: "21230-8122010", brand: "Lada", inStock: true },
+
+    // Дополнительные детали для Vesta, Granta
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Двигатель", name: "Ремень ГРМ (комплект)", oem: "21116-1006040", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "21210-3103012", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Vesta", year: "2015-2024", engine: "1.6 16V бензин", category: "Охлаждение", name: "Помпа водяная", oem: "21120-1307010", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Granta", year: "2011-2024", engine: "1.6 8V бензин", category: "Двигатель", name: "Ремень ГРМ", oem: "21080-1006040", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Granta", year: "2011-2024", engine: "1.6 8V бензин", category: "Подвеска", name: "Стойка стабилизатора передняя", oem: "21080-2906040", brand: "Lada", inStock: true },
+    { make: "Lada", model: "Largus", year: "2012-2024", engine: "1.6 16V бензин", category: "Подвеска", name: "Амортизатор задний", oem: "84500-84500R", brand: "Lada", inStock: true },
+
+    // ========== CHERY (дополнения) ==========
+    // Tiggo 5x
+    { make: "Chery", model: "Tiggo 5x", year: "2020-2024", engine: "1.5T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "T15-3501080", brand: "Chery", inStock: true },
+    { make: "Chery", model: "Tiggo 5x", year: "2020-2024", engine: "1.5T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "481H-1012010", brand: "Chery", inStock: true },
+    { make: "Chery", model: "Tiggo 5x", year: "2020-2024", engine: "1.5T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "T15-1109110", brand: "Chery", inStock: true },
+    { make: "Chery", model: "Tiggo 5x", year: "2020-2024", engine: "1.5T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "T15-8107010", brand: "Chery", inStock: true },
+    { make: "Chery", model: "Tiggo 5x", year: "2020-2024", engine: "1.5T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "Chery", inStock: true },
+
+    // Дополнительные детали для Chery
+    { make: "Chery", model: "Tiggo 4", year: "2019-2024", engine: "1.5T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "T15-3103015", brand: "Chery", inStock: true },
+    { make: "Chery", model: "Tiggo 7 Pro", year: "2020-2024", engine: "1.5T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "T15-3103015", brand: "Chery", inStock: true },
+    { make: "Chery", model: "Tiggo 8 Pro", year: "2021-2024", engine: "2.0T бензин", category: "Подвеска", name: "Амортизатор передний", oem: "T18-2905005", brand: "Chery", inStock: false },
+    { make: "Chery", model: "Tiggo 8 Pro", year: "2021-2024", engine: "2.0T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "T18-3103015", brand: "Chery", inStock: true },
+
+    // ========== GEELY (дополнения) ==========
+    // Tugella
+    { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "1019010100", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "1012010001", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "1109110005", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8107010001", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "Geely", inStock: true },
+
+    // Дополнительные детали для Geely
+    { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "1019010200", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "NGK", inStock: true },
+    { make: "Geely", model: "Coolray", year: "2020-2024", engine: "1.5T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "1019010200", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Atlas", year: "2018-2024", engine: "2.4 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8107010001", brand: "Geely", inStock: true },
+
+    // ========== HAVAL (дополнения) ==========
+    // Dargo
+    { make: "Haval", model: "Dargo", year: "2022-2024", engine: "2.0T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "3501080X", brand: "Haval", inStock: true },
+    { make: "Haval", model: "Dargo", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "1012000X", brand: "Haval", inStock: true },
+    { make: "Haval", model: "Dargo", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "1109000X", brand: "Haval", inStock: true },
+    { make: "Haval", model: "Dargo", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8107000X", brand: "Haval", inStock: true },
+    { make: "Haval", model: "Dargo", year: "2022-2024", engine: "2.0T бензин", category: "Подвеска", name: "Амортизатор передний", oem: "2905000X", brand: "Haval", inStock: false },
+
+    // Дополнительные детали для Haval
+    { make: "Haval", model: "Jolion", year: "2021-2024", engine: "1.5T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "3103015X", brand: "Haval", inStock: true },
+    { make: "Haval", model: "Jolion", year: "2021-2024", engine: "1.5T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "NGK", inStock: true },
+    { make: "Haval", model: "F7", year: "2019-2024", engine: "2.0T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "3103015X", brand: "Haval", inStock: true },
+    { make: "Haval", model: "F7", year: "2019-2024", engine: "2.0T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "NGK", inStock: true },
+
+    // ========== EXEED (дополнения) ==========
+    { make: "Exeed", model: "LX", year: "2020-2024", engine: "1.5T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "EXD-3103015", brand: "Exeed", inStock: true },
+    { make: "Exeed", model: "TXL", year: "2021-2024", engine: "2.0T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "EXD-3103015", brand: "Exeed", inStock: true },
+    { make: "Exeed", model: "TXL", year: "2021-2024", engine: "2.0T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "EXD-F01R", brand: "NGK", inStock: true },
+    { make: "Exeed", model: "VX", year: "2021-2024", engine: "2.0T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "EXD-3103015", brand: "Exeed", inStock: true },
+    { make: "Exeed", model: "VX", year: "2021-2024", engine: "2.0T бензин", category: "Электрика", name: "Датчик кислорода (лямбда-зонд)", oem: "EXD-89467", brand: "Bosch", inStock: true },
+
+    // ========== OMODA (новый бренд) ==========
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "OMD-3501080", brand: "Omoda", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Тормозная система", name: "Колодки тормозные задние", oem: "OMD-3501090", brand: "Omoda", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "OMD-1012000", brand: "Omoda", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "OMD-1109000", brand: "Omoda", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "OMD-8107000", brand: "Omoda", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "NGK", inStock: true },
+    { make: "Omoda", model: "C5", year: "2023-2024", engine: "1.5T бензин", category: "Подвеска", name: "Амортизатор передний", oem: "OMD-2905000", brand: "Omoda", inStock: false },
+
+    // ========== CHANGAN (новый бренд) ==========
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "CHA-3501080", brand: "Changan", inStock: true },
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Тормозная система", name: "Колодки тормозные задние", oem: "CHA-3501090", brand: "Changan", inStock: true },
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "CHA-1012000", brand: "Changan", inStock: true },
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "CHA-1109000", brand: "Changan", inStock: true },
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "CHA-8107000", brand: "Changan", inStock: true },
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "NGK", inStock: true },
+    { make: "Changan", model: "CS55", year: "2022-2024", engine: "1.5T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "CHA-3103015", brand: "Changan", inStock: true },
+
+    // Универсальные — дополнения
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Масла и жидкости", name: "Масло моторное 10W-40 полусинтетика 4л", oem: "MOB-10W40-4L", brand: "Mobil", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Масла и жидкости", name: "Масло трансмиссионное 75W-90 1л", oem: "TRANS-75W90", brand: "Castrol", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Масла и жидкости", name: "Антифриз синий (G12+) 5л", oem: "81114-AA540", brand: "Felix", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Двигатель", name: "Прокладка ГБЦ универсальная", oem: "GBC-GASKET", brand: "Victor Reinz", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Привод", name: "Ремень поликлиновой универсальный", oem: "BELT-6PK-1785", brand: "Continental", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Лампа головного света H7", oem: "H7-12V55W", brand: "Osram", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Электрика", name: "Лампа головного света H4", oem: "H4-12V60W", brand: "Philips", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Кузов", name: "Щетки стеклоочистителя бескаркасные 26\"", oem: "WW-26-BF", brand: "Bosch", inStock: true },
+    { make: "Universal", model: "Универсальные", year: "—", engine: "—", category: "Кузов", name: "Щетки стеклоочистителя бескаркасные 22\"", oem: "WW-22-BF", brand: "Bosch", inStock: true },
 ];
 
 // Extract unique values for filters
