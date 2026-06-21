@@ -1,3 +1,7 @@
+let currentPage = 1;
+const PAGE_SIZE = 20;
+let currentFilteredParts = [];
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -22,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Init catalog
     populateFilters();
-    renderCatalog(PARTS_DB);
+    currentFilteredParts = PARTS_DB;
+    renderCatalog(currentFilteredParts);
 
     // Init partners
     renderPartners();
@@ -129,8 +134,9 @@ function filterParts() {
     const model = document.getElementById('filterModel').value;
     const category = document.getElementById('filterCategory').value;
     const text = document.getElementById('filterText').value;
-    const result = filterPartsData(make, model, category, text);
-    renderCatalog(result);
+    currentFilteredParts = filterPartsData(make, model, category, text);
+    currentPage = 1;
+    renderCatalog(currentFilteredParts);
 }
 
 function renderCatalog(parts) {
@@ -144,7 +150,11 @@ function renderCatalog(parts) {
     }
     empty.style.display = 'none';
 
-    grid.innerHTML = parts.map(p => `
+    const end = currentPage * PAGE_SIZE;
+    const visible = parts.slice(0, end);
+    const hasMore = end < parts.length;
+
+    grid.innerHTML = visible.map(p => `
         <div class="part-card">
             <div class="part-card-header">
                 <span class="part-brand">${p.brand}</span>
@@ -171,6 +181,19 @@ function renderCatalog(parts) {
             </div>
         </div>
     `).join('');
+
+    if (hasMore) {
+        const loadMore = document.createElement('div');
+        loadMore.style.cssText = 'grid-column:1/-1;text-align:center;margin-top:20px;margin-bottom:10px;';
+        loadMore.innerHTML = `<button onclick="loadMore()" class="btn btn-primary" style="padding:12px 40px;"><i class="fas fa-chevron-down"></i> Показать ещё (${parts.length - end})</button>`;
+        grid.appendChild(loadMore);
+    }
+}
+
+function loadMore() {
+    currentPage++;
+    renderCatalog(currentFilteredParts);
+    document.getElementById('catalog').scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
 
 function copyOEM(el) {
