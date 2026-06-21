@@ -42,10 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Chat init
     initChat();
 
-    // Hero search
-    document.getElementById('heroSearch').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') searchParts();
-    });
+    // UX enhancements
+    initScrollToTop();
+    initSectionReveal();
+    initAutocomplete();
+    updateActiveNav();
+
+    window.addEventListener('scroll', updateActiveNav);
 });
 
 function acceptCookies() {
@@ -148,12 +151,16 @@ function filterParts() {
 function renderCatalog(parts) {
     const grid = document.getElementById('catalogGrid');
     const empty = document.getElementById('catalogEmpty');
+    const counter = document.getElementById('resultsCounter');
     const make = document.getElementById('filterMake').value;
     const model = document.getElementById('filterModel').value;
+
+    document.getElementById('heroSearch').value ? document.getElementById('searchClear').classList.add('visible') : document.getElementById('searchClear').classList.remove('visible');
 
     if (parts.length === 0) {
         grid.innerHTML = '';
         empty.style.display = 'block';
+        counter.textContent = '';
         if (!make && !model) {
             empty.innerHTML = '<i class="fas fa-car"></i><p style="font-size:1.1rem;margin-top:10px;">Выберите марку и модель автомобиля, чтобы увидеть подходящие запчасти</p>';
         } else {
@@ -162,6 +169,7 @@ function renderCatalog(parts) {
         return;
     }
     empty.style.display = 'none';
+    counter.textContent = `Найдено ${parts.length} ${formatResultCount(parts.length)}`;
 
     const end = currentPage * PAGE_SIZE;
     const visible = parts.slice(0, end);
@@ -485,9 +493,151 @@ function updateClickCount() {
     if (el) {
         const count = getTotalClicks();
         el.textContent = count;
-        // Animate increment
         el.style.transition = 'all 0.3s';
         el.style.transform = 'scale(1.3)';
         setTimeout(() => { el.style.transform = 'scale(1)'; }, 300);
     }
+}
+
+function formatResultCount(n) {
+    if (n % 10 === 1 && n % 100 !== 11) return 'деталь';
+    if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) return 'детали';
+    return 'деталей';
+}
+
+function clearSearch() {
+    document.getElementById('heroSearch').value = '';
+    document.getElementById('searchClear').classList.remove('visible');
+    document.getElementById('heroSearch').focus();
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateActiveNav() {
+    const sections = ['catalog', 'consultant', 'partners'];
+    const links = document.querySelectorAll('.nav-list a');
+    let current = '';
+
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 150) current = id;
+        }
+    });
+
+    links.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+}
+
+function initScrollToTop() {
+    const btn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('show', window.scrollY > 500);
+    });
+}
+
+function initSectionReveal() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.catalog, .consultant, .partners, .about').forEach(el => {
+        el.classList.add('section-reveal');
+        observer.observe(el);
+    });
+}
+
+let autocompleteIndex = -1;
+
+function initAutocomplete() {
+    const input = document.getElementById('heroSearch');
+    const container = document.createElement('div');
+    container.className = 'autocomplete-suggestions';
+    container.style.cssText = 'position:absolute;top:100%;left:0;right:0;background:var(--white);border:2px solid var(--border);border-top:none;border-radius:0 0 var(--radius) var(--radius);max-height:260px;overflow-y:auto;z-index:100;display:none;box-shadow:var(--shadow-lg);';
+    input.parentElement.style.position = 'relative';
+    input.parentElement.appendChild(container);
+
+    input.addEventListener('input', () => {
+        document.getElementById('searchClear').classList.toggle('visible', input.value.length > 0);
+        const val = input.value.trim().toLowerCase();
+        if (val.length < 2) { container.style.display = 'none'; return; }
+
+        const matches = PARTS_DB
+            .filter(p => p.name.toLowerCase().includes(val) || p.oem.toLowerCase().includes(val))
+            .slice(0, 8);
+
+        if (matches.length === 0) { container.style.display = 'none'; return; }
+
+        container.innerHTML = matches.map((p, i) =>
+            `<div class="suggestion-item" data-index="${i}" style="padding:10px 16px;cursor:pointer;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;transition:background 0.15s;">
+                <span><strong>${p.name}</strong> <span style="color:var(--gray);font-size:0.8rem;">${p.make} ${p.model}</span></span>
+                <code style="background:#f1f5f9;padding:2px 8px;border-radius:4px;font-size:0.8rem;font-weight:700;color:var(--primary);">${p.oem}</code>
+            </div>`
+        ).join('');
+        container.style.display = 'block';
+        autocompleteIndex = -1;
+
+        container.querySelectorAll('.suggestion-item').forEach(el => {
+            el.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                const idx = parseInt(el.dataset.index);
+                const p = matches[idx];
+                input.value = p.name;
+                container.style.display = 'none';
+                searchParts();
+            });
+            el.addEventListener('mouseenter', () => {
+                el.style.background = 'var(--light)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.background = '';
+            });
+        });
+    });
+
+    input.addEventListener('keydown', (e) => {
+        const items = container.querySelectorAll('.suggestion-item');
+        if (!items.length || container.style.display === 'none') {
+            if (e.key === 'Enter') searchParts();
+            return;
+        }
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            autocompleteIndex = Math.min(autocompleteIndex + 1, items.length - 1);
+            updateAutocompleteHighlight(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            autocompleteIndex = Math.max(autocompleteIndex - 1, -1);
+            updateAutocompleteHighlight(items);
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (autocompleteIndex >= 0) {
+                items[autocompleteIndex].click();
+            } else {
+                searchParts();
+            }
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!input.parentElement.contains(e.target)) {
+            container.style.display = 'none';
+        }
+    });
+}
+
+function updateAutocompleteHighlight(items) {
+    items.forEach((el, i) => {
+        el.style.background = i === autocompleteIndex ? 'var(--light)' : '';
+    });
 }
