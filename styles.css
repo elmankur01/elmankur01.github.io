@@ -153,12 +153,12 @@ ul { list-style: none; }
 
 /* Hero */
 .hero {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: 80px;
+    padding: 100px 0 60px;
 }
 
 .hero-bg {
@@ -194,29 +194,29 @@ ul { list-style: none; }
     gap: 6px;
     background: rgba(230,57,70,0.1);
     color: var(--primary);
-    padding: 8px 18px;
+    padding: 6px 14px;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
 }
 
 .hero h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 18px;
+    font-size: 2.2rem;
+    line-height: 1.25;
+    margin-bottom: 12px;
     color: var(--secondary);
     font-weight: 800;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: var(--gray);
-    margin-bottom: 30px;
-    max-width: 600px;
+    margin-bottom: 20px;
+    max-width: 560px;
 }
 
-.hero-search { margin-bottom: 40px; }
+.hero-search { margin-bottom: 24px; }
 
 .search-box {
     display: flex;
@@ -238,29 +238,29 @@ ul { list-style: none; }
 }
 .search-box input {
     flex: 1;
-    padding: 16px 0;
+    padding: 12px 0;
     border: none;
     outline: none;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: inherit;
 }
 .search-box .btn {
     border-radius: 0;
-    padding: 16px 30px;
-    font-size: 1rem;
+    padding: 12px 24px;
+    font-size: 0.95rem;
 }
 
 .hero-features {
     display: flex;
-    gap: 25px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 .hf-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     color: var(--gray);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 .hf-item i { color: var(--primary); }
 
@@ -1167,12 +1167,12 @@ ul { list-style: none; }
     .burger-menu.active span:nth-child(2) { opacity: 0; }
     .burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-    .hero { min-height: auto; padding: 120px 0 60px; }
-    .hero h1 { font-size: 1.8rem; }
-    .hero p { font-size: 0.95rem; }
-    .hero-badge { font-size: 0.8rem; }
-    .hero-features { gap: 10px; flex-direction: column; }
-    .hero-search { margin-bottom: 25px; }
+    .hero { min-height: auto; padding: 90px 0 40px; }
+    .hero h1 { font-size: 1.5rem; }
+    .hero p { font-size: 0.9rem; }
+    .hero-badge { font-size: 0.75rem; }
+    .hero-features { gap: 8px; flex-direction: column; }
+    .hero-search { margin-bottom: 16px; }
 
     .search-box { flex-wrap: wrap; }
     .search-box input { padding: 14px 16px; font-size: 16px; }
@@ -1232,9 +1232,9 @@ ul { list-style: none; }
 }
 
 @media (max-width: 480px) {
-    .hero h1 { font-size: 1.5rem; }
-    .hero p { font-size: 0.9rem; }
-    .hero-badge { font-size: 0.75rem; padding: 6px 14px; }
+    .hero h1 { font-size: 1.3rem; }
+    .hero p { font-size: 0.85rem; }
+    .hero-badge { font-size: 0.7rem; padding: 4px 10px; }
     .section-title { font-size: 1.3rem; }
     .part-card h3 { font-size: 0.9rem; }
     .part-oem { font-size: 0.8rem; padding: 4px 10px; }
