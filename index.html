@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AutoParts — интернет-магазин автозапчастей с ИИ-консультантом. Поиск оригинальных OEM-номеров по марке автомобиля.">
+    <title>AutoParts | Магазин автозапчастей с ИИ-консультантом</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <i class="fas fa-car"></i>
+                    Auto<span>Parts</span>
+                </a>
+                <ul class="nav-list">
+                    <li><a href="#catalog">Каталог</a></li>
+                    <li><a href="#consultant">ИИ-консультант</a></li>
+                    <li><a href="#partners">Магазины</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <button class="burger-menu" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">ИИ-консультант 24/7</div>
+                    <h1>Оригинальные автозапчасти с гарантией</h1>
+                    <p>Найди деталь по VIN или описанию — наш ИИ-консультант подберёт точный OEM-номер за секунду</p>
+                    <div class="hero-search">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="heroSearch" placeholder="Введите артикул, название детали или VIN..." autocomplete="off">
+                            <button class="btn btn-primary" onclick="searchParts()">Найти</button>
+                        </div>
+                    </div>
+                    <div class="hero-features">
+                        <div class="hf-item"><i class="fas fa-check-circle"></i> Оригиналы и аналоги</div>
+                        <div class="hf-item"><i class="fas fa-check-circle"></i> Доставка по РФ</div>
+                        <div class="hf-item"><i class="fas fa-check-circle"></i> Гарантия качества</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog" id="catalog">
+            <div class="container">
+                <h2 class="section-title">Каталог запчастей</h2>
+                <div class="catalog-filters">
+                    <div class="filter-group">
+                        <label for="filterMake">Марка</label>
+                        <select id="filterMake" onchange="updateModels()">
+                            <option value="">Все марки</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterModel">Модель</label>
+                        <select id="filterModel" onchange="updateCategories()">
+                            <option value="">Все модели</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filterCategory">Категория</label>
+                        <select id="filterCategory" onchange="filterParts()">
+                            <option value="">Все категории</option>
+                        </select>
+                    </div>
+                    <div class="filter-group filter-search">
+                        <label for="filterText">Поиск</label>
+                        <input type="text" id="filterText" placeholder="Название или артикул..." oninput="filterParts()">
+                    </div>
+                </div>
+                <div class="catalog-grid" id="catalogGrid"></div>
+                <div class="catalog-empty" id="catalogEmpty" style="display:none">
+                    <i class="fas fa-box-open"></i>
+                    <p>Ничего не найдено. Попробуйте изменить параметры поиска.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="consultant" id="consultant">
+            <div class="container">
+                <div class="consultant-wrapper">
+                    <div class="consultant-info">
+                        <h2>ИИ-консультант по подбору</h2>
+                        <p>Опишите вашу задачу — консультант найдёт правильный артикул, следуя алгоритму:</p>
+                        <ul class="consultant-steps">
+                            <li><span class="step-num">1</span> Определяет автомобиль (марка, модель, год, двигатель)</li>
+                            <li><span class="step-num">2</span> Уточняет нужный узел или деталь</li>
+                            <li><span class="step-num">3</span> Выдаёт OEM-номер с описанием</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openChat()">
+                            <i class="fas fa-robot"></i> Начать подбор
+                        </button>
+                    </div>
+                    <div class="consultant-preview">
+                        <div class="chat-preview">
+                            <div class="chat-msg consultant-msg">
+                                <i class="fas fa-robot"></i>
+                                <div>Здравствуйте! Я ИИ-консультант. Назовите марку и модель вашего автомобиля, чтобы я помог найти нужную деталь.</div>
+                            </div>
+                            <div class="chat-msg user-msg">
+                                <div>Toyota Camry 2018, 2.5 бензин</div>
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="chat-msg consultant-msg">
+                                <i class="fas fa-robot"></i>
+                                <div>Отлично! Какая деталь вас интересует? Например: тормозные колодки, масляный фильтр, сайлентблоки.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners" id="partners">
+            <div class="container">
+                <h2 class="section-title">Где купить?</h2>
+                <p class="partners-subtitle">Нашли артикул? Переходите в проверенные магазины-партнёры — там уже открыт поиск по вашему OEM-номеру</p>
+                <div class="partners-grid" id="partnersGrid"></div>
+                <div class="partners-stats">
+                    <div class="ps-item">
+                        <span class="ps-num" id="clickCount">0</span>
+                        <span class="ps-label">всего переходов</span>
+                    </div>
+                    <div class="ps-item">
+                        <span class="ps-num">4</span>
+                        <span class="ps-label">магазина-партнёра</span>
+                    </div>
+                    <div class="ps-item">
+                        <span class="ps-num">80+</span>
+                        <span class="ps-label">деталей в каталоге</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">Как это работает?</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <i class="fas fa-search"></i>
+                        <h3>1. Найдите деталь</h3>
+                        <p>Воспользуйтесь каталогом или ИИ-консультантом. Укажите авто и получите точный OEM-номер.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-store"></i>
+                        <h3>2. Выберите магазин</h3>
+                        <p>Нажмите на кнопку Exist, Autodoc, Emex или Partkom — поиск по артикулу уже открыт.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>3. Оформите заказ</h3>
+                        <p>Сравните цены в магазинах-партнёрах и купите деталь по лучшей цене.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-coins"></i>
+                        <h3>4. Вы экономите</h3>
+                        <p>Я получаю комиссию от магазина, вам — цена как обычно. Бесплатный сервис.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h2>Не нашли деталь?</h2>
+                        <p>Напишите мне — помогу подобрать артикул вручную. Это бесплатно, я зарабатываю на комиссии магазинов.</p>
+                        <div class="contact-methods">
+                            <a href="https://t.me/BGG05" class="contact-method" target="_blank">
+                                <i class="fab fa-telegram"></i>
+                                <div><strong>Telegram</strong><br><span>@BGG05</span></div>
+                            </a>
+                            <a href="mailto:elmankur01@gmail.com" class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                <div><strong>Email</strong><br><span>elmankur01@gmail.com</span></div>
+                            </a>
+                            <a href="tel:+79640030964" class="contact-method">
+                                <i class="fas fa-phone"></i>
+                                <div><strong>Телефон</strong><br><span>+7 (964) 003-09-64</span></div>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-input">Телефон или email</label>
+                            <input type="text" id="contact-input" name="contact" placeholder="+7 (___) ___-__-__" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="carInfo">Автомобиль</label>
+                            <input type="text" id="carInfo" name="carInfo" placeholder="Например: Toyota Camry 2018 2.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="partInfo">Что нужно?</label>
+                            <textarea id="partInfo" name="partInfo" rows="3" placeholder="Опишите деталь или вставьте VIN..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i> Отправить
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><i class="fas fa-car"></i> Auto<span>Parts</span></a>
+                    <p>Интернет-магазин автозапчастей с ИИ-подбором</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="#catalog">Каталог</a></li>
+                        <li><a href="#consultant">ИИ-консультант</a></li>
+                        <li><a href="#partners">Магазины</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contacts">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (964) 003-09-64</p>
+                    <p><i class="fas fa-envelope"></i> elmankur01@gmail.com</p>
+                    <p><i class="fab fa-telegram"></i> @BGG05</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> AutoParts. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+            <i class="fas fa-robot"></i>
+            <span>ИИ-консультант</span>
+        </button>
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <strong>ИИ-консультант</strong>
+                        <span class="chat-status">онлайн</span>
+                    </div>
+                </div>
+                <button class="chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Напишите марку и модель авто..." onkeydown="if(event.key==='Enter') sendMessage()">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
