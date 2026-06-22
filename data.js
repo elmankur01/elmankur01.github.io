@@ -971,12 +971,12 @@ const STORES = [
   {
     name: "AvtoALL.ru",
     urlTemplate: "https://avtoall.ru/search/?text={OEM}",
-    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
-    type: "takprodam",
+    campaignId: "5rermd1rb54c6955f9a4aeed5c54e0",
+    type: "takprodam_short",
     color: "#6f42c1",
     icon: "fa-solid fa-wrench",
     network: "Takprodam (Admitad) ~3.5%",
-    erid: "",
+    erid: "25H8d7vbP8SRTvHZB1b5vJ",
     advertiser: "ООО «АвтоВсе»"
   }
 ];
@@ -988,10 +988,13 @@ function getStoreLinks(oem) {
     if (!isConfigured) {
       return { ...s, fullUrl: directUrl };
     }
-    return {
-      ...s,
-      fullUrl: `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`
-    };
+    if (s.type === 'takprodam_short') {
+      let url = `https://sgkaa.com/g/${s.campaignId}/?erid=${s.erid}&ulp=${encodeURIComponent(directUrl)}`;
+      return { ...s, fullUrl: url };
+    }
+    let url = `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
+    if (s.erid) url += `&erid=${s.erid}`;
+    return { ...s, fullUrl: url };
   });
 }
 
