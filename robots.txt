@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://elmankur01.github.io/-auto-parts/sitemap.xml
+
+User-agent: *
+Disallow: /admin.html
