@@ -970,7 +970,7 @@ const STORES = [
   },
   {
     name: "AvtoALL.ru",
-    urlTemplate: "https://avtoall.ru/search/?text={OEM}",
+    urlTemplate: "https://avtoall.ru/search/?GlobalFilterForm%5Bnamearticle%5D={OEM}",
     campaignId: "5rermd1rb54c6955f9a4aeed5c54e0",
     type: "takprodam_short",
     color: "#6f42c1",
