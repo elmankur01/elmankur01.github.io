@@ -374,15 +374,7 @@ function initChat() {
     chatState = 'awaiting_car';
 }
 
-function setupChatScroll() {
-    const chat = document.getElementById('chatMessages');
-    const obs = new MutationObserver(() => {
-        requestAnimationFrame(() => {
-            chat.scrollTop = chat.scrollHeight;
-        });
-    });
-    obs.observe(chat, { childList: true, subtree: true });
-}
+function setupChatScroll() {}
 
 function clearChat() {
     const chatMessages = document.getElementById('chatMessages');
@@ -447,7 +439,6 @@ function addBotMessage(text) {
         <div class="msg-content">${text}</div>
     `;
     chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
 }
 
 function showTyping() {
@@ -461,7 +452,6 @@ function showTyping() {
         <div class="msg-content"><span class="typing-dots"><span>.</span><span>.</span><span>.</span></span></div>
     `;
     chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
 }
 
 function hideTyping() {
@@ -486,7 +476,6 @@ function addQuickReplies(replies) {
         </div>
     `;
     chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
 }
 
 function addResultCard(parts) {
@@ -521,7 +510,10 @@ function addResultCard(parts) {
         </div>
     `;
     chat.appendChild(div);
-    chat.scrollTop = chat.scrollHeight;
+    requestAnimationFrame(() => {
+        const cards = div.querySelectorAll('.chat-result-card');
+        if (cards.length) cards[0].scrollIntoView({ block: 'start', behavior: 'smooth' });
+    });
 }
 
 function copyFromChat(oem, btn) {
