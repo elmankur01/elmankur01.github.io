@@ -3,8 +3,8 @@
 Сайт-агрегатор автозапчастей на CPA-модели (аффилиатные ссылки). Пользователь ищет OEM-номер через каталог или ИИ-консультант, переходит в магазин-партнёр — владелец получает комиссию.
 
 ## Ссылки
-- Сайт: https://elmankur01.github.io/-auto-parts/
-- Репозиторий: https://github.com/elmankur01/-auto-parts (ветка main)
+- Сайт: https://elmankur01.github.io/
+- Репозиторий: https://github.com/elmankur01/elmankur01.github.io (ветка main)
 - Deploy: GitHub Pages (автоматически с main)
 
 ## Владелец
