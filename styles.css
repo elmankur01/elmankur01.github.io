@@ -994,6 +994,30 @@ ul { list-style: none; }
     color: var(--primary);
 }
 
+/* Typing indicator */
+.typing-dots span {
+    display: inline-block;
+    animation: typingDot 1.4s infinite;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 0 1px;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingDot {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* Chat result card */
+.chat-result-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
 /* Scroll to top */
 .scroll-top {
     position: fixed;
