@@ -373,6 +373,15 @@ function initChat() {
     chatState = 'awaiting_car';
 }
 
+function clearChat() {
+    if (!confirm('Очистить историю чата?')) return;
+    const chatMessages = document.getElementById('chatMessages');
+    chatMessages.innerHTML = '';
+    carContext = { make: '', model: '', year: '', engine: '' };
+    chatState = 'greeting';
+    initChat();
+}
+
 function toggleChat() {
     const panel = document.getElementById('chatPanel');
     const toggle = document.getElementById('chatToggle');

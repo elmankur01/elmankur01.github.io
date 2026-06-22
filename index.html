@@ -267,7 +267,10 @@
                         <span class="chat-status">онлайн</span>
                     </div>
                 </div>
-                <button class="chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+                <div class="chat-header-actions">
+                    <button class="chat-clear" onclick="clearChat()" title="Очистить чат"><i class="fas fa-trash-alt"></i></button>
+                    <button class="chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+                </div>
             </div>
             <div class="chat-messages" id="chatMessages"></div>
             <div class="chat-input">

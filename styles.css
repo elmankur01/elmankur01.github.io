@@ -845,6 +845,21 @@ ul { list-style: none; }
     background: #52b788;
     border-radius: 50%;
 }
+.chat-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.chat-clear {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px;
+    transition: color 0.2s;
+}
+.chat-clear:hover { color: #ff6b6b; }
 .chat-close {
     background: none;
     border: none;
