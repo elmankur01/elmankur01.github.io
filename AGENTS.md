@@ -21,7 +21,7 @@
 | Магазин | URL | Commission | Campaign ID |
 |---------|-----|------------|-------------|
 | Exist.ru | exist.ru | Takprodam ~2.1% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` |
-| Rossko.ru | rossko.ru | Takprodam | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` |
+| Rossko.ru | rossko.ru | Takprodam | `on8kt46xpp4c6955f9a4648980e865` ✅ |
 | Autopiter.ru | autopiter.ru | Takprodam ~4% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` |
 | AvtoALL.ru | avtoall.ru | Takprodam ~3.5% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` |
 

@@ -948,12 +948,13 @@ const STORES = [
   {
     name: "Rossko.ru",
     urlTemplate: "https://rossko.ru/search?q={OEM}",
-    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
-    type: "takprodam",
+    campaignId: "on8kt46xpp4c6955f9a4648980e865",
+    type: "takprodam_short",
+    shortDomain: "ujhjj.com",
     color: "#28a745",
     icon: "fa-solid fa-truck",
     network: "Takprodam (Admitad)",
-    erid: "",
+    erid: "2bL9aMPo2e49hMef4piUd4V2My",
     advertiser: "ООО «Росско»"
   },
   {
@@ -972,6 +973,7 @@ const STORES = [
     urlTemplate: "https://avtoall.ru/search/?GlobalFilterForm%5Bnamearticle%5D={OEM}",
     campaignId: "5rermd1rb54c6955f9a4aeed5c54e0",
     type: "takprodam_short",
+    shortDomain: "sgkaa.com",
     color: "#6f42c1",
     icon: "fa-solid fa-wrench",
     network: "Takprodam (Admitad) ~3.5%",
@@ -988,7 +990,8 @@ function getStoreLinks(oem) {
       return { ...s, fullUrl: directUrl };
     }
     if (s.type === 'takprodam_short') {
-      let url = `https://sgkaa.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}&erid=${s.erid}`;
+      const domain = s.shortDomain || 'sgkaa.com';
+      let url = `https://${domain}/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}&erid=${s.erid}`;
       return { ...s, fullUrl: url };
     }
     let url = `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
