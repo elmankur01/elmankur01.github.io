@@ -853,13 +853,14 @@ ul { list-style: none; }
 .chat-clear {
     background: none;
     border: none;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.6);
     cursor: pointer;
     font-size: 1rem;
-    padding: 5px;
+    padding: 6px 8px;
     transition: color 0.2s;
+    border-radius: 6px;
 }
-.chat-clear:hover { color: #ff6b6b; }
+.chat-clear:hover { color: #ff6b6b; background: rgba(255,107,107,0.1); }
 .chat-close {
     background: none;
     border: none;

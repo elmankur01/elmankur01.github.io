@@ -385,7 +385,6 @@ function setupChatScroll() {
 }
 
 function clearChat() {
-    if (!confirm('Очистить историю чата?')) return;
     const chatMessages = document.getElementById('chatMessages');
     chatMessages.innerHTML = '';
     carContext = { make: '', model: '', year: '', engine: '' };
