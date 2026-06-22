@@ -989,7 +989,7 @@ function getStoreLinks(oem) {
       return { ...s, fullUrl: directUrl };
     }
     if (s.type === 'takprodam_short') {
-      let url = `https://sgkaa.com/g/${s.campaignId}/?erid=${s.erid}&ulp=${encodeURIComponent(directUrl)}`;
+      let url = `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}&erid=${s.erid}`;
       return { ...s, fullUrl: url };
     }
     let url = `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
