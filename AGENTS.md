@@ -45,11 +45,13 @@
 ## Структура проекта
 ```
 auto-parts/
-  index.html    — главная страница (343 строки)
+  index.html    — главная страница (SEO-метатеги, Open Graph)
   styles.css    — все стили (1362 строки)
   script.js     — логика каталога, чата, UX-улучшения (643 строки)
   data.js       — база деталей (597+ шт, 16 категорий), конфиг магазинов (1024 строки)
   admin.html    — админ-панель (CRUD, магазины, статистика, экспорт)
+  sitemap.xml   — карта сайта для поисковиков
+  robots.txt    — правила индексации
   AGENTS.md     — этот файл
   start.sh      — скрипт локального запуска (live-server порт 4000)
 ```
@@ -83,6 +85,15 @@ auto-parts/
 - Автодополнение в поиске + клавиатурная навигация
 - Счётчик результатов в каталоге
 - CSP meta-тег для защиты от XSS
+
+## SEO
+- ✅ Meta description + keywords
+- ✅ Open Graph (og:title, og:description, og:url)
+- ✅ Canonical URL
+- ✅ sitemap.xml
+- ✅ robots.txt (админка скрыта от индексации)
+- ❌ Яндекс.Вебмастер — нужно добавить verification code в `yandex-verification`
+- ❌ Google Search Console — нужно добавить verification code в `google-site-verification`
 
 ## Что ждём
 - Модерацию Takprodam
