@@ -190,18 +190,19 @@ const PARTS_DB = [
     { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "1019010100", brand: "Geely", inStock: true },
     { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "1012010001", brand: "Geely", inStock: true },
     { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "1109110005", brand: "Geely", inStock: true },
-    { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8107010001", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8025530600", brand: "Geely", inStock: true },
 
     // Coolray
     { make: "Geely", model: "Coolray", year: "2020-2024", engine: "1.5T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "1019010100", brand: "Geely", inStock: true },
     { make: "Geely", model: "Coolray", year: "2020-2024", engine: "1.5T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "1012010001", brand: "Geely", inStock: true },
     { make: "Geely", model: "Coolray", year: "2020-2024", engine: "1.5T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "1109110005", brand: "Geely", inStock: true },
-    { make: "Geely", model: "Coolray", year: "2020-2024", engine: "1.5T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8107010001", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Coolray", year: "2020-2024", engine: "1.5T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8022020800", brand: "Geely", inStock: true },
 
     // Atlas
     { make: "Geely", model: "Atlas", year: "2018-2024", engine: "2.4 бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "1019010100", brand: "Geely", inStock: true },
     { make: "Geely", model: "Atlas", year: "2018-2024", engine: "2.4 бензин", category: "Фильтры", name: "Масляный фильтр", oem: "1012010001", brand: "Geely", inStock: true },
     { make: "Geely", model: "Atlas", year: "2018-2024", engine: "2.4 бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "1109110005", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Atlas", year: "2018-2024", engine: "2.4 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8022003800", brand: "Geely", inStock: true },
 
     // ========== HAVAL ==========
     // Jolion
@@ -668,15 +669,13 @@ const PARTS_DB = [
     { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "1019010100", brand: "Geely", inStock: true },
     { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Масляный фильтр", oem: "1012010001", brand: "Geely", inStock: true },
     { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Воздушный фильтр", oem: "1109110005", brand: "Geely", inStock: true },
-    { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8107010001", brand: "Geely", inStock: true },
+    { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8891352050", brand: "Geely", inStock: true },
     { make: "Geely", model: "Tugella", year: "2022-2024", engine: "2.0T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "Geely", inStock: true },
 
     // Дополнительные детали для Geely
     { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "1019010200", brand: "Geely", inStock: true },
     { make: "Geely", model: "Monjaro", year: "2022-2024", engine: "2.0T бензин", category: "Электрика", name: "Свечи зажигания (комплект)", oem: "F01R-00001", brand: "NGK", inStock: true },
     { make: "Geely", model: "Coolray", year: "2020-2024", engine: "1.5T бензин", category: "Подвеска", name: "Подшипник ступицы передний", oem: "1019010200", brand: "Geely", inStock: true },
-    { make: "Geely", model: "Atlas", year: "2018-2024", engine: "2.4 бензин", category: "Фильтры", name: "Салонный фильтр", oem: "8107010001", brand: "Geely", inStock: true },
-
     // ========== HAVAL (дополнения) ==========
     // Dargo
     { make: "Haval", model: "Dargo", year: "2022-2024", engine: "2.0T бензин", category: "Тормозная система", name: "Колодки тормозные передние", oem: "3501080X", brand: "Haval", inStock: true },
