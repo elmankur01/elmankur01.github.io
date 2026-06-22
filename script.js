@@ -517,9 +517,42 @@ function copyFromChat(oem, btn) {
     });
 }
 
+const MODEL_SYNONYMS = {
+  'солярис': 'Solaris', 'solaris': 'Solaris',
+  'рио': 'Rio', 'rio': 'Rio',
+  'спортейдж': 'Sportage', 'sportage': 'Sportage',
+  'туссан': 'Tucson', 'tucson': 'Tucson',
+  'соната': 'Sonata', 'sonata': 'Sonata',
+  'церера': 'Cerato', 'cerato': 'Cerato',
+  'селтос': 'Seltos', 'seltos': 'Seltos',
+  'камри': 'Camry', 'camry': 'Camry',
+  'рав4': 'RAV4', 'rav4': 'RAV4',
+  'королла': 'Corolla', 'corolla': 'Corolla',
+  'октавия': 'Octavia', 'octavia': 'Octavia',
+  'кодиак': 'Kodiaq', 'kodiaq': 'Kodiaq',
+  'тигуан': 'Tiguan', 'tiguan': 'Tiguan',
+  'пассат': 'Passat', 'passat': 'Passat',
+  'поло': 'Polo', 'polo': 'Polo',
+  'дустер': 'Duster', 'duster': 'Duster',
+  'логан': 'Logan', 'logan': 'Logan',
+  'веста': 'Vesta', 'vesta': 'Vesta',
+  'гранта': 'Granta', 'granta': 'Granta',
+  'фокус': 'Focus', 'focus': 'Focus',
+  'куга': 'Kuga', 'kuga': 'Kuga',
+  'джолион': 'Jolion', 'jolion': 'Jolion',
+  'монжаро': 'Monjaro', 'monjaro': 'Monjaro',
+  'кулрей': 'Coolray', 'coolray': 'Coolray',
+  'атлас': 'Atlas', 'atlas': 'Atlas'
+};
+
 function normalizeMake(input) {
     const lower = input.toLowerCase().trim();
     return CAR_SYNONYMS[lower] || input.charAt(0).toUpperCase() + input.slice(1);
+}
+
+function normalizeModel(input) {
+    const lower = input.toLowerCase().trim();
+    return MODEL_SYNONYMS[lower] || input;
 }
 
 function decodeVin(vin) {
@@ -563,7 +596,7 @@ function resolveCarInfo(msg) {
     if (carMatch) {
         const rawMake = carMatch[1];
         const make = normalizeMake(rawMake);
-        let model = carMatch[2].trim();
+        let model = normalizeModel(carMatch[2].trim());
         const year = carMatch[3] || '';
         let engine = (carMatch[4] || '').trim();
 
