@@ -786,9 +786,14 @@ function renderPartners() {
         const isConfigured = s.campaignId && !s.campaignId.startsWith('ЗАМЕНИТЬ');
         let exampleUrl;
         if (isConfigured) {
-            exampleUrl = s.type === 'mylead'
-                ? `https://mylead.global/go/${s.campaignId}/?url=${encodeURIComponent(directUrl)}`
-                : `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
+            if (s.type === 'mylead') {
+                exampleUrl = `https://mylead.global/go/${s.campaignId}/?url=${encodeURIComponent(directUrl)}`;
+            } else if (s.type === 'takprodam_short') {
+                exampleUrl = `https://sgkaa.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}&erid=${s.erid}`;
+            } else {
+                exampleUrl = `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
+                if (s.erid) exampleUrl += `&erid=${s.erid}`;
+            }
         } else {
             exampleUrl = directUrl;
         }
