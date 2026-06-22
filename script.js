@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Chat init
     initChat();
+    setupChatScroll();
 
     // UX enhancements
     initScrollToTop();
@@ -373,6 +374,16 @@ function initChat() {
     chatState = 'awaiting_car';
 }
 
+function setupChatScroll() {
+    const chat = document.getElementById('chatMessages');
+    const obs = new MutationObserver(() => {
+        requestAnimationFrame(() => {
+            chat.scrollTop = chat.scrollHeight;
+        });
+    });
+    obs.observe(chat, { childList: true, subtree: true });
+}
+
 function clearChat() {
     if (!confirm('Очистить историю чата?')) return;
     const chatMessages = document.getElementById('chatMessages');
@@ -388,6 +399,8 @@ function toggleChat() {
     panel.classList.toggle('active');
     if (panel.classList.contains('active')) {
         document.getElementById('chatInput').focus();
+        const msg = document.getElementById('chatMessages');
+        msg.scrollTop = msg.scrollHeight;
     }
 }
 
