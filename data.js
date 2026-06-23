@@ -947,7 +947,7 @@ const STORES = [
   },
   {
     name: "Rossko.ru",
-    urlTemplate: "https://rossko.ru/search/?text={OEM}",
+    urlTemplate: "https://msk.rossko.ru/search/?text={OEM}",
     campaignId: "on8kt46xpp4c6955f9a4648980e865",
     type: "takprodam",
     color: "#28a745",
