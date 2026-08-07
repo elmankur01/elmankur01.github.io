@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://elmankur01.github.io/sitemap.xml
-
-User-agent: *
-Disallow: /admin.html

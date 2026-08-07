@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AvtoPartsPro — бесплатный справочник автозапчастей с ИИ-консультантом. Поиск оригинальных OEM-номеров по марке авто, каталог из 597+ деталей по 19 маркам. Без рекламы.">
-    <meta name="keywords" content="автозапчасти, OEM, подбор запчастей, ИИ консультант, Toyota, BMW, Mercedes, Hyundai, Kia, справочник запчастей">
+    <meta name="description" content="АвтоТема — свежие новости автомобильного мира: новые модели, электромобили, двигатели, истории автокомпаний и мировые тренды. Подпишитесь на дайджест.">
+    <meta name="keywords" content="автомобили, новости авто, электромобили, новые модели, двигатели, истории автокомпаний, Tesla, автопром">
     <meta name="robots" content="index, follow">
     <meta name="yandex-verification" content="9d4b4dc75e2f36bd">
-    <meta name="theme-color" content="#1a2332">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <meta name="theme-color" content="#0b0f14">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="AvtoPartsPro — справочник автозапчастей по OEM с ИИ-консультантом">
-    <meta property="og:description" content="Найди оригинальную деталь по марке авто. Бесплатный справочник OEM-номеров, каталог 597+ деталей по 19 маркам. Без рекламы.">
+    <meta property="og:title" content="АвтоТема — новости автомобильного мира">
+    <meta property="og:description" content="Новые модели, электромобили, двигатели и истории автокомпаний. Подпишитесь на дайджест.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://elmankur01.github.io/">
     <meta property="og:locale" content="ru_RU">
@@ -23,272 +22,232 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/favicon.png">
 
-    <title>AvtoPartsPro | Справочник автозапчастей по OEM с ИИ-консультантом</title>
+    <title>АвтоТема | Новости автомобильного мира</title>
 
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "AvtoPartsPro",
+        "name": "АвтоТема",
         "url": "https://elmankur01.github.io/",
-        "description": "ИИ-консультант по подбору автозапчастей. Поиск оригинальных OEM-номеров по марке авто, каталог из 597+ деталей.",
-        "inLanguage": "ru",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://elmankur01.github.io/?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://elmankur01.github.io/" }
-        ]
+        "description": "Новости автомобильного мира: новые модели, электромобили, двигатели, истории автокомпаний.",
+        "inLanguage": "ru"
     }
     </script>
 </head>
 <body>
     <header class="header">
-        <div class="container">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon"><i class="logo-svg">🚗</i></span>
+                Авто<span>Тема</span>
+            </a>
             <nav class="nav">
-                <a href="/" class="logo">
-                    <i class="fas fa-car"></i>
-                    Avto<span>PartsPro</span>
-                </a>
                 <ul class="nav-list">
-                    <li><a href="#catalog">Каталог</a></li>
-                    <li><a href="#consultant">ИИ-консультант</a></li>
-                    <li><a href="#about">О сервисе</a></li>
+                    <li><a href="#news">Новости</a></li>
+                    <li><a href="#electric">Электромобили</a></li>
+                    <li><a href="#history">История марок</a></li>
+                    <li><a href="#subscribe">Подписка</a></li>
                 </ul>
-                <button class="burger-menu" aria-label="Меню">
-                    <span></span><span></span><span></span>
-                </button>
             </nav>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
     <main>
+        <!-- HERO -->
         <section class="hero">
             <div class="hero-bg"></div>
+            <div class="container hero-inner">
+                <span class="hero-badge">Дайджест каждую неделю</span>
+                <h1>Всё, что происходит <span class="accent">в мире автомобилей</span></h1>
+                <p class="hero-sub">Новые модели, электромобили, двигатели будущего, истории легендарных автокомпаний и мировые тренды — коротко и понятно.</p>
+                <div class="hero-actions">
+                    <a href="#subscribe" class="btn btn-primary">Подписаться бесплатно</a>
+                    <a href="#news" class="btn btn-ghost">Читать новости</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hs-item"><strong>5</strong><span>рубрик</span></div>
+                    <div class="hs-item"><strong>24/7</strong><span>новостей</span></div>
+                    <div class="hs-item"><strong>0 ₽</strong><span>подписка</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOPICS -->
+        <section class="topics section" id="topics">
             <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge">ИИ-консультант 24/7</div>
-                    <h1>Оригинальные автозапчасти с гарантией</h1>
-                    <p>Найди деталь по VIN или описанию — наш ИИ-консультант подберёт точный OEM-номер за секунду</p>
-                    <div class="hero-search">
-                        <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" id="heroSearch" placeholder="Введите артикул, название детали или VIN..." autocomplete="off">
-                            <button class="search-clear" id="searchClear" onclick="clearSearch()" aria-label="Очистить"><i class="fas fa-times"></i></button>
-                            <button class="btn btn-primary" onclick="searchParts()">Найти</button>
+                <h2 class="section-title">О чём пишем</h2>
+                <div class="topics-grid">
+                    <a href="#news" class="topic-card">
+                        <div class="topic-icon">🚘</div>
+                        <h3>Новые модели</h3>
+                        <p>Премьеры и обзоры автомобилей со всего мира</p>
+                    </a>
+                    <a href="#news" class="topic-card">
+                        <div class="topic-icon">🔌</div>
+                        <h3>Электромобили</h3>
+                        <p>Тесла, BYD, новые технологии батарей и зарядки</p>
+                    </a>
+                    <a href="#news" class="topic-card">
+                        <div class="topic-icon">⚙️</div>
+                        <h3>Двигатели</h3>
+                        <p>Бензин, дизель, гибриды и моторы будущего</p>
+                    </a>
+                    <a href="#history" class="topic-card">
+                        <div class="topic-icon">📜</div>
+                        <h3>История марок</h3>
+                        <p>Как создавались легендарные автокомпании</p>
+                    </a>
+                    <a href="#news" class="topic-card">
+                        <div class="topic-icon">🌍</div>
+                        <h3>Мировые новости</h3>
+                        <p>Автопром, рынки, технологии и законодательство</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- LATEST ARTICLES -->
+        <section class="news section" id="news">
+            <div class="container">
+                <h2 class="section-title">Свежие статьи</h2>
+                <div class="articles-grid">
+                    <article class="article-card featured">
+                        <span class="tag">Электромобили</span>
+                        <h3>Электромобили в 2026 году: гонка за запасом хода в 1000 км</h3>
+                        <p>Новые батареи на твердотельных элементах обещают прорыв. Разбираемся, какие модели уже готовы к дальним поездкам.</p>
+                        <span class="article-meta">15 мин · вчера</span>
+                    </article>
+                    <article class="article-card">
+                        <span class="tag">Новые модели</span>
+                        <h3>Премьеры года: главные авто, которые выйдут на рынок</h3>
+                        <p>Собираем самые ожидаемые автомобили от мировых брендов — от бюджетных до флагманских.</p>
+                        <span class="article-meta">10 мин · 2 дня назад</span>
+                    </article>
+                    <article class="article-card">
+                        <span class="tag">История марок</span>
+                        <h3>Toyota: путь от ткацкого станка до мирового лидера</h3>
+                        <p>Как семейная компания из Японии изменила весь автопром и что такое «бережливое производство».</p>
+                        <span class="article-meta">12 мин · 3 дня назад</span>
+                    </article>
+                    <article class="article-card">
+                        <span class="tag">Двигатели</span>
+                        <h3>Бензин, дизель, гибрид или электро: что выбрать в 2026?</h3>
+                        <p>Считаем стоимость владения и сравниваем технологии — честный гид по выбору силовой установки.</p>
+                        <span class="article-meta">8 мин · 4 дня назад</span>
+                    </article>
+                    <article class="article-card">
+                        <span class="tag">Мировые новости</span>
+                        <h3>Автопром будущего: беспилотники, каршеринг и новые рынки</h3>
+                        <p>Что ждёт автомобильную индустрию через 10 лет и как это изменит вашу повседневную жизнь.</p>
+                        <span class="article-meta">9 мин · 5 дней назад</span>
+                    </article>
+                    <article class="article-card">
+                        <span class="tag">Электромобили</span>
+                        <h3>Зарядные станции: где заряжаться в дороге и сколько это стоит</h3>
+                        <p>Практическое руководство для владельцев электромобилей в России и за рубежом.</p>
+                        <span class="article-meta">7 мин · неделю назад</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- HISTORY TEASER -->
+        <section class="history section" id="history">
+            <div class="container">
+                <h2 class="section-title">Истории легендарных марок</h2>
+                <div class="history-list">
+                    <div class="history-item">
+                        <span class="history-year">1923</span>
+                        <div>
+                            <h3>BMW: от авиамоторов к «водительскому» автомобилю</h3>
+                            <p>Начав с авиационных двигателей, BMW прошла путь через мотоциклы и послевоенный кризис к культовому статусу.</p>
                         </div>
                     </div>
-                    <div class="hero-features">
-                        <div class="hf-item"><i class="fas fa-check-circle"></i> Оригиналы и аналоги</div>
-                        <div class="hf-item"><i class="fas fa-check-circle"></i> Доставка по РФ</div>
-                        <div class="hf-item"><i class="fas fa-check-circle"></i> Гарантия качества</div>
+                    <div class="history-item">
+                        <span class="history-year">1937</span>
+                        <div>
+                            <h3>Volkswagen: «народный автомобиль» и его наследие</h3>
+                            <p>История «Жука» и как идея одной машины для всех превратилась в крупнейший автоконцерн Европы.</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="catalog" id="catalog">
-            <div class="container">
-                <h2 class="section-title">Каталог запчастей</h2>
-                <div class="catalog-filters">
-                    <div class="filter-group">
-                        <label for="filterMake">Марка</label>
-                        <select id="filterMake" onchange="updateModels()">
-                            <option value="">Все марки</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filterModel">Модель</label>
-                        <select id="filterModel" onchange="updateCategories()">
-                            <option value="">Все модели</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="filterCategory">Категория</label>
-                        <select id="filterCategory" onchange="filterParts()">
-                            <option value="">Все категории</option>
-                        </select>
-                    </div>
-                    <div class="filter-group filter-search">
-                        <label for="filterText">Поиск</label>
-                        <input type="text" id="filterText" placeholder="Название или артикул..." oninput="filterParts()">
-                    </div>
-                </div>
-                <div class="results-counter" id="resultsCounter"></div>
-                <div class="catalog-grid" id="catalogGrid"></div>
-                <div class="catalog-empty" id="catalogEmpty" style="display:none">
-                    <i class="fas fa-box-open"></i>
-                    <p>Ничего не найдено. Попробуйте изменить параметры поиска.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="consultant" id="consultant">
-            <div class="container">
-                <div class="consultant-wrapper">
-                    <div class="consultant-info">
-                        <h2>ИИ-консультант по подбору</h2>
-                        <p>Опишите вашу задачу — консультант найдёт правильный артикул, следуя алгоритму:</p>
-                        <ul class="consultant-steps">
-                            <li><span class="step-num">1</span> Определяет автомобиль (марка, модель, год, двигатель)</li>
-                            <li><span class="step-num">2</span> Уточняет нужный узел или деталь</li>
-                            <li><span class="step-num">3</span> Выдаёт OEM-номер с описанием</li>
-                        </ul>
-                        <button class="btn btn-primary" onclick="openChat()">
-                            <i class="fas fa-robot"></i> Начать подбор
-                        </button>
-                    </div>
-                    <div class="consultant-preview">
-                        <div class="chat-preview">
-                            <div class="chat-msg consultant-msg">
-                                <i class="fas fa-robot"></i>
-                                <div>Здравствуйте! Я ИИ-консультант. Назовите марку и модель вашего автомобиля, чтобы я помог найти нужную деталь.</div>
-                            </div>
-                            <div class="chat-msg user-msg">
-                                <div>Toyota Camry 2018, 2.5 бензин</div>
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="chat-msg consultant-msg">
-                                <i class="fas fa-robot"></i>
-                                <div>Отлично! Какая деталь вас интересует? Например: тормозные колодки, масляный фильтр, сайлентблоки.</div>
-                            </div>
+                    <div class="history-item">
+                        <span class="history-year">1963</span>
+                        <div>
+                            <h3>Porsche 911: 60 лет одной легенде</h3>
+                            <p>Один из самых узнаваемых спорткаров в мире — почему его силуэт не меняется уже шесть десятилетий.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="container">
-                <h2 class="section-title">Как это работает?</h2>
-                <div class="about-grid">
-                    <div class="about-card">
-                        <i class="fas fa-search"></i>
-                        <h3>1. Найдите деталь</h3>
-                        <p>Воспользуйтесь каталогом или ИИ-консультантом. Укажите авто и получите точный OEM-номер.</p>
-                    </div>
-                    <div class="about-card">
-                        <i class="fas fa-copy"></i>
-                        <h3>2. Скопируйте артикул</h3>
-                        <p>OEM-номер всегда под рукой — нажмите «Копировать» на карточке детали.</p>
-                    </div>
-                    <div class="about-card">
-                        <i class="fas fa-book"></i>
-                        <h3>3. Используйте справочник</h3>
-                        <p>Каталог из 597+ оригинальных деталей по 19 маркам — бесплатный справочник без рекламы.</p>
-                    </div>
-                    <div class="about-card">
-                        <i class="fas fa-coins"></i>
-                        <h3>4. Бесплатно</h3>
-                        <p>Сайт полностью бесплатный и не содержит рекламных ссылок на магазины.</p>
-                    </div>
-                </div>
+        <!-- SUBSCRIBE -->
+        <section class="subscribe section" id="subscribe">
+            <div class="container subscribe-box">
+                <h2>Не пропускайте главные автоновости</h2>
+                <p>Раз в неделю отправляем дайджест: новые модели, электромобили, истории марок и тренды автопрома. Бесплатно, без спама.</p>
+                <form class="subscribe-form" id="subscribeForm">
+                    <input type="email" id="emailInput" placeholder="Ваш e-mail" required>
+                    <button type="submit" class="btn btn-primary">Подписаться</button>
+                </form>
+                <p class="subscribe-note" id="subscribeNote">Подписываясь, вы соглашаетесь с политикой конфиденциальности</p>
             </div>
         </section>
-
-
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="/" class="logo"><i class="fas fa-car"></i> Avto<span>PartsPro</span></a>
-                    <p>Справочник автозапчастей с ИИ-подбором</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Разделы</h4>
-                    <ul>
-                        <li><a href="#catalog">Каталог</a></li>
-                        <li><a href="#consultant">ИИ-консультант</a></li>
-                        <li><a href="#about">О сервисе</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contacts">
-                    <h4>Контакты</h4>
-                    <p><i class="fas fa-envelope"></i> AvtoPartsPro</p>
-                </div>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo">🚗 Авто<span>Тема</span></a>
+                <p>Новости автомобильного мира — просто и понятно</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="year"></span> AvtoPartsPro. Все права защищены. <a href="#" onclick="openPrivacy(); return false;" style="color:rgba(255,255,255,0.6);text-decoration:underline;">Политика конфиденциальности</a> · <a href="#" onclick="openTerms(); return false;" style="color:rgba(255,255,255,0.6);text-decoration:underline;">Пользовательское соглашение</a></p>
+            <div class="footer-links">
+                <h4>Разделы</h4>
+                <ul>
+                    <li><a href="#news">Новости</a></li>
+                    <li><a href="#electric">Электромобили</a></li>
+                    <li><a href="#history">История марок</a></li>
+                </ul>
             </div>
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <p>📧 elmankur01@gmail.com</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="year"></span> АвтоТема. Все права защищены. ·
+                <a href="#" onclick="openPrivacy(); return false;">Политика конфиденциальности</a> ·
+                <a href="#" onclick="openTerms(); return false;">Пользовательское соглашение</a>
+            </p>
         </div>
     </footer>
 
-    <div class="chat-widget" id="chatWidget">
-        <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
-            <i class="fas fa-robot"></i>
-            <span>ИИ-консультант</span>
-        </button>
-        <div class="chat-panel" id="chatPanel">
-            <div class="chat-header">
-                <div class="chat-header-info">
-                    <i class="fas fa-robot"></i>
-                    <div>
-                        <strong>ИИ-консультант</strong>
-                        <span class="chat-status">онлайн</span>
-                    </div>
-                </div>
-                <div class="chat-header-actions">
-                    <button class="chat-clear" onclick="clearChat()" title="Очистить чат"><i class="fas fa-trash-alt"></i></button>
-                    <button class="chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
-                </div>
-            </div>
-            <div class="chat-messages" id="chatMessages"></div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Напишите марку и модель авто..." onkeydown="if(event.key==='Enter') sendMessage()">
-                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
+    <!-- Privacy modal -->
     <div class="modal-overlay" id="privacyModal">
         <div class="modal">
             <div class="modal-header">
                 <h2>Политика конфиденциальности</h2>
-                <button class="modal-close" onclick="closePrivacy()"><i class="fas fa-times"></i></button>
+                <button class="modal-close" onclick="closePrivacy()"><i class="modal-x">✕</i></button>
             </div>
             <div class="modal-body">
                 <p><strong>Владелец сайта:</strong> Индивидуальный предприниматель Саругланов Эльман Ибрагимович<br>
                 <strong>ИНН:</strong> 052904150421<br>
-                <strong>ОГРНИП:</strong> 318057100006968<br>
-                <strong>Контактный email:</strong> AvtoPartsPro</p>
-
-                <h3>1. Какие данные мы собираем</h3>
-                <p>Мы не собираем персональные данные пользователей. На сайте не используются формы сбора личной информации. Единственное, что сохраняется в вашем браузере (localStorage) — анонимный счётчик просмотров страницы для внутреннего учёта.</p>
-
-                <h3>2. Сторонние сервисы</h3>
-                <p>На сайте используются:</p>
-                <ul>
-                    <li>Google Fonts (шрифт Inter) — загружается с серверов Google</li>
-                    <li>Font Awesome (иконки) — загружается с CDN</li>
-                </ul>
-                <p>Эти сервисы могут собирать техническую информацию (IP-адрес, тип браузера, версию ОС) в соответствии со своими политиками конфиденциальности.</p>
-
-                <h3>3. Cookie-файлы</h3>
-                <p>Наш сайт не использует файлы cookie. Вместо этого используется localStorage браузера для хранения анонимного счётчика просмотров. Эти данные не покидают ваш браузер и не передаются третьим лицам.</p>
-
-                <h3>4. Правовое основание обработки данных</h3>
-                <p>Обработка данных осуществляется на основании договора между ИП Саругланов Э.И. и пользователем (пользовательское соглашение). Вы можете в любой момент отозвать согласие, очистив localStorage браузера.</p>
-
-                <h3>5. Контакты</h3>
-                <p>По вопросам, связанным с обработкой данных, пишите на: <a href="mailto:elmankur01@gmail.com">AvtoPartsPro</a></p>
+                <strong>ОГРНИП:</strong> 318057100006968</p>
+                <h3>Какие данные мы собираем</h3>
+                <p>Мы не собираем персональные данные без вашего согласия. Единственная личная информация — e-mail, который вы добровольно оставляете в форме подписки. Он используется только для рассылки дайджеста.</p>
+                <h3>Сторонние сервисы</h3>
+                <p>На сайте используются Google Fonts (шрифты). Эти сервисы могут собирать техническую информацию (IP-адрес, тип браузера) в соответствии со своими политиками конфиденциальности.</p>
+                <h3>Контакты</h3>
+                <p>По вопросам обработки данных: <a href="mailto:elmankur01@gmail.com">elmankur01@gmail.com</a></p>
             </div>
             <div class="modal-footer">
                 <button onclick="closePrivacy()" class="btn btn-primary">Закрыть</button>
@@ -296,47 +255,24 @@
         </div>
     </div>
 
+    <!-- Terms modal -->
     <div class="modal-overlay" id="termsModal">
         <div class="modal">
             <div class="modal-header">
                 <h2>Пользовательское соглашение</h2>
-                <button class="modal-close" onclick="closeTerms()"><i class="fas fa-times"></i></button>
+                <button class="modal-close" onclick="closeTerms()"><i class="modal-x">✕</i></button>
             </div>
             <div class="modal-body">
                 <p><strong>Владелец сайта:</strong> Индивидуальный предприниматель Саругланов Эльман Ибрагимович<br>
                 <strong>ИНН:</strong> 052904150421<br>
-                <strong>ОГРНИП:</strong> 318057100006968<br>
-                <strong>Email:</strong> AvtoPartsPro</p>
-
+                <strong>ОГРНИП:</strong> 318057100006968</p>
                 <h3>1. Общие положения</h3>
-                <p>Настоящее Пользовательское соглашение регулирует отношения между ИП Саругланов Э.И. (далее — «Владелец сайта») и пользователем сайта AvtoPartsPro (далее — «Пользователь»). Используя сайт, Пользователь подтверждает согласие с условиями настоящего соглашения.</p>
-
-                <h3>2. Предмет соглашения</h3>
-                <p>Владелец сайта предоставляет Пользователю возможность поиска OEM-номеров автозапчастей через каталог и ИИ-консультант. Сайт является бесплатным справочником и не содержит рекламных ссылок на магазины.</p>
-
-                <h3>3. Права и обязанности сторон</h3>
-                <p><strong>Пользователь обязуется:</strong></p>
-                <ul>
-                    <li>Использовать сайт только в законных целях</li>
-                    <li>Не предпринимать действий, направленных на нарушение работоспособности сайта</li>
-                    <li>Самостоятельно проверять совместимость деталей по VIN-коду</li>
-                </ul>
-                <p><strong>Владелец сайта обязуется:</strong></p>
-                <ul>
-                    <li>Обеспечивать доступность сайта 24/7, за исключением времени технических работ</li>
-                    <li>Не передавать персональные данные пользователей третьим лицам</li>
-                </ul>
-
-                <h3>4. Отказ от ответственности</h3>
-                <p>Вся информация о деталях носит справочный характер — рекомендуем проверять совместимость по VIN-коду. Сайт не является интернет-магазином и не продаёт товары.</p>
-
-                <h3>5. Интеллектуальная собственность</h3>
-                <p>Все материалы сайта (текст, структура базы данных, дизайн) являются интеллектуальной собственностью Владельца сайта. Копирование и использование материалов без разрешения запрещено.</p>
-
-                <h3>6. Заключительные положения</h3>
-                <p>Соглашение вступает в силу с момента начала использования сайта. Владелец сайта имеет право вносить изменения в соглашение в одностороннем порядке. Актуальная версия всегда доступна по ссылке «Пользовательское соглашение» в футере сайта.</p>
-
-                <p>Последнее обновление: июнь 2026 г.</p>
+                <p>Сайт «АвтоТема» — информационный ресурс, публикующий новости и статьи об автомобилях. Материалы носят информационный характер.</p>
+                <h3>2. Использование сайта</h3>
+                <p>Используя сайт, вы подтверждаете согласие с настоящим соглашением. Копирование материалов без разрешения запрещено.</p>
+                <h3>3. Интеллектуальная собственность</h3>
+                <p>Все материалы сайта являются интеллектуальной собственностью владельца. Использование без разрешения не допускается.</p>
+                <p>Последнее обновление: август 2026 г.</p>
             </div>
             <div class="modal-footer">
                 <button onclick="closeTerms()" class="btn btn-primary">Закрыть</button>
@@ -344,11 +280,8 @@
         </div>
     </div>
 
-    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Наверх">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Наверх">↑</button>
 
-    <script src="data.js" defer></script>
     <script src="script.js" defer></script>
     <noscript>Включите JavaScript для работы сайта.</noscript>
 </body>
