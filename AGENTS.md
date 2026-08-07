@@ -6,6 +6,7 @@
 - Сайт: https://elmankur01.github.io/
 - Репозиторий: https://github.com/elmankur01/elmankur01.github.io (ветка main)
 - Deploy: GitHub Pages (автоматически с main)
+- Репо-источник (локальный): https://github.com/elmankur01/-auto-parts
 
 ## Владелец
 - ИП Саругланов Эльман Ибрагимович
@@ -14,95 +15,81 @@
 - Email: elmankur01@gmail.com
 
 ## Партнёрские сети
-- **Takprodam (Admitad)** — все 4 магазина. Сайт на модерации.
+- **Takprodam (Admitad)** — все 4 магазина. Площадка `https://elmankur01.github.io/` **подтверждена** ✅ (после повторной подачи). Теперь можно запрашивать офферы (campaign ID) для Exist и Autopiter.
 - **MyLead** — отказ, не используется.
 
 ## Магазины (STORES в data.js)
-| Магазин | URL | Commission | Campaign ID |
-|---------|-----|------------|-------------|
-| Exist.ru | exist.ru | Takprodam ~2.1% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` |
-| Rossko.ru | rossko.ru | Takprodam | `on8kt46xpp4c6955f9a4648980e865` ✅ |
-| Autopiter.ru | autopiter.ru | Takprodam ~4% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` |
-| AvtoALL.ru | avtoall.ru | Takprodam ~3.5% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` |
+| Магазин | URL | Commission | Campaign ID | ERID | Статус |
+|---------|-----|------------|-------------|------|--------|
+| Exist.ru | exist.ru | Takprodam ~2.1% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` | — | ❌ ждём campaign ID |
+| Rossko.ru | rossko.ru | Takprodam | `on8kt46xpp4c6955f9a4648980e865` ✅ | `2bL9aMPo2e49hMef4piUd4V2My` ✅ | ✅ настроен, URL `msk.rossko.ru/search/?text=` |
+| Autopiter.ru | autopiter.ru | Takprodam ~4% | `ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM` | — | ❌ ждём campaign ID |
+| AvtoALL.ru | avtoall.ru | Takprodam ~3.5% | `5rermd1rb54c6955f9a4aeed5c54e0` ✅ | `25H8d7vbP8SRTvHZB1b5vJ` ✅ | ✅ настроен, short `sgkaa.com` |
 
-При получении campaign ID — вставить в `data.js` в поле `campaignId`.
+## Важно: структура деплоя
+Файлы сайта лежат в **корне репозитория** `elmankur01.github.io`, а не в `auto-parts/`. Папка `auto-parts/` — локальная рабочая копия, которая не деплоится. При правках нужно:
+1. Редактировать файлы в локальной папке
+2. Клонировать `elmankur01.github.io` и переносить изменения
+3. Либо править напрямую через веб-интерфейс GitHub
 
 ## ERID / Маркировка рекламы
-- Поля `erid` в STORES — плейсхолдеры (пустые строки)
-- Нужно получить токены через ОРД (VK ОРД или Яндекс.ОРД)
-- После получения вставить в поле `erid`
+- ✅ Rossko — ERID получен
+- ✅ AvtoALL — ERID получен
+- ❌ Exist, Autopiter — ждём кампании
 
-## Юридический статус (всё реализовано)
+## Юридический статус
 - ✅ Маркировка рекламы («Реклама» на каждой ссылке)
 - ✅ Политика конфиденциальности (с ИП реквизитами)
 - ✅ Пользовательское соглашение
 - ✅ Cookie-баннер (Принять / Отклонить)
 - ✅ Трекинг отключается при отказе от cookie
-- ❌ ERID — ждём Токен (Takprodam модерацию)
-- ❌ Локализация данных — не требуется (нет сбора ПД)
+- ✅ Яндекс.Вебмастер — подтверждён (`yandex_9d4b4dc75e2f36bd.html`)
+- ✅ Google Search Console — подтверждён (`google70a162b366d85b3b.html`)
+- ❌ ERID на Exist, Autopiter — ждём кампании
 - ❌ Уведомление РКН — не требуется
 
-## Структура проекта
+## Структура проекта (локальная копия auto-parts/)
 ```
 auto-parts/
   index.html    — главная страница (SEO-метатеги, Open Graph)
-  styles.css    — все стили (1362 строки)
-  script.js     — логика каталога, чата, UX-улучшения (643 строки)
-  data.js       — база деталей (597+ шт, 16 категорий), конфиг магазинов (1024 строки)
-  admin.html    — админ-панель (CRUD, магазины, статистика, экспорт)
-  sitemap.xml   — карта сайта для поисковиков
-  robots.txt    — правила индексации
+  styles.css    — все стили
+  script.js     — логика каталога, чата, UX-улучшения
+  data.js       — база деталей (597+ шт), конфиг магазинов
+  admin.html    — админ-панель (CRUD, магазины, статистика)
   AGENTS.md     — этот файл
-  start.sh      — скрипт локального запуска (live-server порт 4000)
+  start.sh      — скрипт локального запуска
 ```
+Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `.nojekyll` — в корне репозитория.
 
-## Админ-панель (admin.html)
-
-Страница `https://elmankur01.github.io/-auto-parts/admin.html`
-Локально: `auto-parts/admin.html` или `/Users/elmansaruglanov/Desktop/auto-parts/admin.html`
-
-- **Пароль по умолчанию:** `admin123` (меняется в admin.html, строка `ADMIN_PASSWORD`)
-- **Вкладки:**
-  - **Каталог** — таблица со всеми деталями, поиск, фильтры по марке/категории, добавление/редактирование/удаление
-  - **Магазины** — настройка 4 магазинов (campaignId, URL, цвета, ERID)
-  - **Статистика** — просмотр кликов из localStorage (по магазинам)
-  - **Экспорт** — скачать обновлённый `data.js` для commit'a
-- **Как обновить каталог:** внести изменения → Экспорт → скачать `data.js` → заменить в проекте → `git commit && git push`
-- **Важно:** страница скрыта от поисковиков (`noindex, nofollow`), не ссылается с главной
+## Админ-панель
+- URL: `https://elmankur01.github.io/admin.html`
+- **Пароль по умолчанию:** `admin123` (строка `ADMIN_PASSWORD` в admin.html)
+- Вкладки: Каталог, Магазины, Статистика, Экспорт
+- Скрыта от поисковиков (`noindex, nofollow`)
 
 ## Особенности реализации
-- Каталог: 597+ деталей, 19 марок (+ Universal) — Toyota, BMW, Mercedes, VW, Hyundai, Kia, Ford, Skoda, Audi, Renault, Lada, Nissan, Mazda, Chery, Geely, Haval, Exeed, Omoda, Changan, фильтры по марке/модели/категории/поиску
+- Каталог: 597+ деталей, 19 марок (+ Universal), фильтры по марке/модели/категории/поиску
 - Пагинация: по 20 деталей, кнопка «Показать ещё»
-- Карточки товаров: показываются только после выбора авто
-- Кнопки магазинов: показываются только после выбора модели
 - ИИ-консультант: чат-виджет с пошаговым поиском (марка → деталь → OEM)
-- Секция «Где купить?»: всегда видна, 4 магазина
-- Трекинг: localStorage + счётчик кликов
-- Категории (16): Тормозная система, Фильтры, Подвеска, Электрика, Охлаждение, Масла и жидкости, Привод, Двигатель, Кузов, Рулевое управление, Трансмиссия, Система зажигания, Топливная система, Выхлопная система, Отопление и кондиционирование, Электроника
-- Hero-секция уменьшена (компактный лейаут)
-- Анимации появления секций (IntersectionObserver)
-- Scroll spy (активный пункт меню) + кнопка «Наверх»
 - Автодополнение в поиске + клавиатурная навигация
-- Счётчик результатов в каталоге
-- CSP meta-тег для защиты от XSS
-
-## SEO
-- ✅ Meta description + keywords
-- ✅ Open Graph (og:title, og:description, og:url)
-- ✅ Canonical URL
-- ✅ sitemap.xml
-- ✅ robots.txt (админка скрыта от индексации)
-- ❌ Яндекс.Вебмастер — нужно добавить verification code в `yandex-verification`
-- ❌ Google Search Console — нужно добавить verification code в `google-site-verification`
+- MODEL_SYNONYMS для русских названий моделей
+- CAR_SYNONYMS для русских названий марок
+- VIN-распознавание (первые 3 символа)
+- Анимации появления секций (IntersectionObserver)
+- Scroll spy + кнопка «Наверх»
+- Счётчик результатов, копирование OEM
+- Кнопка очистки чата 🗑️
 
 ## Что ждём
-- Модерацию Takprodam
-- Получение campaign ID от Takprodam
-- Регистрация в ОРД для ERID
-
-## CI/CD
-Автоматический деплой на GitHub Pages при пуше в main.
+- ✅ Rossko — настроен и работает (`msk.rossko.ru/search/?text=`, campaign, ERID)
+- ✅ AvtoALL — настроен и работает (`takprodam_short`, campaign, ERID)
+- ✅ Takprodam площадка — подтверждена
+- ✅ Фавиконки — созданы `favicon.svg`, `favicon.png`, `favicon.ico` (для Яндекса), все 200 OK
+- ⏳ Campaign ID для Exist и Autopiter от Takprodam (площадка подтверждена — нужно запросить офферы в ЛК)
+- ⏳ ERID для Exist и Autopiter (после получения campaign)
+- ⏳ Rossko — подтвердить у пользователя, что ссылка `msk.rossko.ru` реально работает
+- ⏳ Аудит безопасности — проведён (12 уязвимостей), исправления по запросу
 
 ## Локальные копии
-- Основная: `/Users/elmansaruglanov/Documents/first project/first project1/auto-parts/`
-- Desktop (копия): `/Users/elmansaruglanov/Desktop/auto-parts/`
+- Рабочая: `/Users/elmansaruglanov/Documents/first project/first project1/auto-parts/`
+- Git-репозиторий (источник): `/Users/elmansaruglanov/Desktop/auto-parts/` → `elmankur01/-auto-parts`

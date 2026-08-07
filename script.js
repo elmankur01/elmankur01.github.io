@@ -8,7 +8,19 @@ let currentPage = 1;
 const PAGE_SIZE = 20;
 let currentFilteredParts = [];
 
+function trackPageView() {
+    try {
+        const today = new Date().toISOString().slice(0, 10);
+        const data = JSON.parse(localStorage.getItem('ap_views') || '{"total":0,"days":{}}');
+        data.total = (data.total || 0) + 1;
+        data.days = data.days || {};
+        data.days[today] = (data.days[today] || 0) + 1;
+        localStorage.setItem('ap_views', JSON.stringify(data));
+    } catch (e) {}
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    trackPageView();
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Cookie consent
