@@ -925,94 +925,12 @@ function findPartsForCar(make, model, year, engine, partQuery) {
 }
 
 // ==========================================
-// 🔗 ПАРТНЁРСКИЕ МАГАЗИНЫ (настрой под себя)
+// 🔗 ПАРТНЁРСКИЕ МАГАЗИНЫ (отключено)
 // ==========================================
-// После подтверждения в Takprodam (Admitad):
-// 1. Замени campaignId на полученные ID для каждого оффера
-// 2. Замени erid на токены из ОРД (или получи через Admitad)
-// 3. Если ссылка не работает — поправь urlTemplate под формат магазина
-// Примечание: advertiser нужно уточнить в партнёрской программе
-
-const STORES = [
-  {
-    name: "Exist.ru",
-    urlTemplate: "https://www.exist.ru/pages/?pid=SEARCH&search={OEM}",
-    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
-    type: "takprodam",
-    color: "#007bff",
-    icon: "fa-solid fa-cart-shopping",
-    network: "Takprodam (Admitad) ~2.1%",
-    erid: "",
-    advertiser: "ООО «Экзист»"
-  },
-  {
-    name: "Rossko.ru",
-    urlTemplate: "https://msk.rossko.ru/search/?text={OEM}",
-    campaignId: "on8kt46xpp4c6955f9a4648980e865",
-    type: "takprodam",
-    color: "#28a745",
-    icon: "fa-solid fa-truck",
-    network: "Takprodam (Admitad)",
-    erid: "2bL9aMPo2e49hMef4piUd4V2My",
-    advertiser: "ООО «Росско»"
-  },
-  {
-    name: "Autopiter.ru",
-    urlTemplate: "https://autopiter.ru/search?q={OEM}",
-    campaignId: "ЗАМЕНИТЬ_НА_ID_ИЗ_TAKPRODAM",
-    type: "takprodam",
-    color: "#dc3545",
-    icon: "fa-solid fa-gear",
-    network: "Takprodam (Admitad) ~4%",
-    erid: "",
-    advertiser: "ООО «Автопитер»"
-  },
-  {
-    name: "AvtoALL.ru",
-    urlTemplate: "https://avtoall.ru/search/?GlobalFilterForm%5Bnamearticle%5D={OEM}",
-    campaignId: "5rermd1rb54c6955f9a4aeed5c54e0",
-    type: "takprodam_short",
-    shortDomain: "sgkaa.com",
-    color: "#6f42c1",
-    icon: "fa-solid fa-wrench",
-    network: "Takprodam (Admitad) ~3.5%",
-    erid: "25H8d7vbP8SRTvHZB1b5vJ",
-    advertiser: "ООО «АвтоВсе»"
-  }
-];
-
-function getStoreLinks(oem) {
-  return STORES.map(s => {
-    const directUrl = s.urlTemplate.replace('{OEM}', oem);
-    const isConfigured = s.campaignId && !s.campaignId.startsWith('ЗАМЕНИТЬ');
-    if (!isConfigured) {
-      return { ...s, fullUrl: directUrl };
-    }
-    if (s.type === 'takprodam_short') {
-      const domain = s.shortDomain || 'sgkaa.com';
-      let url = `https://${domain}/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}&erid=${s.erid}`;
-      return { ...s, fullUrl: url };
-    }
-    let url = `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
-    if (s.erid) url += `&erid=${s.erid}`;
-    return { ...s, fullUrl: url };
-  });
-}
-
-function trackClick(storeName, oem) {
-  if (localStorage.getItem('ap_cookies_accepted') !== 'true') return;
-  let clicks = JSON.parse(localStorage.getItem('ap_clicks') || '[]');
-  clicks.push({ store: storeName, oem, date: new Date().toISOString() });
-  localStorage.setItem('ap_clicks', JSON.stringify(clicks));
-}
-
-function getTotalClicks() {
-  const clicks = JSON.parse(localStorage.getItem('ap_clicks') || '[]');
-  return clicks.length;
-}
+// Монетизация отключена. Сайт работает как справочник по автозапчастям.
 
 // Also make ChatGPT-compatible system prompt
-const SYSTEM_PROMPT = `Ты — профессиональный ИИ-консультант интернет-магазина автозапчастей. Твоя задача — помочь найти оригинальный OEM-артикул детали.
+const SYSTEM_PROMPT = `Ты — профессиональный ИИ-консультант по автозапчастям. Твоя задача — помочь найти оригинальный OEM-артикул детали.
 
 Алгоритм:
 1. Спроси марку, модель, год выпуска и двигатель авто

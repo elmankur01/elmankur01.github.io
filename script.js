@@ -23,11 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     trackPageView();
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Cookie consent
-    if (!localStorage.getItem('ap_cookies_accepted')) {
-        document.getElementById('cookieBanner').classList.add('show');
-    }
-
     // Burger menu
     const burger = document.querySelector('.burger-menu');
     const navList = document.querySelector('.nav-list');
@@ -47,10 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
     currentFilteredParts = PARTS_DB;
     renderCatalog([]);
 
-    // Init partners
-    renderPartners();
-    updateClickCount();
-
     // Chat init
     initChat();
     setupChatScroll();
@@ -63,16 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', updateActiveNav);
 });
-
-function acceptCookies() {
-    localStorage.setItem('ap_cookies_accepted', 'true');
-    document.getElementById('cookieBanner').classList.remove('show');
-}
-
-function rejectCookies() {
-    localStorage.setItem('ap_cookies_accepted', 'false');
-    document.getElementById('cookieBanner').classList.remove('show');
-}
 
 function openPrivacy() {
     document.getElementById('privacyModal').classList.add('show');
@@ -197,16 +178,6 @@ function renderCatalog(parts) {
             <h3>${p.name}</h3>
             <div class="part-desc">${p.make} ${p.model} ${p.year} · ${p.engine}${p.note ? '<br><em>' + p.note + '</em>' : ''}</div>
             <div class="part-oem" onclick="copyOEM(this)">${p.oem}</div>
-            <div class="part-stores">
-                ${document.getElementById('filterModel').value
-                    ? getStoreLinks(p.oem).map(s => `
-                        <a href="${s.fullUrl}" target="_blank" rel="noopener" class="store-btn" style="--store-color:${s.color}" onclick="trackClick('${s.name}','${p.oem}')">
-                            <i class="${s.icon}"></i> ${s.name} <span class="ad-label">Реклама</span>
-                        </a>
-                    `).join('')
-                    : '<span class="part-store-hint">Выберите модель, чтобы перейти в магазин</span>'
-                }
-            </div>
             <div class="part-card-footer">
                 <span class="part-stock ${p.inStock ? 'in-stock' : 'on-order'}">
                     <i class="fas ${p.inStock ? 'fa-check-circle' : 'fa-clock'}"></i>
@@ -506,19 +477,9 @@ function addResultCard(parts) {
                         ${p.inStock ? '✓ В наличии' : '⏳ Под заказ'}
                     </span>
                     ${p.note ? '<br><em style="font-size:0.75rem;color:var(--gray);">' + escapeHtml(p.note) + '</em>' : ''}
-                    <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;">
-                        ${getStoreLinks(p.oem).map(s => `
-                            <a href="${s.fullUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;background:${s.color};color:white;padding:4px 10px;border-radius:6px;font-size:0.75rem;text-decoration:none;" onclick="trackClick('${s.name}','${p.oem}')">
-                                <i class="${s.icon}"></i> ${s.name} <span class="ad-label" style="background:rgba(255,255,255,0.25);font-size:0.6rem;padding:1px 5px;border-radius:3px;">Реклама</span>
-                            </a>
-                        `).join('')}
-                    </div>
                     <button class="quick-reply" onclick="copyFromChat('${p.oem}', this)" style="font-size:0.75rem;padding:3px 10px;margin-top:6px;">📋 Копировать ${p.oem}</button>
                 </div>
             `).join('')}
-            <div style="margin-top:8px;font-size:0.8rem;color:var(--gray);">
-                Нажмите на магазин, чтобы перейти к оформлению. Вы получите лучшую цену, а я — комиссию с продажи. Спасибо!
-            </div>
         </div>
     `;
     chat.appendChild(div);
@@ -787,7 +748,7 @@ function handleDetails(msg) {
         addBotMessage('Введите VIN-номер автомобиля (17 символов). Обычно он указан в ПТС или на кузове под капотом.');
         chatState = 'awaiting_vin';
     } else if (lower.includes('спас') || lower.includes('благодар') || lower.includes('да') || lower.includes('хорош')) {
-        addBotMessage('Рад был помочь! 🚗 Скопируйте OEM-артикул и перейдите в магазин для заказа. Если понадобится ещё что-то — просто напишите!');
+        addBotMessage('Рад был помочь! 🚗 Скопируйте OEM-артикул — он понадобится для заказа детали. Если понадобится ещё что-то — просто напишите!');
         setTimeout(() => {
             addQuickReplies(['Найти новую деталь', 'Другая марка']);
             chatState = 'awaiting_car';
@@ -833,51 +794,6 @@ function handleVinInput(msg) {
         addQuickReplies(['Тормозные колодки', 'Масляный фильтр', 'Подвеска']);
     }
     chatState = 'awaiting_part';
-}
- 
-// === PARTNERS ===
-function renderPartners() {
-    const grid = document.getElementById('partnersGrid');
-    grid.innerHTML = STORES.map(s => {
-        const exampleOem = '04465-33220';
-        const directUrl = s.urlTemplate.replace('{OEM}', exampleOem);
-        const isConfigured = s.campaignId && !s.campaignId.startsWith('ЗАМЕНИТЬ');
-        let exampleUrl;
-        if (isConfigured) {
-            if (s.type === 'mylead') {
-                exampleUrl = `https://mylead.global/go/${s.campaignId}/?url=${encodeURIComponent(directUrl)}`;
-            } else if (s.type === 'takprodam_short') {
-                const domain = s.shortDomain || 'sgkaa.com';
-                exampleUrl = `https://${domain}/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}&erid=${s.erid}`;
-            } else {
-                exampleUrl = `https://ad.admitad.com/g/${s.campaignId}/?ulp=${encodeURIComponent(directUrl)}`;
-                if (s.erid) exampleUrl += `&erid=${s.erid}`;
-            }
-        } else {
-            exampleUrl = directUrl;
-        }
-        return `
-            <div class="partner-card" style="border-color:${s.color}44;">
-                <i class="${s.icon}" style="color:${s.color}"></i>
-                <h3>${s.name}</h3>
-                <p>Поиск по OEM-номеру, оригиналы и аналоги.<br><small style="opacity:0.6">${s.network}</small></p>
-                <a href="${exampleUrl}" target="_blank" rel="noopener" class="partner-link" style="border-color:${s.color};color:${s.color}">
-                    <i class="${s.icon}"></i> Перейти в ${s.name} <span class="ad-label">Реклама</span>
-                </a>
-            </div>
-        `;
-    }).join('');
-}
-
-function updateClickCount() {
-    const el = document.getElementById('clickCount');
-    if (el) {
-        const count = getTotalClicks();
-        el.textContent = count;
-        el.style.transition = 'all 0.3s';
-        el.style.transform = 'scale(1.3)';
-        setTimeout(() => { el.style.transform = 'scale(1)'; }, 300);
-    }
 }
 
 function formatResultCount(n) {
