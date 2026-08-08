@@ -159,12 +159,13 @@ function escAttr(s) {
 
 function cardHTML(a, idx, featured, meta) {
     const img = IMAGES[idx + 1];
+    const slug = (typeof SLUGS !== 'undefined' && SLUGS[idx + 1]) ? SLUGS[idx + 1] : 'article-' + (idx + 1);
     const media = img && img.url
         ? `<div class="card-media"><img src="${escAttr(img.url)}" alt="${escAttr(img.alt || a.title)}" loading="lazy" width="800" height="450"></div>`
         : '';
     return `
         <article class="article-card${featured ? ' featured' : ''}">
-            <a href="/articles/article-${idx + 1}.html" class="card-link"></a>
+            <a href="/articles/${slug}.html" class="card-link"></a>
             ${media}
             <div class="card-body">
                 <span class="tag">${a.tag}</span>

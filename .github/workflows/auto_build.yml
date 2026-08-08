@@ -6,6 +6,7 @@ on:
     paths:
       - 'script.js'
       - 'article_content.js'
+      - 'article_images.js'
       - 'generate_articles.js'
       - 'index.html'
       - 'styles.css'

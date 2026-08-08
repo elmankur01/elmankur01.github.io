@@ -849,5 +849,6 @@ const SOURCES = [
 // Фото из Wikimedia Commons под свободными лицензиями CC BY-SA; указание автора обязательно.
 // IMAGES вынесены в отдельный файл article_images.js (используется и на главной, и в Node).
 const IMAGES = (typeof require !== 'undefined') ? require('./article_images.js').IMAGES : {};
+const SLUGS = (typeof require !== 'undefined') ? require('./article_images.js').SLUGS : {};
 
-if (typeof module !== 'undefined') module.exports = { BODIES, SOURCES, IMAGES };
+if (typeof module !== 'undefined') module.exports = { BODIES, SOURCES, IMAGES, SLUGS };

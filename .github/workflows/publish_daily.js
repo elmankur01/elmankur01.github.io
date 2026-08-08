@@ -9,6 +9,8 @@ const m = src.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
 if (!m) { console.error('ARTICLE_BANK не найден'); process.exit(1); }
 
 const bank = eval(m[1]);
+let slugs = {};
+try { slugs = require('../../article_images.js').SLUGS || {}; } catch (e) {}
 const now = new Date();
 const startOfYear = new Date(now.getUTCFullYear(), 0, 1);
 const dayOfYear = Math.floor((now - startOfYear) / 86400000);
@@ -24,7 +26,7 @@ function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-const url = 'https://elmankur01.github.io/articles/article-' + (offset + 1) + '.html';
+const url = 'https://elmankur01.github.io/articles/' + (slugs[offset + 1] || ('article-' + (offset + 1))) + '.html';
 
 const text = [
     '🔥 <b>' + escHtml(article.title) + '</b>',

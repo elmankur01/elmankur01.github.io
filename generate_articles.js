@@ -16,17 +16,19 @@ const bank = eval(m[1]);
 let bodies = [];
 let sources = [];
 let images = [];
+let slugs = {};
 try {
     const content = require('./article_content.js');
     bodies = content.BODIES || content;
     sources = content.SOURCES || [];
     images = content.IMAGES || [];
+    slugs = content.SLUGS || {};
 } catch (e) {}
 
 const outDir = path.join(__dirname, 'articles');
 fs.mkdirSync(outDir, { recursive: true });
 for (const f of fs.readdirSync(outDir)) {
-    if (/^article-\d+\.html$/.test(f)) fs.unlinkSync(path.join(outDir, f));
+    if (f.endsWith('.html')) fs.unlinkSync(path.join(outDir, f));
 }
 
 function esc(s) {
@@ -116,6 +118,7 @@ function relatedArticles(n, count) {
 }
 
 function page(article, n) {
+    const slug = slugs[n] || ('article-' + n);
     return `<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -130,7 +133,7 @@ function page(article, n) {
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="АвтоТема">
-    <meta property="og:url" content="${SITE}/articles/article-${n}.html">
+    <meta property="og:url" content="${SITE}/articles/${slug}.html">
     <meta property="og:image" content="${SITE}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
@@ -140,7 +143,7 @@ function page(article, n) {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="${SITE}/og-image.png">
     <meta property="og:locale" content="ru_RU">
-    <link rel="canonical" href="${SITE}/articles/article-${n}.html">
+    <link rel="canonical" href="${SITE}/articles/${slug}.html">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
     <script type="application/ld+json">
     {
@@ -150,7 +153,7 @@ function page(article, n) {
         "description": ${JSON.stringify(article.text)},
         "datePublished": "${dateFor(n)}",
         "inLanguage": "ru",
-        "mainEntityOfPage": "${SITE}/articles/article-${n}.html",
+        "mainEntityOfPage": "${SITE}/articles/${slug}.html",
         "image": {
             "@type": "ImageObject",
             "url": "${SITE}/og-image.png",
@@ -218,15 +221,23 @@ function page(article, n) {
                 </article>
 
                 <aside class="related">
-                    <h2>Похожие статьи</h2>
+                    <h2>Читайте также</h2>
                     <div class="articles-grid">
                         ${relatedArticles(n, 3).map(({ a, i }) => {
                             const ri = i + 1;
+                            const rSlug = slugs[ri] || ('article-' + ri);
+                            const rImg = images[ri];
+                            const rMedia = rImg && rImg.url
+                                ? `<div class="card-media"><img src="${esc(rImg.url)}" alt="${esc(rImg.alt || a.title)}" loading="lazy" width="800" height="450"></div>`
+                                : '';
                             return `<article class="article-card">
-                                <span class="tag">${esc(a.tag)}</span>
-                                <h3><a href="article-${ri}.html">${esc(a.title)}</a></h3>
-                                <p>${esc(a.text)}</p>
-                                <span class="article-meta">${a.readTime} мин</span>
+                                ${rMedia}
+                                <div class="card-body">
+                                    <span class="tag">${esc(a.tag)}</span>
+                                    <h3><a href="${rSlug}.html">${esc(a.title)}</a></h3>
+                                    <p>${esc(a.text)}</p>
+                                    <span class="article-meta">${a.readTime} мин</span>
+                                </div>
                             </article>`;
                         }).join('\n')}
                     </div>
@@ -263,13 +274,39 @@ function sitemap() {
         out += `  <url>\n    <loc>${SITE}/${p.path}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${p.freq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>\n`;
     }
     for (let i = 0; i < bank.length; i++) {
-        out += `  <url>\n    <loc>${SITE}/articles/article-${i + 1}.html</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+        const slug = slugs[i + 1] || ('article-' + (i + 1));
+        out += `  <url>\n    <loc>${SITE}/articles/${slug}.html</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     }
     return out + '</urlset>\n';
 }
 
+// Заглушка со старым адресом article-N.html: переадресация на ЧПУ-страницу.
+// Мета-редирект не требует JS и не нарушает CSP. noindex, чтобы в индексе
+// оставалась только основная ЧПУ-версия.
+function redirectStub(article, n) {
+    const slug = slugs[n] || ('article-' + n);
+    const target = `${SITE}/articles/${slug}.html`;
+    return `<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${esc(article.title)} | АвтоТема</title>
+    <meta name="robots" content="noindex, follow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'self'">
+    <link rel="canonical" href="${target}">
+    <meta http-equiv="refresh" content="0; url=${target}">
+</head>
+<body>
+    <p>Статья переехала на новый адрес: <a href="${target}">${esc(article.title)}</a></p>
+</body>
+</html>`;
+}
+
 for (let n = 1; n <= bank.length; n++) {
-    fs.writeFileSync(path.join(outDir, `article-${n}.html`), page(bank[n - 1], n));
+    const slug = slugs[n] || ('article-' + n);
+    fs.writeFileSync(path.join(outDir, `${slug}.html`), page(bank[n - 1], n));
+    fs.writeFileSync(path.join(outDir, `article-${n}.html`), redirectStub(bank[n - 1], n));
 }
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap());
 console.log(`Сгенерировано страниц: ${bank.length}, sitemap обновлён`);

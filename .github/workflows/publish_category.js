@@ -16,6 +16,9 @@ if (!category) { console.error('Нет POST_CATEGORY'); process.exit(1); }
 const items = bank.map((a, i) => ({ a, i })).filter(x => x.a.tag === category);
 if (!items.length) { console.error('Нет статей с рубрикой: ' + category); process.exit(1); }
 
+let slugs = {};
+try { slugs = require('../../article_images.js').SLUGS || {}; } catch (e) {}
+
 const now = new Date();
 const startOfYear = new Date(now.getUTCFullYear(), 0, 1);
 const dayOfYear = Math.floor((now - startOfYear) / 86400000);
@@ -26,7 +29,7 @@ const chatId = process.env.TELEGRAM_CHAT_ID;
 if (!token || !chatId) { console.error('Нет TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID'); process.exit(1); }
 
 const icon = category === 'Российские авто' ? '🇷🇺' : '📊';
-const url = 'https://elmankur01.github.io/articles/article-' + (pick.i + 1) + '.html';
+const url = 'https://elmankur01.github.io/articles/' + (slugs[pick.i + 1] || ('article-' + (pick.i + 1))) + '.html';
 
 function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
