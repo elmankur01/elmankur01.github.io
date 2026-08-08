@@ -346,6 +346,8 @@ a { color: inherit; text-decoration: none; }
     margin: 0 auto;
 }
 
+.tg-btn { margin-bottom: 20px; }
+
 .subscribe-form input {
     flex: 1;
     padding: 13px 18px;
