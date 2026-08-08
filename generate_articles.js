@@ -1,27 +1,41 @@
 // Генератор страниц статей для многостраничного блога
-// Читает ARTICLE_BANK из script.js и создаёт articles/article-N.html
+// Читает ARTICLE_BANK из script.js и BODIES из article_content.js,
+// создаёт articles/article-N.html и обновляет sitemap.xml.
+// Запуск: node generate_articles.js  (локально или в GitHub Actions)
 const fs = require('fs');
 const path = require('path');
 
 const SITE = 'https://elmankur01.github.io';
+const TODAY = new Date().toISOString().slice(0, 10);
 
 const src = fs.readFileSync(path.join(__dirname, 'script.js'), 'utf8');
 const m = src.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
 if (!m) { console.error('ARTICLE_BANK не найден'); process.exit(1); }
 const bank = eval(m[1]);
 
+let bodies = [];
+try { bodies = require('./article_content.js'); } catch (e) {}
+
 const outDir = path.join(__dirname, 'articles');
 fs.mkdirSync(outDir, { recursive: true });
+for (const f of fs.readdirSync(outDir)) {
+    if (/^article-\d+\.html$/.test(f)) fs.unlinkSync(path.join(outDir, f));
+}
 
 function esc(s) {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 function dateFor(n) {
     return new Date(2026, 7, 1 + n).toISOString().slice(0, 10);
 }
 
-function body(article, n) {
+function paragraphs(article, n) {
+    const body = bodies[n - 1] || [article.text];
+    return body.map(p => `<p>${esc(p)}</p>`).join('\n                        ');
+}
+
+function page(article, n) {
     return `<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -76,9 +90,7 @@ function body(article, n) {
                     <h1>${esc(article.title)}</h1>
                     <span class="article-meta">${article.readTime} мин · ${dateFor(n)}</span>
                     <div class="article-body">
-                        <p>${esc(article.text)}</p>
-                        <p>В этом материале мы разбираем тему подробно: что происходит в этом направлении в 2026 году, какие модели и технологии уже доступны, а что стоит только на подходе. Следите за обновлениями — каждую неделю мы публикуем свежие материалы о новых моделях, электромобилях, двигателях и истории автомобильных марок.</p>
-                        <p>Если хотите не пропускать главные новости автопрома — подпишитесь на наш бесплатный еженедельный дайджест или читайте нас в Telegram.</p>
+                        ${paragraphs(article, n)}
                     </div>
                 </article>
 
@@ -87,9 +99,10 @@ function body(article, n) {
                     <div class="articles-grid">
                         ${[1, 2, 3].map(k => {
                             const r = bank[(n - 1 + k) % bank.length];
+                            const ri = bank.indexOf(r) + 1;
                             return `<article class="article-card">
                                 <span class="tag">${esc(r.tag)}</span>
-                                <h3><a href="article-${(bank.indexOf(r)) + 1}.html">${esc(r.title)}</a></h3>
+                                <h3><a href="article-${ri}.html">${esc(r.title)}</a></h3>
                                 <p>${esc(r.text)}</p>
                                 <span class="article-meta">${r.readTime} мин</span>
                             </article>`;
@@ -114,9 +127,16 @@ function body(article, n) {
 </html>`;
 }
 
-let n = 1;
-for (const article of bank) {
-    fs.writeFileSync(path.join(outDir, `article-${n}.html`), body(article, n));
-    n++;
+function sitemap() {
+    let out = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${SITE}/</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+    for (let i = 0; i < bank.length; i++) {
+        out += `  <url>\n    <loc>${SITE}/articles/article-${i + 1}.html</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+    }
+    return out + '</urlset>\n';
 }
-console.log(`Сгенерировано страниц: ${bank.length}`);
+
+for (let n = 1; n <= bank.length; n++) {
+    fs.writeFileSync(path.join(outDir, `article-${n}.html`), page(bank[n - 1], n));
+}
+fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap());
+console.log(`Сгенерировано страниц: ${bank.length}, sitemap обновлён`);
