@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "=================================="
-echo "  AvtoPartsPro - Local Dev Server "
+echo "  AvtoTema - Local Dev Server     "
 echo "=================================="
 echo ""
 echo "  http://localhost:4000"
@@ -9,4 +9,4 @@ echo "  Press Ctrl+C to stop"
 echo "=================================="
 echo ""
 
-npx live-server . --port=4000 --no-browser --ignore=data.js
+npx live-server . --port=4000 --no-browser
