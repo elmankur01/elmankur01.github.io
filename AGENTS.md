@@ -47,7 +47,7 @@ auto-parts/
   AGENTS.md              — этот файл
   start.sh               — скрипт локального запуска
 ```
-Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `favicon.png`, `favicon.ico`, `google70a162b366d85b3b.html`, `yandex_9d4b4dc75e2f36bd.html`, `.nojekyll`, `og-image.png` (превью для соцсетей), `footer.js` (подстановка года на страницах статей) — в корне репозитория.
+Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `favicon.png`, `favicon.ico`, `google70a162b366d85b3b.html`, `yandex_9d4b4dc75e2f36bd.html`, `.nojekyll`, `og-image.png` (превью для соцсетей), `footer.js` (подстановка года на страницах статей), `analytics.js` (Яндекс.Метрика + GA4 — плейсхолдеры `YM_COUNTER_ID` / `GA4_ID` надо заменить на свои ID), `stats.html` (панель статистики Telegram, скрыта от индексации) — в корне репозитория.
 **Безопасность:** на всех страницах есть CSP meta-тег (`script-src 'self'` — без inline-скриптов/обработчиков, всё через addEventListener в script.js). Не добавляйте inline JS-обработчики в HTML — они будут заблокированы.
 
 **Удалены:** `data.js` (база запчастей), `admin.html` (админка) — больше не нужны.
