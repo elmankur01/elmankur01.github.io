@@ -153,14 +153,25 @@ function slotOffset() {
     return (dayOfYear * 4 + slot) % ARTICLE_BANK.length;
 }
 
+function escAttr(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 function cardHTML(a, idx, featured, meta) {
+    const img = IMAGES[idx + 1];
+    const media = img && img.url
+        ? `<div class="card-media"><img src="${escAttr(img.url)}" alt="${escAttr(img.alt || a.title)}" loading="lazy" width="800" height="450"></div>`
+        : '';
     return `
         <article class="article-card${featured ? ' featured' : ''}">
             <a href="/articles/article-${idx + 1}.html" class="card-link"></a>
-            <span class="tag">${a.tag}</span>
-            <h3>${a.title}</h3>
-            <p>${a.text}</p>
-            <span class="article-meta">${meta}</span>
+            ${media}
+            <div class="card-body">
+                <span class="tag">${a.tag}</span>
+                <h3>${a.title}</h3>
+                <p>${a.text}</p>
+                <span class="article-meta">${meta}</span>
+            </div>
         </article>`;
 }
 
