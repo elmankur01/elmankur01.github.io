@@ -1,4 +1,6 @@
-// Скрипт для GitHub Actions: берёт "свежую" статью дня из ARTICLE_BANK и публикует в Telegram
+// Скрипт для GitHub Actions: берёт «свежую» статью из ARTICLE_BANK и публикует в Telegram.
+// Запускается 4 раза в день (каждые 6 часов): день года + 6-часовой слот определяют статью,
+// поэтому каждый пост — новая статья.
 // Токен берётся из секрета TELEGRAM_BOT_TOKEN, ID канала — из секрета TELEGRAM_CHAT_ID
 const fs = require('fs');
 
@@ -8,9 +10,10 @@ if (!m) { console.error('ARTICLE_BANK не найден'); process.exit(1); }
 
 const bank = eval(m[1]);
 const now = new Date();
-const startOfYear = new Date(now.getFullYear(), 0, 1);
+const startOfYear = new Date(now.getUTCFullYear(), 0, 1);
 const dayOfYear = Math.floor((now - startOfYear) / 86400000);
-const offset = dayOfYear % bank.length;
+const slot = Math.floor(now.getUTCHours() / 6);
+const offset = (dayOfYear * 4 + slot) % bank.length;
 const article = bank[offset];
 
 const token = process.env.TELEGRAM_BOT_TOKEN;

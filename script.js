@@ -121,11 +121,13 @@ function renderDailyArticles() {
     const grid = document.querySelector('.articles-grid');
     if (!grid || !ARTICLE_BANK.length) return;
 
-    // Детерминированный выбор: день года определяет сдвиг в банке
+    // Детерминированный выбор: день года + 6-часовой слот определяют сдвиг в банке.
+    // Так новости на главной обновляются 4 раза в день.
     const now = new Date();
     const startOfYear = new Date(now.getFullYear(), 0, 1);
     const dayOfYear = Math.floor((now - startOfYear) / 86400000);
-    const offset = dayOfYear % ARTICLE_BANK.length;
+    const slot = Math.floor(now.getHours() / 6);
+    const offset = (dayOfYear * 4 + slot) % ARTICLE_BANK.length;
 
     const today = [];
     for (let i = 0; i < VISIBLE_ARTICLES; i++) {
