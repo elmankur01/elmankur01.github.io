@@ -125,7 +125,7 @@ function page(article, n) {
     <meta name="description" content="${esc(article.text)}">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0b0f14">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://mc.yandex.ru https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://mc.yandex.ru https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://mc.yandex.ru https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://mc.yandex.ru https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
     <meta property="og:title" content="${esc(article.title)}">
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
@@ -187,7 +187,6 @@ function page(article, n) {
     }
     </script>
     <link rel="stylesheet" href="/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">

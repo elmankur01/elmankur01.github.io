@@ -61,7 +61,9 @@ auto-parts/
   privacy.html           — Политика конфиденциальности (152-ФЗ)
   terms.html             — Пользовательское соглашение (ГК РФ)
   consent.js             — баннер согласия на cookie/аналитику (загружается ДО analytics.js)
+  fonts/                 — шрифт Inter (селф-хостинг: inter-cyrillic.woff2, inter-cyrillic-ext.woff2, inter-latin.woff2, inter-latin-ext.woff2)
 ```
+**Шрифты:** Inter подключён локально (`@font-face` в styles.css, файлы в `fonts/`) — БЕЗ Google Fonts. Внешние шрифты (Google Fonts) не используются: это устраняет передачу IP/данных браузера на серверы Google и блокировку шрифтов в РФ. CSP: `font-src 'self'`. Не добавляйте ссылки на Google Fonts обратно.
 Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `favicon.png`, `favicon.ico`, `google70a162b366d85b3b.html`, `yandex_9d4b4dc75e2f36bd.html`, `.nojekyll`, `og-image.png` (превью для соцсетей), `footer.js` (подстановка года на страницах статей), `analytics.js` (Яндекс.Метрика + GA4 — плейсхолдеры `YM_COUNTER_ID` / `GA4_ID` надо заменить на свои ID; загружаются только после согласия), `stats.html` (панель статистики Telegram, скрыта от индексации) — в корне репозитория.
 **Безопасность:** на всех страницах есть CSP meta-тег (`script-src 'self'` — без inline-скриптов/обработчиков, всё через addEventListener в script.js). Не добавляйте inline JS-обработчики в HTML — они будут заблокированы.
 
