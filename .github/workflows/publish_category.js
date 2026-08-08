@@ -26,15 +26,27 @@ const chatId = process.env.TELEGRAM_CHAT_ID;
 if (!token || !chatId) { console.error('Нет TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID'); process.exit(1); }
 
 const icon = category === 'Российские авто' ? '🇷🇺' : '📊';
+const url = 'https://elmankur01.github.io/articles/article-' + (pick.i + 1) + '.html';
+
+function escHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 const text = [
-    icon + ' ' + pick.a.title,
+    icon + ' <b>' + escHtml(pick.a.title) + '</b>',
     '',
-    pick.a.text,
+    escHtml(pick.a.text),
     '',
-    '⏱ Читать ~' + pick.a.readTime + ' минут → https://elmankur01.github.io/articles/article-' + (pick.i + 1) + '.html',
+    '⏱ Читать ~' + pick.a.readTime + ' минут',
+    '',
+    '🔗 <a href="' + url + '">Читать статью полностью</a>',
     '',
     '#' + category.split(' ')[0].toLowerCase() + ' #авто'
 ].join('\n');
+
+const replyMarkup = {
+    inline_keyboard: [[{ text: '🔗 Читать статью', url }]]
+};
 
 console.log('Публикую [' + category + ']:');
 console.log(text);
@@ -42,7 +54,7 @@ console.log(text);
 fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text, disable_web_page_preview: false })
+    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup })
 }).then(r => r.json()).then(j => {
     if (j.ok) { console.log('✅ Опубликовано'); process.exit(0); }
     else { console.error('Ошибка Telegram:', JSON.stringify(j)); process.exit(1); }
