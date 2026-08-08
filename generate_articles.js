@@ -31,6 +31,19 @@ function esc(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function tagAnchor(tag) {
+    const map = {
+        'Российские авто': 'rf',
+        'Новости рынка': 'market',
+        'Новые модели': 'topics',
+        'Электромобили': 'topics',
+        'Двигатели': 'topics',
+        'История марок': 'history',
+        'Мировые новости': 'news'
+    };
+    return map[tag] || 'topics';
+}
+
 function dateFor(n) {
     return new Date(2026, 7, 1 + n).toISOString().slice(0, 10);
 }
@@ -100,6 +113,31 @@ function page(article, n) {
         },
         "author": { "@type": "Organization", "name": "АвтоТема" },
         "publisher": { "@type": "Organization", "name": "АвтоТема" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "${SITE}/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": ${JSON.stringify(article.tag)},
+                "item": "${SITE}/#${tagAnchor(article.tag)}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": ${JSON.stringify(article.title)}
+            }
+        ]
     }
     </script>
     <link rel="stylesheet" href="/styles.css">
