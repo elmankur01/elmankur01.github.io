@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollTop();
     initReveal();
     initSubscribe();
-    initModals();
     renderTopNews();
     renderDailyArticles();
     renderCategoryGrid('rfGrid', 'Российские авто', 6);
@@ -210,10 +209,21 @@ function dateLabel(daysAgo) {
 function initSubscribe() {
     const form = document.getElementById('subscribeForm');
     const note = document.getElementById('subscribeNote');
+    if (!form) return;
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         const email = document.getElementById('emailInput').value.trim();
-        if (!email) return;
+        const consent = document.getElementById('consentCheck');
+        if (!email) {
+            note.textContent = 'Введите адрес электронной почты.';
+            note.style.color = '#e8433c';
+            return;
+        }
+        if (consent && !consent.checked) {
+            note.textContent = 'Необходимо согласие на обработку персональных данных.';
+            note.style.color = '#e8433c';
+            return;
+        }
 
         let subs = [];
         try { subs = JSON.parse(localStorage.getItem('ap_subscribers') || '[]'); } catch (err) {}
@@ -225,42 +235,5 @@ function initSubscribe() {
         note.textContent = '✓ Спасибо! Вы подписаны на еженедельный дайджест.';
         note.style.color = '#2d9a6e';
         form.reset();
-    });
-}
-
-// ===== Модальные окна =====
-function openModal(id) {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-    modal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal(id) {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-    modal.classList.remove('show');
-    document.body.style.overflow = '';
-}
-
-function initModals() {
-    document.querySelectorAll('[data-modal-open]').forEach(el => {
-        el.addEventListener('click', e => {
-            e.preventDefault();
-            openModal(el.dataset.modalOpen);
-        });
-    });
-    document.querySelectorAll('[data-modal-close]').forEach(el => {
-        el.addEventListener('click', () => closeModal(el.dataset.modalClose));
-    });
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
-        overlay.addEventListener('click', e => {
-            if (e.target === overlay) closeModal(overlay.id);
-        });
-    });
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.modal-overlay.show').forEach(m => closeModal(m.id));
-        }
     });
 }

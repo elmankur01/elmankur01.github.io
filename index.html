@@ -262,7 +262,11 @@
                     <input type="email" id="emailInput" placeholder="Ваш e-mail" required>
                     <button type="submit" class="btn btn-primary">Подписаться</button>
                 </form>
-                <p class="subscribe-note" id="subscribeNote">Подписываясь, вы соглашаетесь с политикой конфиденциальности</p>
+                <label class="consent-check">
+                    <input type="checkbox" id="consentCheck" required>
+                    <span>Согласен(на) с <a href="/privacy.html">политикой конфиденциальности</a> и даю согласие на обработку персональных данных (e-mail) для получения дайджеста</span>
+                </label>
+                <p class="subscribe-note" id="subscribeNote"></p>
             </div>
         </section>
     </main>
@@ -290,63 +294,15 @@
         </div>
         <div class="container footer-bottom">
             <p>&copy; <span id="year"></span> АвтоТема. Все права защищены. ·
-                <a href="#" data-modal-open="privacyModal">Политика конфиденциальности</a> ·
-                <a href="#" data-modal-open="termsModal">Пользовательское соглашение</a>
+                <a href="/privacy.html">Политика конфиденциальности</a> ·
+                <a href="/terms.html">Пользовательское соглашение</a>
             </p>
         </div>
     </footer>
 
-    <!-- Privacy modal -->
-    <div class="modal-overlay" id="privacyModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>Политика конфиденциальности</h2>
-                <button class="modal-close" data-modal-close="privacyModal"><i class="modal-x">✕</i></button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Владелец сайта:</strong> Индивидуальный предприниматель Саругланов Эльман Ибрагимович<br>
-                <strong>ИНН:</strong> 052904150421<br>
-                <strong>ОГРНИП:</strong> 318057100006968</p>
-                <h3>Какие данные мы собираем</h3>
-                <p>Мы не собираем персональные данные без вашего согласия. Единственная личная информация — e-mail, который вы добровольно оставляете в форме подписки. Он используется только для рассылки дайджеста.</p>
-                <h3>Сторонние сервисы</h3>
-                <p>На сайте используются Google Fonts (шрифты). Эти сервисы могут собирать техническую информацию (IP-адрес, тип браузера) в соответствии со своими политиками конфиденциальности.</p>
-                <h3>Контакты</h3>
-                <p>По вопросам обработки данных: <a href="mailto:elmankur01@gmail.com">elmankur01@gmail.com</a></p>
-            </div>
-            <div class="modal-footer">
-                <button data-modal-close="privacyModal" class="btn btn-primary">Закрыть</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Terms modal -->
-    <div class="modal-overlay" id="termsModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>Пользовательское соглашение</h2>
-                <button class="modal-close" data-modal-close="termsModal"><i class="modal-x">✕</i></button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Владелец сайта:</strong> Индивидуальный предприниматель Саругланов Эльман Ибрагимович<br>
-                <strong>ИНН:</strong> 052904150421<br>
-                <strong>ОГРНИП:</strong> 318057100006968</p>
-                <h3>1. Общие положения</h3>
-                <p>Сайт «АвтоТема» — информационный ресурс, публикующий новости и статьи об автомобилях. Материалы носят информационный характер.</p>
-                <h3>2. Использование сайта</h3>
-                <p>Используя сайт, вы подтверждаете согласие с настоящим соглашением. Копирование материалов без разрешения запрещено.</p>
-                <h3>3. Интеллектуальная собственность</h3>
-                <p>Все материалы сайта являются интеллектуальной собственностью владельца. Использование без разрешения не допускается.</p>
-                <p>Последнее обновление: август 2026 г.</p>
-            </div>
-            <div class="modal-footer">
-                <button data-modal-close="termsModal" class="btn btn-primary">Закрыть</button>
-            </div>
-        </div>
-    </div>
-
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
+    <script src="consent.js" defer></script>
     <script src="script.js" defer></script>
     <script src="analytics.js" defer></script>
     <noscript>Включите JavaScript для работы сайта.</noscript>
