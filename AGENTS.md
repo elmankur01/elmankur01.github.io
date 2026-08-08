@@ -27,6 +27,8 @@
   - Отдельные рубричные посты: `daily_rf_post.yml` (07:00 UTC, «Российские авто») и `daily_market_post.yml` (08:00 UTC, «Новости рынка») — по 1 посту в день через `publish_category.js` (переменная окружения `POST_CATEGORY`)
   - Ротация на главной 4 раза в день: `renderDailyArticles()` использует сдвиг (день года × 4 + слот) % длина банка; «Главные новости дня» (`renderTopNews()`) — день года % длина банка
 - **Источники статей**: в `article_content.js` есть массив `SOURCES` (индекс = номер статьи) — официальные пресс-центры/сайты брендов и отраслевые организации (ACEA). При добавлении статьи заполняйте и его: блок «Источники» автоматически рендерится на странице статьи.
+- **Фотографии статей**: объект `IMAGES` в `article_content.js`, ключ = номер статьи, значение = `{ url, alt, credit }`. Файлы кладём в `images/` (CSP разрешает только свои картинки). Фото из Wikimedia Commons — свободные лицензии (CC BY-SA) — **обязательно указывать автора и лицензию в `credit`** (выводится в подписи под фото). Статьи без фото просто нет в `IMAGES` — картинка не выводится.
+- **Важно про деплой**: коммитим ТОЛЬКО исходники (script.js, article_content.js, generate_articles.js, index.html, styles.css, images/, AGENTS.md и т.п.). `articles/` и `sitemap.xml` НЕ коммитим — их пересобирает и пушит workflow `auto_build.yml` (иначе возникают конфликты с его авто-коммитами).
 - Локально можно запустить: `node generate_articles.js` (пересоберёт страницы и sitemap)
 
 ## Монетизация
@@ -42,7 +44,8 @@ auto-parts/
   script.js              — банк статей ARTICLE_BANK, ротация, подписка, меню, reveal
   article_content.js     — полные тексты статей (BODIES)
   generate_articles.js   — генератор страниц статей (node generate_articles.js)
-  articles/              — сгенерированные страницы статей article-1..64.html
+  articles/              — сгенерированные страницы статей article-1..68.html (автопересборка workflow)
+  images/                — фотографии статей (ferrari.jpg, porsche-911.jpg, uaz-patriot.jpg, nissan-gtr.jpg)
   .github/workflows/     — auto_build.yml (пересборка страниц), daily_post.yml (4 поста/день), daily_rf_post.yml (Российские авто, 07:00), daily_market_post.yml (Новости рынка, 08:00), publish_daily.js, publish_category.js
   AGENTS.md              — этот файл
   start.sh               — скрипт локального запуска
