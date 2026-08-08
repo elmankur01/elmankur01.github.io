@@ -66,6 +66,7 @@ function page(article, n) {
     <meta name="description" content="${esc(article.text)}">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
     <meta property="og:title" content="${esc(article.title)}">
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
@@ -160,7 +161,7 @@ function page(article, n) {
         </div>
     </footer>
 
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="/footer.js"></script>
 </body>
 </html>`;
 }

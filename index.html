@@ -8,6 +8,7 @@
     <meta name="robots" content="index, follow">
     <meta name="yandex-verification" content="9d4b4dc75e2f36bd">
     <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
 
     <!-- Open Graph -->
     <meta property="og:title" content="АвтоТема — новости автомобильного мира">
@@ -289,8 +290,8 @@
         </div>
         <div class="container footer-bottom">
             <p>&copy; <span id="year"></span> АвтоТема. Все права защищены. ·
-                <a href="#" onclick="openPrivacy(); return false;">Политика конфиденциальности</a> ·
-                <a href="#" onclick="openTerms(); return false;">Пользовательское соглашение</a>
+                <a href="#" data-modal-open="privacyModal">Политика конфиденциальности</a> ·
+                <a href="#" data-modal-open="termsModal">Пользовательское соглашение</a>
             </p>
         </div>
     </footer>
@@ -300,7 +301,7 @@
         <div class="modal">
             <div class="modal-header">
                 <h2>Политика конфиденциальности</h2>
-                <button class="modal-close" onclick="closePrivacy()"><i class="modal-x">✕</i></button>
+                <button class="modal-close" data-modal-close="privacyModal"><i class="modal-x">✕</i></button>
             </div>
             <div class="modal-body">
                 <p><strong>Владелец сайта:</strong> Индивидуальный предприниматель Саругланов Эльман Ибрагимович<br>
@@ -314,7 +315,7 @@
                 <p>По вопросам обработки данных: <a href="mailto:elmankur01@gmail.com">elmankur01@gmail.com</a></p>
             </div>
             <div class="modal-footer">
-                <button onclick="closePrivacy()" class="btn btn-primary">Закрыть</button>
+                <button data-modal-close="privacyModal" class="btn btn-primary">Закрыть</button>
             </div>
         </div>
     </div>
@@ -324,7 +325,7 @@
         <div class="modal">
             <div class="modal-header">
                 <h2>Пользовательское соглашение</h2>
-                <button class="modal-close" onclick="closeTerms()"><i class="modal-x">✕</i></button>
+                <button class="modal-close" data-modal-close="termsModal"><i class="modal-x">✕</i></button>
             </div>
             <div class="modal-body">
                 <p><strong>Владелец сайта:</strong> Индивидуальный предприниматель Саругланов Эльман Ибрагимович<br>
@@ -339,12 +340,12 @@
                 <p>Последнее обновление: август 2026 г.</p>
             </div>
             <div class="modal-footer">
-                <button onclick="closeTerms()" class="btn btn-primary">Закрыть</button>
+                <button data-modal-close="termsModal" class="btn btn-primary">Закрыть</button>
             </div>
         </div>
     </div>
 
-    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Наверх">↑</button>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
     <script src="script.js" defer></script>
     <noscript>Включите JavaScript для работы сайта.</noscript>

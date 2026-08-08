@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollTop();
     initReveal();
     initSubscribe();
+    initModals();
     renderTopNews();
     renderDailyArticles();
     renderCategoryGrid('rfGrid', 'Российские авто', 6);
@@ -110,13 +111,12 @@ function initBurger() {
 // ===== Кнопка «наверх» =====
 function initScrollTop() {
     const btn = document.getElementById('scrollTop');
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     window.addEventListener('scroll', () => {
         btn.classList.toggle('visible', window.scrollY > 400);
     });
-}
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ===== Появление секций =====
@@ -225,22 +225,38 @@ function initSubscribe() {
 }
 
 // ===== Модальные окна =====
-function openPrivacy() {
-    document.getElementById('privacyModal').classList.add('show');
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('show');
     document.body.style.overflow = 'hidden';
 }
 
-function closePrivacy() {
-    document.getElementById('privacyModal').classList.remove('show');
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('show');
     document.body.style.overflow = '';
 }
 
-function openTerms() {
-    document.getElementById('termsModal').classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeTerms() {
-    document.getElementById('termsModal').classList.remove('show');
-    document.body.style.overflow = '';
+function initModals() {
+    document.querySelectorAll('[data-modal-open]').forEach(el => {
+        el.addEventListener('click', e => {
+            e.preventDefault();
+            openModal(el.dataset.modalOpen);
+        });
+    });
+    document.querySelectorAll('[data-modal-close]').forEach(el => {
+        el.addEventListener('click', () => closeModal(el.dataset.modalClose));
+    });
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', e => {
+            if (e.target === overlay) closeModal(overlay.id);
+        });
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal-overlay.show').forEach(m => closeModal(m.id));
+        }
+    });
 }
