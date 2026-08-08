@@ -70,6 +70,12 @@ function page(article, n) {
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="${SITE}/articles/article-${n}.html">
+    <meta property="og:image" content="${SITE}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:alt" content="АвтоТема — новости автомобильного мира">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="${SITE}/og-image.png">
     <meta property="og:locale" content="ru_RU">
     <link rel="canonical" href="${SITE}/articles/article-${n}.html">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
