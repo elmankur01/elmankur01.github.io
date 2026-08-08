@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АвтоТема — админ-панель</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.telegram.org; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .admin-wrap { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .admin-card { background: #151b23; border: 1px solid #262e3a; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+        .admin-card h2 { margin: 0 0 16px; color: #fff; font-size: 18px; }
+        .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1f2732; gap: 12px; }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { color: #8b95a3; font-size: 14px; }
+        .stat-value { color: #fff; font-size: 20px; font-weight: 700; }
+        .stat-value.small { font-size: 15px; font-weight: 500; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge.ok { background: #14331f; color: #4ade80; }
+        .badge.err { background: #331414; color: #f87171; }
+        .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
+        .btn-red { background: #e61a27; color: #fff; }
+        .btn-red:hover { background: #c0121e; }
+        .btn-gray { background: #2a3547; color: #fff; }
+        .btn-gray:hover { background: #37445a; }
+        .link-list { list-style: none; padding: 0; margin: 0; }
+        .link-list li { padding: 10px 0; border-bottom: 1px solid #1f2732; }
+        .link-list li:last-child { border-bottom: none; }
+        .link-list a { color: #4a9eff; text-decoration: none; font-size: 15px; }
+        .link-list a:hover { text-decoration: underline; }
+        .note { color: #8b95a3; font-size: 13px; margin-top: 12px; line-height: 1.6; }
+        .updated { color: #6b7580; font-size: 12px; margin-top: 8px; }
+        .token-input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #262e3a; background: #0d1218; color: #fff; font-size: 14px; margin-top: 8px; box-sizing: border-box; }
+        .token-label { color: #8b95a3; font-size: 13px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+        @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo"><span class="logo-icon"><i class="logo-svg">🚗</i></span>Авто<span>Тема</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="/">Сайт</a></li>
+                    <li><a href="https://t.me/avtotema_news" target="_blank" rel="noopener">Канал</a></li>
+                    <li><a href="/stats.html">Telegram-статистика</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="admin-wrap">
+            <h1 style="color:#fff;font-size:24px;">🛠 Админ-панель АвтоТема</h1>
+            <p style="color:#8b95a3;font-size:14px;">Страница только для владельца. Скрыта от поисковиков (noindex + robots) — не публикуйте ссылку в общий доступ.</p>
+
+            <!-- METRIKA -->
+            <div class="admin-card">
+                <h2>📊 Посещаемость сайта (Яндекс.Метрика)</h2>
+                <div class="stat-row">
+                    <span class="stat-label">Счётчик</span>
+                    <span class="stat-value small" id="ymId">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Статус</span>
+                    <span class="stat-value small" id="ymStatus">—</span>
+                </div>
+                <div style="margin-top:16px;">
+                    <a class="btn btn-red" href="https://metrika.yandex.ru/dashboard?id=111426400" target="_blank" rel="noopener">Открыть Метрику →</a>
+                </div>
+                <p class="note">Визиты считаются после того, как посетитель согласится на cookie (152-ФЗ). В Метрику нужно войти под своим аккаунтом Яндекс.</p>
+            </div>
+
+            <!-- TELEGRAM -->
+            <div class="admin-card">
+                <h2>📣 Telegram-канал @avtotema_news</h2>
+                <label class="token-label" for="tokenInput">Токен бота (@BotFather) — хранится только в вашем браузере (localStorage)</label>
+                <input type="password" class="token-input" id="tokenInput" placeholder="123456789:AA…" autocomplete="off">
+                <div class="grid-2">
+                    <button class="btn btn-gray" id="saveTokenBtn">💾 Сохранить ключ</button>
+                    <button class="btn btn-gray" id="clearTokenBtn">✖️ Убрать ключ</button>
+                </div>
+                <div class="updated" id="tokenStatus"></div>
+
+                <div class="stat-row" style="margin-top:12px;">
+                    <span class="stat-label">Название</span>
+                    <span class="stat-value small" id="chanTitle">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Ссылка</span>
+                    <span class="stat-value small" id="chanLink">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Подписчики</span>
+                    <span class="stat-value" id="chanCount">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Статус бота</span>
+                    <span class="stat-value small" id="botStatus">—</span>
+                </div>
+                <div class="updated" id="updatedAt"></div>
+                <button class="btn btn-gray" id="refreshBtn" style="margin-top:12px;">🔄 Обновить</button>
+            </div>
+
+            <!-- SITE STATE -->
+            <div class="admin-card">
+                <h2>🌐 Состояние сайта</h2>
+                <div class="stat-row">
+                    <span class="stat-label">Сайт</span>
+                    <span class="stat-value small"><a href="https://elmankur01.github.io/" style="color:#4a9eff;text-decoration:none;">elmankur01.github.io</a></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Статей опубликовано</span>
+                    <span class="stat-value" id="articleCount">…</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Страниц в sitemap</span>
+                    <span class="stat-value small" id="sitemapCount">…</span>
+                </div>
+            </div>
+
+            <!-- LINKS -->
+            <div class="admin-card">
+                <h2>🔧 Полезные ссылки</h2>
+                <ul class="link-list">
+                    <li><a href="https://metrika.yandex.ru/dashboard?id=111426400" target="_blank" rel="noopener">Яндекс.Метрика — счётчик 111426400</a></li>
+                    <li><a href="https://webmaster.yandex.ru/site/elmankur01.github.io/" target="_blank" rel="noopener">Яндекс.Вебмастер</a></li>
+                    <li><a href="https://search.google.com/search-console?resource_id=sc-domain%3Aelmankur01.github.io" target="_blank" rel="noopener">Google Search Console</a></li>
+                    <li><a href="https://elmankur01.github.io/sitemap.xml" target="_blank" rel="noopener">sitemap.xml</a></li>
+                    <li><a href="https://github.com/elmankur01/elmankur01.github.io" target="_blank" rel="noopener">Репозиторий GitHub</a></li>
+                    <li><a href="https://t.me/avtotema_news" target="_blank" rel="noopener">Telegram-канал @avtotema_news</a></li>
+                </ul>
+            </div>
+
+            <p class="note">
+                Данные Telegram получаются через Bot API напрямую с этой страницы (токен — только в вашем браузере, никуда не отправляется кроме api.telegram.org).
+                Число статей читается из sitemap.xml.
+            </p>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
