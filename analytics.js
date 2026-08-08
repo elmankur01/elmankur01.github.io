@@ -12,7 +12,7 @@
 (function () {
     function loadAnalytics() {
         // ---------- Яндекс.Метрика ----------
-        var YM_COUNTER_ID = '00000000'; // ← вставьте номер счётчика
+        var YM_COUNTER_ID = '111426400';
 
         if (YM_COUNTER_ID !== '00000000') {
             (function (m, e, t, r, i, k, a) {
