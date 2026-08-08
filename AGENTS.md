@@ -23,6 +23,7 @@
 - **Добавление статьи = добавить объект в `ARTICLE_BANK` (script.js) и текст в `BODIES` (article_content.js), затем пушить. Всё остальное автоматически:**
   - GitHub Actions `auto_build.yml` пересоздаёт страницы `articles/*.html` и `sitemap.xml` при пуше (trigger: script.js, article_content.js, generate_articles.js, index.html, styles.css)
   - Автопостинг в Telegram: `daily_post.yml` ежедневно в 06:00 UTC публикует статью дня (секреты: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`)
+- **Источники статей**: в `article_content.js` есть массив `SOURCES` (индекс = номер статьи) — официальные пресс-центры/сайты брендов и отраслевые организации (ACEA). При добавлении статьи заполняйте и его: блок «Источники» автоматически рендерится на странице статьи.
 - Локально можно запустить: `node generate_articles.js` (пересоберёт страницы и sitemap)
 
 ## Монетизация

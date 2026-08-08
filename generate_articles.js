@@ -14,7 +14,12 @@ if (!m) { console.error('ARTICLE_BANK не найден'); process.exit(1); }
 const bank = eval(m[1]);
 
 let bodies = [];
-try { bodies = require('./article_content.js'); } catch (e) {}
+let sources = [];
+try {
+    const content = require('./article_content.js');
+    bodies = content.BODIES || content;
+    sources = content.SOURCES || [];
+} catch (e) {}
 
 const outDir = path.join(__dirname, 'articles');
 fs.mkdirSync(outDir, { recursive: true });
@@ -33,6 +38,22 @@ function dateFor(n) {
 function paragraphs(article, n) {
     const body = bodies[n - 1] || [article.text];
     return body.map(p => `<p>${esc(p)}</p>`).join('\n                        ');
+}
+
+function sourcesBlock(n) {
+    const list = sources[n - 1];
+    if (!list || !list.length) return '';
+    const items = list.map(s =>
+        `                        <li><a href="${s.url}" target="_blank" rel="noopener nofollow">${esc(s.name)}</a></li>`
+    ).join('\n');
+    return `
+                        <div class="article-sources">
+                            <h3>Источники</h3>
+                            <p>Информация в статье основана на официальных материалах автопроизводителей и отраслевых организаций:</p>
+                            <ul>
+${items}
+                            </ul>
+                        </div>`;
 }
 
 function page(article, n) {
@@ -92,6 +113,7 @@ function page(article, n) {
                     <div class="article-body">
                         ${paragraphs(article, n)}
                     </div>
+                    ${sourcesBlock(n)}
                 </article>
 
                 <aside class="related">

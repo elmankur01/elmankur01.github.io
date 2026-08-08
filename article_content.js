@@ -420,4 +420,231 @@ const BODIES = [
     ]
 ];
 
-if (typeof module !== 'undefined') module.exports = BODIES;
+// Официальные источники по каждой статье (индекс 0 соответствует статье 1 в ARTICLE_BANK и т.д.).
+// Каждый элемент — массив ссылок { name, url } на официальные пресс-центры и сайты автопроизводителей,
+// а также отраслевые организации (ACEA). Добавляется вместе со статьёй в BODIES.
+const SOURCES = [
+    // 1. Электромобили в 2026 году
+    [
+        { name: "BYD — официальный новостной центр", url: "https://en.byd.com/newsroom/" },
+        { name: "Mercedes-Benz Media — пресс-центр", url: "https://media.mercedes-benz.com/" }
+    ],
+    // 2. Премьеры года
+    [
+        { name: "Mercedes-Benz Media — пресс-центр", url: "https://media.mercedes-benz.com/" },
+        { name: "BMW Group — официальный пресс-центр", url: "https://www.press.bmwgroup.com/" }
+    ],
+    // 3. Toyota: путь от ткацкого станка
+    [
+        { name: "Toyota — глобальный новостной центр", url: "https://global.toyota/en/newsroom/index.html" }
+    ],
+    // 4. Бензин, дизель, гибрид или электро
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 5. Автопром будущего
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 6. Зарядные станции
+    [
+        { name: "ACEA — данные по зарядной инфраструктуре", url: "https://www.acea.auto/" }
+    ],
+    // 7. Кроссоверы 2026
+    [
+        { name: "HAVAL — официальный сайт", url: "https://haval.ru/" },
+        { name: "Geely Motors — официальный сайт", url: "https://geely-motors.com/" }
+    ],
+    // 8. Турбо или атмосферник
+    [
+        { name: "Volkswagen — официальный новостной центр", url: "https://www.volkswagen-newsroom.com/" }
+    ],
+    // 9. Ferrari
+    [
+        { name: "Ferrari — официальный медиа-центр", url: "https://www.ferrari.com/en-EN/media-centre" }
+    ],
+    // 10. Tesla vs китайские бренды
+    [
+        { name: "Tesla — официальный сайт", url: "https://www.tesla.com/" },
+        { name: "BYD — официальный новостной центр", url: "https://en.byd.com/newsroom/" }
+    ],
+    // 11. Экологические нормы
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 12. Volkswagen: «народный автомобиль»
+    [
+        { name: "Volkswagen — официальный новостной центр", url: "https://www.volkswagen-newsroom.com/" }
+    ],
+    // 13. Гибриды против электричества
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 14. Дизель жив?
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 15. Батареи будущего
+    [
+        { name: "BYD — официальный новостной центр", url: "https://en.byd.com/newsroom/" }
+    ],
+    // 16. Porsche 911
+    [
+        { name: "Porsche — официальный новостной центр", url: "https://newsroom.porsche.com/" }
+    ],
+    // 17. Китайские бренды: HAVAL, EXEED, Geely
+    [
+        { name: "HAVAL — официальный сайт", url: "https://haval.ru/" },
+        { name: "EXEED — официальный сайт", url: "https://exeed.ru/" },
+        { name: "Geely Motors — официальный сайт", url: "https://geely-motors.com/" }
+    ],
+    // 18. Гибриды 2026: PHEV и EREV
+    [
+        { name: "Li Auto — официальный сайт", url: "https://www.liauto.com/" }
+    ],
+    // 19. Быстрая зарядка: 800V и 900V
+    [
+        { name: "BYD — официальный новостной центр", url: "https://en.byd.com/newsroom/" },
+        { name: "Zeekr — официальный глобальный сайт", url: "https://www.zeekrlife.com/global/" }
+    ],
+    // 20. Твёрдотельные батареи
+    [
+        { name: "Mercedes-Benz Media — пресс-центр", url: "https://media.mercedes-benz.com/" }
+    ],
+    // 21. Li Auto: электронное шасси
+    [
+        { name: "Li Auto — официальный сайт", url: "https://www.liauto.com/" }
+    ],
+    // 22. Надёжность китайских машин
+    [
+        { name: "HAVAL — официальный сайт", url: "https://haval.ru/" },
+        { name: "Geely Motors — официальный сайт", url: "https://geely-motors.com/" }
+    ],
+    // 23. Рейтинг продаж в Китае
+    [
+        { name: "BYD — официальный новостной центр", url: "https://en.byd.com/newsroom/" },
+        { name: "Xiaomi EV — официальный сайт", url: "https://www.xiaomiev.com/" },
+        { name: "Geely Motors — официальный сайт", url: "https://geely-motors.com/" }
+    ],
+    // 24. ESTEO V27
+    [
+        { name: "ESTEO — официальный сайт", url: "https://esteo.ru/" }
+    ],
+    // 25. Zeekr, BMW и платформы 900V
+    [
+        { name: "Zeekr — официальный глобальный сайт", url: "https://www.zeekrlife.com/global/" },
+        { name: "BMW Group — официальный пресс-центр", url: "https://www.press.bmwgroup.com/" }
+    ],
+    // 26. Changan CS75 Plus AWD
+    [
+        { name: "Changan — официальный глобальный сайт", url: "https://www.globalchangan.com/" }
+    ],
+    // 27. Xiaomi SU7
+    [
+        { name: "Xiaomi EV — официальный сайт", url: "https://www.xiaomiev.com/" }
+    ],
+    // 28. Электромобиль зимой
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 29. LFP против тройного лития
+    [
+        { name: "BYD — официальный новостной центр", url: "https://en.byd.com/newsroom/" }
+    ],
+    // 30. Режим одной педали
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 31. Б/у электромобиль
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 32. Спорткары 2026
+    [
+        { name: "Ferrari — официальный медиа-центр", url: "https://www.ferrari.com/en-EN/media-centre" },
+        { name: "Porsche — официальный новостной центр", url: "https://newsroom.porsche.com/" }
+    ],
+    // 33. Минивэны и семейные кроссоверы
+    [
+        { name: "Volkswagen — официальный новостной центр", url: "https://www.volkswagen-newsroom.com/" }
+    ],
+    // 34. Бюджетные авто до 2 млн рублей
+    [
+        { name: "HAVAL — официальный сайт", url: "https://haval.ru/" },
+        { name: "Geely Motors — официальный сайт", url: "https://geely-motors.com/" }
+    ],
+    // 35. Пикапы наступают
+    [
+        { name: "Chevrolet — официальный сайт", url: "https://www.chevrolet.com/" }
+    ],
+    // 36. Ремень ГРМ против цепи
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 37. Какое масло лить в двигатель
+    [
+        { name: "ACEA — европейские стандарты моторных масел", url: "https://www.acea.auto/" }
+    ],
+    // 38. Вариатор или АКПП
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 39. Как экономить топливо
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 40. Робот против автомата
+    [
+        { name: "Volkswagen — официальный новостной центр", url: "https://www.volkswagen-newsroom.com/" }
+    ],
+    // 41. BMW
+    [
+        { name: "BMW Group — официальный пресс-центр", url: "https://www.press.bmwgroup.com/" }
+    ],
+    // 42. Mercedes-Benz
+    [
+        { name: "Mercedes-Benz Media — пресс-центр", url: "https://media.mercedes-benz.com/" }
+    ],
+    // 43. Honda
+    [
+        { name: "Honda — официальный глобальный сайт", url: "https://global.honda/" }
+    ],
+    // 44. Лада
+    [
+        { name: "LADA — официальный сайт", url: "https://www.lada.ru/" }
+    ],
+    // 45. Audi
+    [
+        { name: "Audi — официальный медиа-центр", url: "https://www.audi-mediacenter.com/" }
+    ],
+    // 46. Утильсбор 2026
+    [
+        { name: "Минпромторг России — официальный сайт", url: "https://minpromtorg.gov.ru/" }
+    ],
+    // 47. Китайские электрокары в Европе
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 48. Беспилотные такси
+    [
+        { name: "Waymo — официальный сайт", url: "https://waymo.com/" }
+    ],
+    // 49. Водород против батареи
+    [
+        { name: "Toyota — глобальный новостной центр", url: "https://global.toyota/en/newsroom/index.html" }
+    ],
+    // 50. Вторичный рынок
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 51. Домашняя зарядка
+    [
+        { name: "ACEA — Ассоциация европейских автопроизводителей", url: "https://www.acea.auto/" }
+    ],
+    // 52. Chevrolet
+    [
+        { name: "Chevrolet — официальный сайт", url: "https://www.chevrolet.com/" }
+    ]
+];
+
+if (typeof module !== 'undefined') module.exports = { BODIES, SOURCES };
