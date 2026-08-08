@@ -128,11 +128,12 @@ function renderDailyArticles() {
 
     const today = [];
     for (let i = 0; i < VISIBLE_ARTICLES; i++) {
-        today.push(ARTICLE_BANK[(offset + i) % ARTICLE_BANK.length]);
+        today.push({ article: ARTICLE_BANK[(offset + i) % ARTICLE_BANK.length], idx: (offset + i) % ARTICLE_BANK.length });
     }
 
-    grid.innerHTML = today.map((a, i) => `
+    grid.innerHTML = today.map(({ article: a, idx }, i) => `
         <article class="article-card${i === 0 ? ' featured' : ''}">
+            <a href="/articles/article-${idx + 1}.html" class="card-link"></a>
             <span class="tag">${a.tag}</span>
             <h3>${a.title}</h3>
             <p>${a.text}</p>
