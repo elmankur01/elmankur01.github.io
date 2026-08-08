@@ -242,6 +242,7 @@ function page(article, n) {
                 <a href="/terms.html">Пользовательское соглашение</a> ·
                 <a href="/">Главная</a>
             </p>
+            <p class="age-mark"><span class="age-badge">0+</span> Сайт не содержит материалов, причиняющих вред здоровью и развитию детей (436-ФЗ)</p>
         </div>
     </footer>
 
@@ -253,7 +254,14 @@ function page(article, n) {
 }
 
 function sitemap() {
+    const legal = [
+        { path: 'privacy.html', freq: 'yearly', priority: '0.3' },
+        { path: 'terms.html', freq: 'yearly', priority: '0.3' }
+    ];
     let out = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${SITE}/</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+    for (const p of legal) {
+        out += `  <url>\n    <loc>${SITE}/${p.path}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${p.freq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>\n`;
+    }
     for (let i = 0; i < bank.length; i++) {
         out += `  <url>\n    <loc>${SITE}/articles/article-${i + 1}.html</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     }
