@@ -13,6 +13,7 @@
     <meta property="og:title" content="АвтоТема — новости автомобильного мира">
     <meta property="og:description" content="Новые модели, электромобили, двигатели и истории автокомпаний. Подпишитесь на дайджест.">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="АвтоТема">
     <meta property="og:url" content="https://elmankur01.github.io/">
     <meta property="og:image" content="https://elmankur01.github.io/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -40,9 +41,26 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "АвтоТема",
+        "alternateName": "AvtoTema",
         "url": "https://elmankur01.github.io/",
         "description": "Новости автомобильного мира: новые модели, электромобили, двигатели, истории автокомпаний.",
-        "inLanguage": "ru"
+        "inLanguage": "ru",
+        "publisher": {
+            "@type": "Organization",
+            "name": "АвтоТема",
+            "url": "https://elmankur01.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://elmankur01.github.io/favicon.png",
+                "width": 32,
+                "height": 32
+            }
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://elmankur01.github.io/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
     }
     </script>
 </head>

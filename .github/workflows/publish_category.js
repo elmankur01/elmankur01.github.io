@@ -39,13 +39,15 @@ const text = [
     '',
     '⏱ Читать ~' + pick.a.readTime + ' минут',
     '',
-    '🔗 <a href="' + url + '">Читать статью полностью</a>',
+    '📰 <a href="' + url + '">Читать на АвтоТеме</a>',
+    '',
+    'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
     '',
     '#' + category.split(' ')[0].toLowerCase() + ' #авто'
 ].join('\n');
 
 const replyMarkup = {
-    inline_keyboard: [[{ text: '🔗 Читать статью', url }]]
+    inline_keyboard: [[{ text: '📰 Читать на АвтоТеме', url }]]
 };
 
 console.log('Публикую [' + category + ']:');

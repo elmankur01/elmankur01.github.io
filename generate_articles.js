@@ -69,11 +69,14 @@ function page(article, n) {
     <meta property="og:title" content="${esc(article.title)}">
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
+    <meta property="og:site_name" content="АвтоТема">
     <meta property="og:url" content="${SITE}/articles/article-${n}.html">
     <meta property="og:image" content="${SITE}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="1200">
     <meta property="og:image:alt" content="АвтоТема — новости автомобильного мира">
+    <meta property="article:published_time" content="${dateFor(n)}">
+    <meta property="article:section" content="${esc(article.tag)}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="${SITE}/og-image.png">
     <meta property="og:locale" content="ru_RU">
@@ -88,6 +91,13 @@ function page(article, n) {
         "datePublished": "${dateFor(n)}",
         "inLanguage": "ru",
         "mainEntityOfPage": "${SITE}/articles/article-${n}.html",
+        "image": {
+            "@type": "ImageObject",
+            "url": "${SITE}/og-image.png",
+            "width": 1200,
+            "height": 1200
+        },
+        "author": { "@type": "Organization", "name": "АвтоТема" },
         "publisher": { "@type": "Organization", "name": "АвтоТема" }
     }
     </script>
