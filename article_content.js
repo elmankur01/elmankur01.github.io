@@ -841,4 +841,14 @@ const SOURCES = [
     ]
 ];
 
-if (typeof module !== 'undefined') module.exports = { BODIES, SOURCES };
+// Фотографии к статьям. Ключ — номер статьи (1-based), значение — { url, alt, credit }
+// для главного изображения (путь внутри сайта /images/...). Без фото — статьи просто нет в объекте.
+// Фото из Wikimedia Commons под свободными лицензиями CC BY-SA; указание автора обязательно.
+const IMAGES = {
+    9: { url: "/images/ferrari.jpg", alt: "Ferrari 250 GTO — легендарная модель марки", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 (Wikimedia Commons)" },
+    16: { url: "/images/porsche-911.jpg", alt: "Porsche 911 GT3 (992)", credit: "Фото: Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },
+    62: { url: "/images/uaz-patriot.jpg", alt: "УАЗ «Патриот» — российский внедорожник", credit: "Фото: Dogs.barking.duster.rolling, CC BY-SA 4.0 (Wikimedia Commons)" },
+    68: { url: "/images/nissan-gtr.jpg", alt: "Nissan GT-R (R35)", credit: "Фото: Dinkun Chen, CC BY-SA 4.0 (Wikimedia Commons)" }
+};
+
+if (typeof module !== 'undefined') module.exports = { BODIES, SOURCES, IMAGES };

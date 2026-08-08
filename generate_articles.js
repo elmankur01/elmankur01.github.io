@@ -15,10 +15,12 @@ const bank = eval(m[1]);
 
 let bodies = [];
 let sources = [];
+let images = [];
 try {
     const content = require('./article_content.js');
     bodies = content.BODIES || content;
     sources = content.SOURCES || [];
+    images = content.IMAGES || [];
 } catch (e) {}
 
 const outDir = path.join(__dirname, 'articles');
@@ -67,6 +69,17 @@ function sourcesBlock(n) {
 ${items}
                             </ul>
                         </div>`;
+}
+
+function heroImage(n) {
+    const img = images[n];
+    if (!img || !img.url) return '';
+    const alt = img.alt || bank[n - 1].title;
+    const credit = img.credit ? `<span class="article-credit">${esc(img.credit)}</span>` : '';
+    return `                    <figure class="article-hero">
+                        <img src="${esc(img.url)}" alt="${esc(alt)}" loading="lazy" width="800" height="450">
+                        <figcaption>${esc(alt)} ${credit}</figcaption>
+                    </figure>`;
 }
 
 // Похожие статьи: сначала из той же рубрики, потом добираем другими
@@ -178,6 +191,7 @@ function page(article, n) {
                     <span class="tag">${esc(article.tag)}</span>
                     <h1>${esc(article.title)}</h1>
                     <span class="article-meta">${article.readTime} мин · ${dateFor(n)}</span>
+                    ${heroImage(n)}
                     <div class="article-body">
                         ${paragraphs(article, n)}
                     </div>
