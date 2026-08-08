@@ -56,7 +56,21 @@ const ARTICLE_BANK = [
     { tag: "Мировые новости", title: "Водород против батареи: второй шанс H2-технологий", text: "Топливные элементы возвращаются в повестку. Сравниваем водород и электричество для дальних перевозок.", readTime: 9 },
     { tag: "Мировые новости", title: "Куда уходит вторичный рынок: тренды Б/у автомобилей", text: "Китайские бренды в лидерах перепродажи, дилеры онлайн и падение цен — что ждёт покупателей Б/у.", readTime: 7 },
     { tag: "Электромобили", title: "Домашняя зарядка: ставим зарядную станцию без лишних трат", text: "Розетка, wallbox или станция под 16 кВт? Считаем стоимость установки и электричества дома.", readTime: 8 },
-    { tag: "История марок", title: "Chevrolet: как Америка строила свои легенды", text: "От Corvette до Silverado: история бренда, который стал символом американской мечты и покорил весь мир.", readTime: 11 }
+    { tag: "История марок", title: "Chevrolet: как Америка строила свои легенды", text: "От Corvette до Silverado: история бренда, который стал символом американской мечты и покорил весь мир.", readTime: 11 },
+    // === РОССИЙСКИЕ АВТО ===
+    { tag: "Российские авто", title: "Лада Vesta 2026: что изменилось в главной модели АвтоВАЗа", text: "Бестселлер российского рынка получил обновления: новые комплектации, мультимедиа и системы помощи водителю. Разбираем, чем Vesta берёт покупателя.", readTime: 8 },
+    { tag: "Российские авто", title: "УАЗ «Патриот» и внедорожники: что нового в 2026", text: "Рамная классика против комфорта: обновлённый «Патриот», «Хантер» и «Пикап» — какие внедорожники выбирают для бездорожья.", readTime: 8 },
+    { tag: "Российские авто", title: "АвтоВАЗ 2026: новые модели и планы концерна", text: "Granta, Vesta, Niva и Largus: что делает крупнейший автозавод России и какие новинки готовит.", readTime: 9 },
+    { tag: "Российские авто", title: "Москвич и возрождение российских автобрендов", text: "Завод «Москвич» снова работает полным циклом. Как перезапуск легендарной марки меняет российский автопром.", readTime: 8 },
+    { tag: "Российские авто", title: "Локализация в России: что собирают на автозаводах", text: "От крупноузловой сборки до полного цикла: как китайские и российские бренды наращивают производство в РФ.", readTime: 7 },
+    { tag: "Российские авто", title: "Льготы и субсидии: как выгодно купить российский автомобиль", text: "Госпрограммы, скидки на отечественные авто и условия получения — как сэкономить на покупке в 2026.", readTime: 7 },
+    // === НОВОСТИ РЫНКА ===
+    { tag: "Новости рынка", title: "Рынок новых автомобилей в России: итоги полугодия 2026", text: "Рост продаж, лидеры и средний чек: разбираем официальную статистику первой половины 2026 года.", readTime: 9 },
+    { tag: "Новости рынка", title: "Почему дорожают автомобили: факторы цен 2026", text: "Утильсбор, курс, ставки и логистика: что реально двигает цены на новые машины и стоит ли ждать снижения.", readTime: 8 },
+    { tag: "Новости рынка", title: "Параллельный импорт автомобилей: что осталось от серых схем", text: "Как работает параллельный импорт в 2026 году, какие риски у покупателя и насколько это выгодно.", readTime: 8 },
+    { tag: "Новости рынка", title: "Рейтинг марок по продажам в России 2026", text: "Lada в лидерах, китайские бренды в топ-5: смотрим на реальную структуру рынка по официальным данным.", readTime: 8 },
+    { tag: "Новости рынка", title: "Дилеры уходят в онлайн: как теперь покупают автомобили", text: "Онлайн-площадки, выкуп и trade-in: как цифровизация меняет процесс покупки машины в 2026 году.", readTime: 7 },
+    { tag: "Новости рынка", title: "ОСАГО и каско для новых автомобилей: что изменилось", text: "Тарифы, электронные полисы и франшиза: как правильно застраховать новую машину и сэкономить.", readTime: 7 }
 ];
 
 // Количество карточек статей на главной
@@ -71,7 +85,10 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollTop();
     initReveal();
     initSubscribe();
+    renderTopNews();
     renderDailyArticles();
+    renderCategoryGrid('rfGrid', 'Российские авто', 6);
+    renderCategoryGrid('marketGrid', 'Новости рынка', 6);
 });
 
 // ===== Мобильное меню =====
@@ -117,32 +134,66 @@ function initReveal() {
 }
 
 // ===== Ежедневная ротация статей =====
-function renderDailyArticles() {
-    const grid = document.querySelector('.articles-grid');
-    if (!grid || !ARTICLE_BANK.length) return;
+// Детерминированный выбор: день года + 6-часовой слот определяют сдвиг в банке.
+// Так новости на главной обновляются 4 раза в день.
+function dayOffset() {
+    const now = new Date();
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
+    const dayOfYear = Math.floor((now - startOfYear) / 86400000);
+    return dayOfYear % ARTICLE_BANK.length;
+}
 
-    // Детерминированный выбор: день года + 6-часовой слот определяют сдвиг в банке.
-    // Так новости на главной обновляются 4 раза в день.
+function slotOffset() {
     const now = new Date();
     const startOfYear = new Date(now.getFullYear(), 0, 1);
     const dayOfYear = Math.floor((now - startOfYear) / 86400000);
     const slot = Math.floor(now.getHours() / 6);
-    const offset = (dayOfYear * 4 + slot) % ARTICLE_BANK.length;
+    return (dayOfYear * 4 + slot) % ARTICLE_BANK.length;
+}
 
-    const today = [];
-    for (let i = 0; i < VISIBLE_ARTICLES; i++) {
-        today.push({ article: ARTICLE_BANK[(offset + i) % ARTICLE_BANK.length], idx: (offset + i) % ARTICLE_BANK.length });
-    }
-
-    grid.innerHTML = today.map(({ article: a, idx }, i) => `
-        <article class="article-card${i === 0 ? ' featured' : ''}">
+function cardHTML(a, idx, featured, meta) {
+    return `
+        <article class="article-card${featured ? ' featured' : ''}">
             <a href="/articles/article-${idx + 1}.html" class="card-link"></a>
             <span class="tag">${a.tag}</span>
             <h3>${a.title}</h3>
             <p>${a.text}</p>
-            <span class="article-meta">${a.readTime} мин · ${dateLabel(i)}</span>
-        </article>
-    `).join('');
+            <span class="article-meta">${meta}</span>
+        </article>`;
+}
+
+// «Главные новости дня»: 3 главные статьи дня (меняются раз в сутки)
+function renderTopNews() {
+    const grid = document.getElementById('topNewsGrid');
+    if (!grid || !ARTICLE_BANK.length) return;
+    const offset = dayOffset();
+    grid.innerHTML = [0, 1, 2].map(i => {
+        const idx = (offset + i) % ARTICLE_BANK.length;
+        const a = ARTICLE_BANK[idx];
+        return cardHTML(a, idx, i === 0, `${a.readTime} мин · ${dateLabel(i)}`);
+    }).join('');
+}
+
+// Разделы по рубрикам: «Российские авто» и «Новости рынка»
+function renderCategoryGrid(id, tag, count) {
+    const grid = document.getElementById(id);
+    if (!grid) return;
+    const items = ARTICLE_BANK.map((a, i) => ({ a, i })).filter(x => x.a.tag === tag).slice(0, count);
+    grid.innerHTML = items.map(({ a, i }) => cardHTML(a, i, false, `${a.readTime} мин`)).join('');
+}
+
+function renderDailyArticles() {
+    const grid = document.getElementById('dailyGrid') || document.querySelector('.articles-grid');
+    if (!grid || !ARTICLE_BANK.length) return;
+
+    const offset = slotOffset();
+    const html = [];
+    for (let i = 0; i < VISIBLE_ARTICLES; i++) {
+        const idx = (offset + i) % ARTICLE_BANK.length;
+        const a = ARTICLE_BANK[idx];
+        html.push(cardHTML(a, idx, i === 0, `${a.readTime} мин · ${dateLabel(i)}`));
+    }
+    grid.innerHTML = html.join('');
 }
 
 // Подпись даты: сегодня / вчера / N дней назад

@@ -38,7 +38,18 @@ a { color: inherit; text-decoration: none; }
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 800;
     margin-bottom: 36px;
-    letter-spacing: -0.5px;
+}
+
+.section-soft {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.section-sub {
+    color: var(--muted);
+    max-width: 640px;
+    margin: -24px 0 28px;
 }
 
 /* ===== Header ===== */

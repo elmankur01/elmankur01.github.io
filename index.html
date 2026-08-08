@@ -49,8 +49,9 @@
             </a>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#news">Новости</a></li>
-                    <li><a href="#electric">Электромобили</a></li>
+                    <li><a href="#news">Главное</a></li>
+                    <li><a href="#rf">Российские авто</a></li>
+                    <li><a href="#market">Новости рынка</a></li>
                     <li><a href="#history">История марок</a></li>
                     <li><a href="#subscribe">Подписка</a></li>
                 </ul>
@@ -74,7 +75,7 @@
                     <a href="#news" class="btn btn-ghost">Читать новости</a>
                 </div>
                 <div class="hero-stats">
-                    <div class="hs-item"><strong>5</strong><span>рубрик</span></div>
+                    <div class="hs-item"><strong>7</strong><span>рубрик</span></div>
                     <div class="hs-item"><strong>24/7</strong><span>новостей</span></div>
                     <div class="hs-item"><strong>0 ₽</strong><span>подписка</span></div>
                 </div>
@@ -111,15 +112,51 @@
                         <h3>Мировые новости</h3>
                         <p>Автопром, рынки, технологии и законодательство</p>
                     </a>
+                    <a href="#rf" class="topic-card">
+                        <div class="topic-icon">🇷🇺</div>
+                        <h3>Российские авто</h3>
+                        <p>Лада, УАЗ, «Москвич» и авторынок России</p>
+                    </a>
+                    <a href="#market" class="topic-card">
+                        <div class="topic-icon">📊</div>
+                        <h3>Новости рынка</h3>
+                        <p>Продажи, цены и тренды автопрома</p>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- LATEST ARTICLES -->
+        <!-- TOP NEWS OF THE DAY -->
         <section class="news section" id="news">
             <div class="container">
+                <h2 class="section-title">Главные новости дня</h2>
+                <div class="articles-grid" id="topNewsGrid"></div>
+            </div>
+        </section>
+
+        <!-- RUSSIAN CARS -->
+        <section class="section section-soft" id="rf">
+            <div class="container">
+                <h2 class="section-title">Российские авто</h2>
+                <p class="section-sub">Что происходит с отечественным автопромом: Лада, УАЗ, «Москвич» и локализация.</p>
+                <div class="articles-grid" id="rfGrid"></div>
+            </div>
+        </section>
+
+        <!-- MARKET NEWS -->
+        <section class="section" id="market">
+            <div class="container">
+                <h2 class="section-title">Новости рынка</h2>
+                <p class="section-sub">Продажи, цены и главные тренды автомобильного рынка России.</p>
+                <div class="articles-grid" id="marketGrid"></div>
+            </div>
+        </section>
+
+        <!-- LATEST ARTICLES -->
+        <section class="news section section-soft" id="latest">
+            <div class="container">
                 <h2 class="section-title">Свежие статьи</h2>
-                <div class="articles-grid">
+                <div class="articles-grid" id="dailyGrid">
                     <article class="article-card featured">
                         <span class="tag">Электромобили</span>
                         <h3>Электромобили в 2026 году: гонка за запасом хода в 1000 км</h3>
@@ -214,8 +251,9 @@
             <div class="footer-links">
                 <h4>Разделы</h4>
                 <ul>
-                    <li><a href="#news">Новости</a></li>
-                    <li><a href="#electric">Электромобили</a></li>
+                    <li><a href="#news">Главное</a></li>
+                    <li><a href="#rf">Российские авто</a></li>
+                    <li><a href="#market">Новости рынка</a></li>
                     <li><a href="#history">История марок</a></li>
                 </ul>
             </div>
