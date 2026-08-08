@@ -69,6 +69,19 @@ ${items}
                         </div>`;
 }
 
+// Похожие статьи: сначала из той же рубрики, потом добираем другими
+function relatedArticles(n, count) {
+    const current = bank[n - 1];
+    const sameTag = bank
+        .map((a, i) => ({ a, i }))
+        .filter(x => x.a.tag === current.tag && x.i !== n - 1);
+    const others = bank
+        .map((a, i) => ({ a, i }))
+        .filter(x => x.a.tag !== current.tag);
+    const pool = [...sameTag, ...others];
+    return pool.slice(0, count);
+}
+
 function page(article, n) {
     return `<!DOCTYPE html>
 <html lang="ru">
@@ -172,16 +185,15 @@ function page(article, n) {
                 </article>
 
                 <aside class="related">
-                    <h2>Читайте также</h2>
+                    <h2>Похожие статьи</h2>
                     <div class="articles-grid">
-                        ${[1, 2, 3].map(k => {
-                            const r = bank[(n - 1 + k) % bank.length];
-                            const ri = bank.indexOf(r) + 1;
+                        ${relatedArticles(n, 3).map(({ a, i }) => {
+                            const ri = i + 1;
                             return `<article class="article-card">
-                                <span class="tag">${esc(r.tag)}</span>
-                                <h3><a href="article-${ri}.html">${esc(r.title)}</a></h3>
-                                <p>${esc(r.text)}</p>
-                                <span class="article-meta">${r.readTime} мин</span>
+                                <span class="tag">${esc(a.tag)}</span>
+                                <h3><a href="article-${ri}.html">${esc(a.title)}</a></h3>
+                                <p>${esc(a.text)}</p>
+                                <span class="article-meta">${a.readTime} мин</span>
                             </article>`;
                         }).join('\n')}
                     </div>
