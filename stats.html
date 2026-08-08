@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АвтоТема — панель статистики</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://api.telegram.org; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.telegram.org; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .stats-wrap { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .stats-card { background: #151b23; border: 1px solid #262e3a; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+        .stats-card h2 { margin: 0 0 16px; color: #fff; font-size: 18px; }
+        .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1f2732; }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { color: #8b95a3; font-size: 14px; }
+        .stat-value { color: #fff; font-size: 20px; font-weight: 700; }
+        .stat-value.small { font-size: 15px; font-weight: 500; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge.ok { background: #14331f; color: #4ade80; }
+        .badge.err { background: #331414; color: #f87171; }
+        .refresh { background: #e61a27; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
+        .refresh:hover { background: #c0121e; }
+        .note { color: #8b95a3; font-size: 13px; margin-top: 12px; line-height: 1.6; }
+        .updated { color: #6b7580; font-size: 12px; margin-top: 8px; }
+        .token-input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #262e3a; background: #0d1218; color: #fff; font-size: 14px; margin-top: 8px; }
+        .token-label { color: #8b95a3; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo"><span class="logo-icon"><i class="logo-svg">🚗</i></span>Авто<span>Тема</span></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="/">Сайт</a></li>
+                    <li><a href="https://t.me/avtotema_news" target="_blank" rel="noopener">Канал</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="stats-wrap">
+            <h1 style="color:#fff;font-size:24px;">📊 Статистика Telegram-канала</h1>
+
+            <div class="stats-card">
+                <h2>🔗 Канал</h2>
+                <div class="stat-row">
+                    <span class="stat-label">Название</span>
+                    <span class="stat-value small" id="chanTitle">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Ссылка</span>
+                    <span class="stat-value small" id="chanLink">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Подписчики</span>
+                    <span class="stat-value" id="chanCount">—</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Статус бота</span>
+                    <span class="stat-value small" id="botStatus">—</span>
+                </div>
+                <div class="updated" id="updatedAt"></div>
+            </div>
+
+            <button class="refresh" id="refreshBtn">🔄 Обновить</button>
+
+            <p class="note">
+                Данные получаются через Telegram Bot API напрямую с этой страницы.
+                Токен бота хранится только в вашем браузере (localStorage) и никуда не отправляется, кроме api.telegram.org.
+                Никогда не публикуйте эту страницу в общий доступ — она скрыта от поисковиков.
+            </p>
+        </div>
+    </main>
+
+    <script>
+    (function () {
+        const DEFAULT_CHAT = '-1004315542026';
+        const CHANNEL_USERNAME = 'avtotema_news';
+        const CHAT_KEY = 'tg_stats_chat';
+        const TOKEN_KEY = 'tg_stats_token';
+
+        let token = localStorage.getItem(TOKEN_KEY) || '';
+        let chat = localStorage.getItem(CHAT_KEY) || DEFAULT_CHAT;
+
+        const chanTitle = document.getElementById('chanTitle');
+        const chanLink = document.getElementById('chanLink');
+        const chanCount = document.getElementById('chanCount');
+        const botStatus = document.getElementById('botStatus');
+        const updatedAt = document.getElementById('updatedAt');
+        const refreshBtn = document.getElementById('refreshBtn');
+
+        function esc(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function setBadge(el, ok, text) {
+            el.innerHTML = '<span class="badge ' + (ok ? 'ok' : 'err') + '">' + esc(text) + '</span>';
+        }
+
+        async function load() {
+            if (!token) {
+                token = prompt('Введите токен бота (от BotFather):');
+                if (!token) return setBadge(botStatus, false, 'Нет токена');
+                localStorage.setItem(TOKEN_KEY, token);
+            }
+
+            setBadge(botStatus, true, 'Проверяем…');
+
+            try {
+                const me = await (await fetch('https://api.telegram.org/bot' + token + '/getMe')).json();
+                if (!me.ok) { setBadge(botStatus, false, 'Токен неверный'); return; }
+                setBadge(botStatus, true, 'Бот: @' + me.result.username);
+            } catch (e) {
+                setBadge(botStatus, false, 'Ошибка соединения');
+                return;
+            }
+
+            try {
+                const info = await (await fetch('https://api.telegram.org/bot' + token + '/getChat?chat_id=@' + CHANNEL_USERNAME)).json();
+                if (info.ok) {
+                    chanTitle.textContent = info.result.title || '—';
+                    chanLink.innerHTML = '<a href="https://t.me/' + CHANNEL_USERNAME + '" target="_blank" rel="noopener">t.me/' + CHANNEL_USERNAME + '</a>';
+                }
+            } catch (e) {}
+
+            try {
+                const count = await (await fetch('https://api.telegram.org/bot' + token + '/getChatMemberCount?chat_id=' + chat)).json();
+                if (count.ok) {
+                    chanCount.textContent = count.result.toLocaleString('ru-RU');
+                } else {
+                    const info = await (await fetch('https://api.telegram.org/bot' + token + '/getChat?chat_id=@' + CHANNEL_USERNAME)).json();
+                    if (info.ok && info.result && info.result.members_count) {
+                        chanCount.textContent = info.result.members_count.toLocaleString('ru-RU');
+                    } else {
+                        chanCount.textContent = 'нет доступа';
+                    }
+                }
+            } catch (e) {
+                chanCount.textContent = 'ошибка';
+            }
+
+            updatedAt.textContent = 'Обновлено: ' + new Date().toLocaleString('ru-RU');
+        }
+
+        refreshBtn.addEventListener('click', load);
+        load();
+    })();
+    </script>
+</body>
+</html>
