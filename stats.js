@@ -2,12 +2,18 @@
 (function () {
     const DEFAULT_CHAT = '-1004315542026';
     const CHANNEL_USERNAME = 'avtotema_news';
-    const CHAT_KEY = 'tg_stats_chat';
     const TOKEN_KEY = 'tg_stats_token';
 
-    let token = localStorage.getItem(TOKEN_KEY) || '';
-    let chat = localStorage.getItem(CHAT_KEY) || DEFAULT_CHAT;
+    function getStored(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
+    function setStored(k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
+    function removeStored(k) { try { window.localStorage.removeItem(k); } catch (e) {} }
 
+    let token = getStored(TOKEN_KEY) || '';
+
+    const tokenInput = document.getElementById('tokenInput');
+    const saveTokenBtn = document.getElementById('saveTokenBtn');
+    const clearTokenBtn = document.getElementById('clearTokenBtn');
+    const tokenStatus = document.getElementById('tokenStatus');
     const chanTitle = document.getElementById('chanTitle');
     const chanLink = document.getElementById('chanLink');
     const chanCount = document.getElementById('chanCount');
@@ -23,13 +29,16 @@
         el.innerHTML = '<span class="badge ' + (ok ? 'ok' : 'err') + '">' + esc(text) + '</span>';
     }
 
-    async function load() {
-        if (!token) {
-            token = prompt('Введите токен бота (от BotFather):');
-            if (!token) return setBadge(botStatus, false, 'Нет токена');
-            localStorage.setItem(TOKEN_KEY, token);
-        }
+    function requireKey() {
+        setBadge(botStatus, false, 'Требуется ключ');
+        chanTitle.textContent = '—';
+        chanLink.textContent = '—';
+        chanCount.textContent = '—';
+        updatedAt.textContent = 'Введите ключ и нажмите «Сохранить ключ»';
+    }
 
+    async function load() {
+        if (!token) { requireKey(); return; }
         setBadge(botStatus, true, 'Проверяем…');
 
         try {
@@ -50,13 +59,13 @@
         } catch (e) {}
 
         try {
-            const count = await (await fetch('https://api.telegram.org/bot' + token + '/getChatMemberCount?chat_id=' + chat)).json();
+            const count = await (await fetch('https://api.telegram.org/bot' + token + '/getChatMemberCount?chat_id=' + DEFAULT_CHAT)).json();
             if (count.ok) {
                 chanCount.textContent = count.result.toLocaleString('ru-RU');
             } else {
                 const info = await (await fetch('https://api.telegram.org/bot' + token + '/getChat?chat_id=@' + CHANNEL_USERNAME)).json();
-                if (info.ok && info.result && info.result.members_count) {
-                    chanCount.textContent = info.result.members_count.toLocaleString('ru-RU');
+                if (info.ok && info.result && info.result.subscriber_count) {
+                    chanCount.textContent = info.result.subscriber_count.toLocaleString('ru-RU');
                 } else {
                     chanCount.textContent = 'нет доступа';
                 }
@@ -68,6 +77,33 @@
         updatedAt.textContent = 'Обновлено: ' + new Date().toLocaleString('ru-RU');
     }
 
+    saveTokenBtn.addEventListener('click', function () {
+        token = tokenInput.value.trim();
+        if (!token) {
+            setBadge(botStatus, false, 'Требуется ключ');
+            tokenStatus.textContent = 'Введите токен бота.';
+            return;
+        }
+        setStored(TOKEN_KEY, token);
+        tokenStatus.textContent = 'Ключ сохранён в браузере (localStorage).';
+        load();
+    });
+
+    clearTokenBtn.addEventListener('click', function () {
+        removeStored(TOKEN_KEY);
+        token = '';
+        tokenInput.value = '';
+        tokenStatus.textContent = 'Ключ удалён из браузера.';
+        requireKey();
+    });
+
+    if (token) {
+        tokenInput.value = token;
+        tokenStatus.textContent = 'Ключ найден в браузере (localStorage).';
+        load();
+    } else {
+        requireKey();
+    }
+
     refreshBtn.addEventListener('click', load);
-    load();
 })();

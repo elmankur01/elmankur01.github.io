@@ -44,6 +44,17 @@
         <div class="stats-wrap">
             <h1 style="color:#fff;font-size:24px;">📊 Статистика Telegram-канала</h1>
 
+            <div class="stats-card" id="keyCard">
+                <h2>🔑 Ключ бота (токен)</h2>
+                <label class="token-label" for="tokenInput">Токен от @BotFather — хранится только в вашем браузере (localStorage) и нужен для запросов к api.telegram.org</label>
+                <input type="password" class="token-input" id="tokenInput" placeholder="123456789:AA…" autocomplete="off">
+                <div style="margin-top:12px;">
+                    <button class="refresh" id="saveTokenBtn">💾 Сохранить ключ</button>
+                    <button class="refresh" id="clearTokenBtn" style="background:#2a3547;">✖️ Убрать ключ</button>
+                </div>
+                <div class="updated" id="tokenStatus"></div>
+            </div>
+
             <div class="stats-card">
                 <h2>🔗 Канал</h2>
                 <div class="stat-row">
@@ -69,7 +80,8 @@
 
             <p class="note">
                 Данные получаются через Telegram Bot API напрямую с этой страницы.
-                Токен бота хранится только в вашем браузере (localStorage) и никуда не отправляется, кроме api.telegram.org.
+                Ключ (токен бота) вводится в поле выше, хранится только в вашем браузере (localStorage)
+                и никуда не отправляется, кроме api.telegram.org.
                 Никогда не публикуйте эту страницу в общий доступ — она скрыта от поисковиков.
             </p>
         </div>
