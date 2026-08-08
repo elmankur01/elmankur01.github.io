@@ -23,7 +23,7 @@
 ## Автоматизация (08.08.2026)
 - **Добавление статьи = добавить объект в `ARTICLE_BANK` (script.js) и текст в `BODIES` (article_content.js), затем пушить. Всё остальное автоматически:**
   - GitHub Actions `auto_build.yml` пересоздаёт страницы `articles/*.html` и `sitemap.xml` при пуше (trigger: script.js, article_content.js, generate_articles.js, index.html, styles.css)
-  - Автопостинг в Telegram: `daily_post.yml` публикует статью в `@avtotema_news` **4 раза в день** (00, 06, 12, 18 UTC; cron `0 */6 * * *`). Каждый пост — новая статья (день года + 6-часовой слот → индекс в банке). Секреты: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+  - Автопостинг в Telegram: `daily_post.yml` публикует статью в `@avtotema_news` **4 раза в день** (00, 06, 12, 18 UTC; cron `0 */6 * * *`). Каждый пост — новая статья (день года + 6-часовой слот → индекс в банке). Секреты: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`. Формат поста — брендированный: ссылка «📰 Читать на АвтоТеме» + «Подпишитесь: @avtotema_news» (без видимого адреса github.io в тексте).
   - Отдельные рубричные посты: `daily_rf_post.yml` (07:00 UTC, «Российские авто») и `daily_market_post.yml` (08:00 UTC, «Новости рынка») — по 1 посту в день через `publish_category.js` (переменная окружения `POST_CATEGORY`)
   - Ротация на главной 4 раза в день: `renderDailyArticles()` использует сдвиг (день года × 4 + слот) % длина банка; «Главные новости дня» (`renderTopNews()`) — день года % длина банка
 - **Источники статей**: в `article_content.js` есть массив `SOURCES` (индекс = номер статьи) — официальные пресс-центры/сайты брендов и отраслевые организации (ACEA). При добавлении статьи заполняйте и его: блок «Источники» автоматически рендерится на странице статьи.
@@ -47,7 +47,7 @@ auto-parts/
   AGENTS.md              — этот файл
   start.sh               — скрипт локального запуска
 ```
-Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `favicon.png`, `favicon.ico`, `google70a162b366d85b3b.html`, `yandex_9d4b4dc75e2f36bd.html`, `.nojekyll` — в корне репозитория.
+Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `favicon.png`, `favicon.ico`, `google70a162b366d85b3b.html`, `yandex_9d4b4dc75e2f36bd.html`, `.nojekyll`, `og-image.png` (превью для соцсетей) — в корне репозитория.
 
 **Удалены:** `data.js` (база запчастей), `admin.html` (админка) — больше не нужны.
 
