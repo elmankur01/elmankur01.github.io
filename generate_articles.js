@@ -82,7 +82,19 @@ function heroImage(n) {
                     </figure>`;
 }
 
-// Похожие статьи: сначала из той же рубрики, потом добираем другими
+// Похожие статьи: сначала из той же рубрики, потом добираем другими.
+// Стартовая позиция сдвигается от номера статьи + приоритет у «свежих» целей,
+// чтобы «похожие» не повторялись и все статьи получали входящие ссылки.
+const relatedSeen = new Set();
+function pickFresh(pool, k, n, seed) {
+    if (!k || !pool.length) return [];
+    const start = (n * seed) % pool.length;
+    const ordered = [...pool.slice(start), ...pool.slice(0, start)];
+    const fresh = ordered.filter(x => !relatedSeen.has(x.i));
+    const already = ordered.filter(x => relatedSeen.has(x.i));
+    return [...fresh, ...already].slice(0, k);
+}
+
 function relatedArticles(n, count) {
     const current = bank[n - 1];
     const sameTag = bank
@@ -91,8 +103,16 @@ function relatedArticles(n, count) {
     const others = bank
         .map((a, i) => ({ a, i }))
         .filter(x => x.a.tag !== current.tag);
-    const pool = [...sameTag, ...others];
-    return pool.slice(0, count);
+
+    const wantSame = Math.min(2, sameTag.length);
+    const same = pickFresh(sameTag, wantSame, n, 3);
+
+    const used = new Set(same.map(x => x.i));
+    const rest = pickFresh(others.filter(x => !used.has(x.i)), count - same.length, n, 5);
+
+    same.forEach(r => relatedSeen.add(r.i));
+    rest.forEach(r => relatedSeen.add(r.i));
+    return [...same, ...rest];
 }
 
 function page(article, n) {
