@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initBurger();
     initScrollTop();
     initReveal();
-    initSubscribe();
     renderTopNews();
     renderDailyArticles();
     renderCategoryGrid('rfGrid', 'Российские авто', 6);
@@ -205,35 +204,3 @@ function dateLabel(daysAgo) {
     return names[daysAgo] || daysAgo + ' дней назад';
 }
 
-// ===== Подписка =====
-function initSubscribe() {
-    const form = document.getElementById('subscribeForm');
-    const note = document.getElementById('subscribeNote');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const email = document.getElementById('emailInput').value.trim();
-        const consent = document.getElementById('consentCheck');
-        if (!email) {
-            note.textContent = 'Введите адрес электронной почты.';
-            note.style.color = '#e8433c';
-            return;
-        }
-        if (consent && !consent.checked) {
-            note.textContent = 'Необходимо согласие на обработку персональных данных.';
-            note.style.color = '#e8433c';
-            return;
-        }
-
-        let subs = [];
-        try { subs = JSON.parse(localStorage.getItem('ap_subscribers') || '[]'); } catch (err) {}
-        if (!subs.includes(email)) {
-            subs.push(email);
-            localStorage.setItem('ap_subscribers', JSON.stringify(subs));
-        }
-
-        note.textContent = '✓ Спасибо! Вы подписаны на еженедельный дайджест.';
-        note.style.color = '#2d9a6e';
-        form.reset();
-    });
-}
