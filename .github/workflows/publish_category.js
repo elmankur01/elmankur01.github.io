@@ -40,8 +40,6 @@ const text = [
     '',
     escHtml(pick.a.text),
     '',
-    '⏱ Читать ~' + pick.a.readTime + ' минут',
-    '',
     '📰 <a href="' + url + '">Читать на АвтоТеме</a>',
     '',
     'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',

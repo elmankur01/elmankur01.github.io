@@ -33,8 +33,6 @@ const text = [
     '',
     escHtml(article.text),
     '',
-    '⏱ Читать ~' + article.readTime + ' минут',
-    '',
     '📰 <a href="' + url + '">Читать на АвтоТеме</a>',
     '',
     'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
