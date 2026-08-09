@@ -53,7 +53,7 @@ function tts(text, out) {
 
 function probeDuration(file) {
     const r = spawnSync(FFPROBE, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', file], { encoding: 'utf8' });
-    return parseFloat(r.stdout.trim()) || 1;
+    return parseFloat((r.stdout || '').trim()) || 1;
 }
 
 function wrap(text, width) {
@@ -221,8 +221,14 @@ async function main() {
     const valid = nums.filter(n => n >= 1 && n <= ARTICLE_BANK.length);
     if (!valid.length) { console.log('Не выбрано ни одной статьи.'); return; }
     console.log('Обработаю статьи: ' + valid.join(', '));
-    for (const n of valid) await buildArticle(n);
+    for (const n of valid) {
+        try {
+            await buildArticle(n);
+        } catch (e) {
+            console.error('Статья ' + n + ' — ошибка:', e.stack || e.message);
+        }
+    }
     console.log('\n🎉 Готово! Ролики в папке ' + OUT_DIR);
 }
 
-main().catch(e => { console.error('Ошибка:', e.message); process.exit(1); });
+main().catch(e => { console.error('Ошибка:', e.stack || e.message); process.exit(1); });
