@@ -21,20 +21,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install ffmpeg and font
+      - name: Install ffmpeg, font and edge-tts
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q ffmpeg fonts-dejavu-core
-
-      - name: Install edge-tts
-        run: |
-          python3 -m venv /opt/venv
-          /opt/venv/bin/pip install -q --upgrade pip
-          /opt/venv/bin/pip install -q edge-tts
+          sudo apt-get install -y -q ffmpeg fonts-dejavu-core python3-pip
+          sudo python3 -m pip install -q --break-system-packages edge-tts
 
       - name: Generate videos
-        env:
-          PATH: /opt/venv/bin:$PATH
         run: node generate_video.js ${{ inputs.articles }}
 
       - name: Upload videos
