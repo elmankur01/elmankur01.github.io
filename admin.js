@@ -165,6 +165,20 @@
                     return '<div>' + (i + 1) + '. ' + esc(a.title) + ' [' + esc(a.tag) + ']</div>';
                 }).join('');
             }
+            var socialSelect = document.getElementById('socialArticleSelect');
+            if (socialSelect) {
+                socialSelect.innerHTML = '';
+                items.forEach(function (a, i) {
+                    var opt = document.createElement('option');
+                    opt.value = i;
+                    opt.textContent = (i + 1) + '. ' + a.title;
+                    socialSelect.appendChild(opt);
+                });
+                if (items.length) {
+                    socialSelect.value = 0;
+                    showSocialVideoUrl();
+                }
+            }
         }).catch(function () {
             sendPreview.textContent = 'Ошибка загрузки статей.';
         });
@@ -376,6 +390,229 @@
     }
 
     startVideoBtn.addEventListener('click', startVideoGen);
+
+    // ── Публикация в YouTube и Instagram ──
+    var YT_CID = 'at_yt_cid';
+    var YT_SECRET = 'at_yt_secret';
+    var YT_REFRESH = 'at_yt_refresh';
+    var YT_ACCESS = 'at_yt_access';
+    var YT_ACCESS_EXP = 'at_yt_access_exp';
+    var IG_TOKEN = 'at_ig_token';
+    var IG_UID = 'at_ig_uid';
+
+    var socialSelect = document.getElementById('socialArticleSelect');
+    var socialVideoUrlEl = document.getElementById('socialVideoUrl');
+    var ytClientId = document.getElementById('ytClientId');
+    var ytClientSecret = document.getElementById('ytClientSecret');
+    var ytRefreshToken = document.getElementById('ytRefreshToken');
+    var ytAuthBtn = document.getElementById('ytAuthBtn');
+    var ytPublishBtn = document.getElementById('ytPublishBtn');
+    var ytStatus = document.getElementById('ytStatus');
+    var igToken = document.getElementById('igToken');
+    var igUserId = document.getElementById('igUserId');
+    var igPublishBtn = document.getElementById('igPublishBtn');
+    var igStatus = document.getElementById('igStatus');
+
+    function socialSetStatus(el, ok, msg) {
+        el.innerHTML = '<span class="badge ' + (ok ? 'ok' : 'err') + '">' + escHtml(msg) + '</span>';
+    }
+
+    function socialVideoURL() {
+        var idx = +socialSelect.value;
+        var a = articles[idx];
+        if (!a) return '';
+        var slug = slugMap[idx + 1] || ('article-' + (idx + 1));
+        return 'https://elmankur01.github.io/videos/out_' + (idx + 1) + '_' + slug + '.mp4';
+    }
+
+    function showSocialVideoUrl() {
+        var url = socialVideoURL();
+        socialVideoUrlEl.innerHTML = url
+            ? 'Ролик: <a href="' + url + '" target="_blank" rel="noopener" style="color:#4a9eff;">' + url + '</a>'
+            : '';
+    }
+
+    if (socialSelect) {
+        socialSelect.addEventListener('change', showSocialVideoUrl);
+        ytClientId.value = getStored(YT_CID) || '';
+        ytClientSecret.value = getStored(YT_SECRET) || '';
+        ytRefreshToken.value = getStored(YT_REFRESH) || '';
+        igToken.value = getStored(IG_TOKEN) || '';
+        igUserId.value = getStored(IG_UID) || '';
+    }
+
+    // OAuth-callback: admin.html?code=...&state=yt_avtotema (возврат с Google)
+    (function () {
+        var q = new URLSearchParams(window.location.search);
+        var code = q.get('code');
+        var state = q.get('state');
+        if (code && state === 'yt_avtotema') {
+            exchangeYouTubeCode(code);
+            history.replaceState({}, '', window.location.pathname);
+        }
+    })();
+
+    function exchangeYouTubeCode(code) {
+        var cid = ytClientId.value.trim();
+        var sec = ytClientSecret.value.trim();
+        if (!cid || !sec) { socialSetStatus(ytStatus, false, 'Введите Client ID и Secret'); return; }
+        var redirect = window.location.origin + window.location.pathname;
+        fetch('https://oauth2.googleapis.com/token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ code: code, client_id: cid, client_secret: sec, redirect_uri: redirect, grant_type: 'authorization_code' })
+        }).then(function (r) { return r.json(); }).then(function (j) {
+            if (j.refresh_token) {
+                setStored(YT_CID, cid);
+                setStored(YT_SECRET, sec);
+                setStored(YT_REFRESH, j.refresh_token);
+                setStored(YT_ACCESS, j.access_token);
+                setStored(YT_ACCESS_EXP, String(Date.now() + (j.expires_in || 3600) * 1000));
+                ytRefreshToken.value = j.refresh_token;
+                socialSetStatus(ytStatus, true, '✅ Авторизовано! Refresh token сохранён в браузере. Можно публиковать.');
+            } else {
+                socialSetStatus(ytStatus, false, 'Ошибка: ' + (j.error_description || JSON.stringify(j)));
+            }
+        }).catch(function (e) {
+            socialSetStatus(ytStatus, false, 'Ошибка обмена: ' + e.message);
+        });
+    }
+
+    ytAuthBtn.addEventListener('click', function () {
+        var cid = ytClientId.value.trim();
+        var sec = ytClientSecret.value.trim();
+        if (!cid || !sec) { socialSetStatus(ytStatus, false, 'Сначала введите Client ID и Client Secret'); return; }
+        setStored(YT_CID, cid);
+        setStored(YT_SECRET, sec);
+        var redirect = window.location.origin + window.location.pathname;
+        var url = 'https://accounts.google.com/o/oauth2/v2/auth' +
+            '?client_id=' + encodeURIComponent(cid) +
+            '&redirect_uri=' + encodeURIComponent(redirect) +
+            '&response_type=code' +
+            '&scope=' + encodeURIComponent('https://www.googleapis.com/auth/youtube.upload') +
+            '&access_type=offline&prompt=consent&state=yt_avtotema';
+        socialSetStatus(ytStatus, false, 'Открываем Google… после разрешения вы вернётесь на эту страницу.');
+        window.location.href = url;
+    });
+
+    function getYouTubeAccessToken() {
+        return new Promise(function (resolve, reject) {
+            var refresh = getStored(YT_REFRESH);
+            var cid = getStored(YT_CID);
+            var sec = getStored(YT_SECRET);
+            if (!refresh || !cid || !sec) { reject(new Error('Нет авторизации YouTube — нажмите «Авторизовать YouTube»')); return; }
+            var exp = +getStored(YT_ACCESS_EXP) || 0;
+            var acc = getStored(YT_ACCESS);
+            if (acc && Date.now() < exp - 60000) { resolve(acc); return; }
+            fetch('https://oauth2.googleapis.com/token', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ client_id: cid, client_secret: sec, refresh_token: refresh, grant_type: 'refresh_token' })
+            }).then(function (r) { return r.json(); }).then(function (j) {
+                if (!j.access_token) { reject(new Error(j.error_description || 'Не удалось получить токен')); return; }
+                setStored(YT_ACCESS, j.access_token);
+                setStored(YT_ACCESS_EXP, String(Date.now() + (j.expires_in || 3600) * 1000));
+                resolve(j.access_token);
+            }).catch(reject);
+        });
+    }
+
+    ytPublishBtn.addEventListener('click', function () {
+        var url = socialVideoURL();
+        var a = articles[+socialSelect.value];
+        if (!url || !a) { socialSetStatus(ytStatus, false, 'Выберите статью'); return; }
+        ytPublishBtn.disabled = true;
+        socialSetStatus(ytStatus, false, 'Скачиваем ролик и получаем токен…');
+        fetch(url).then(function (r) {
+            if (!r.ok) throw new Error('Ролик не найден (HTTP ' + r.status + ') — сначала сгенерируйте видео');
+            return r.blob();
+        }).then(function (blob) {
+            return getYouTubeAccessToken().then(function (token) { return { blob: blob, token: token }; });
+        }).then(function (ctx) {
+            var size = ctx.blob.size;
+            socialSetStatus(ytStatus, false, 'Загружаем на YouTube… (' + Math.round(size / 1024 / 1024) + ' МБ)');
+            var meta = {
+                snippet: { title: a.title, description: a.text + '\n\nПодпишитесь: https://t.me/avtotema_news', categoryId: '22' },
+                status: { privacyStatus: 'public' }
+            };
+            return fetch('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + ctx.token,
+                    'Content-Type': 'application/json',
+                    'X-Upload-Content-Type': 'video/mp4',
+                    'X-Upload-Content-Length': String(size)
+                },
+                body: JSON.stringify(meta)
+            }).then(function (r) {
+                var loc = r.headers.get('Location');
+                if (!loc) throw new Error('Не удалось инициировать загрузку (HTTP ' + r.status + ')');
+                return fetch(loc, { method: 'PUT', headers: { 'Content-Type': 'video/mp4' }, body: ctx.blob });
+            }).then(function (r) { return r.json(); });
+        }).then(function (j) {
+            ytPublishBtn.disabled = false;
+            if (j.id) socialSetStatus(ytStatus, true, '✅ Опубликовано: https://youtu.be/' + j.id);
+            else socialSetStatus(ytStatus, false, 'Ошибка: ' + ((j.error && j.error.message) || JSON.stringify(j)));
+        }).catch(function (e) {
+            ytPublishBtn.disabled = false;
+            socialSetStatus(ytStatus, false, e.message);
+        });
+    });
+
+    igPublishBtn.addEventListener('click', function () {
+        var url = socialVideoURL();
+        var a = articles[+socialSelect.value];
+        var token = igToken.value.trim();
+        if (!url || !a) { socialSetStatus(igStatus, false, 'Выберите статью'); return; }
+        if (!token) { socialSetStatus(igStatus, false, 'Введите токен Instagram'); return; }
+        setStored(IG_TOKEN, token);
+        igPublishBtn.disabled = true;
+        socialSetStatus(igStatus, false, 'Публикуем Reels…');
+
+        var uid = igUserId.value.trim();
+        var first = uid
+            ? Promise.resolve(uid)
+            : fetch('https://graph.instagram.com/me?fields=id,username&access_token=' + encodeURIComponent(token))
+                .then(function (r) { return r.json(); })
+                .then(function (j) {
+                    if (!j.id) throw new Error((j.error && j.error.message) || 'Не удалось определить ID аккаунта');
+                    return j.id;
+                });
+
+        first.then(function (id) {
+            setStored(IG_UID, id);
+            igUserId.value = id;
+            var caption = (a.title + '\n\n' + a.text + '\n\nПодпишитесь: https://t.me/avtotema_news').slice(0, 2200);
+            var body = new URLSearchParams();
+            body.append('media_type', 'REELS');
+            body.append('video_url', url);
+            body.append('caption', caption);
+            body.append('share_to_feed', 'true');
+            body.append('access_token', token);
+            return fetch('https://graph.instagram.com/' + id + '/media', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: body
+            }).then(function (r) { return r.json(); }).then(function (j) {
+                if (!j.id) throw new Error((j.error && j.error.message) || 'Ошибка создания контейнера');
+                var p2 = new URLSearchParams();
+                p2.append('creation_id', j.id);
+                p2.append('access_token', token);
+                return fetch('https://graph.instagram.com/' + id + '/media_publish', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: p2
+                }).then(function (r) { return r.json(); });
+            });
+        }).then(function (j) {
+            igPublishBtn.disabled = false;
+            if (j.id) socialSetStatus(igStatus, true, '✅ Reels опубликован (media id ' + j.id + ')');
+            else socialSetStatus(igStatus, false, 'Ошибка: ' + ((j.error && j.error.message) || JSON.stringify(j)));
+        }).catch(function (e) {
+            igPublishBtn.disabled = false;
+            socialSetStatus(igStatus, false, e.message);
+        });
+    });
 
     // Состояние сайта — счётчики из sitemap.xml
     var articleCount = document.getElementById('articleCount');

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АвтоТема — админ-панель</title>
     <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.telegram.org https://api.github.com https://github.com https://codeload.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.telegram.org https://api.github.com https://github.com https://codeload.github.com https://oauth2.googleapis.com https://www.googleapis.com https://graph.instagram.com; object-src 'none'; base-uri 'self'; form-action 'self' https://accounts.google.com">
     <link rel="stylesheet" href="/styles.css">
     <style>
         .admin-wrap { max-width: 900px; margin: 40px auto; padding: 0 20px; }
@@ -146,6 +146,45 @@
                     <summary style="cursor:pointer;color:#4a9eff;">Показать номера статей</summary>
                     <div id="videoArticleList" style="max-height:220px;overflow:auto;margin-top:8px;color:#8b95a3;font-size:13px;line-height:1.7;"></div>
                 </details>
+            </div>
+
+            <!-- SOCIAL PUBLISH -->
+            <div class="admin-card">
+                <h2>📤 Публикация в YouTube и Instagram</h2>
+                <p class="note">Выберите статью — ролик для неё должен быть уже сгенерирован (см. блок выше). Видео публикуется из публичной ссылки сайта.</p>
+
+                <label class="token-label" for="socialArticleSelect">Статья (ролик)</label>
+                <select class="token-input" id="socialArticleSelect">
+                    <option value="">Загрузка списка статей…</option>
+                </select>
+                <div class="updated" id="socialVideoUrl" style="margin-top:12px;"></div>
+
+                <!-- YOUTUBE -->
+                <h3 style="color:#fff;font-size:16px;margin:20px 0 8px;">▶️ YouTube</h3>
+                <label class="token-label" for="ytClientId">OAuth Client ID (Google Cloud)</label>
+                <input class="token-input" id="ytClientId" placeholder="…apps.googleusercontent.com" autocomplete="off">
+                <label class="token-label" style="display:block;margin-top:12px;" for="ytClientSecret">OAuth Client Secret</label>
+                <input type="password" class="token-input" id="ytClientSecret" placeholder="GOCSPX-…" autocomplete="off">
+                <label class="token-label" style="display:block;margin-top:12px;" for="ytRefreshToken">Refresh token (можно вставить готовый)</label>
+                <input class="token-input" id="ytRefreshToken" placeholder="1//0…" autocomplete="off">
+                <div class="grid-2">
+                    <button class="btn btn-gray" id="ytAuthBtn">🔑 Авторизовать YouTube</button>
+                    <button class="btn btn-red" id="ytPublishBtn">▶️ Опубликовать ролик</button>
+                </div>
+                <div class="updated" id="ytStatus" style="margin-top:12px;"></div>
+                <p class="note">Кнопка «Авторизовать» откроет Google — разрешите доступ, после чего скрипт сам получит refresh token (сохраняется в вашем браузере). Нужна включённая YouTube Data API v3 и scope <code>youtube.upload</code>.</p>
+
+                <!-- INSTAGRAM -->
+                <h3 style="color:#fff;font-size:16px;margin:20px 0 8px;">📸 Instagram (Reels)</h3>
+                <label class="token-label" for="igToken">Long-lived token (Meta Graph API)</label>
+                <input type="password" class="token-input" id="igToken" placeholder="IGAA…" autocomplete="off">
+                <label class="token-label" style="display:block;margin-top:12px;" for="igUserId">Instagram Business ID (если пусто — определится автоматически)</label>
+                <input class="token-input" id="igUserId" placeholder="1784…" autocomplete="off">
+                <div style="margin-top:16px;">
+                    <button class="btn btn-red" id="igPublishBtn">📸 Опубликовать Reels</button>
+                </div>
+                <div class="updated" id="igStatus" style="margin-top:12px;"></div>
+                <p class="note">Нужен business/creator аккаунт, связанный со страницей Facebook, и токен с правами <code>instagram_content_publish</code> (обычно получают в Meta Graph API Explorer или через обмен short-lived → long-lived).</p>
             </div>
 
             <!-- SITE STATE -->
