@@ -26,12 +26,14 @@
   - Автопостинг в Telegram: `daily_post.yml` публикует статью в `@avtotema_news` **4 раза в день** (00, 06, 12, 18 UTC; cron `0 */6 * * *`). Каждый пост — новая статья (день года + 6-часовой слот → индекс в банке). Секреты: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`. Формат поста — брендированный: ссылка «📰 Читать на АвтоТеме» + «Подпишитесь: @avtotema_news» (без видимого адреса github.io в тексте).
   - Отдельные рубричные посты: `daily_rf_post.yml` (07:00 UTC, «Российские авто») и `daily_market_post.yml` (08:00 UTC, «Новости рынка») — по 1 посту в день через `publish_category.js` (переменная окружения `POST_CATEGORY`)
   - Ротация на главной 4 раза в день: `renderDailyArticles()` использует сдвиг (день года × 4 + слот) % длина банка; «Главные новости дня» (`renderTopNews()`) — день года % длина банка
+- **Админка** (`/admin.html`): ручная отправка выбранной статьи в Telegram (канал или личный чат) и генерация роликов по статьям (облако через GitHub Actions `generate_videos.yml`, нужен GitHub-токен, вводится в админке и не хранится в репозитории).
+- **Генератор роликов**: `tools/generate_video.js` (node, пути — относительно скрипта). Локально требует ffmpeg с drawtext (`/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg` на macOS) и `edge-tts`. В облаке `generate_videos.yml` ставит ffmpeg, fonts-dejavu-core и edge-tts системно (без venv — иначе Node не видит ffmpeg на PATH). Ролики сохраняются в `tools/videos/` (в .gitignore).
 - **Источники статей**: в `article_content.js` есть массив `SOURCES` (индекс = номер статьи) — официальные пресс-центры/сайты брендов и отраслевые организации (ACEA). При добавлении статьи заполняйте и его: блок «Источники» автоматически рендерится на странице статьи.
 - **Фотографии статей**: объект `IMAGES` в **`article_images.js`** (ключ = номер статьи, значение = `{ url, alt, credit }`). Файлы кладём в `images/` (CSP разрешает только свои картинки). Фото из Wikimedia Commons — свободные лицензии (CC BY-SA) — **обязательно указывать автора и лицензию в `credit`** (выводится в подписи под фото). Статьи без фото просто нет в `IMAGES` — картинка не выводится. `article_images.js` загружается на главной для превью в карточках и реэкспортируется через `article_content.js` для генератора.
 - **ЧПУ-адреса статей**: объект `SLUGS` в **`article_images.js`** (ключ = номер статьи, значение = латинский слаг, транслитерация заголовка). **При добавлении статьи добавляйте слаг в `SLUGS`** — он используется в URL страницы, ссылках карточек, «Читайте также», sitemap и постах Telegram. Если слага нет — генератор и ссылки используют fallback `article-N`.
 - **ПРАВИЛО: каждая новая статья получает фотографию.** При добавлении статьи в банк обязательно подбирать фото (Wikimedia Commons, лицензия CC/PD, автора — в `credit`) и добавлять запись в `IMAGES`. Официальные пресс-центры большинства марок требуют регистрацию — для статей используем свободные фото.
 - **Важно про деплой**: коммитим ТОЛЬКО исходники (script.js, article_content.js, generate_articles.js, index.html, styles.css, images/, AGENTS.md и т.п.). `articles/` и `sitemap.xml` НЕ коммитим — их пересобирает и пушит workflow `auto_build.yml` (иначе возникают конфликты с его авто-коммитами).
-- Локально можно запустить: `node generate_articles.js` (пересоберёт страницы и sitemap)
+- Локально можно запустить: `node generate_articles.js` (пересоберёт страницы и sitemap) и `node tools/generate_video.js` (сделает ролики по статьям)
 
 ## Монетизация
 - ❌ Отключена. Без партнёрских ссылок, рекламы и трекинга кликов.
@@ -59,7 +61,11 @@ auto-parts/
   generate_articles.js   — генератор страниц статей (node generate_articles.js)
   articles/              — сгенерированные страницы статей <слаг>.html + редирект-заглушки article-N.html (автопересборка workflow)
   images/                — фотографии статей (ferrari.jpg, porsche-911.jpg, uaz-patriot.jpg, nissan-gtr.jpg)
-  .github/workflows/     — auto_build.yml (пересборка страниц), daily_post.yml (4 поста/день), daily_rf_post.yml (Российские авто, 07:00), daily_market_post.yml (Новости рынка, 08:00), publish_daily.js, publish_category.js
+  .github/workflows/     — auto_build.yml (пересборка страниц), daily_post.yml (4 поста/день), daily_rf_post.yml (Российские авто, 07:00), daily_market_post.yml (Новости рынка, 08:00), generate_videos.yml (ролики по статьям в облаке), health_check.yml, publish_daily.js, publish_category.js, health_check.js
+  admin.html             — админка: отправка статьи в Telegram (канал/личный чат) и генерация роликов (облако через GitHub Actions)
+  admin.js               — логика админки
+  stats.html, stats.js   — панель статистики Telegram (скрыта от индексации)
+  tools/                 — инструменты: generate_video.js (генератор роликов, пути — относительно скрипта), tools/videos/ (выходные ролики, в gitignore)
   AGENTS.md              — этот файл
   start.sh               — скрипт локального запуска
   privacy.html           — Политика конфиденциальности (152-ФЗ)
@@ -68,15 +74,16 @@ auto-parts/
   fonts/                 — шрифт Inter (селф-хостинг: inter-cyrillic.woff2, inter-cyrillic-ext.woff2, inter-latin.woff2, inter-latin-ext.woff2)
 ```
 **Шрифты:** Inter подключён локально (`@font-face` в styles.css, файлы в `fonts/`) — БЕЗ Google Fonts. Внешние шрифты (Google Fonts) не используются: это устраняет передачу IP/данных браузера на серверы Google и блокировку шрифтов в РФ. CSP: `font-src 'self'`. Не добавляйте ссылки на Google Fonts обратно.
-Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `favicon.png`, `favicon.ico`, `google70a162b366d85b3b.html`, `yandex_9d4b4dc75e2f36bd.html`, `.nojekyll`, `og-image.png` (превью для соцсетей), `footer.js` (подстановка года на страницах статей), `analytics.js` (Яндекс.Метрика — счётчик **111426400** уже подключён; GA4 — плейсхолдер `GA4_ID` `G-XXXXXXXXXX` надо заменить на Measurement ID если понадобится; аналитика загружается только после согласия), `stats.html` (панель статистики Telegram, скрыта от индексации) — в корне репозитория.
+Файлы `sitemap.xml`, `robots.txt`, `favicon.svg`, `favicon.png`, `favicon.ico`, `google70a162b366d85b3b.html`, `yandex_9d4b4dc75e2f36bd.html`, `.nojekyll`, `og-image.png` (превью для соцсетей), `footer.js` (подстановка года на страницах статей), `analytics.js` (Яндекс.Метрика — счётчик **111426400** уже подключён; GA4 — плейсхолдер `GA4_ID` `G-XXXXXXXXXX` надо заменить на Measurement ID если понадобится; аналитика загружается только после согласия), `README.md` (инструкции по всем фичам) — в корне репозитория.
 **Безопасность:** на всех страницах есть CSP meta-тег (`script-src 'self'` — без inline-скриптов/обработчиков, всё через addEventListener в script.js). Не добавляйте inline JS-обработчики в HTML — они будут заблокированы.
 
-**Удалены:** `data.js` (база запчастей), `admin.html` (админка) — больше не нужны.
+**Удалены:** `data.js` (база запчастей) — больше не нужен.
 
 ## Важно: структура деплоя
-Файлы сайта лежат в **корне репозитория** `elmankur01.github.io`, а не в `auto-parts/`. Папка `auto-parts/` — локальная рабочая копия. При правках:
-1. Редактировать файлы в локальной папке
-2. Клонировать `elmankur01.github.io`, перенести изменения, коммит и push
+Папка `auto-parts/` — это и есть локальная рабочая копия репозитория `elmankur01.github.io` (корень git-репозитория, ветка main). Изменения коммитятся и пушатся прямо отсюда, GitHub Pages обновляется автоматически:
+1. Внести правки в файлы в этой папке
+2. `git add`, `git commit`, `git push`
+3. При пуше исходников, перечисленных в triggers `auto_build.yml`, страницы статей и sitemap пересоберутся автоматически (workflow сам делает коммит). Старые адреса `article-N.html` остаются как редирект-заглушки.
 
 ## Юридический статус
 - ✅ Яндекс.Вебмастер — подтверждён (`yandex_9d4b4dc75e2f36bd.html`)
@@ -94,7 +101,7 @@ auto-parts/
 - ⏳ Запросить переобход страницы в Яндекс.Вебмастере / Google Search Console (после редизайна)
 
 ## План прогрева сайта (текущий этап)
-1. ✅ Банк статей наполнен (52 шт. с полными текстами) — контент готов
+1. ✅ Банк статей наполнен (64 шт. с полными текстами) — контент готов
 2. ✅ Автопостинг статей в Telegram (ежедневно 06:00 UTC)
 3. ⏳ Переобход: Яндекс.Вебмастер + Search Console (проверить индексацию)
 4. ⏳ Публиковать анонсы в соцсетях/Telegram для внешнего трафика
