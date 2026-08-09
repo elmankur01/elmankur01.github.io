@@ -49,17 +49,23 @@ async function checkSitemap() {
 
 async function checkLastPost() {
     try {
-        const r = await fetch('https://api.telegram.org/bot' + TOKEN + '/getUpdates');
+        const token = process.env.GH_TOKEN || '';
+        const headers = token ? { Authorization: 'Bearer ' + token } : {};
+        const r = await fetch('https://api.github.com/repos/elmankur01/elmankur01.github.io/actions/workflows/329974970/runs?per_page=1', { headers });
+        if (r.status !== 200) return { ok: false, message: 'GitHub API: ' + r.status };
         const j = await r.json();
-        if (!j.ok) return { ok: false, message: 'Telegram API: ' + (j.description || 'ошибка') };
-        const posts = (j.result || []).filter(u => u.channel_post && u.channel_post.message_id);
-        if (posts.length === 0) return { ok: false, message: 'в буфере нет постов' };
-        const last = posts[posts.length - 1].channel_post;
-        const ageDays = (Date.now() / 1000 - last.date) / 86400;
-        const fresh = ageDays < 2;
-        return { ok: fresh, message: 'последний пост ' + Math.round(ageDays * 10) / 10 + ' дн. назад' };
+        const runs = j.workflow_runs || [];
+        if (runs.length === 0) return { ok: false, message: 'запусков ещё не было' };
+        const last = runs[0];
+        const ageHours = (Date.now() - new Date(last.created_at).getTime()) / 3600000;
+        const ok = last.conclusion === 'success' && ageHours < 30;
+        return {
+            ok,
+            message: (last.conclusion === 'success' ? 'последний успешен' : 'последний: ' + last.conclusion)
+                + ', ' + Math.round(ageHours * 10) / 10 + ' ч назад'
+        };
     } catch (e) {
-        return { ok: false, message: 'Telegram недоступен' };
+        return { ok: false, message: 'GitHub недоступен' };
     }
 }
 
