@@ -506,16 +506,33 @@ a:focus-visible, button:focus-visible {
 /* ===== Article page ===== */
 .article-page { padding-top: 60px; }
 
-.back-link {
-    display: inline-block;
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 24px;
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    color: var(--muted);
 }
 
-.back-link:hover { opacity: 0.8; }
+.breadcrumbs a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.breadcrumbs a:hover { opacity: 0.8; }
+
+.crumb-sep { color: var(--muted); opacity: 0.6; }
+
+.crumb-current {
+    color: var(--muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 320px;
+}
 
 .article-full {
     background: var(--card);
@@ -532,6 +549,40 @@ a:focus-visible, button:focus-visible {
 }
 
 .article-body { margin-top: 24px; }
+
+.share-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.share-label {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-right: 4px;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.share-btn:hover { opacity: 0.85; }
+
+.share-vk { background: #0077ff; }
+.share-tg { background: #229ed9; }
+.share-ok { background: #ee8208; }
 
 .article-hero {
     margin: 22px 0 4px;

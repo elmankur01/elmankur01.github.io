@@ -48,6 +48,31 @@ function tagAnchor(tag) {
     return map[tag] || 'topics';
 }
 
+function enc(s) {
+    return encodeURIComponent(String(s));
+}
+
+function breadcrumbs(article, slug) {
+    return `<nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="/">Главная</a>
+                        <span class="crumb-sep" aria-hidden="true">→</span>
+                        <a href="/#${tagAnchor(article.tag)}">${esc(article.tag)}</a>
+                        <span class="crumb-sep" aria-hidden="true">→</span>
+                        <span class="crumb-current">${esc(article.title)}</span>
+                    </nav>`;
+}
+
+function shareBlock(article, slug) {
+    const url = enc(`${SITE}/articles/${slug}.html`);
+    const title = enc(article.title);
+    return `<div class="share-block">
+                        <span class="share-label">Поделиться:</span>
+                        <a class="share-btn share-vk" href="https://vk.com/share.php?url=${url}" target="_blank" rel="noopener nofollow">ВКонтакте</a>
+                        <a class="share-btn share-tg" href="https://t.me/share/url?url=${url}&text=${title}" target="_blank" rel="noopener nofollow">Telegram</a>
+                        <a class="share-btn share-ok" href="https://connect.ok.ru/offer?url=${url}" target="_blank" rel="noopener nofollow">Одноклассники</a>
+                    </div>`;
+}
+
 function dateFor(n) {
     return new Date(2026, 7, 1 + n).toISOString().slice(0, 10);
 }
@@ -194,7 +219,7 @@ function page(article, n) {
 <body>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><i class="logo-svg">🚗</i></span>Авто<span>Тема</span></a>
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="36" height="36"></span>Авто<span>Тема</span></a>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="/#news">Новости</a></li>
@@ -208,7 +233,7 @@ function page(article, n) {
     <main>
         <section class="article-page section">
             <div class="container">
-                <a href="/#news" class="back-link">← К новостям</a>
+                ${breadcrumbs(article, slug)}
                 <article class="article-full">
                     <span class="tag">${esc(article.tag)}</span>
                     <h1>${esc(article.title)}</h1>
@@ -217,6 +242,7 @@ function page(article, n) {
                     <div class="article-body">
                         ${paragraphs(article, n)}
                     </div>
+                    ${shareBlock(article, slug)}
                     ${sourcesBlock(n)}
                 </article>
 
