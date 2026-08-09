@@ -128,6 +128,10 @@
         return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
+    function articleDate(n) {
+        return new Date(2026, 7, 1 + n).toLocaleDateString('ru-RU');
+    }
+
     function loadArticles() {
         Promise.all([
             fetch('/script.js').then(function (r) { return r.text(); }),
@@ -146,36 +150,39 @@
                 items.push({ tag: m[1], title: m[2], text: m[3], readTime: +m[4] });
             }
             articles = items;
+            // Банк упорядочен по дате добавления (номер = дата). Новые — сверху.
+            var order = items.map(function (_, i) { return i; }).reverse();
+            var newest = items.length ? items.length - 1 : 0;
             articleSelect.innerHTML = '';
-            items.forEach(function (a, i) {
+            order.forEach(function (i) {
                 var opt = document.createElement('option');
                 opt.value = i;
-                opt.textContent = (i + 1) + '. ' + a.title;
+                opt.textContent = (i + 1) + '. ' + items[i].title + '  (' + articleDate(i + 1) + ')';
                 articleSelect.appendChild(opt);
             });
             if (items.length) {
-                articleSelect.value = 0;
+                articleSelect.value = newest;
                 showPreview();
             } else {
                 sendPreview.textContent = 'Не удалось прочитать список статей.';
             }
             var vlist = document.getElementById('videoArticleList');
             if (vlist) {
-                vlist.innerHTML = items.map(function (a, i) {
-                    return '<div>' + (i + 1) + '. ' + esc(a.title) + ' [' + esc(a.tag) + ']</div>';
+                vlist.innerHTML = order.map(function (i) {
+                    return '<div>' + (i + 1) + '. ' + esc(items[i].title) + ' [' + esc(items[i].tag) + '] — ' + articleDate(i + 1) + '</div>';
                 }).join('');
             }
             var socialSelect = document.getElementById('socialArticleSelect');
             if (socialSelect) {
                 socialSelect.innerHTML = '';
-                items.forEach(function (a, i) {
+                order.forEach(function (i) {
                     var opt = document.createElement('option');
                     opt.value = i;
-                    opt.textContent = (i + 1) + '. ' + a.title;
+                    opt.textContent = (i + 1) + '. ' + items[i].title + '  (' + articleDate(i + 1) + ')';
                     socialSelect.appendChild(opt);
                 });
                 if (items.length) {
-                    socialSelect.value = 0;
+                    socialSelect.value = newest;
                     showSocialVideoUrl();
                 }
             }
