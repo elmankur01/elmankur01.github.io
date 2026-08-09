@@ -141,7 +141,7 @@
                     <button class="btn btn-red" id="startVideoBtn">🎬 Запустить генерацию (в облаке)</button>
                 </div>
                 <div class="updated" id="videoStatus" style="margin-top:12px;"></div>
-                <p class="note">Генерация идёт в GitHub Actions (ffmpeg + озвучка в облаке). Ролики появятся как артефакты запуска — ссылку для скачивания пришлём сюда.</p>
+                <p class="note">Генерация идёт в GitHub Actions (ffmpeg + озвучка в облаке, 1–2 мин на статью). Готовые ролики автоматически коммитятся в репозиторий и становятся доступны по прямым ссылкам сайта через 1–2 минуты (деплой Pages) — после этого их можно публиковать в YouTube/Instagram в блоке ниже. Архив для скачивания дублируется в Artifacts запуска.</p>
                 <details class="note" style="margin-top:12px;">
                     <summary style="cursor:pointer;color:#4a9eff;">Показать номера статей</summary>
                     <div id="videoArticleList" style="max-height:220px;overflow:auto;margin-top:8px;color:#8b95a3;font-size:13px;line-height:1.7;"></div>
@@ -171,8 +171,11 @@
                     <button class="btn btn-gray" id="ytAuthBtn">🔑 Авторизовать YouTube</button>
                     <button class="btn btn-red" id="ytPublishBtn">▶️ Опубликовать ролик</button>
                 </div>
+                <div style="margin-top:12px;">
+                    <button class="btn btn-gray" id="ytCheckBtn">🔍 Проверить доступ</button>
+                </div>
                 <div class="updated" id="ytStatus" style="margin-top:12px;"></div>
-                <p class="note">Кнопка «Авторизовать» откроет Google — разрешите доступ, после чего скрипт сам получит refresh token (сохраняется в вашем браузере). Нужна включённая YouTube Data API v3 и scope <code>youtube.upload</code>.</p>
+                <p class="note">Кнопка «Авторизовать» откроет Google — разрешите доступ, после чего скрипт сам получит refresh token (сохраняется в вашем браузере). Готовый refresh token можно и вставить вручную в поле выше. «Проверить доступ» — проверит, что авторизация работает (покажет название канала). Нужна включённая YouTube Data API v3 и scope <code>youtube.upload</code>.</p>
 
                 <!-- INSTAGRAM -->
                 <h3 style="color:#fff;font-size:16px;margin:20px 0 8px;">📸 Instagram (Reels)</h3>

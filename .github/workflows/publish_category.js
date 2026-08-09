@@ -30,6 +30,11 @@ if (!token || !chatId) { console.error('Нет TELEGRAM_BOT_TOKEN или TELEGRA
 
 const icon = category === 'Российские авто' ? '🇷🇺' : category === 'Авто лайфхаки' ? '💡' : '📊';
 const label = category === 'Авто лайфхаки' ? '💡 Авто лайфхак' : null;
+const tagMap = {
+    'Авто лайфхаки': '#лайфхаки #авто',
+    'Российские авто': '#российские #авто',
+    'Новости рынка': '#новости рынка #авто'
+};
 const url = 'https://elmankur01.github.io/articles/' + (slugs[pick.i + 1] || ('article-' + (pick.i + 1))) + '.html';
 
 function escHtml(s) {
@@ -46,7 +51,7 @@ const text = [
     '',
     'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
     '',
-    '#' + category.split(' ')[0].toLowerCase() + ' #авто'
+    tagMap[category] || ('#' + category.split(' ')[0].toLowerCase() + ' #авто')
 ].join('\n');
 
 const replyMarkup = {

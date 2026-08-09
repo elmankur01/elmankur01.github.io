@@ -47,8 +47,24 @@ function tmpDir() {
 
 function tts(text, out) {
     if (!text.trim()) return;
-    const r = spawnSync('python3', ['-m', 'edge_tts', '--voice', VOICE, '--text', text, '--write-media', out], { stdio: 'ignore' });
-    if (r.status !== 0 || !fs.existsSync(out)) throw new Error('edge-tts не сработал для: ' + text.slice(0, 50));
+    // Санитизация для TTS: часть спецсимволов («—», «…», ««»») ломает edge-tts
+    // в некоторых окружениях (NoAudioReceived). Субтитры при этом не меняются.
+    const clean = text
+        .replace(/[—–]/g, ', ')
+        .replace(/…/g, '.')
+        .replace(/[«»„“”‘’"]/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+    // edge-tts иногда отдаёт NoAudioReceived транзиентно (частые запросы) — пробуем до 3 раз.
+    for (let attempt = 1; attempt <= 3; attempt++) {
+        const r = spawnSync('python3', ['-m', 'edge_tts', '--voice', VOICE, '--text', clean, '--write-media', out], { stdio: 'ignore' });
+        if (r.status === 0 && fs.existsSync(out) && fs.statSync(out).size > 0) return;
+        if (attempt < 3) {
+            try { fs.unlinkSync(out); } catch (e) {}
+            spawnSync('sleep', ['2']);
+        }
+    }
+    throw new Error('edge-tts не сработал для: ' + text.slice(0, 50));
 }
 
 function probeDuration(file) {
@@ -102,7 +118,7 @@ function buildSlide(dir, name, img, sub, audio, dur, opts) {
     parts.push('boxblur=22:2,colorchannelmixer=aa=0.72[bg];');
 
     if (opts.fg) {
-        parts.push('[0:v]scale=2160:-2,crop=2160:1280:0:\'(ih-1280)/2\',scale=1080:-2,setsar=1[fg];');
+        parts.push('[0:v]scale=2160:1280:force_original_aspect_ratio=increase,crop=2160:1280,scale=1080:-2,setsar=1[fg];');
         parts.push('[bg][fg]overlay=0:160[base];');
     } else {
         parts.push('[bg]null[base];');
@@ -221,12 +237,18 @@ async function main() {
     const valid = nums.filter(n => n >= 1 && n <= ARTICLE_BANK.length);
     if (!valid.length) { console.log('Не выбрано ни одной статьи.'); return; }
     console.log('Обработаю статьи: ' + valid.join(', '));
+    let failed = 0;
     for (const n of valid) {
         try {
             await buildArticle(n);
         } catch (e) {
+            failed++;
             console.error('Статья ' + n + ' — ошибка:', e.stack || e.message);
         }
+    }
+    if (failed) {
+        console.error('\n❌ Не удалось собрать ' + failed + ' из ' + valid.length + ' роликов.');
+        process.exit(1);
     }
     console.log('\n🎉 Готово! Ролики в папке ' + OUT_DIR);
 }
