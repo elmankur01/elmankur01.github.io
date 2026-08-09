@@ -29,6 +29,7 @@ const chatId = process.env.TELEGRAM_CHAT_ID;
 if (!token || !chatId) { console.error('Нет TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID'); process.exit(1); }
 
 const icon = category === 'Российские авто' ? '🇷🇺' : category === 'Авто лайфхаки' ? '💡' : '📊';
+const label = category === 'Авто лайфхаки' ? '💡 Авто лайфхак' : null;
 const url = 'https://elmankur01.github.io/articles/' + (slugs[pick.i + 1] || ('article-' + (pick.i + 1))) + '.html';
 
 function escHtml(s) {
@@ -36,6 +37,7 @@ function escHtml(s) {
 }
 
 const text = [
+    ...(label ? [label, ''] : []),
     icon + ' <b>' + escHtml(pick.a.title) + '</b>',
     '',
     escHtml(pick.a.text),
