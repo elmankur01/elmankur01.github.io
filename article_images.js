@@ -68,7 +68,8 @@ const IMAGES = {
     65: { url: "/images/art-65.jpg", alt: "«Атом»: российский электромобиль выходит на дороги", credit: "Stolbovsky, CC BY-SA 4.0 (Wikimedia Commons)" },
     66: { url: "/images/art-66.jpg", alt: "Российский авторынок в июле 2026: рост, лидеры и доля китайцев", credit: "Eric Jones, CC BY-SA 2.0 (Wikimedia Commons)" },
     67: { url: "/images/art-67.jpg", alt: "Euro 7: новые экологические нормы для автомобилей", credit: "Ruben de Rijcke, CC BY-SA 3.0 (Wikimedia Commons)" },
-    68: { url: "/images/nissan-gtr.jpg", alt: "Nissan GT-R (R35)", credit: "Фото: Dinkun Chen, CC BY-SA 4.0 (Wikimedia Commons)" }
+    68: { url: "/images/nissan-gtr.jpg", alt: "Nissan GT-R (R35)", credit: "Фото: Dinkun Chen, CC BY-SA 4.0 (Wikimedia Commons)" },
+    69: { url: "/images/art-69.jpg", alt: "Дорога в дальнюю поездку", credit: "Фото: Ludovic Gibert, CC BY-SA 3.0 (Wikimedia Commons)" }
 };
 
 // ЧПУ-адреса статей (транслитерация заголовка). Ключ — номер статьи (1-based).
@@ -141,7 +142,8 @@ const SLUGS = {
     65: "atom-rossiyskiy-elektromobil-vykhodit-na-dorogi",
     66: "rossiyskiy-avtorynok-v-iyule-2026-rost-lidery-i-dolya-kitaytsev",
     67: "euro-7-novye-ekologicheskie-normy-dlya-avtomobiley",
-    68: "nissan-ot-datsun-do-mirovogo-lidera-i-obratno"
+    68: "nissan-ot-datsun-do-mirovogo-lidera-i-obratno",
+    69: "podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov"
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };

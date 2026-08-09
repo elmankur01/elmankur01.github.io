@@ -43,7 +43,8 @@ function tagAnchor(tag) {
         'Электромобили': 'topics',
         'Двигатели': 'topics',
         'История марок': 'history',
-        'Мировые новости': 'news'
+        'Мировые новости': 'news',
+        'Авто лайфхаки': 'tips'
     };
     return map[tag] || 'topics';
 }
