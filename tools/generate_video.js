@@ -16,9 +16,9 @@ const os = require('os');
 const { execFileSync, spawnSync } = require('child_process');
 const readline = require('readline');
 
-const ROOT = __dirname;
+const ROOT = path.join(__dirname, '..');
 const VOICE = process.env.TTS_VOICE || 'ru-RU-DmitryNeural';
-const OUT_DIR = path.join(ROOT, 'video');
+const OUT_DIR = path.join(__dirname, 'videos');
 const W = 1080, H = 1920, FPS = 25;
 const BRAND = 'АвтоТема';
 const CTA_TEXT = 'Подпишитесь: t.me/avtotema_news';
