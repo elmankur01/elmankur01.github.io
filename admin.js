@@ -159,6 +159,12 @@
             } else {
                 sendPreview.textContent = 'Не удалось прочитать список статей.';
             }
+            var vlist = document.getElementById('videoArticleList');
+            if (vlist) {
+                vlist.innerHTML = items.map(function (a, i) {
+                    return '<div>' + (i + 1) + '. ' + esc(a.title) + ' [' + esc(a.tag) + ']</div>';
+                }).join('');
+            }
         }).catch(function () {
             sendPreview.textContent = 'Ошибка загрузки статей.';
         });

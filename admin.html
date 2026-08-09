@@ -141,7 +141,11 @@
                     <button class="btn btn-red" id="startVideoBtn">🎬 Запустить генерацию (в облаке)</button>
                 </div>
                 <div class="updated" id="videoStatus" style="margin-top:12px;"></div>
-                <p class="note">Генерация идёт в GitHub Actions (ffmpeg + озвучка в облаке). Ролики появятся как артефакты запуска — ссылку для скачивания пришлём сюда. Список номеров статей — ниже или из блока отправки в Telegram.</p>
+                <p class="note">Генерация идёт в GitHub Actions (ffmpeg + озвучка в облаке). Ролики появятся как артефакты запуска — ссылку для скачивания пришлём сюда.</p>
+                <details class="note" style="margin-top:12px;">
+                    <summary style="cursor:pointer;color:#4a9eff;">Показать номера статей</summary>
+                    <div id="videoArticleList" style="max-height:220px;overflow:auto;margin-top:8px;color:#8b95a3;font-size:13px;line-height:1.7;"></div>
+                </details>
             </div>
 
             <!-- SITE STATE -->
