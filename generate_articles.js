@@ -232,11 +232,14 @@ function page(article, n) {
                                 : '';
                             return `<article class="article-card">
                                 ${rMedia}
+                                <span class="card-tag">${esc(a.tag)}</span>
                                 <div class="card-body">
-                                    <span class="tag">${esc(a.tag)}</span>
                                     <h3><a href="${rSlug}.html">${esc(a.title)}</a></h3>
                                     <p>${esc(a.text)}</p>
-                                    <span class="article-meta">${a.readTime} мин</span>
+                                    <div class="card-meta">
+                                        <span class="article-meta">${a.readTime} мин</span>
+                                        <span class="card-arrow" aria-hidden="true">→</span>
+                                    </div>
                                 </div>
                             </article>`;
                         }).join('\n')}

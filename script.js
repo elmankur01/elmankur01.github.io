@@ -167,11 +167,14 @@ function cardHTML(a, idx, featured, meta) {
         <article class="article-card${featured ? ' featured' : ''}">
             <a href="/articles/${slug}.html" class="card-link"></a>
             ${media}
+            <span class="card-tag">${a.tag}</span>
             <div class="card-body">
-                <span class="tag">${a.tag}</span>
                 <h3>${a.title}</h3>
                 <p>${a.text}</p>
-                <span class="article-meta">${meta}</span>
+                <div class="card-meta">
+                    <span class="article-meta">${meta}</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </div>
             </div>
         </article>`;
 }
