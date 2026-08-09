@@ -114,6 +114,121 @@
 
     refreshBtn.addEventListener('click', load);
 
+    // ── Ручная отправка статьи в Telegram ──
+    var destSelect = document.getElementById('destSelect');
+    var articleSelect = document.getElementById('articleSelect');
+    var sendBtn = document.getElementById('sendBtn');
+    var sendStatus = document.getElementById('sendStatus');
+    var sendPreview = document.getElementById('sendPreview');
+
+    var articles = [];
+    var slugMap = {};
+
+    function escHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function loadArticles() {
+        Promise.all([
+            fetch('/script.js').then(function (r) { return r.text(); }),
+            fetch('/article_images.js').then(function (r) { return r.text(); })
+        ]).then(function (res) {
+            var src = res[0], img = res[1];
+            var sm;
+            var sre = /(\d+)\s*:\s*"([^"]*)"/g;
+            while ((sm = sre.exec(img)) !== null) {
+                if (sm[1] !== 'module') slugMap[+sm[1]] = sm[2];
+            }
+            var m;
+            var re = /\{\s*tag:\s*"([^"]*)"\s*,\s*title:\s*"([^"]*)"\s*,\s*text:\s*"([^"]*)"\s*,\s*readTime:\s*(\d+)\s*\}/g;
+            var items = [];
+            while ((m = re.exec(src)) !== null) {
+                items.push({ tag: m[1], title: m[2], text: m[3], readTime: +m[4] });
+            }
+            articles = items;
+            articleSelect.innerHTML = '';
+            items.forEach(function (a, i) {
+                var opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = (i + 1) + '. ' + a.title;
+                articleSelect.appendChild(opt);
+            });
+            if (items.length) {
+                articleSelect.value = 0;
+                showPreview();
+            } else {
+                sendPreview.textContent = 'Не удалось прочитать список статей.';
+            }
+        }).catch(function () {
+            sendPreview.textContent = 'Ошибка загрузки статей.';
+        });
+    }
+
+    function showPreview() {
+        var a = articles[+articleSelect.value];
+        if (!a) { sendPreview.textContent = ''; return; }
+        sendPreview.textContent = '«' + a.title + '» — ' + a.readTime + ' мин · ' + a.tag;
+    }
+
+    function sendArticle() {
+        if (!token) {
+            sendStatus.innerHTML = '<span class="badge err">Сначала введите и сохраните токен бота выше</span>';
+            return;
+        }
+        var idx = +articleSelect.value;
+        var a = articles[idx];
+        if (!a) { sendStatus.textContent = 'Выберите статью.'; return; }
+
+        var slug = slugMap[idx + 1] || ('article-' + (idx + 1));
+        var url = 'https://elmankur01.github.io/articles/' + slug + '.html';
+
+        var text = [
+            '🔥 <b>' + escHtml(a.title) + '</b>',
+            '',
+            escHtml(a.text),
+            '',
+            '📰 <a href="' + url + '">Читать на АвтоТеме</a>',
+            '',
+            'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+            '',
+            '#авто #новости'
+        ].join('\n');
+
+        var replyMarkup = {
+            inline_keyboard: [[{ text: '📰 Читать на АвтоТеме', url }]]
+        };
+
+        sendBtn.disabled = true;
+        sendStatus.textContent = 'Отправляю…';
+
+        fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: destSelect.value,
+                text: text,
+                parse_mode: 'HTML',
+                disable_web_page_preview: false,
+                reply_markup: replyMarkup
+            })
+        }).then(function (r) { return r.json(); }).then(function (j) {
+            sendBtn.disabled = false;
+            if (j.ok) {
+                sendStatus.innerHTML = '<span class="badge ok">✅ Опубликовано (id ' + j.result.message_id + ')</span>';
+            } else {
+                sendStatus.innerHTML = '<span class="badge err">Ошибка: ' + esc(j.description || JSON.stringify(j)) + '</span>';
+            }
+        }).catch(function () {
+            sendBtn.disabled = false;
+            sendStatus.innerHTML = '<span class="badge err">Ошибка соединения</span>';
+        });
+    }
+
+    articleSelect.addEventListener('change', showPreview);
+    sendBtn.addEventListener('click', sendArticle);
+
+    loadArticles();
+
     // Состояние сайта — счётчики из sitemap.xml
     var articleCount = document.getElementById('articleCount');
     var sitemapCount = document.getElementById('sitemapCount');
@@ -122,7 +237,7 @@
         sitemapCount.textContent = locs.length;
         var articles = 0;
         locs.forEach(function (loc) {
-            if (/\/articles\/article-/.test(loc)) articles++;
+            if (/\/articles\/[^/]+\.html/.test(loc)) articles++;
         });
         articleCount.textContent = articles;
     }).catch(function () {

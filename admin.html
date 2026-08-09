@@ -104,6 +104,26 @@
                 <button class="btn btn-gray" id="refreshBtn" style="margin-top:12px;">🔄 Обновить</button>
             </div>
 
+            <!-- MANUAL SEND -->
+            <div class="admin-card">
+                <h2>📤 Отправить статью в Telegram</h2>
+                <label class="token-label" for="destSelect">Куда отправить</label>
+                <select class="token-input" id="destSelect">
+                    <option value="-1004315542026">Канал @avtotema_news</option>
+                    <option value="7454934683">Личный чат владельца</option>
+                </select>
+                <label class="token-label" style="display:block;margin-top:12px;" for="articleSelect">Статья</label>
+                <select class="token-input" id="articleSelect">
+                    <option value="">Загрузка списка статей…</option>
+                </select>
+                <div class="updated" id="sendPreview" style="margin-top:12px;"></div>
+                <div style="margin-top:16px;">
+                    <button class="btn btn-red" id="sendBtn">📤 Отправить в Telegram</button>
+                </div>
+                <div class="updated" id="sendStatus" style="margin-top:12px;"></div>
+                <p class="note">Сообщение формируется так же, как при автоматической рассылке: заголовок, анонс, ссылка на статью и подписка на канал. Отправка идёт напрямую в Bot API из вашего браузера.</p>
+            </div>
+
             <!-- SITE STATE -->
             <div class="admin-card">
                 <h2>🌐 Состояние сайта</h2>
