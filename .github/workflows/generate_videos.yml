@@ -1,0 +1,46 @@
+name: Generate videos
+
+on:
+  workflow_dispatch:
+    inputs:
+      articles:
+        description: 'Номера статей через пробел или "all"'
+        required: true
+        default: '2'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install ffmpeg and font
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q ffmpeg fonts-dejavu-core
+
+      - name: Install edge-tts
+        run: |
+          python3 -m venv /opt/venv
+          /opt/venv/bin/pip install -q --upgrade pip
+          /opt/venv/bin/pip install -q edge-tts
+
+      - name: Generate videos
+        env:
+          PATH: /opt/venv/bin:$PATH
+        run: node generate_video.js ${{ inputs.articles }}
+
+      - name: Upload videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos
+          path: video/*.mp4
+          if-no-files-found: error
+          retention-days: 30

@@ -229,6 +229,148 @@
 
     loadArticles();
 
+    // ── Генерация роликов в GitHub Actions ──
+    var GH_TOKEN_KEY = 'at_gh_token';
+    var GH_REPO = 'elmankur01/elmankur01.github.io';
+    var GH_WORKFLOW = 'generate_videos.yml';
+
+    var ghTokenInput = document.getElementById('ghTokenInput');
+    var saveGhTokenBtn = document.getElementById('saveGhTokenBtn');
+    var clearGhTokenBtn = document.getElementById('clearGhTokenBtn');
+    var ghTokenStatus = document.getElementById('ghTokenStatus');
+    var videoArticlesInput = document.getElementById('videoArticlesInput');
+    var startVideoBtn = document.getElementById('startVideoBtn');
+    var videoStatus = document.getElementById('videoStatus');
+
+    var ghToken = getStored(GH_TOKEN_KEY) || '';
+
+    saveGhTokenBtn.addEventListener('click', function () {
+        ghToken = ghTokenInput.value.trim();
+        if (!ghToken) { ghTokenStatus.textContent = 'Введите токен.'; return; }
+        setStored(GH_TOKEN_KEY, ghToken);
+        ghTokenStatus.textContent = 'Токен сохранён в браузере.';
+    });
+
+    clearGhTokenBtn.addEventListener('click', function () {
+        removeStored(GH_TOKEN_KEY);
+        ghToken = '';
+        ghTokenInput.value = '';
+        ghTokenStatus.textContent = 'Токен удалён.';
+    });
+
+    if (ghToken) {
+        ghTokenInput.value = ghToken;
+        ghTokenStatus.textContent = 'Токен найден в браузере.';
+    }
+
+    function ghHeaders(extra) {
+        var h = { 'Accept': 'application/vnd.github+json' };
+        if (ghToken) h['Authorization'] = 'Bearer ' + ghToken;
+        if (extra) Object.assign(h, extra);
+        return h;
+    }
+
+    function startVideoGen() {
+        var nums = videoArticlesInput.value.trim();
+        if (!ghToken) { videoStatus.innerHTML = '<span class="badge err">Сначала сохраните GitHub-токен</span>'; return; }
+        if (!nums) { videoStatus.innerHTML = '<span class="badge err">Укажите номера статей</span>'; return; }
+
+        startVideoBtn.disabled = true;
+        videoStatus.textContent = 'Запускаю генерацию…';
+
+        fetch('https://api.github.com/repos/' + GH_REPO + '/actions/workflows/' + GH_WORKFLOW + '/dispatches', {
+            method: 'POST',
+            headers: ghHeaders({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify({ ref: 'main', inputs: { articles: nums } })
+        }).then(function (r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            videoStatus.textContent = 'Запущено. Ищу задачу…';
+            return waitForRun();
+        }).then(function (run) {
+            return pollRun(run);
+        }).catch(function (e) {
+            startVideoBtn.disabled = false;
+            videoStatus.innerHTML = '<span class="badge err">Ошибка: ' + esc(e.message || e) + '</span>';
+        });
+    }
+
+    function waitForRun() {
+        return fetch('https://api.github.com/repos/' + GH_REPO + '/actions/workflows/' + GH_WORKFLOW + '/runs?per_page=1', { headers: ghHeaders() })
+            .then(function (r) { return r.json(); })
+            .then(function (d) { return d.workflow_runs[0]; });
+    }
+
+    function pollRun(run) {
+        var started = Date.now();
+        var timer = setInterval(function () {
+            fetch('https://api.github.com/repos/' + GH_REPO + '/actions/runs/' + run.id, { headers: ghHeaders() })
+                .then(function (r) { return r.json(); })
+                .then(function (d) {
+                    if (d.status === 'completed') {
+                        clearInterval(timer);
+                        startVideoBtn.disabled = false;
+                        if (d.conclusion === 'success') showArtifacts(run);
+                        else {
+                            videoStatus.innerHTML = '<span class="badge err">Ошибка генерации (' + d.conclusion + ')</span> · <a href="https://github.com/' + GH_REPO + '/actions/runs/' + run.id + '" target="_blank" rel="noopener" style="color:#4a9eff;">открыть логи</a>';
+                        }
+                        return;
+                    }
+                    var sec = Math.round((Date.now() - started) / 1000);
+                    videoStatus.textContent = 'Генерация идёт… ' + sec + ' c (примерно 1–2 мин на статью)';
+                })
+                .catch(function () {
+                    clearInterval(timer);
+                    startVideoBtn.disabled = false;
+                    videoStatus.innerHTML = '<span class="badge err">Ошибка проверки статуса</span>';
+                });
+        }, 10000);
+    }
+
+    function showArtifacts(run) {
+        fetch('https://api.github.com/repos/' + GH_REPO + '/actions/runs/' + run.id + '/artifacts', { headers: ghHeaders() })
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                var arts = (d.artifacts || []).filter(function (a) { return a.expired === false; });
+                if (!arts.length) {
+                    videoStatus.innerHTML = '<span class="badge ok">✅ Готово, но артефакты не найдены</span> · <a href="https://github.com/' + GH_REPO + '/actions/runs/' + run.id + '" target="_blank" rel="noopener" style="color:#4a9eff;">страница запуска</a>';
+                    return;
+                }
+                var runPage = '<a href="https://github.com/' + GH_REPO + '/actions/runs/' + run.id + '" target="_blank" rel="noopener" style="color:#4a9eff;">раздел Artifacts</a>';
+                videoStatus.innerHTML = '<span class="badge ok">✅ Ролики готовы!</span> <button id="dlArtifact" class="btn btn-red" style="margin-left:8px;">⬇ Скачать архив</button> <span class="updated">или в ' + runPage + '</span>';
+                document.getElementById('dlArtifact').addEventListener('click', function () {
+                    downloadArtifact(arts[0].archive_download_url);
+                });
+            })
+            .catch(function () {
+                videoStatus.innerHTML = '<span class="badge ok">✅ Готово!</span> Скачать в <a href="https://github.com/' + GH_REPO + '/actions/runs/' + run.id + '" target="_blank" rel="noopener" style="color:#4a9eff;">разделе Artifacts</a>';
+            });
+    }
+
+    function downloadArtifact(url) {
+        var btn = document.getElementById('dlArtifact');
+        if (btn) btn.textContent = 'Загружаю…';
+        fetch(url, { headers: ghHeaders(), redirect: 'follow' })
+            .then(function (r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.blob();
+            })
+            .then(function (blob) {
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'avtotema_videos.zip';
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+                if (btn) btn.textContent = '⬇ Скачать архив';
+            })
+            .catch(function () {
+                videoStatus.innerHTML += ' <span class="badge err">Не удалось скачать напрямую — скачайте в <a href="https://github.com/' + GH_REPO + '/actions/runs/' + run.id + '" target="_blank" rel="noopener" style="color:#4a9eff;">Artifacts</a></span>';
+                if (btn) btn.textContent = '⬇ Скачать архив';
+            });
+    }
+
+    startVideoBtn.addEventListener('click', startVideoGen);
+
     // Состояние сайта — счётчики из sitemap.xml
     var articleCount = document.getElementById('articleCount');
     var sitemapCount = document.getElementById('sitemapCount');

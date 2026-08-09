@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АвтоТема — админ-панель</title>
     <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.telegram.org; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.telegram.org https://api.github.com https://github.com https://codeload.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
     <link rel="stylesheet" href="/styles.css">
     <style>
         .admin-wrap { max-width: 900px; margin: 40px auto; padding: 0 20px; }
@@ -122,6 +122,26 @@
                 </div>
                 <div class="updated" id="sendStatus" style="margin-top:12px;"></div>
                 <p class="note">Сообщение формируется так же, как при автоматической рассылке: заголовок, анонс, ссылка на статью и подписка на канал. Отправка идёт напрямую в Bot API из вашего браузера.</p>
+            </div>
+
+            <!-- VIDEO GENERATION -->
+            <div class="admin-card">
+                <h2>🎬 Сделать ролики по статьям</h2>
+                <label class="token-label" for="ghTokenInput">GitHub-токен (Personal Access Token, права: actions + artifacts) — хранится в браузере</label>
+                <input type="password" class="token-input" id="ghTokenInput" placeholder="ghp_…" autocomplete="off">
+                <div class="grid-2">
+                    <button class="btn btn-gray" id="saveGhTokenBtn">💾 Сохранить токен</button>
+                    <button class="btn btn-gray" id="clearGhTokenBtn">✖️ Убрать токен</button>
+                </div>
+                <div class="updated" id="ghTokenStatus"></div>
+
+                <label class="token-label" style="display:block;margin-top:14px;" for="videoArticlesInput">Статьи (номера через пробел или «all»)</label>
+                <input class="token-input" id="videoArticlesInput" placeholder="например: 3 17 24" autocomplete="off">
+                <div style="margin-top:16px;">
+                    <button class="btn btn-red" id="startVideoBtn">🎬 Запустить генерацию (в облаке)</button>
+                </div>
+                <div class="updated" id="videoStatus" style="margin-top:12px;"></div>
+                <p class="note">Генерация идёт в GitHub Actions (ffmpeg + озвучка в облаке). Ролики появятся как артефакты запуска — ссылку для скачивания пришлём сюда. Список номеров статей — ниже или из блока отправки в Telegram.</p>
             </div>
 
             <!-- SITE STATE -->
