@@ -1,5 +1,5 @@
 User-agent: *
-Disallow: /admin.html
-Disallow: /stats.html
+Disallow: /4cc55b6066d79bfb2a80.html
+Disallow: /4182e144696b3e5c1899.html
 Allow: /
 Sitemap: https://elmankur01.github.io/sitemap.xml

@@ -514,7 +514,7 @@
     ytClientSecret.addEventListener('input', syncYouTubeFields);
     ytRefreshToken.addEventListener('input', syncYouTubeFields);
 
-    // OAuth-callback: admin.html?code=...&state=yt_avtotema (возврат с Google)
+    // OAuth-callback: текущая страница?code=...&state=yt_avtotema (возврат с Google)
     (function () {
         var q = new URLSearchParams(window.location.search);
         var code = q.get('code');
