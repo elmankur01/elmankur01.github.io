@@ -23,3 +23,17 @@ jobs:
         env:
           NEWS_TARGET: '1'
         run: node .github/workflows/fetch_news.js
+
+      - name: Build article pages and sitemap
+        if: success()
+        run: |
+          node generate_articles.js
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add articles sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Нет изменений в страницах"
+          else
+            git commit -m "Auto: пересобраны страницы статей и sitemap"
+            git push
+          fi
