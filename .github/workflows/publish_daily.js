@@ -1,8 +1,10 @@
 // Скрипт для GitHub Actions: берёт «свежую» статью из ARTICLE_BANK и публикует в Telegram.
-// Запускается 4 раза в день (каждые 6 часов): день года + 6-часовой слот определяют статью,
-// поэтому каждый пост — новая статья.
+// Запускается 4 раза в день (каждые 6 часов). Статья выбирается по дню года и слоту,
+// но уже опубликованные (см. state/posted.json) пропускаются — повторные посты исключены.
+// Когда весь банк опубликован, пост не отправляется до добавления новых статей.
 // Токен берётся из секрета TELEGRAM_BOT_TOKEN, ID канала — из секрета TELEGRAM_CHAT_ID
 const fs = require('fs');
+const { loadPosted, savePosted, commitAndPush } = require('./posted_state');
 
 const src = fs.readFileSync('script.js', 'utf8');
 const m = src.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
@@ -15,7 +17,17 @@ const now = new Date();
 const startOfYear = new Date(now.getUTCFullYear(), 0, 1);
 const dayOfYear = Math.floor((now - startOfYear) / 86400000);
 const slot = Math.floor(now.getUTCHours() / 6);
-const offset = (dayOfYear * 4 + slot) % bank.length;
+const posted = new Set(loadPosted());
+let offset = (dayOfYear * 4 + slot) % bank.length;
+let guard = 0;
+while (posted.has(offset + 1) && guard < bank.length) {
+    offset = (offset + 1) % bank.length;
+    guard++;
+}
+if (guard >= bank.length) {
+    console.log('Весь ARTICLE_BANK уже опубликован. Добавьте новые статьи, чтобы посты продолжились.');
+    process.exit(0);
+}
 const article = bank[offset];
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -52,6 +64,13 @@ fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup })
 }).then(r => r.json()).then(j => {
-    if (j.ok) { console.log('✅ Опубликовано'); process.exit(0); }
+    if (j.ok) {
+        console.log('✅ Опубликовано');
+        const posted = loadPosted();
+        posted.push(offset + 1);
+        savePosted(posted);
+        commitAndPush();
+        process.exit(0);
+    }
     else { console.error('Ошибка Telegram:', JSON.stringify(j)); process.exit(1); }
 }).catch(e => { console.error(e); process.exit(1); });

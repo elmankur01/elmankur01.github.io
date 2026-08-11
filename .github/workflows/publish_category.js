@@ -1,8 +1,11 @@
 // Скрипт для GitHub Actions: публикует в Telegram статью дня по заданной рубрике.
 // Рубрика передаётся через переменную окружения POST_CATEGORY
 // (например, "Российские авто" или "Новости рынка"). Одна публикация в день.
+// Статья выбирается по дню года, но уже опубликованные (см. state/posted.json)
+// пропускаются — повторные посты исключены.
 // Токен берётся из секрета TELEGRAM_BOT_TOKEN, ID канала — из секрета TELEGRAM_CHAT_ID
 const fs = require('fs');
+const { loadPosted, savePosted, commitAndPush } = require('./posted_state');
 
 const src = fs.readFileSync('script.js', 'utf8');
 const m = src.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
@@ -25,13 +28,17 @@ const dayOfYear = Math.floor((now - startOfYear) / 86400000);
 // Основной постинг (daily_post) сегодня отправит 4 статьи по слоту (0, 6, 12, 18 UTC).
 // Не публикуем рубричную статью, если она уже стоит в этих слотах — иначе дубль в канале.
 const mainPicks = [0, 1, 2, 3].map(k => (dayOfYear * 4 + k) % bank.length);
-let base = dayOfYear % items.length;
-let pick = items[base];
-let guard = 0;
-while (mainPicks.indexOf(pick.i) !== -1 && guard < items.length) {
-    base = (base + 1) % items.length;
-    pick = items[base];
-    guard++;
+const posted = new Set(loadPosted());
+let pick = null;
+for (const it of items) {
+    if (posted.has(it.i + 1)) continue;
+    if (mainPicks.indexOf(it.i) !== -1) continue;
+    pick = it;
+    break;
+}
+if (!pick) {
+    console.log('Все статьи рубрики [' + category + '] уже опубликованы. Добавьте новые статьи в банк.');
+    process.exit(0);
 }
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -76,6 +83,13 @@ fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup })
 }).then(r => r.json()).then(j => {
-    if (j.ok) { console.log('✅ Опубликовано'); process.exit(0); }
+    if (j.ok) {
+        console.log('✅ Опубликовано');
+        const posted = loadPosted();
+        posted.push(pick.i + 1);
+        savePosted(posted);
+        commitAndPush();
+        process.exit(0);
+    }
     else { console.error('Ошибка Telegram:', JSON.stringify(j)); process.exit(1); }
 }).catch(e => { console.error(e); process.exit(1); });
