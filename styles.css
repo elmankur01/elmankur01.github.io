@@ -1093,8 +1093,9 @@ a:focus-visible, button:focus-visible {
 #tips .section-sub { margin: -6px 0 8px; font-size: 0.8rem; }
 
 #tips .articles-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
     gap: 6px;
+    justify-content: start;
 }
 
 #tips .article-card { border-radius: 8px; }
