@@ -143,7 +143,9 @@ const SLUGS = {
     66: "rossiyskiy-avtorynok-v-iyule-2026-rost-lidery-i-dolya-kitaytsev",
     67: "euro-7-novye-ekologicheskie-normy-dlya-avtomobiley",
     68: "nissan-ot-datsun-do-mirovogo-lidera-i-obratno",
-    69: "podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov"
+    69: "podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov",
+    70: "kia-ev3-is-now-on-sale-for-under-30-000-and-now-we-know-its-epa-range"
+
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };
