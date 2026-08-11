@@ -22,7 +22,17 @@ try { slugs = require('../../article_images.js').SLUGS || {}; } catch (e) {}
 const now = new Date();
 const startOfYear = new Date(now.getUTCFullYear(), 0, 1);
 const dayOfYear = Math.floor((now - startOfYear) / 86400000);
-const pick = items[dayOfYear % items.length];
+// Основной постинг (daily_post) сегодня отправит 4 статьи по слоту (0, 6, 12, 18 UTC).
+// Не публикуем рубричную статью, если она уже стоит в этих слотах — иначе дубль в канале.
+const mainPicks = [0, 1, 2, 3].map(k => (dayOfYear * 4 + k) % bank.length);
+let base = dayOfYear % items.length;
+let pick = items[base];
+let guard = 0;
+while (mainPicks.indexOf(pick.i) !== -1 && guard < items.length) {
+    base = (base + 1) % items.length;
+    pick = items[base];
+    guard++;
+}
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;

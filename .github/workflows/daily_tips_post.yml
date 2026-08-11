@@ -17,9 +17,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Publish car tip article
+      - name: Publish car tip of the day
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          POST_CATEGORY: 'Авто лайфхаки'
-        run: node .github/workflows/publish_category.js
+        run: node .github/workflows/publish_tips.js
