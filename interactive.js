@@ -205,9 +205,9 @@ function initFactOfDay(widget) {
 }
 
 // ===== Голосование «Авто недели» =====
-const POLL_OPTIONS = ['Лада Vesta', 'УАЗ «Патриот»', 'Москвич 3', '«Атом» (электромобиль)'];
-const POLL_STORAGE_KEY = 'avtotema_poll_votes';
-const POLL_CHOICE_KEY = 'avtotema_poll_choice';
+const POLL_OPTIONS = ['Германия: BMW, Mercedes, Porsche', 'Япония: Toyota, Honda, Nissan', 'США: Tesla, Ford, GM', 'Китай: BYD, Geely, Xiaomi'];
+const POLL_STORAGE_KEY = 'avtotema_poll_votes_v2';
+const POLL_CHOICE_KEY = 'avtotema_poll_choice_v2';
 
 function initPoll(widget) {
     if (!widget) return;
@@ -235,7 +235,7 @@ function initPoll(widget) {
         widget.innerHTML =
             '<div class="poll-head">' +
             '<span class="quiz-progress">Голосование</span>' +
-            '<h3>Какая российская машина вам нравится больше?</h3>' +
+            '<h3>Какая страна делает лучшие автомобили?</h3>' +
             '</div>' +
             '<div class="poll-options">' + POLL_OPTIONS.map((o, i) =>
                 '<button class="quiz-option" type="button" data-i="' + i + '"' + (voted ? ' disabled' : '') + '>' +
