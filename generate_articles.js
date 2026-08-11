@@ -154,7 +154,7 @@ function page(article, n) {
     <meta name="description" content="${esc(article.text)}">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0b0f14">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://mc.yandex.ru https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://mc.yandex.ru https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://mc.yandex.ru https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
     <meta property="og:title" content="${esc(article.title)}">
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
@@ -287,9 +287,7 @@ function page(article, n) {
         </div>
     </footer>
 
-    <script src="/consent.js"></script>
     <script src="/footer.js"></script>
-    <script src="/analytics.js"></script>
 </body>
 </html>`;
 }

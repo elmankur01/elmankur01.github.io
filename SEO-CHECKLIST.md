@@ -35,7 +35,6 @@ https://elmankur01.github.io/articles/elektromobili-v-2026-godu-gonka-za-zapasom
 
 ## Регулярные проверки
 
-- [ ] Метрика 111426400: визиты растут, счётчик работает после согласия на cookie
 - [ ] Sitemap: 71 URL (главная + privacy + terms + 68 статей), все свои, без дубликатов
 - [ ] Новые статьи: добавлен слаг в `SLUGS` (article_images.js) перед запуском генерации
 - [ ] ЧПУ-страницы отдают 200, `article-N.html` — заглушки с canonical на слаг

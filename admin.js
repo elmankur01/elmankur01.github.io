@@ -1,9 +1,8 @@
-// Админ-панель АвтоТема: Метрика + Telegram + состояние сайта.
+// Админ-панель АвтоТема: Telegram + состояние сайта.
 (function () {
     var DEFAULT_CHAT = '-1004315542026';
     var CHANNEL_USERNAME = 'avtotema_news';
     var TOKEN_KEY = 'at_admin_token';
-    var YM_COUNTER = '111426400';
 
     function getStored(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
     function setStored(k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
@@ -21,12 +20,6 @@
     var botStatus = document.getElementById('botStatus');
     var updatedAt = document.getElementById('updatedAt');
     var refreshBtn = document.getElementById('refreshBtn');
-
-    var ymId = document.getElementById('ymId');
-    var ymStatus = document.getElementById('ymStatus');
-
-    ymId.textContent = YM_COUNTER;
-    ymStatus.innerHTML = '<span class="badge ok">Счётчик подключён</span>';
 
     function esc(s) {
         return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
