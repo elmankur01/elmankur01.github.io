@@ -1,4 +1,4 @@
-name: 'Telegram: российские авто (ежедневно)'
+name: 'Telegram: мировые новости (ежедневно)'
 
 on:
   schedule:
@@ -19,9 +19,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Publish Russian cars article
+      - name: Publish world news article
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          POST_CATEGORY: 'Российские авто'
+          POST_CATEGORY: 'Мировые новости'
         run: node .github/workflows/publish_category.js

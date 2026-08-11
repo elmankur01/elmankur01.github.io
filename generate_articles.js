@@ -37,13 +37,12 @@ function esc(s) {
 
 function tagAnchor(tag) {
     const map = {
-        'Российские авто': 'rf',
         'Новости рынка': 'market',
         'Новые модели': 'topics',
         'Электромобили': 'topics',
         'Двигатели': 'topics',
         'История марок': 'history',
-        'Мировые новости': 'news',
+        'Мировые новости': 'world',
         'Авто лайфхаки': 'tips'
     };
     return map[tag] || 'topics';

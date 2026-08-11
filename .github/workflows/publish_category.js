@@ -1,6 +1,6 @@
 // Скрипт для GitHub Actions: публикует в Telegram статью дня по заданной рубрике.
 // Рубрика передаётся через переменную окружения POST_CATEGORY
-// (например, "Российские авто" или "Новости рынка"). Одна публикация в день.
+// (например, "Мировые новости" или "Новости рынка"). Одна публикация в день.
 // Статья выбирается по дню года, но уже опубликованные (см. state/posted.json)
 // пропускаются — повторные посты исключены.
 // Токен берётся из секрета TELEGRAM_BOT_TOKEN, ID канала — из секрета TELEGRAM_CHAT_ID
@@ -45,11 +45,11 @@ const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
 if (!token || !chatId) { console.error('Нет TELEGRAM_BOT_TOKEN или TELEGRAM_CHAT_ID'); process.exit(1); }
 
-const icon = category === 'Российские авто' ? '🇷🇺' : category === 'Авто лайфхаки' ? '💡' : '📊';
+const icon = category === 'Мировые новости' ? '🌍' : category === 'Авто лайфхаки' ? '💡' : '📊';
 const label = category === 'Авто лайфхаки' ? '💡 Авто лайфхак' : null;
 const tagMap = {
     'Авто лайфхаки': '#лайфхаки #авто',
-    'Российские авто': '#российские #авто',
+    'Мировые новости': '#новости #авто #мир',
     'Новости рынка': '#новости рынка #авто'
 };
 const url = 'https://elmankur01.github.io/articles/' + (slugs[pick.i + 1] || ('article-' + (pick.i + 1))) + '.html';
