@@ -1,0 +1,25 @@
+name: 'Auto: статьи из мировых автоновостей'
+
+on:
+  schedule:
+    - cron: '0 7,15 * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate articles from world auto news RSS
+        env:
+          NEWS_TARGET: '1'
+        run: node .github/workflows/fetch_news.js
