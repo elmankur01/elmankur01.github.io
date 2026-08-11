@@ -24,6 +24,7 @@
   - Отдельные рубричные посты: `daily_rf_post.yml` (07:00 UTC, «Российские авто») и `daily_market_post.yml` (08:00 UTC, «Новости рынка») — по 1 посту в день через `publish_category.js` (переменная окружения `POST_CATEGORY`)
   - Ротация на главной 4 раза в день: `renderDailyArticles()` использует сдвиг (день года × 4 + слот) % длина банка; «Главные новости дня» (`renderTopNews()`) — день года % длина банка
 - **Админка** (`/admin.html`): ручная отправка выбранной статьи в Telegram (канал или личный чат) и генерация роликов по статьям (облако через GitHub Actions `generate_videos.yml`, нужен GitHub-токен, вводится в админке и не хранится в репозитории).
+- **Защита служебных страниц:** `/admin.html` и `/stats.html` закрыты парольной заглушкой `gate.js` (SHA-256 хэш пароля в константе HASH; страницы скрыты до ввода). Сменить пароль — заменить HASH в `gate.js`. Это защита от случайных посетителей, НЕ от чтения кода (GitHub Pages — статика, контент остаётся в HTML). robots.txt: Disallow для обеих страниц.
 - **Генератор роликов**: `tools/generate_video.js` (node, пути — относительно скрипта). Локально требует ffmpeg с drawtext (`/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg` на macOS) и `edge-tts`. В облаке `generate_videos.yml` ставит ffmpeg, fonts-dejavu-core и edge-tts системно (без venv — иначе Node не видит ffmpeg на PATH). Ролики сохраняются в `tools/videos/` (в .gitignore).
 - **Источники статей**: в `article_content.js` есть массив `SOURCES` (индекс = номер статьи) — официальные пресс-центры/сайты брендов и отраслевые организации (ACEA). При добавлении статьи заполняйте и его: блок «Источники» автоматически рендерится на странице статьи.
 - **Фотографии статей**: объект `IMAGES` в **`article_images.js`** (ключ = номер статьи, значение = `{ url, alt, credit }`). Файлы кладём в `images/` (CSP разрешает только свои картинки). Фото из Wikimedia Commons — свободные лицензии (CC BY-SA) — **обязательно указывать автора и лицензию в `credit`** (выводится в подписи под фото). Статьи без фото просто нет в `IMAGES` — картинка не выводится. `article_images.js` загружается на главной для превью в карточках и реэкспортируется через `article_content.js` для генератора.
@@ -61,6 +62,7 @@ auto-parts/
   images/                — фотографии статей (ferrari.jpg, porsche-911.jpg, uaz-patriot.jpg, nissan-gtr.jpg)
   .github/workflows/     — auto_build.yml (пересборка страниц), daily_post.yml (4 поста/день), daily_rf_post.yml (Российские авто, 07:00), daily_market_post.yml (Новости рынка, 08:00), generate_videos.yml (ролики по статьям в облаке), health_check.yml, publish_daily.js, publish_category.js, health_check.js
   admin.html             — админка: отправка статьи в Telegram (канал/личный чат) и генерация роликов (облако через GitHub Actions)
+  gate.js                — парольная защита /admin.html и /stats.html (SHA-256 хэш пароля в HASH)
   admin.js               — логика админки
   stats.html, stats.js   — панель статистики Telegram (скрыта от индексации)
   tools/                 — инструменты: generate_video.js (генератор роликов, пути — относительно скрипта), tools/videos/ (выходные ролики, в gitignore)
