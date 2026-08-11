@@ -291,24 +291,29 @@ a:focus-visible, button:focus-visible {
 .hs-item span { font-size: 0.78rem; color: var(--muted); }
 
 /* ===== Topics ===== */
-.topics { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.topics { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; }
+
+.topics .section-title {
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    margin-bottom: 22px;
+}
 
 .topics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 16px;
+    gap: 12px;
 }
 
 .topic-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 26px 22px;
+    padding: 16px 16px;
     transition: all 0.25s;
 }
 
 .topic-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: var(--accent);
     background: var(--card-hover);
     box-shadow: var(--shadow);
@@ -318,19 +323,19 @@ a:focus-visible, button:focus-visible {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
     background: linear-gradient(135deg, rgba(232, 67, 60, 0.18), rgba(232, 67, 60, 0.05));
     border: 1px solid rgba(232, 67, 60, 0.25);
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 
-.topic-icon svg { width: 26px; height: 26px; }
+.topic-icon svg { width: 20px; height: 20px; }
 
-.topic-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-.topic-card p { font-size: 0.88rem; color: var(--muted); }
+.topic-card h3 { font-size: 0.95rem; margin-bottom: 5px; }
+.topic-card p { font-size: 0.8rem; line-height: 1.45; color: var(--muted); }
 
 /* ===== Articles ===== */
 .articles-grid {
@@ -1073,6 +1078,7 @@ a:focus-visible, button:focus-visible {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .section { padding: 52px 0; }
+    .topics { padding: 32px 0; }
 
     .nav-list {
         position: fixed;
