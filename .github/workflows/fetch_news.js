@@ -2,14 +2,15 @@
 // Запускается из auto_news.yml (по расписанию, 2 раза в день).
 // Без внешних ИИ-API: заголовок и текст берутся из ленты, статьи добавляются
 // в ARTICLE_BANK (script.js), BODIES/SOURCES (article_content.js) и SLUGS (article_images.js).
-// Уже использованные ссылки не повторяются (state/seen_news.json).
+// Уже использованные ссылки не повторяются (state/seen_news.json в корне репозитория —
+// НЕ внутри .github/workflows: GITHUB_TOKEN не может пушить файлы этой папки).
 // Для теста без изменений: NEWS_DRY_RUN=1 node .github/workflows/fetch_news.js
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..', '..');
-const STATE_FILE = path.join(__dirname, 'state', 'seen_news.json');
+const STATE_FILE = path.join(ROOT, 'state', 'seen_news.json');
 const TARGET = parseInt(process.env.NEWS_TARGET || '1', 10);
 const DRY_RUN = process.env.NEWS_DRY_RUN === '1';
 const TAG = 'Мировые новости';
@@ -113,7 +114,7 @@ function commitAll() {
     if (DRY_RUN) return;
     execSync('git config user.name "github-actions[bot]"', { stdio: 'inherit' });
     execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"', { stdio: 'inherit' });
-    execSync('git add script.js article_content.js article_images.js .github/workflows/state/seen_news.json', { stdio: 'inherit' });
+    execSync('git add script.js article_content.js article_images.js state/seen_news.json', { stdio: 'inherit' });
     const changed = execSync('git diff --cached --quiet; echo $?').toString().trim();
     if (changed === '0') { console.log('Нет изменений для коммита'); return; }
     execSync('git commit -m "Auto: статьи из мировых автоновостей"', { stdio: 'inherit' });

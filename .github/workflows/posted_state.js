@@ -1,6 +1,7 @@
 // Общий учёт статей, уже опубликованных в Telegram-канале.
-// Состояние — .github/workflows/state/posted.json (массив номеров статей, 1-базисный,
-// совпадает с ключами SLUGS в article_images.js).
+// Состояние — state/posted.json в корне репозитория (массив номеров статей, 1-базисный,
+// совпадает с ключами SLUGS в article_images.js). Файл намеренно лежит НЕ в .github/workflows:
+// GITHUB_TOKEN не может пушить изменения внутри этой папки (нужны права workflows).
 // Используется publish_daily.js и publish_category.js, чтобы одни и те же статьи не повторялись.
 // После успешной публикации скрипт добавляет номер статьи в состояние и коммитит его,
 // поэтому следующий запуск (в т.ч. в другом workflow) уже знает о публикации.
@@ -8,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const STATE_FILE = path.join(__dirname, 'state', 'posted.json');
+const STATE_FILE = path.join(__dirname, '..', '..', 'state', 'posted.json');
 
 function loadPosted() {
     try {
