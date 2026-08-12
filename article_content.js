@@ -561,6 +561,10 @@ const BODIES = [
     [
         "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 has an official EPA-estimated driving range of up to 321 miles."
     ]
+,
+    [
+        "A new player in the industry, Avore , thinks its EX2S electric motorcycle could shake things up with impressive performance and accessible pricing."
+    ]
 
 ];
 
@@ -866,6 +870,10 @@ const SOURCES = [
 ,
     [
         { name: "Electrek — новость", url: "https://electrek.co/2026/08/11/kia-ev3-prices-range-revealed-starting-30000/" }
+    ]
+,
+    [
+        { name: "Electrek — новость", url: "https://electrek.co/2026/08/12/this-1800-electric-motorcycle-hits-70-mph-and-could-change-the-game/" }
     ]
 
 ];

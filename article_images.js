@@ -147,6 +147,8 @@ const SLUGS = {
     70: "kia-ev3-is-now-on-sale-for-under-30-000-and-now-we-know-its-epa-range"
 ,
     71: "kia-ev3-prices-and-range-revealed-starting-at-30-000"
+,
+    72: "this-1-800-electric-motorcycle-hits-70-mph-and-could-change-the-game"
 
 };
 
