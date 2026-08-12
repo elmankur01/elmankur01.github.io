@@ -557,6 +557,10 @@ const BODIES = [
     [
         "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 also now has an official EPA-estimated driving range of up to 321 miles. Here’s what else to know."
     ]
+,
+    [
+        "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 has an official EPA-estimated driving range of up to 321 miles."
+    ]
 
 ];
 
@@ -858,6 +862,10 @@ const SOURCES = [
     ],
     [
         { name: "Electrek — новость", url: "https://electrek.co/2026/08/11/kia-ev3-prices-start-under-30000-epa-range-revealed/" }
+    ]
+,
+    [
+        { name: "Electrek — новость", url: "https://electrek.co/2026/08/11/kia-ev3-prices-range-revealed-starting-30000/" }
     ]
 
 ];

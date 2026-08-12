@@ -145,6 +145,8 @@ const SLUGS = {
     68: "nissan-ot-datsun-do-mirovogo-lidera-i-obratno",
     69: "podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov",
     70: "kia-ev3-is-now-on-sale-for-under-30-000-and-now-we-know-its-epa-range"
+,
+    71: "kia-ev3-prices-and-range-revealed-starting-at-30-000"
 
 };
 

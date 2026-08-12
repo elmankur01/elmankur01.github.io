@@ -78,6 +78,8 @@ const ARTICLE_BANK = [
     // === АВТО ЛАЙФХАКИ ===
     { tag: "Авто лайфхаки", title: "Подготовка к дальней поездке: чек-лист из 10 пунктов", text: "Перед долгой дорогой стоит проверить не только масло и шины. Собрали простой чек-лист, который спасёт от поломки в 500 км от дома и лишних трат.", readTime: 7 },
     { tag: "Мировые новости", title: "Kia EV3 is now on sale for under $30,000, and now we know its EPA range", text: "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 also now has an official EPA-estimated driving range of up to 321 miles. Here’s what else to know.", readTime: 2 }
+,
+    { tag: "Мировые новости", title: "Kia EV3 prices and range revealed, starting at $30,000", text: "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 has an official EPA-estimated driving range of up to 321 miles.", readTime: 2 }
 
 ];
 
