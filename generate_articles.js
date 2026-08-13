@@ -142,6 +142,56 @@ function relatedArticles(n, count) {
     return [...same, ...rest];
 }
 
+function articleNav(n) {
+    const prevN = n > 1 ? n - 1 : bank.length;
+    const nextN = n < bank.length ? n + 1 : 1;
+    const prevA = bank[prevN - 1];
+    const nextA = bank[nextN - 1];
+    const prevSlug = slugs[prevN] || ('article-' + prevN);
+    const nextSlug = slugs[nextN] || ('article-' + nextN);
+
+    return `
+    <nav class="article-nav" aria-label="Навигация по статьям">
+        <a href="${prevSlug}.html" class="art-nav-item art-nav-prev">
+            <span class="art-nav-label">← Предыдущая статья</span>
+            <span class="art-nav-title">${esc(prevA.title)}</span>
+        </a>
+        <a href="${nextSlug}.html" class="art-nav-item art-nav-next">
+            <span class="art-nav-label">Следующая статья →</span>
+            <span class="art-nav-title">${esc(nextA.title)}</span>
+        </a>
+    </nav>`;
+}
+
+function readerToolbar(article, n) {
+    return `
+    <div class="reader-toolbar">
+        <div class="audio-reader-box" id="audioReader">
+            <button type="button" class="audio-play-btn" id="playAudioBtn" aria-label="Слушать статью">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span id="playAudioText">Слушать статью</span>
+            </button>
+            <div class="audio-status" id="audioStatus" hidden>
+                <span class="audio-wave"></span>
+                <span class="audio-time" id="audioTime">Озвучивание...</span>
+                <button type="button" class="audio-stop-btn" id="stopAudioBtn" title="Остановить">⏹</button>
+            </div>
+        </div>
+        <div class="reader-tools-right">
+            <div class="font-size-control">
+                <span class="font-label">Текст:</span>
+                <button type="button" class="font-btn" data-size="small" title="Уменьшить шрифт">A-</button>
+                <button type="button" class="font-btn active" data-size="normal" title="Стандартный шрифт">A</button>
+                <button type="button" class="font-btn" data-size="large" title="Увеличить шрифт">A+</button>
+            </div>
+            <button type="button" class="bookmark-btn bookmark-tool-btn" data-id="${n}" title="Сохранить в избранное" aria-label="Сохранить в избранное">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                <span>В закладки</span>
+            </button>
+        </div>
+    </div>`;
+}
+
 function page(article, n) {
     const slug = slugs[n] || ('article-' + n);
     const img = images[n];
@@ -153,6 +203,7 @@ function page(article, n) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="${esc(article.text)}">
+    <meta name="theme-color" content="#0b0f14">
     <meta property="og:title" content="${esc(article.title)}">
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
@@ -164,6 +215,7 @@ function page(article, n) {
     <meta property="og:image:alt" content="${esc(article.title)}">
     <title>${esc(article.title)} | АвтоТема</title>
     <link rel="canonical" href="${SITE}/articles/${slug}.html">
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -242,14 +294,21 @@ function page(article, n) {
 <body>
     <div class="reading-progress" id="progress"></div>
     <header class="header">
-
         <div class="container header-inner">
             <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="36" height="36"></span>Авто<span>Тема</span></a>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="/#news">Новости</a></li>
-                    <li><a href="/#topics">Рубрики</a></li>
-                    <li><a href="/#subscribe">Подписка</a></li>
+                    <li><a href="/#world">Мир</a></li>
+                    <li><a href="/#market">Рынок</a></li>
+                    <li><a href="/#calculator">Калькулятор</a></li>
+                    <li><a href="/#tips">Лайфхаки</a></li>
+                    <li><a href="/#interactive">Тест</a></li>
+                    <li>
+                        <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                            ⭐ <span class="fav-count" hidden>0</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -263,12 +322,14 @@ function page(article, n) {
                     <span class="tag">${esc(article.tag)}</span>
                     <h1>${esc(article.title)}</h1>
                     <span class="article-meta">${article.readTime} мин · ${dateFor(n)}</span>
+                    ${readerToolbar(article, n)}
                     ${heroImage(n)}
                     <div class="article-body">
                         ${paragraphs(article, n)}
                     </div>
                     ${shareBlock(article, slug)}
                     ${sourcesBlock(n)}
+                    ${articleNav(n)}
                 </article>
 
                 <aside class="related">
@@ -282,8 +343,12 @@ function page(article, n) {
                                 ? `<div class="card-media"><img src="${esc(rImg.url)}" alt="${esc(rImg.alt || a.title)}" loading="lazy" width="800" height="450"></div>`
                                 : '';
                             return `<article class="article-card">
+                                <a href="${rSlug}.html" class="card-link"></a>
                                 ${rMedia}
                                 <span class="card-tag">${esc(a.tag)}</span>
+                                <button type="button" class="bookmark-btn card-bookmark-btn" data-id="${ri}" title="Сохранить в избранное" aria-label="Сохранить в избранное">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                                </button>
                                 <div class="card-body">
                                     <h3><a href="${rSlug}.html">${esc(a.title)}</a></h3>
                                     <p>${esc(a.text)}</p>
@@ -300,6 +365,21 @@ function page(article, n) {
         </section>
     </main>
 
+    <!-- FAVORITES MODAL -->
+    <div class="favorites-modal" id="favoritesModal" role="dialog" aria-modal="true" aria-labelledby="favModalTitle">
+        <div class="fav-modal-dialog">
+            <div class="fav-modal-header">
+                <h3 id="favModalTitle">⭐ Избранные статьи</h3>
+                <button type="button" class="fav-modal-close" aria-label="Закрыть">&times;</button>
+            </div>
+            <div class="fav-modal-body" id="favModalList"></div>
+            <div class="fav-modal-footer">
+                <button type="button" class="btn btn-ghost" id="clearAllFavsBtn">Очистить всё</button>
+                <button type="button" class="btn btn-primary fav-modal-close">Готово</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container footer-bottom">
             <p>© <span id="year"></span> АвтоТема. Все права защищены. ·
@@ -311,6 +391,9 @@ function page(article, n) {
         </div>
     </footer>
 
+    <script src="/script.js"></script>
+    <script src="/article_images.js"></script>
+    <script src="/favorites.js"></script>
     <script src="/footer.js"></script>
 </body>
 </html>`;

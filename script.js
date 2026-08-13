@@ -207,8 +207,9 @@ function escAttr(s) {
 }
 
 function cardHTML(a, idx, featured, meta) {
-    const img = IMAGES[idx + 1];
-    const slug = (typeof SLUGS !== 'undefined' && SLUGS[idx + 1]) ? SLUGS[idx + 1] : 'article-' + (idx + 1);
+    const id = idx + 1;
+    const img = IMAGES[id];
+    const slug = (typeof SLUGS !== 'undefined' && SLUGS[id]) ? SLUGS[id] : 'article-' + id;
     const media = img && img.url
         ? `<div class="card-media"><img src="${escAttr(img.url)}" alt="${escAttr(img.alt || a.title)}" loading="lazy" width="800" height="450"></div>`
         : '';
@@ -217,6 +218,9 @@ function cardHTML(a, idx, featured, meta) {
             <a href="/articles/${slug}.html" class="card-link"></a>
             ${media}
             <span class="card-tag">${a.tag}</span>
+            <button type="button" class="bookmark-btn card-bookmark-btn" data-id="${id}" title="Сохранить в избранное" aria-label="Сохранить в избранное">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
             <div class="card-body">
                 <h3>${a.title}</h3>
                 <p>${a.text}</p>
@@ -238,6 +242,7 @@ function renderTopNews() {
         const a = ARTICLE_BANK[idx];
         return cardHTML(a, idx, i === 0, `${a.readTime} мин · ${dateLabel(i)}`);
     }).join('');
+    if (typeof updateFavUI === 'function') updateFavUI();
 }
 
 // Разделы по рубрикам: «Мировые новости» и «Новости рынка»
@@ -246,6 +251,7 @@ function renderCategoryGrid(id, tag, count) {
     if (!grid) return;
     const items = ARTICLE_BANK.map((a, i) => ({ a, i })).filter(x => x.a.tag === tag).slice(0, count);
     grid.innerHTML = items.map(({ a, i }) => cardHTML(a, i, false, `${a.readTime} мин`)).join('');
+    if (typeof updateFavUI === 'function') updateFavUI();
 }
 
 // Блок «Авто лайфхаки»: каждый день новый совет из банка TIPS (по дню года).
@@ -282,6 +288,7 @@ function renderDailyArticles() {
         html.push(cardHTML(a, idx, i === 0, `${a.readTime} мин · ${dateLabel(i)}`));
     }
     grid.innerHTML = html.join('');
+    if (typeof updateFavUI === 'function') updateFavUI();
 }
 
 // Подпись даты: сегодня / вчера / N дней назад
@@ -389,6 +396,7 @@ function initSearchAndFilter() {
                 return cardHTML(a, i, pos === 0, `${a.readTime} мин`);
             }).join('');
         }
+        if (typeof updateFavUI === 'function') updateFavUI();
     }
 
     input.addEventListener('input', update);

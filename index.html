@@ -25,6 +25,7 @@
     <meta property="og:locale" content="ru_RU">
 
     <link rel="canonical" href="https://elmankur01.github.io/">
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -79,6 +80,11 @@
                     <li><a href="#tips">Лайфхаки</a></li>
                     <li><a href="#interactive">Тест</a></li>
                     <li><a href="#subscribe">Подписка</a></li>
+                    <li>
+                        <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                            ⭐ <span class="fav-count" hidden>0</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
             <button class="burger" id="burger" aria-label="Меню">
@@ -469,11 +475,28 @@
         </div>
     </footer>
 
+    <!-- FAVORITES MODAL -->
+    <div class="favorites-modal" id="favoritesModal" role="dialog" aria-modal="true" aria-labelledby="favModalTitle">
+        <div class="fav-modal-dialog">
+            <div class="fav-modal-header">
+                <h3 id="favModalTitle">⭐ Избранные статьи</h3>
+                <button type="button" class="fav-modal-close" aria-label="Закрыть">&times;</button>
+            </div>
+            <div class="fav-modal-body" id="favModalList"></div>
+            <div class="fav-modal-footer">
+                <button type="button" class="btn btn-ghost" id="clearAllFavsBtn">Очистить всё</button>
+                <button type="button" class="btn btn-primary fav-modal-close">Готово</button>
+            </div>
+        </div>
+    </div>
+
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
     <script src="article_images.js" defer></script>
     <script src="script.js" defer></script>
     <script src="interactive.js" defer></script>
+    <script src="favorites.js" defer></script>
+    <script src="footer.js" defer></script>
     <noscript>Включите JavaScript для работы сайта.</noscript>
 </body>
 </html>
