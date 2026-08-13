@@ -295,22 +295,26 @@ function page(article, n) {
     <div class="reading-progress" id="progress"></div>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="36" height="36"></span>Авто<span>Тема</span></a>
-            <nav class="nav">
-                <ul class="nav-list">
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list" id="navList">
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
                     <li><a href="/#calculator">Калькулятор</a></li>
+                    <li><a href="/#history">История</a></li>
                     <li><a href="/#tips">Лайфхаки</a></li>
                     <li><a href="/#interactive">Тест</a></li>
-                    <li>
-                        <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
-                            ⭐ <span class="fav-count" hidden>0</span>
-                        </button>
-                    </li>
                 </ul>
             </nav>
+            <div class="header-actions">
+                <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                    ⭐ <span class="fav-count" hidden>0</span>
+                </button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 

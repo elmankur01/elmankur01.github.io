@@ -3,12 +3,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    initBurger();
     initAudioReader();
     initFontSizeControls();
     initReadingProgress();
     initCopyButton();
     registerServiceWorker();
 });
+
+// 0. Мобильное бургер-меню
+function initBurger() {
+    const burger = document.getElementById('burger');
+    const nav = document.querySelector('.nav-list');
+    if (!burger || !nav) return;
+    burger.addEventListener('click', () => {
+        const isActive = burger.classList.toggle('active');
+        nav.classList.toggle('active');
+        burger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            burger.classList.remove('active');
+            nav.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
 
 // 1. Аудио-озвучка статьи (Web Speech API)
 function initAudioReader() {
