@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Спрос на новые китайские авто в России за год вырос на 26,7%. Разбираем, кто возглавил продажи и почему покупатели всё чаще выбирают именно их.">
+    <meta name="theme-color" content="#0b0f14">
     <meta property="og:title" content="Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах">
     <meta property="og:description" content="Спрос на новые китайские авто в России за год вырос на 26,7%. Разбираем, кто возглавил продажи и почему покупатели всё чаще выбирают именно их.">
     <meta property="og:type" content="article">
@@ -15,6 +16,7 @@
     <meta property="og:image:alt" content="Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах">
     <title>Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах | АвтоТема</title>
     <link rel="canonical" href="https://elmankur01.github.io/articles/kitayskie-brendy-shturmuyut-rynok-haval-exeed-i-geely-v-liderakh.html">
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -93,14 +95,21 @@
 <body>
     <div class="reading-progress" id="progress"></div>
     <header class="header">
-
         <div class="container header-inner">
             <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="36" height="36"></span>Авто<span>Тема</span></a>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="/#news">Новости</a></li>
-                    <li><a href="/#topics">Рубрики</a></li>
-                    <li><a href="/#subscribe">Подписка</a></li>
+                    <li><a href="/#world">Мир</a></li>
+                    <li><a href="/#market">Рынок</a></li>
+                    <li><a href="/#calculator">Калькулятор</a></li>
+                    <li><a href="/#tips">Лайфхаки</a></li>
+                    <li><a href="/#interactive">Тест</a></li>
+                    <li>
+                        <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                            ⭐ <span class="fav-count" hidden>0</span>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -120,6 +129,32 @@
                     <span class="tag">Новые модели</span>
                     <h1>Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах</h1>
                     <span class="article-meta">9 мин · 2026-08-18</span>
+                    
+    <div class="reader-toolbar">
+        <div class="audio-reader-box" id="audioReader">
+            <button type="button" class="audio-play-btn" id="playAudioBtn" aria-label="Слушать статью">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span id="playAudioText">Слушать статью</span>
+            </button>
+            <div class="audio-status" id="audioStatus" hidden>
+                <span class="audio-wave"></span>
+                <span class="audio-time" id="audioTime">Озвучивание...</span>
+                <button type="button" class="audio-stop-btn" id="stopAudioBtn" title="Остановить">⏹</button>
+            </div>
+        </div>
+        <div class="reader-tools-right">
+            <div class="font-size-control">
+                <span class="font-label">Текст:</span>
+                <button type="button" class="font-btn" data-size="small" title="Уменьшить шрифт">A-</button>
+                <button type="button" class="font-btn active" data-size="normal" title="Стандартный шрифт">A</button>
+                <button type="button" class="font-btn" data-size="large" title="Увеличить шрифт">A+</button>
+            </div>
+            <button type="button" class="bookmark-btn bookmark-tool-btn" data-id="17" title="Сохранить в избранное" aria-label="Сохранить в избранное">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                <span>В закладки</span>
+            </button>
+        </div>
+    </div>
                                         <figure class="article-hero">
                         <img src="/images/art-17.jpg" alt="Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах" loading="lazy" width="800" height="450">
                         <figcaption>Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах <span class="article-credit">Jengtingchen, CC BY-SA 4.0 (Wikimedia Commons)</span></figcaption>
@@ -147,14 +182,29 @@
                         <li><a href="https://geely-motors.com/" target="_blank" rel="noopener nofollow">Geely Motors — официальный сайт</a></li>
                             </ul>
                         </div>
+                    
+    <nav class="article-nav" aria-label="Навигация по статьям">
+        <a href="porsche-911-60-let-odnoy-legende.html" class="art-nav-item art-nav-prev">
+            <span class="art-nav-label">← Предыдущая статья</span>
+            <span class="art-nav-title">Porsche 911: 60 лет одной легенде</span>
+        </a>
+        <a href="gibridy-2026-bolshe-ne-perekhodnyy-etap-a-samostoyatelnyy-klass.html" class="art-nav-item art-nav-next">
+            <span class="art-nav-label">Следующая статья →</span>
+            <span class="art-nav-title">Гибриды 2026: больше не «переходный этап», а самостоятельный класс</span>
+        </a>
+    </nav>
                 </article>
 
                 <aside class="related">
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
+                                <a href="premery-goda-glavnye-avto-kotorye-vyydut-na-rynok.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-02.jpg" alt="Премьеры года: главные авто, которые выйдут на рынок" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
+                                <button type="button" class="bookmark-btn card-bookmark-btn" data-id="2" title="Сохранить в избранное" aria-label="Сохранить в избранное">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                                </button>
                                 <div class="card-body">
                                     <h3><a href="premery-goda-glavnye-avto-kotorye-vyydut-na-rynok.html">Премьеры года: главные авто, которые выйдут на рынок</a></h3>
                                     <p>Собираем самые ожидаемые автомобили от мировых брендов — от бюджетных до флагманских.</p>
@@ -165,8 +215,12 @@
                                 </div>
                             </article>
 <article class="article-card">
+                                <a href="gibridy-protiv-elektrichestva-schitaem-chto-vygodnee.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-13.jpg" alt="Гибриды против электричества: считаем, что выгоднее" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
+                                <button type="button" class="bookmark-btn card-bookmark-btn" data-id="13" title="Сохранить в избранное" aria-label="Сохранить в избранное">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                                </button>
                                 <div class="card-body">
                                     <h3><a href="gibridy-protiv-elektrichestva-schitaem-chto-vygodnee.html">Гибриды против электричества: считаем, что выгоднее</a></h3>
                                     <p>Расход, зарядка, остаточная стоимость — объективное сравнение для реальных условий.</p>
@@ -177,8 +231,12 @@
                                 </div>
                             </article>
 <article class="article-card">
+                                <a href="robot-protiv-avtomata-gde-podvokh-v-robotakh.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-40.jpg" alt="Робот против автомата: где подвох в «роботах»" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
+                                <button type="button" class="bookmark-btn card-bookmark-btn" data-id="40" title="Сохранить в избранное" aria-label="Сохранить в избранное">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                                </button>
                                 <div class="card-body">
                                     <h3><a href="robot-protiv-avtomata-gde-podvokh-v-robotakh.html">Робот против автомата: где подвох в «роботах»</a></h3>
                                     <p>DSG, роботы с одним сцеплением и автоматы: в чём разница и почему одни коробки лучше не покупать б/у.</p>
@@ -194,6 +252,21 @@
         </section>
     </main>
 
+    <!-- FAVORITES MODAL -->
+    <div class="favorites-modal" id="favoritesModal" role="dialog" aria-modal="true" aria-labelledby="favModalTitle">
+        <div class="fav-modal-dialog">
+            <div class="fav-modal-header">
+                <h3 id="favModalTitle">⭐ Избранные статьи</h3>
+                <button type="button" class="fav-modal-close" aria-label="Закрыть">&times;</button>
+            </div>
+            <div class="fav-modal-body" id="favModalList"></div>
+            <div class="fav-modal-footer">
+                <button type="button" class="btn btn-ghost" id="clearAllFavsBtn">Очистить всё</button>
+                <button type="button" class="btn btn-primary fav-modal-close">Готово</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container footer-bottom">
             <p>© <span id="year"></span> АвтоТема. Все права защищены. ·
@@ -205,6 +278,9 @@
         </div>
     </footer>
 
+    <script src="/script.js"></script>
+    <script src="/article_images.js"></script>
+    <script src="/favorites.js"></script>
     <script src="/footer.js"></script>
 </body>
 </html>
