@@ -38,13 +38,22 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
     if (event.request.method !== 'GET') return;
+    
+    const url = new URL(event.request.url);
+    // Не кэшировать служебные / админ страницы
+    if (url.pathname.includes('4cc55b6066d79bfb2a80') || url.pathname.includes('4182e144696b3e5c1899') || url.pathname.includes('gate.js')) {
+        return;
+    }
+
     event.respondWith(
         fetch(event.request)
             .then(res => {
-                const resClone = res.clone();
-                caches.open(CACHE_NAME).then(cache => {
-                    cache.put(event.request, resClone);
-                });
+                if (res && res.status === 200 && res.type === 'basic') {
+                    const resClone = res.clone();
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, resClone);
+                    });
+                }
                 return res;
             })
             .catch(() => caches.match(event.request))

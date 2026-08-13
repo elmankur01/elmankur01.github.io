@@ -88,7 +88,7 @@ function renderFavoritesModalContent() {
                     <a href="/articles/${slug}.html" class="fav-item-title">${a.title}</a>
                     <span class="fav-item-meta">${a.readTime} мин</span>
                 </div>
-                <button type="button" class="fav-item-remove" onclick="toggleFavorite(${id})" title="Удалить из закладок">&times;</button>
+                <button type="button" class="fav-item-remove" data-remove-id="${id}" title="Удалить из закладок">&times;</button>
             </div>`;
     }).join('');
 }
@@ -99,6 +99,17 @@ function initFavorites() {
     const openBtns = document.querySelectorAll('.fav-modal-open');
     const closeBtns = document.querySelectorAll('.fav-modal-close');
     const clearBtn = document.getElementById('clearAllFavsBtn');
+    const listEl = document.getElementById('favModalList');
+
+    if (listEl) {
+        listEl.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-remove-id]');
+            if (btn) {
+                const id = parseInt(btn.dataset.removeId, 10);
+                if (id) toggleFavorite(id);
+            }
+        });
+    }
 
     openBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
