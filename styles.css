@@ -339,51 +339,83 @@ a:focus-visible, button:focus-visible {
 .hs-item span { font-size: 0.78rem; color: var(--muted); }
 
 /* ===== Topics ===== */
-.topics { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; }
+.topics {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+}
 
 .topics .section-title {
-    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
-    margin-bottom: 22px;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    margin-bottom: 14px;
 }
 
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+    gap: 8px;
 }
 
 .topic-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px 16px;
-    transition: all 0.25s;
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-decoration: none;
+    transition: all 0.22s ease;
 }
 
 .topic-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     border-color: var(--accent);
     background: var(--card-hover);
-    box-shadow: var(--shadow);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
 .topic-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 11px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     background: linear-gradient(135deg, rgba(232, 67, 60, 0.18), rgba(232, 67, 60, 0.05));
     border: 1px solid rgba(232, 67, 60, 0.25);
     color: var(--accent);
-    margin-bottom: 10px;
+    flex-shrink: 0;
+    margin-bottom: 0;
 }
 
-.topic-icon svg { width: 20px; height: 20px; }
+.topic-icon svg { width: 16px; height: 16px; }
 
-.topic-card h3 { font-size: 0.95rem; margin-bottom: 5px; }
-.topic-card p { font-size: 0.8rem; line-height: 1.45; color: var(--muted); }
+.topic-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.topic-card h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.topic-card p {
+    font-size: 0.72rem;
+    line-height: 1.2;
+    color: var(--muted);
+    margin: 2px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /* ===== Articles ===== */
 .articles-grid {
