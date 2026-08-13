@@ -2,7 +2,7 @@
 // Файл загружается и на главной (превью в карточках), и доступен в Node (generate_articles.js).
 const IMAGES = {
     1: { url: "/images/art-01.jpg", alt: "Электромобили в 2026 году: гонка за запасом хода в 1000 км", credit: "CEphoto, Uwe Aranas, CC BY-SA 3.0 (Wikimedia Commons)" },
-    2: { url: "/images/art-02.jpg", alt: "Премьеры года: главные авто, которые выйдут на рынок", credit: "D. Benjamin Miller, CC0 (Wikimedia Commons)" },
+    2: { url: "/images/art-02.jpg", alt: "Премьеры года: главные авто, которые выйдут на рынок", credit: "Фото: АвтоТема" },
     3: { url: "/images/art-03.jpg", alt: "Toyota: путь от ткацкого станка до мирового лидера", credit: "Фото: АвтоТема" },
     4: { url: "/images/art-04.jpg", alt: "Бензин, дизель, гибрид или электро: что выбрать в 2026?", credit: "Ferdinand Reus, CC BY-SA 2.0 (Wikimedia Commons)" },
     5: { url: "/images/art-05.jpg", alt: "Автопром будущего: беспилотники, каршеринг и новые рынки", credit: "Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },

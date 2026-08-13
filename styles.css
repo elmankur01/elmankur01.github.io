@@ -434,6 +434,14 @@ a:focus-visible, button:focus-visible {
 .article-card.featured .card-tag {
     grid-column: 1;
     grid-row: 1;
+    justify-self: start;
+    align-self: start;
+    margin: 14px;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: fit-content;
+    height: auto;
 }
 
 .tag {
