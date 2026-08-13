@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
     renderCategoryGrid('worldGrid', 'Мировые новости', 6);
     renderCategoryGrid('marketGrid', 'Новости рынка', 6);
     renderTipOfDay();
+    initSearchAndFilter();
 });
 
 // ===== Мобильное меню =====
@@ -338,4 +339,75 @@ function dateLabel(daysAgo) {
     // Инициализация при загрузке
     updateProgress();
 })();
+
+// ===== Мгновенный поиск и фильтр по рубрикам =====
+function initSearchAndFilter() {
+    const input = document.getElementById('articleSearch');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const filtersContainer = document.getElementById('categoryFilters');
+    const meta = document.getElementById('searchMeta');
+    const grid = document.getElementById('dailyGrid');
+    if (!input || !filtersContainer || !grid) return;
+
+    let activeTag = 'all';
+
+    function update() {
+        const query = input.value.trim().toLowerCase();
+        if (clearBtn) clearBtn.hidden = !query;
+
+        if (!query && activeTag === 'all') {
+            if (meta) meta.hidden = true;
+            renderDailyArticles();
+            return;
+        }
+
+        const matches = ARTICLE_BANK.map((a, i) => ({ a, i })).filter(({ a }) => {
+            const matchCategory = activeTag === 'all' || a.tag === activeTag;
+            const matchQuery = !query ||
+                a.title.toLowerCase().includes(query) ||
+                a.text.toLowerCase().includes(query) ||
+                a.tag.toLowerCase().includes(query);
+            return matchCategory && matchQuery;
+        });
+
+        if (meta) {
+            meta.hidden = false;
+            let labelText = `Найдено статей: <strong>${matches.length}</strong>`;
+            if (activeTag !== 'all') labelText += ` в рубрике «${activeTag}»`;
+            if (query) labelText += ` по запросу «<em>${escAttr(query)}</em>»`;
+            meta.innerHTML = labelText;
+        }
+
+        if (matches.length === 0) {
+            grid.innerHTML = `
+                <div class="no-results-card">
+                    <h3>Ничего не найдено</h3>
+                    <p>Попробуйте изменить поисковый запрос или выбрать другую рубрику.</p>
+                </div>`;
+        } else {
+            grid.innerHTML = matches.map(({ a, i }, pos) => {
+                return cardHTML(a, i, pos === 0, `${a.readTime} мин`);
+            }).join('');
+        }
+    }
+
+    input.addEventListener('input', update);
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            update();
+            input.focus();
+        });
+    }
+
+    filtersContainer.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            filtersContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeTag = btn.dataset.tag || 'all';
+            update();
+        });
+    });
+}
 

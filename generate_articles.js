@@ -163,8 +163,77 @@ function page(article, n) {
     <meta property="og:image:height" content="675">
     <meta property="og:image:alt" content="${esc(article.title)}">
     <title>${esc(article.title)} | АвтоТема</title>
+    <link rel="canonical" href="${SITE}/articles/${slug}.html">
     <link rel="stylesheet" href="styles.css?v=4">
-    ...
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "${esc(article.title)}",
+        "description": "${esc(article.text)}",
+        "datePublished": "${dateFor(n)}",
+        "inLanguage": "ru",
+        "mainEntityOfPage": "${SITE}/articles/${slug}.html",
+        "image": {
+            "@type": "ImageObject",
+            "url": "${ogImg}",
+            "width": 1200,
+            "height": 675
+        },
+        "author": { "@type": "Organization", "name": "АвтоТема" },
+        "publisher": { "@type": "Organization", "name": "АвтоТема" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "${SITE}/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "${esc(article.tag)}",
+                "item": "${SITE}/#${tagAnchor(article.tag)}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "${esc(article.title)}",
+                "item": "${SITE}/articles/${slug}.html"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "О чём статья «${esc(article.title)}»?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "${esc(article.text)}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "К какой рубрике относится статья?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Статья относится к рубрике «${esc(article.tag)}» портала АвтоТема."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <div class="reading-progress" id="progress"></div>

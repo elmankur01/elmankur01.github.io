@@ -11,8 +11,12 @@ const m = src.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
 if (!m) { console.error('ARTICLE_BANK не найден'); process.exit(1); }
 
 const bank = eval(m[1]);
-let slugs = {};
-try { slugs = require('../../article_images.js').SLUGS || {}; } catch (e) {}
+let slugs = {}, images = {};
+try {
+    const imgMod = require('../../article_images.js');
+    slugs = imgMod.SLUGS || {};
+    images = imgMod.IMAGES || {};
+} catch (e) {}
 const now = new Date();
 const startOfYear = new Date(now.getUTCFullYear(), 0, 1);
 const dayOfYear = Math.floor((now - startOfYear) / 86400000);
@@ -56,16 +60,20 @@ const replyMarkup = {
     inline_keyboard: [[{ text: '📰 Читать на АвтоТеме', url }]]
 };
 
-console.log('Публикую:');
-console.log(text);
+const img = images[offset + 1];
+const photoUrl = (img && img.url) ? ('https://elmankur01.github.io' + img.url) : null;
+const apiMethod = photoUrl ? 'sendPhoto' : 'sendMessage';
+const apiPayload = photoUrl
+    ? { chat_id: chatId, photo: photoUrl, caption: text, parse_mode: 'HTML', reply_markup: replyMarkup }
+    : { chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup };
 
-fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+fetch('https://api.telegram.org/bot' + token + '/' + apiMethod, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup })
+    body: JSON.stringify(apiPayload)
 }).then(r => r.json()).then(j => {
     if (j.ok) {
-        console.log('✅ Опубликовано');
+        console.log('✅ Опубликовано (' + apiMethod + ')');
         const posted = loadPosted();
         posted.push(offset + 1);
         savePosted(posted);

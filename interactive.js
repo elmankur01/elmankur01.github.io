@@ -271,6 +271,60 @@ document.addEventListener('DOMContentLoaded', function () {
     initQuiz(document.getElementById('quizWidget'));
     initCarOfDay(document.getElementById('carOfDayWidget'));
     initFactOfDay(document.getElementById('factWidget'));
-    initPoll(document.getElementById('pollWidget'))
-    initFuelCalc(document.getElementById('fuelCalcWidget'));
+    initPoll(document.getElementById('pollWidget'));
+    initFuelCalc();
 });
+
+// ===== Калькулятор расходов (Бензин vs Гибрид vs Электро) =====
+function initFuelCalc() {
+    const range = document.getElementById('calcKmRange');
+    const kmVal = document.getElementById('calcKmValue');
+    const gasPriceInput = document.getElementById('calcGasPrice');
+    const elecPriceInput = document.getElementById('calcElecPrice');
+
+    const gas1 = document.getElementById('gas1Yr');
+    const gas3 = document.getElementById('gas3Yr');
+    const gas5 = document.getElementById('gas5Yr');
+
+    const hyb1 = document.getElementById('hyb1Yr');
+    const hyb3 = document.getElementById('hyb3Yr');
+    const hyb5 = document.getElementById('hyb5Yr');
+
+    const elec1 = document.getElementById('elec1Yr');
+    const elec3 = document.getElementById('elec3Yr');
+    const elec5 = document.getElementById('elec5Yr');
+
+    if (!range || !gas1) return;
+
+    function fmt(num) {
+        return Math.round(num).toLocaleString('ru-RU') + ' ₽';
+    }
+
+    function calculate() {
+        const km = parseInt(range.value, 10) || 15000;
+        const gasPrice = parseFloat(gasPriceInput.value) || 65;
+        const elecPrice = parseFloat(elecPriceInput.value) || 7;
+
+        if (kmVal) kmVal.textContent = km.toLocaleString('ru-RU') + ' км/год';
+
+        const gas1YrVal = (km / 100) * 10 * gasPrice;
+        gas1.textContent = fmt(gas1YrVal);
+        gas3.textContent = fmt(gas1YrVal * 3);
+        gas5.textContent = fmt(gas1YrVal * 5);
+
+        const hyb1YrVal = (km / 100) * 5 * gasPrice;
+        hyb1.textContent = fmt(hyb1YrVal);
+        hyb3.textContent = fmt(hyb1YrVal * 3);
+        hyb5.textContent = fmt(hyb1YrVal * 5);
+
+        const elec1YrVal = (km / 100) * 18 * elecPrice;
+        elec1.textContent = fmt(elec1YrVal);
+        elec3.textContent = fmt(elec1YrVal * 3);
+        elec5.textContent = fmt(elec1YrVal * 5);
+    }
+
+    range.addEventListener('input', calculate);
+    if (gasPriceInput) gasPriceInput.addEventListener('input', calculate);
+    if (elecPriceInput) elecPriceInput.addEventListener('input', calculate);
+    calculate();
+}
