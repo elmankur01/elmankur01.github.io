@@ -149,6 +149,8 @@ const SLUGS = {
     71: "kia-ev3-prices-and-range-revealed-starting-at-30-000"
 ,
     72: "this-1-800-electric-motorcycle-hits-70-mph-and-could-change-the-game"
+,
+    73: "trump-is-right-ev-range-anxiety-is-a-disease-this-is-how-we-cure-it"
 
 };
 

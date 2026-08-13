@@ -82,6 +82,8 @@ const ARTICLE_BANK = [
     { tag: "Мировые новости", title: "Kia EV3 prices and range revealed, starting at $30,000", text: "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 has an official EPA-estimated driving range of up to 321 miles.", readTime: 2 }
 ,
     { tag: "Мировые новости", title: "This $1,800 electric motorcycle hits 70 MPH and could change the game", text: "A new player in the industry, Avore , thinks its EX2S electric motorcycle could shake things up with impressive performance and accessible pricing.", readTime: 2 }
+,
+    { tag: "Мировые новости", title: "Trump is right: EV range anxiety is a disease – THIS is how we cure it!", text: "On today’s time-sensitive episode of Quick Charge , we revisit the idea that even a broken clock is right twice a day as we examine US President Donald Trump’s takes on electric vehicles, range anxiety, highway road signs, and why he’s absolutely right .", readTime: 2 }
 
 ];
 

@@ -565,6 +565,10 @@ const BODIES = [
     [
         "A new player in the industry, Avore , thinks its EX2S electric motorcycle could shake things up with impressive performance and accessible pricing."
     ]
+,
+    [
+        "On today’s time-sensitive episode of Quick Charge , we revisit the idea that even a broken clock is right twice a day as we examine US President Donald Trump’s takes on electric vehicles, range anxiety, highway road signs, and why he’s absolutely right ."
+    ]
 
 ];
 
@@ -874,6 +878,10 @@ const SOURCES = [
 ,
     [
         { name: "Electrek — новость", url: "https://electrek.co/2026/08/12/this-1800-electric-motorcycle-hits-70-mph-and-could-change-the-game/" }
+    ]
+,
+    [
+        { name: "Electrek — новость", url: "https://electrek.co/2026/08/12/trump-is-right-ev-range-anxiety-is-a-disease-this-is-how-we-cure-it/" }
     ]
 
 ];
