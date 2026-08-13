@@ -47,7 +47,7 @@ function fmt(d) {
 const MAX_ITEMS = 15;
 const show = items.slice(0, MAX_ITEMS);
 const lines = show.map(it => {
-    const url = 'https://elmankur01.github.io/articles/' + (slugs[it.n] || ('article-' + it.n)) + '.html';
+    const url = 'https://avtotema-news.online/articles/' + (slugs[it.n] || ('article-' + it.n)) + '.html';
     return '• ' + fmt(it.d) + ' — <b>' + escHtml(it.article.title) + '</b>\n   <a href="' + url + '">читать</a>';
 });
 if (items.length > MAX_ITEMS) {
@@ -65,7 +65,7 @@ const text = [
     '',
     ...lines,
     '',
-    '📰 Все материалы: <a href="https://elmankur01.github.io/">АвтоТема</a>',
+    '📰 Все материалы: <a href="https://avtotema-news.online/">АвтоТема</a>',
     'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
     '',
     '#авто #дайджест #неделя'

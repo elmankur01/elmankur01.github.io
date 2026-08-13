@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE = 'https://elmankur01.github.io';
+const SITE = 'https://avtotema-news.online';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const src = fs.readFileSync(path.join(__dirname, 'script.js'), 'utf8');

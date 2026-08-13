@@ -56,7 +56,7 @@ const tagMap = {
     'Мировые новости': '#новости #авто #мир',
     'Новости рынка': '#новости рынка #авто'
 };
-const url = 'https://elmankur01.github.io/articles/' + (slugs[pick.i + 1] || ('article-' + (pick.i + 1))) + '.html';
+const url = 'https://avtotema-news.online/articles/' + (slugs[pick.i + 1] || ('article-' + (pick.i + 1))) + '.html';
 
 function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -80,7 +80,7 @@ const replyMarkup = {
 };
 
 const img = images[pick.i + 1];
-const photoUrl = (img && img.url) ? ('https://elmankur01.github.io' + img.url) : null;
+const photoUrl = (img && img.url) ? ('https://avtotema-news.online' + img.url) : null;
 const apiMethod = photoUrl ? 'sendPhoto' : 'sendMessage';
 const apiPayload = photoUrl
     ? { chat_id: chatId, photo: photoUrl, caption: text, parse_mode: 'HTML', reply_markup: replyMarkup }

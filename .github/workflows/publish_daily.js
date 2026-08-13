@@ -42,7 +42,7 @@ function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-const url = 'https://elmankur01.github.io/articles/' + (slugs[offset + 1] || ('article-' + (offset + 1))) + '.html';
+const url = 'https://avtotema-news.online/articles/' + (slugs[offset + 1] || ('article-' + (offset + 1))) + '.html';
 
 const text = [
     '🔥 <b>' + escHtml(article.title) + '</b>',
@@ -61,7 +61,7 @@ const replyMarkup = {
 };
 
 const img = images[offset + 1];
-const photoUrl = (img && img.url) ? ('https://elmankur01.github.io' + img.url) : null;
+const photoUrl = (img && img.url) ? ('https://avtotema-news.online' + img.url) : null;
 const apiMethod = photoUrl ? 'sendPhoto' : 'sendMessage';
 const apiPayload = photoUrl
     ? { chat_id: chatId, photo: photoUrl, caption: text, parse_mode: 'HTML', reply_markup: replyMarkup }

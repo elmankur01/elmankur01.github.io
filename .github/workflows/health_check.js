@@ -1,7 +1,7 @@
 // Скрипт health check для GitHub Actions.
 // Проверяет сайт (HTTP-статусы, sitemap, свежесть Telegram-постов) и шлёт отчёт владельцу в личку.
 // Запускается ежедневно по расписанию (health_check.yml).
-const SITE = 'https://elmankur01.github.io';
+const SITE = 'https://avtotema-news.online';
 
 const PAGES = [
     { path: '/', name: 'Главная' },

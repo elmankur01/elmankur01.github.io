@@ -66,7 +66,7 @@ const TIPS = [
     'Проверяйте щётку стеклоочистителя на заднем стекле — зимой без неё ничего не видно в каплях грязи.'
 ];
 
-const SITE_TIPS = 'https://elmankur01.github.io/#tips';
+const SITE_TIPS = 'https://avtotema-news.online/#tips';
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
