@@ -888,17 +888,17 @@ a:focus-visible, button:focus-visible {
 .reveal.revealed { opacity: 1; transform: none; }
 
 /* ===== Interactive (тест, факт дня, голосование, авто дня) ===== */
-.interactive { padding: 20px 0; }
+.interactive { padding: 14px 0 20px; }
 
 .interactive .section-title {
-    font-size: clamp(1.15rem, 2vw, 1.4rem);
-    margin-bottom: 14px;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    margin-bottom: 10px;
 }
 
 .interactive-grid {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
-    gap: 16px;
+    gap: 10px;
     align-items: start;
 }
 
@@ -909,7 +909,7 @@ a:focus-visible, button:focus-visible {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 18px;
+    padding: 12px 14px;
 }
 
 .quiz-widget {
@@ -921,33 +921,35 @@ a:focus-visible, button:focus-visible {
 }
 
 .quiz-head h3 {
-    font-size: 1rem;
-    font-weight: 800;
-    letter-spacing: -0.3px;
-    margin-bottom: 6px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-bottom: 4px;
 }
 
 .quiz-head p {
     color: var(--muted);
-    margin-bottom: 10px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 6px;
     max-width: 520px;
 }
 
 .quiz-progress {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .quiz-options {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-top: 10px;
+    gap: 5px;
+    margin-top: 6px;
 }
 
 .quiz-option {
@@ -955,9 +957,9 @@ a:focus-visible, button:focus-visible {
     background: var(--bg-soft);
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 7px 12px;
-    font-size: 0.82rem;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.2s;
     font-family: inherit;
@@ -966,7 +968,7 @@ a:focus-visible, button:focus-visible {
 .quiz-option:hover:not(:disabled) {
     border-color: var(--accent);
     background: var(--card-hover);
-    transform: translateX(4px);
+    transform: translateX(3px);
 }
 
 .quiz-option:disabled {
@@ -976,38 +978,42 @@ a:focus-visible, button:focus-visible {
 
 .quiz-result {
     text-align: center;
-    padding: 10px 0;
+    padding: 6px 0;
 }
 
 .quiz-result-icon {
-    font-size: 1.8rem;
-    margin-bottom: 6px;
+    font-size: 1.5rem;
+    margin-bottom: 4px;
 }
 
 .quiz-result h3 {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 800;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .quiz-result p {
     color: var(--muted);
-    margin-bottom: 10px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
 }
 
 .quiz-result .btn {
-    margin: 0 6px 10px;
+    margin: 0 4px 6px;
+    padding: 6px 12px;
+    font-size: 0.82rem;
 }
 
 .interactive-side {
     display: grid;
-    gap: 10px;
+    gap: 8px;
 }
 
 .fact-widget {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 }
 
 .fact-badge {
@@ -1015,18 +1021,18 @@ a:focus-visible, button:focus-visible {
     align-self: flex-start;
     background: var(--green);
     color: #fff;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
+    padding: 3px 8px;
+    border-radius: 12px;
 }
 
 .fact-text {
     color: var(--text);
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 0.84rem;
+    line-height: 1.45;
 }
 
 .fact-again {
@@ -1034,7 +1040,7 @@ a:focus-visible, button:focus-visible {
     background: none;
     border: none;
     color: var(--accent);
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     cursor: pointer;
     padding: 0;
     font-family: inherit;
@@ -1042,25 +1048,25 @@ a:focus-visible, button:focus-visible {
 
 .fact-again:hover { text-decoration: underline; }
 
-.poll-widget .quiz-head h3 { margin-bottom: 10px; }
+.poll-widget .quiz-head h3 { margin-bottom: 6px; }
 
-.poll-options { margin-bottom: 12px; }
+.poll-options { margin-bottom: 8px; }
 
 .poll-results {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .poll-row {
     display: grid;
-    grid-template-columns: 1fr 130px 40px;
+    grid-template-columns: 1fr 110px 36px;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .poll-label {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--text);
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1068,9 +1074,9 @@ a:focus-visible, button:focus-visible {
 }
 
 .poll-bar {
-    height: 8px;
+    height: 6px;
     background: var(--bg-soft);
-    border-radius: 4px;
+    border-radius: 3px;
     overflow: hidden;
 }
 
@@ -1078,12 +1084,12 @@ a:focus-visible, button:focus-visible {
     display: block;
     height: 100%;
     background: var(--accent);
-    border-radius: 4px;
+    border-radius: 3px;
     transition: width 0.5s ease;
 }
 
 .poll-pct {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: var(--muted);
     text-align: right;
 }
@@ -1091,32 +1097,35 @@ a:focus-visible, button:focus-visible {
 .poll-row.chosen .poll-label { color: var(--accent); font-weight: 700; }
 
 .poll-note {
-    margin-top: 10px;
-    font-size: 0.72rem;
+    margin-top: 6px;
+    font-size: 0.7rem;
     color: var(--muted);
 }
 
 .cod-widget h3 {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 800;
-    margin: 8px 0 4px;
+    margin: 6px 0 2px;
 }
 
 .cod-widget p {
     color: var(--muted);
-    font-size: 0.85rem;
-    margin-bottom: 10px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 6px;
 }
 
 .cod-media {
-    border-radius: 10px;
+    max-height: 120px;
     overflow: hidden;
+    border-radius: 8px;
     margin-bottom: 6px;
 }
 
 .cod-media img {
     width: 100%;
-    height: auto;
+    max-height: 120px;
+    object-fit: cover;
     display: block;
 }
 
