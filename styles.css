@@ -769,6 +769,29 @@ a:focus-visible, button:focus-visible {
 .footer-bottom a { color: var(--muted); text-decoration: underline; }
 .footer-bottom a:hover { color: var(--text); }
 
+/* Reading Progress */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--accent);
+    z-index: 2000;
+    transition: width 0.1s ease-out;
+}
+
+/* Share Copy Button */
+.share-btn.share-copy {
+    background: #2d3436;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.share-btn.share-copy.copied {
+    background: #00b894;
+}
+
 .age-mark {
     display: flex;
     align-items: center;
@@ -1164,3 +1187,27 @@ a:focus-visible, button:focus-visible {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; }
 }
+
+/* Fuel Calculator Widget */
+.calc-widget { padding: 20px; }
+.calc-widget h3 { font-size: 1rem; font-weight: 800; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.input-group { margin-bottom: 12px; }
+.input-group label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+.input-group input { width: 100
+/* Fuel Calculator Widget */
+.calc-widget { padding: 20px; }
+.calc-widget h3 { font-size: 1rem; font-weight: 800; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.input-group { margin-bottom: 12px; }
+.input-group label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+.input-group input { width: 100%; padding: 8px 12px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 1rem; }
+.input-group input:focus { outline: none; border-color: var(--accent); }
+.calc-results { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 20px; }
+.result-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; }
+.result-card h4 { font-size: 0.9rem; margin-bottom: 8px; }
+.result-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+.result-card p strong { color: var(--text); }
+.result-card .bar { height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+.result-card .bar span { height: 100%; background: var(--accent); display: block; transition: width 0.5s ease; }
+.result-card.gas { --accent: #e8433c; }
+.result-card.hybrid { --accent: #fbbf24; }
+.result-card.electric { --accent: #3b82f6; }

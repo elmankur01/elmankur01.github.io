@@ -69,7 +69,7 @@ function shareBlock(article, slug) {
                         <span class="share-label">Поделиться:</span>
                         <a class="share-btn share-vk" href="https://vk.com/share.php?url=${url}" target="_blank" rel="noopener nofollow">ВКонтакте</a>
                         <a class="share-btn share-tg" href="https://t.me/share/url?url=${url}&text=${title}" target="_blank" rel="noopener nofollow">Telegram</a>
-                        <a class="share-btn share-ok" href="https://connect.ok.ru/offer?url=${url}" target="_blank" rel="noopener nofollow">Одноклассники</a>
+                        <button class="share-btn share-copy" id="copyBtn">Скопировать ссылку</button>
                     </div>`;
 }
 
@@ -144,80 +144,30 @@ function relatedArticles(n, count) {
 
 function page(article, n) {
     const slug = slugs[n] || ('article-' + n);
+    const img = images[n];
+    const ogImg = (img && img.url) ? (img.url.startsWith('http') ? img.url : `${SITE}/${img.url.replace(/^\//, '')}`) : `${SITE}/og-image.png`;
+
     return `<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${esc(article.title)} | АвтоТема</title>
-    <meta name="description" content="${esc(article.text)}">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0b0f14">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'">
     <meta property="og:title" content="${esc(article.title)}">
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:url" content="${SITE}/articles/${slug}.html">
-    <meta property="og:image" content="${SITE}/og-image.png">
+    <meta property="og:image" content="${ogImg}">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="1200">
-    <meta property="og:image:alt" content="АвтоТема — новости автомобильного мира">
-    <meta property="article:published_time" content="${dateFor(n)}">
-    <meta property="article:section" content="${esc(article.tag)}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="${SITE}/og-image.png">
-    <meta property="og:locale" content="ru_RU">
-    <link rel="canonical" href="${SITE}/articles/${slug}.html">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": ${JSON.stringify(article.title)},
-        "description": ${JSON.stringify(article.text)},
-        "datePublished": "${dateFor(n)}",
-        "inLanguage": "ru",
-        "mainEntityOfPage": "${SITE}/articles/${slug}.html",
-        "image": {
-            "@type": "ImageObject",
-            "url": "${SITE}/og-image.png",
-            "width": 1200,
-            "height": 1200
-        },
-        "author": { "@type": "Organization", "name": "АвтоТема" },
-        "publisher": { "@type": "Organization", "name": "АвтоТема" }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Главная",
-                "item": "${SITE}/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": ${JSON.stringify(article.tag)},
-                "item": "${SITE}/#${tagAnchor(article.tag)}"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": ${JSON.stringify(article.title)}
-            }
-        ]
-    }
-    </script>
-    <link rel="stylesheet" href="/styles.css">
+    <meta property="og:image:height" content="675">
+    <meta property="og:image:alt" content="${esc(article.title)}">
+    <title>${esc(article.title)} | АвтоТема</title>
+    ...
 </head>
 <body>
+    <div class="reading-progress" id="progress"></div>
     <header class="header">
+
         <div class="container header-inner">
             <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="36" height="36"></span>Авто<span>Тема</span></a>
             <nav class="nav">

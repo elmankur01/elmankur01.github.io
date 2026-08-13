@@ -271,5 +271,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initQuiz(document.getElementById('quizWidget'));
     initCarOfDay(document.getElementById('carOfDayWidget'));
     initFactOfDay(document.getElementById('factWidget'));
-    initPoll(document.getElementById('pollWidget'));
+    initPoll(document.getElementById('pollWidget'))
+    initFuelCalc(document.getElementById('fuelCalcWidget'));
 });

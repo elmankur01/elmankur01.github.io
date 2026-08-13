@@ -287,3 +287,53 @@ function dateLabel(daysAgo) {
     return names[daysAgo] || daysAgo + ' дней назад';
 }
 
+// ===== Чтение статьи: индикатор прогресса и копирование ссылки =====
+(function () {
+    // Индикатор прогресса чтения
+    const progress = document.querySelector('.reading-progress');
+    if (!progress) return;
+
+    const updateProgress = () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = Math.max(0, Math.min(100, (scrollTop / docHeight) * 100));
+        progress.style.width = percent + '%';
+    };
+
+    // Кнопка копирования ссылки
+    const copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+            const url = window.location.href;
+            try {
+                await navigator.clipboard.writeText(url);
+                copyBtn.textContent='Ссылка скопирована!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.textContent = 'Скопировать ссылку';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = url;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                copyBtn.textContent='Ссылка скопирована!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.textContent = 'Скопировать ссылку';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }
+        });
+    }
+
+    // Обновление прогресса при скролле
+    window.addEventListener('scroll', updateProgress);
+    // Инициализация при загрузке
+    updateProgress();
+})();
+
