@@ -162,6 +162,7 @@ function page(article, n) {
     <meta property="og:image:height" content="675">
     <meta property="og:image:alt" content="${esc(article.title)}">
     <title>${esc(article.title)} | АвтоТема</title>
+    <link rel="stylesheet" href="styles.css?v=4">
     ...
 </head>
 <body>
