@@ -372,11 +372,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .card-media::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(11, 15, 20, 0) 70%, rgba(11, 15, 20, 0.25) 100%);
-    pointer-events: none;
+    display: none;
 }
 
 .card-media img {

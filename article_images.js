@@ -12,7 +12,7 @@ const IMAGES = {
     9: { url: "/images/ferrari.jpg", alt: "Ferrari 250 GTO — легендарная модель марки", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 (Wikimedia Commons)" },
     10: { url: "/images/art-10.jpg", alt: "Tesla vs китайские бренды: кто лидирует в электромобилях", credit: "Alexander-93, CC BY-SA 4.0 (Wikimedia Commons)" },
     11: { url: "/images/art-11.jpg", alt: "Экологические нормы: как автопром готовится к запрету ДВС", credit: "Ruben de Rijcke, CC BY-SA 3.0 (Wikimedia Commons)" },
-    12: { url: "/images/art-12.jpg", alt: "Volkswagen: «народный автомобиль» и его наследие", credit: "Dllu, CC BY-SA 4.0 (Wikimedia Commons)" },
+    12: { url: "/images/art-12.jpg", alt: "Volkswagen: «народный автомобиль» и его наследие", credit: "Фото: АвтоТема" },
     13: { url: "/images/art-13.jpg", alt: "Гибриды против электричества: считаем, что выгоднее", credit: "Alexander-93, CC BY-SA 4.0 (Wikimedia Commons)" },
     14: { url: "/images/art-14.jpg", alt: "Дизель жив? Что происходит с дизельными моторами", credit: "Lemon3 at German Wikipedia, CC BY-SA 3.0 (Wikimedia Commons)" },
     15: { url: "/images/art-15.jpg", alt: "Батареи будущего: натрий, твёрдый электролит и LFP", credit: "Raimond Spekking, CC BY-SA 4.0 (Wikimedia Commons)" },
