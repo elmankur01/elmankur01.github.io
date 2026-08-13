@@ -7,7 +7,8 @@
 // Сменить пароль: подставьте хэш нового пароля в HASH.
 // ==========================================
 (function () {
-    var HASH = '2d210ba9a138dc1d43845fe8a35130dc46db92e54a8b1db5b6681f8916332790';
+    // Пароль: avtotema2026 (SHA-256 хэш)
+    var HASH = '06cd11db1c857b78e7519435ef7b1e85a0e189edfb78f267a3d4e478726e5038';
     var KEY = 'at_admin_auth';
     var TOKEN = 'granted';
 
