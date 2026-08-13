@@ -569,6 +569,10 @@ const BODIES = [
     [
         "On today’s time-sensitive episode of Quick Charge , we revisit the idea that even a broken clock is right twice a day as we examine US President Donald Trump’s takes on electric vehicles, range anxiety, highway road signs, and why he’s absolutely right ."
     ]
+,
+    [
+        "Sweden’s largest industrial union, IF Metall, is calling off its strike against Tesla after 1,021 days, the longest labor conflict in modern Swedish history. The union says it’s stopping because Tesla bought out every one of its striking members, leaving the walkout with nothing left to withhold. The dispute started…"
+    ]
 
 ];
 
@@ -882,6 +886,10 @@ const SOURCES = [
 ,
     [
         { name: "Electrek — новость", url: "https://electrek.co/2026/08/12/trump-is-right-ev-range-anxiety-is-a-disease-this-is-how-we-cure-it/" }
+    ]
+,
+    [
+        { name: "Electrek — новость", url: "https://electrek.co/2026/08/13/tesla-defeats-sweden-if-metall-union-strike/" }
     ]
 
 ];

@@ -84,6 +84,8 @@ const ARTICLE_BANK = [
     { tag: "Мировые новости", title: "This $1,800 electric motorcycle hits 70 MPH and could change the game", text: "A new player in the industry, Avore , thinks its EX2S electric motorcycle could shake things up with impressive performance and accessible pricing.", readTime: 2 }
 ,
     { tag: "Мировые новости", title: "Trump is right: EV range anxiety is a disease – THIS is how we cure it!", text: "On today’s time-sensitive episode of Quick Charge , we revisit the idea that even a broken clock is right twice a day as we examine US President Donald Trump’s takes on electric vehicles, range anxiety, highway road signs, and why he’s absolutely right .", readTime: 2 }
+,
+    { tag: "Мировые новости", title: "Tesla defeats Sweden&#8217;s IF Metall union after 1,021-day strike", text: "Sweden’s largest industrial union, IF Metall, is calling off its strike against Tesla after 1,021 days, the longest labor conflict in modern Swedish history. The union says it’s stopping because Tesla bought out every one of its striking members, leaving the walkout with nothing left to withhold. The dispute started…", readTime: 2 }
 
 ];
 

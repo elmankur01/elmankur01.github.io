@@ -151,6 +151,8 @@ const SLUGS = {
     72: "this-1-800-electric-motorcycle-hits-70-mph-and-could-change-the-game"
 ,
     73: "trump-is-right-ev-range-anxiety-is-a-disease-this-is-how-we-cure-it"
+,
+    74: "tesla-defeats-sweden-8217-s-if-metall-union-after-1-021-day-strike"
 
 };
 
