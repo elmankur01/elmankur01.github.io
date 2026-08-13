@@ -897,9 +897,9 @@ a:focus-visible, button:focus-visible {
 
 .interactive-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 10px;
-    align-items: stretch;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 16px;
+    align-items: start;
 }
 
 .quiz-widget,
@@ -909,14 +909,15 @@ a:focus-visible, button:focus-visible {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 14px;
+    padding: 18px;
 }
 
 .quiz-widget {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: 200px;
+    justify-content: flex-start;
+    align-self: start;
+    min-height: auto;
 }
 
 .quiz-head h3 {
