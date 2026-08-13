@@ -375,7 +375,7 @@ a:focus-visible, button:focus-visible {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(11, 15, 20, 0) 50%, rgba(11, 15, 20, 0.55) 100%);
+    background: linear-gradient(180deg, rgba(11, 15, 20, 0) 70%, rgba(11, 15, 20, 0.25) 100%);
     pointer-events: none;
 }
 
