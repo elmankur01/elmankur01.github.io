@@ -107,6 +107,40 @@
 
     refreshBtn.addEventListener('click', load);
 
+    // Обновление описания Telegram-канала
+    var updateDescBtn = document.getElementById('updateDescBtn');
+    var channelDescInput = document.getElementById('channelDescInput');
+    var descStatus = document.getElementById('descStatus');
+
+    if (updateDescBtn && channelDescInput) {
+        updateDescBtn.addEventListener('click', async function () {
+            if (!token) {
+                descStatus.textContent = '❌ Сначала введите и сохраните токен бота выше.';
+                return;
+            }
+            var text = channelDescInput.value.trim();
+            descStatus.textContent = '⏳ Обновляем описание канала…';
+            try {
+                var res = await fetch('https://api.telegram.org/bot' + token + '/setChatDescription', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: DEFAULT_CHAT,
+                        description: text
+                    })
+                });
+                var data = await res.json();
+                if (data.ok) {
+                    descStatus.innerHTML = '✅ <span style="color:#4ade80;font-weight:700;">Описание канала успешно обновлено в Telegram!</span>';
+                } else {
+                    descStatus.textContent = '❌ Ошибка Telegram: ' + (data.description || 'не удалось изменить описание');
+                }
+            } catch (e) {
+                descStatus.textContent = '❌ Ошибка сети: ' + e.message;
+            }
+        });
+    }
+
     // ── Ручная отправка статьи в Telegram ──
     var destSelect = document.getElementById('destSelect');
     var articleSelect = document.getElementById('articleSelect');
