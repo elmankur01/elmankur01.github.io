@@ -221,6 +221,10 @@ function cardHTML(a, idx, featured, meta) {
                 <p>${a.text}</p>
                 <div class="card-meta">
                     <span class="article-meta">${meta}</span>
+                    <button type="button" class="card-like-btn" data-id="${id}" title="Поставить лайк" aria-label="Нравится">
+                        <span class="like-heart">❤️</span>
+                        <span class="card-like-count" data-like-id="${id}">—</span>
+                    </button>
                     <span class="card-arrow" aria-hidden="true">→</span>
                 </div>
             </div>
@@ -238,6 +242,7 @@ function renderTopNews() {
         return cardHTML(a, idx, i === 0, `${a.readTime} мин · ${dateLabel(i)}`);
     }).join('');
     if (typeof updateFavUI === 'function') updateFavUI();
+    if (typeof initLikes === 'function') initLikes();
 }
 
 // Разделы по рубрикам: «Мировые новости» и «Новости рынка»
@@ -247,6 +252,7 @@ function renderCategoryGrid(id, tag, count) {
     const items = ARTICLE_BANK.map((a, i) => ({ a, i })).filter(x => x.a.tag === tag).slice(0, count);
     grid.innerHTML = items.map(({ a, i }) => cardHTML(a, i, false, `${a.readTime} мин`)).join('');
     if (typeof updateFavUI === 'function') updateFavUI();
+    if (typeof initLikes === 'function') initLikes();
 }
 
 // Блок «Авто лайфхаки»: каждый день новый совет из банка TIPS (по дню года).
@@ -392,6 +398,7 @@ function initSearchAndFilter() {
             }).join('');
         }
         if (typeof updateFavUI === 'function') updateFavUI();
+        if (typeof initLikes === 'function') initLikes();
     }
 
     input.addEventListener('input', update);

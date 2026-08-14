@@ -2008,3 +2008,181 @@ body.font-large .article-body p { font-size: 1.2rem; line-height: 1.8; }
         justify-content: space-between;
     }
 }
+
+/* ===== ЛАЙКИ И РЕАКЦИИ ===== */
+.card-like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 3;
+}
+
+.card-like-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #f87171;
+    transform: scale(1.06);
+}
+
+.card-like-btn.liked {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ff6b6b;
+}
+
+.card-like-btn.liked .like-heart {
+    animation: heartPop 0.35s ease-out;
+}
+
+/* Блок реакций в конце статьи */
+.article-reactions {
+    margin: 2.5rem 0 1.5rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(21, 27, 35, 0.9) 0%, rgba(13, 18, 24, 0.9) 100%);
+    border: 1px solid #262e3a;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.reactions-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.reactions-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reaction-like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #f1f5f9;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reaction-like-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.25);
+}
+
+.reaction-like-btn.liked {
+    background: linear-gradient(135deg, #e61a27 0%, #ff4d5a 100%);
+    border-color: #ff6b76;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(230, 26, 39, 0.4);
+}
+
+.reaction-like-btn.liked .reaction-icon {
+    animation: heartPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reaction-count {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.reaction-bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #f1f5f9;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.reaction-bookmark-btn:hover {
+    background: rgba(234, 179, 8, 0.15);
+    border-color: rgba(234, 179, 8, 0.4);
+    color: #facc15;
+    transform: translateY(-2px);
+}
+
+.reaction-bookmark-btn.active {
+    background: rgba(234, 179, 8, 0.2);
+    border-color: #eab308;
+    color: #facc15;
+}
+
+/* Всплывающая частица +1 ❤️ */
+.like-particle {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ff4d5a;
+    z-index: 10000;
+    transform: translate(-50%, 0);
+    animation: floatUpFade 0.85s ease-out forwards;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes heartPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+@keyframes floatUpFade {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -24px) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -45px) scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .article-reactions {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 1.25rem;
+    }
+    .reactions-actions {
+        justify-content: center;
+    }
+}
+

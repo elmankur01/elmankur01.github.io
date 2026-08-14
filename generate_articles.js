@@ -62,6 +62,23 @@ function breadcrumbs(article, slug) {
                     </nav>`;
 }
 
+function reactionsBlock(article, n) {
+    return `<div class="article-reactions" id="articleReactions">
+                        <div class="reactions-heading">Понравилась статья? Оцените материал:</div>
+                        <div class="reactions-actions">
+                            <button type="button" class="reaction-like-btn" id="articleLikeBtn" data-id="${n}" aria-label="Поставить лайк">
+                                <span class="reaction-icon">❤️</span>
+                                <span class="reaction-label">Полезно</span>
+                                <span class="reaction-count" id="articleLikeCount">—</span>
+                            </button>
+                            <button type="button" class="reaction-bookmark-btn bookmark-btn" data-id="${n}" aria-label="В закладки">
+                                <span class="reaction-icon">⭐</span>
+                                <span class="reaction-label">В закладки</span>
+                            </button>
+                        </div>
+                    </div>`;
+}
+
 function shareBlock(article, slug) {
     const url = enc(`${SITE}/articles/${slug}.html`);
     const title = enc(article.title);
@@ -331,6 +348,7 @@ function page(article, n) {
                     <div class="article-body">
                         ${paragraphs(article, n)}
                     </div>
+                    ${reactionsBlock(article, n)}
                     ${shareBlock(article, slug)}
                     ${sourcesBlock(n)}
                     ${articleNav(n)}
@@ -358,6 +376,10 @@ function page(article, n) {
                                     <p>${esc(a.text)}</p>
                                     <div class="card-meta">
                                         <span class="article-meta">${a.readTime} мин</span>
+                                        <button type="button" class="card-like-btn" data-id="${ri}" title="Поставить лайк" aria-label="Нравится">
+                                            <span class="like-heart">❤️</span>
+                                            <span class="card-like-count" data-like-id="${ri}">—</span>
+                                        </button>
                                         <span class="card-arrow" aria-hidden="true">→</span>
                                     </div>
                                 </div>
@@ -395,10 +417,11 @@ function page(article, n) {
         </div>
     </footer>
 
-    <script src="/script.js"></script>
-    <script src="/article_images.js"></script>
-    <script src="/favorites.js"></script>
-    <script src="/footer.js"></script>
+    <script src="/script.js" defer></script>
+    <script src="/article_images.js" defer></script>
+    <script src="/favorites.js" defer></script>
+    <script src="/likes.js" defer></script>
+    <script src="/footer.js" defer></script>
 </body>
 </html>`;
 }
