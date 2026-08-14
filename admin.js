@@ -159,6 +159,8 @@
         return new Date(2026, 7, 1 + n).toLocaleDateString('ru-RU');
     }
 
+    var imageMap = {};
+
     function loadArticles() {
         var bust = '?v=' + Date.now();
         Promise.all([
@@ -170,6 +172,11 @@
             var sre = /(\d+)\s*:\s*"([^"]*)"/g;
             while ((sm = sre.exec(img)) !== null) {
                 if (sm[1] !== 'module') slugMap[+sm[1]] = sm[2];
+            }
+            var im;
+            var ire = /(\d+)\s*:\s*\{\s*url:\s*"([^"]*)"/g;
+            while ((im = ire.exec(img)) !== null) {
+                imageMap[+im[1]] = im[2];
             }
             var m;
             var re = /\{\s*tag:\s*"([^"]*)"\s*,\s*title:\s*"([^"]*)"\s*,\s*text:\s*"([^"]*)"\s*,\s*readTime:\s*(\d+)\s*\}/g;
@@ -234,42 +241,64 @@
         var a = articles[idx];
         if (!a) { sendStatus.textContent = 'Выберите статью.'; return; }
 
+        var tagIcons = {
+            'Новые модели': '🚗',
+            'Электромобили': '⚡',
+            'Двигатели': '🔧',
+            'История марок': '🏛️',
+            'Мировые новости': '🌍',
+            'Новости рынка': '📊',
+            'Авто лайфхаки': '💡'
+        };
+        var icon = tagIcons[a.tag] || '🚗';
+
         var slug = slugMap[idx + 1] || ('article-' + (idx + 1));
-        var url = 'https://elmankur01.github.io/articles/' + slug + '.html';
+        var url = 'https://avtotema-news.online/articles/' + slug + '.html';
 
         var text = [
+            icon + ' <b>' + (a.tag || 'Автоновости').toUpperCase() + '</b> | <i>АвтоТема</i>',
+            '━━━━━━━━━━━━━━━━━━━',
+            '',
             '🔥 <b>' + escHtml(a.title) + '</b>',
             '',
             escHtml(a.text),
             '',
-            '📰 <a href="' + url + '">Читать на АвтоТеме</a>',
+            '⏱ <i>Время чтения: ~' + a.readTime + ' мин</i>',
             '',
-            'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+            '━━━━━━━━━━━━━━━━━━━',
+            '👉 <b>Читать полную версию статьи:</b>',
+            '🔗 <a href="' + url + '">avtotema-news.online</a>',
             '',
-            '#авто #новости'
+            '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+            '',
+            '#авто #новости #' + (a.tag.replace(/\s+/g, '_').toLowerCase())
         ].join('\n');
 
         var replyMarkup = {
-            inline_keyboard: [[{ text: '📰 Читать на АвтоТеме', url }]]
+            inline_keyboard: [
+                [{ text: '📖 Читать статью на сайте ↗', url: url }],
+                [{ text: '🚗 Все новости на АвтоТеме', url: 'https://avtotema-news.online/' }]
+            ]
         };
+
+        var photoPath = imageMap[idx + 1];
+        var photoUrl = photoPath ? ('https://avtotema-news.online' + photoPath) : null;
+        var apiMethod = photoUrl ? 'sendPhoto' : 'sendMessage';
+        var apiPayload = photoUrl
+            ? { chat_id: destSelect.value, photo: photoUrl, caption: text, parse_mode: 'HTML', reply_markup: replyMarkup }
+            : { chat_id: destSelect.value, text: text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup };
 
         sendBtn.disabled = true;
         sendStatus.textContent = 'Отправляю…';
 
-        fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+        fetch('https://api.telegram.org/bot' + token + '/' + apiMethod, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: destSelect.value,
-                text: text,
-                parse_mode: 'HTML',
-                disable_web_page_preview: false,
-                reply_markup: replyMarkup
-            })
+            body: JSON.stringify(apiPayload)
         }).then(function (r) { return r.json(); }).then(function (j) {
             sendBtn.disabled = false;
             if (j.ok) {
-                sendStatus.innerHTML = '<span class="badge ok">✅ Опубликовано (id ' + j.result.message_id + ')</span>';
+                sendStatus.innerHTML = '<span class="badge ok">✅ Опубликовано (' + apiMethod + ', id ' + (j.result.message_id || '') + ')</span>';
             } else {
                 sendStatus.innerHTML = '<span class="badge err">Ошибка: ' + esc(j.description || JSON.stringify(j)) + '</span>';
             }

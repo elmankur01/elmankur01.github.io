@@ -42,22 +42,43 @@ function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+const tagIcons = {
+    'Новые модели': '🚗',
+    'Электромобили': '⚡',
+    'Двигатели': '🔧',
+    'История марок': '🏛️',
+    'Мировые новости': '🌍',
+    'Новости рынка': '📊',
+    'Авто лайфхаки': '💡'
+};
+const icon = tagIcons[article.tag] || '🚗';
+
 const url = 'https://avtotema-news.online/articles/' + (slugs[offset + 1] || ('article-' + (offset + 1))) + '.html';
 
 const text = [
+    icon + ' <b>' + (article.tag || 'Автоновости').toUpperCase() + '</b> | <i>АвтоТема</i>',
+    '━━━━━━━━━━━━━━━━━━━',
+    '',
     '🔥 <b>' + escHtml(article.title) + '</b>',
     '',
     escHtml(article.text),
     '',
-    '📰 <a href="' + url + '">Читать на АвтоТеме</a>',
+    '⏱ <i>Время чтения: ~' + (article.readTime || 5) + ' мин</i>',
     '',
-    'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '━━━━━━━━━━━━━━━━━━━',
+    '👉 <b>Читать полную версию статьи:</b>',
+    '🔗 <a href="' + url + '">avtotema-news.online</a>',
     '',
-    '#авто #новости'
+    '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '',
+    '#авто #новости #' + ((article.tag || 'новости').replace(/\s+/g, '_').toLowerCase())
 ].join('\n');
 
 const replyMarkup = {
-    inline_keyboard: [[{ text: '📰 Читать на АвтоТеме', url }]]
+    inline_keyboard: [
+        [{ text: '📖 Читать статью на сайте ↗', url: url }],
+        [{ text: '🚗 Все новости на АвтоТеме', url: 'https://avtotema-news.online/' }]
+    ]
 };
 
 const img = images[offset + 1];

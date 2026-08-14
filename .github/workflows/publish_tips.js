@@ -83,15 +83,28 @@ const idx = dayOfYear % TIPS.length;
 const tip = TIPS[idx];
 
 const text = [
-    '💡 <b>Авто лайфхак №' + (idx + 1) + '/' + TIPS.length + '</b>',
+    '💡 <b>АВТО ЛАЙФХАК ДНЯ</b> | <i>АвтоТема</i>',
+    '━━━━━━━━━━━━━━━━━━━',
     '',
-    escHtml(tip),
+    'Совет №' + (idx + 1) + ' из коллекции автоэкспертов:',
     '',
-    '🔧 Больше советов: <a href="' + SITE_TIPS + '">АвтоТема</a>',
-    'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '👉 <b>' + escHtml(tip) + '</b>',
     '',
-    '#лайфхаки #авто'
+    '━━━━━━━━━━━━━━━━━━━',
+    '🔧 <b>Больше полезных советов и инструкций:</b>',
+    '🔗 <a href="' + SITE_TIPS + '">avtotema-news.online/#tips</a>',
+    '',
+    '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '',
+    '#лайфхаки #авто #советы'
 ].join('\n');
+
+const replyMarkup = {
+    inline_keyboard: [
+        [{ text: '💡 Открыть все лайфхаки на сайте ↗', url: SITE_TIPS }],
+        [{ text: '🚗 На главную АвтоТемы', url: 'https://avtotema-news.online/' }]
+    ]
+};
 
 console.log('Публикую лайфхак №' + (idx + 1) + ':');
 console.log(tip);
@@ -99,7 +112,7 @@ console.log(tip);
 fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: true })
+    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup })
 }).then(r => r.json()).then(j => {
     if (j.ok) { console.log('✅ Опубликовано'); process.exit(0); }
     else { console.error('Ошибка Telegram:', JSON.stringify(j)); process.exit(1); }

@@ -59,17 +59,28 @@ const last = fmt(items[items.length - 1].d);
 const period = first === last ? first : first + '–' + last.split(', ')[1];
 
 const text = [
-    '📊 <b>Итоги недели на АвтоТеме</b>',
+    '📊 <b>ИТОГИ НЕДЕЛИ НА АВТОТЕМЕ</b> | <i>Дайджест</i>',
+    '━━━━━━━━━━━━━━━━━━━',
     '',
-    'За неделю (' + period + ') опубликовано статей: ' + items.length,
+    'Главные автомобильные события и статьи за неделю (<b>' + period + '</b>):',
     '',
     ...lines,
     '',
-    '📰 Все материалы: <a href="https://avtotema-news.online/">АвтоТема</a>',
-    'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '━━━━━━━━━━━━━━━━━━━',
+    '📰 <b>Все статьи и новости на официальном сайте:</b>',
+    '🔗 <a href="https://avtotema-news.online/">avtotema-news.online</a>',
     '',
-    '#авто #дайджест #неделя'
+    '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '',
+    '#авто #дайджест #неделя #автоновости'
 ].join('\n');
+
+const replyMarkup = {
+    inline_keyboard: [
+        [{ text: '🚗 Читать все статьи на сайте ↗', url: 'https://avtotema-news.online/' }],
+        [{ text: '📢 Подписаться на канал', url: 'https://t.me/avtotema_news' }]
+    ]
+};
 
 console.log('Отправляю дайджест:');
 console.log(text);
@@ -77,7 +88,7 @@ console.log(text);
 fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false })
+    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup })
 }).then(r => r.json()).then(j => {
     if (j.ok) { console.log('✅ Дайджест опубликован'); process.exit(0); }
     else { console.error('Ошибка Telegram:', JSON.stringify(j)); process.exit(1); }

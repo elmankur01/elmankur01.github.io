@@ -63,20 +63,29 @@ function escHtml(s) {
 }
 
 const text = [
-    ...(label ? [label, ''] : []),
-    icon + ' <b>' + escHtml(pick.a.title) + '</b>',
+    icon + ' <b>' + category.toUpperCase() + '</b> | <i>АвтоТема</i>',
+    '━━━━━━━━━━━━━━━━━━━',
+    '',
+    '🔥 <b>' + escHtml(pick.a.title) + '</b>',
     '',
     escHtml(pick.a.text),
     '',
-    '📰 <a href="' + url + '">Читать на АвтоТеме</a>',
+    '⏱ <i>Время чтения: ~' + (pick.a.readTime || 5) + ' мин</i>',
     '',
-    'Подпишитесь: <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '━━━━━━━━━━━━━━━━━━━',
+    '👉 <b>Читать полную версию статьи:</b>',
+    '🔗 <a href="' + url + '">avtotema-news.online</a>',
     '',
-    tagMap[category] || ('#' + category.split(' ')[0].toLowerCase() + ' #авто')
+    '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+    '',
+    tagMap[category] || ('#' + category.replace(/\s+/g, '_').toLowerCase() + ' #авто')
 ].join('\n');
 
 const replyMarkup = {
-    inline_keyboard: [[{ text: '📰 Читать на АвтоТеме', url }]]
+    inline_keyboard: [
+        [{ text: '📖 Читать статью на сайте ↗', url: url }],
+        [{ text: '🚗 Все новости на АвтоТеме', url: 'https://avtotema-news.online/' }]
+    ]
 };
 
 const img = images[pick.i + 1];
