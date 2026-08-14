@@ -1,9 +1,8 @@
-// Скрипт для GitHub Actions: автоматически добавляет статьи в банк из мировых авто-RSS.
+// Скрипт для GitHub Actions: автоматически добавляет статьи в банк из мировых авто-СМИ и российских источников.
 // Запускается из auto_news.yml (по расписанию, 2 раза в день).
-// Без внешних ИИ-API: заголовок и текст берутся из ленты, статьи добавляются
-// в ARTICLE_BANK (script.js), BODIES/SOURCES (article_content.js) и SLUGS (article_images.js).
-// Уже использованные ссылки не повторяются (state/seen_news.json в корне репозитория —
-// НЕ внутри .github/workflows: GITHUB_TOKEN не может пушить файлы этой папки).
+// Зарубежные новости (Motor1, Electrek, Autocar, Car & Driver) автоматически качественно переводятся на русский язык.
+// Статьи добавляются в ARTICLE_BANK (script.js), BODIES/SOURCES (article_content.js) и SLUGS (article_images.js).
+// Уже использованные ссылки не повторяются (state/seen_news.json).
 // Для теста без изменений: NEWS_DRY_RUN=1 node .github/workflows/fetch_news.js
 const fs = require('fs');
 const path = require('path');
@@ -13,12 +12,18 @@ const ROOT = path.join(__dirname, '..', '..');
 const STATE_FILE = path.join(ROOT, 'state', 'seen_news.json');
 const TARGET = parseInt(process.env.NEWS_TARGET || '1', 10);
 const DRY_RUN = process.env.NEWS_DRY_RUN === '1';
-const TAG = 'Мировые новости';
 
 const FEEDS = [
+    // Ведущие мировые автоиздания
+    { name: 'Motor1 Global', url: 'https://www.motor1.com/rss/news/all/' },
+    { name: 'CarScoops Global', url: 'https://www.carscoops.com/feed/' },
+    { name: 'Electrek (EV & Tesla)', url: 'https://electrek.co/feed/' },
+    { name: 'InsideEVs Global', url: 'https://insideevs.com/rss/news/all/' },
+    { name: 'Autocar UK', url: 'https://www.autocar.co.uk/rss' },
+    { name: 'Car and Driver', url: 'https://www.caranddriver.com/rss/all.xml' },
+    // Авторитетные российские автопорталы
     { name: 'Motor.ru', url: 'https://motor.ru/rss/news' },
     { name: 'Quto.ru', url: 'https://quto.ru/rss/news' },
-    { name: 'iXBT Auto', url: 'https://www.ixbt.com/export/auto.rss' },
     { name: 'Авто Mail.ru', url: 'https://auto.mail.ru/rss/' }
 ];
 
@@ -34,6 +39,45 @@ function stripHtml(s) {
         .replace(/&gt;/g, '>')
         .replace(/\s+/g, ' ')
         .trim();
+}
+
+async function translateToRussian(text) {
+    if (!text) return '';
+    const latinCount = (text.match(/[a-zA-Z]/g) || []).length;
+    const cyrillicCount = (text.match(/[а-яА-ЯёЁ]/g) || []).length;
+    // Если уже на русском — возвращаем как есть
+    if (cyrillicCount >= latinCount && cyrillicCount > 5) return text;
+
+    try {
+        const url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ru&dt=t&q=' + encodeURIComponent(text);
+        const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data[0]) {
+                return data[0].map(x => x[0]).join('');
+            }
+        }
+    } catch (e) {
+        console.log('Ошибка автоперевода: ' + e.message);
+    }
+    return text;
+}
+
+function detectTag(title, text) {
+    const full = (title + ' ' + text).toLowerCase();
+    if (full.includes('электро') || full.includes('electric') || full.includes('ev') || full.includes('battery') || full.includes('батаре') || full.includes('tesla') || full.includes('zeekr')) {
+        return 'Электромобили';
+    }
+    if (full.includes('двигател') || full.includes('мотор') || full.includes('engine') || full.includes('v8') || full.includes('v6') || full.includes('турбо') || full.includes('кпп') || full.includes('трансмисси')) {
+        return 'Двигатели';
+    }
+    if (full.includes('цена') || full.includes('рубл') || full.includes('продаж') || full.includes('рынок') || full.includes('дилер') || full.includes('утильсбор') || full.includes('market') || full.includes('price')) {
+        return 'Новости рынка';
+    }
+    if (full.includes('представил') || full.includes('дебют') || full.includes('поколени') || full.includes('кроссовер') || full.includes('concept') || full.includes('unveil') || full.includes('reveal')) {
+        return 'Новые модели';
+    }
+    return 'Мировые новости';
 }
 
 function parseRSS(xml, source) {
@@ -94,7 +138,13 @@ function jsStr(s) {
 }
 
 function slugify(title) {
+    const map = {
+        'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh','щ':'shch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'
+    };
     let slug = title.toLowerCase()
+        .split('')
+        .map(c => map[c] || c)
+        .join('')
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '')
         .slice(0, 80);
@@ -116,7 +166,7 @@ function commitAll() {
     execSync('git add script.js article_content.js article_images.js state/seen_news.json', { stdio: 'inherit' });
     const changed = execSync('git diff --cached --quiet; echo $?').toString().trim();
     if (changed === '0') { console.log('Нет изменений для коммита'); return; }
-    execSync('git commit -m "Auto: статьи из мировых автоновостей"', { stdio: 'inherit' });
+    execSync('git commit -m "Auto: добавлены свежие мировые автоновости"', { stdio: 'inherit' });
     execSync('git pull --rebase origin main', { stdio: 'inherit' });
     execSync('git push', { stdio: 'inherit' });
     console.log('Запушено: статьи добавлены в банк');
@@ -163,7 +213,7 @@ async function main() {
         process.exit(0);
     }
 
-    // Строим объекты статей.
+    // Строим объекты статей с переводом на русский язык
     const scriptPath = path.join(ROOT, 'script.js');
     const scriptSrc = fs.readFileSync(scriptPath, 'utf8');
     const m = scriptSrc.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
@@ -172,26 +222,38 @@ async function main() {
     const base = bank.length;
     const usedSlugs = new Set();
 
-    const articles = selected.map((it, i) => {
-        const text = (it.desc || it.title).length > 320 ? (it.desc || it.title).slice(0, 320).replace(/\s+\S*$/, '') + '…' : (it.desc || it.title);
-        let slug = slugify(it.title);
+    const articles = [];
+    for (let i = 0; i < selected.length; i++) {
+        const it = selected[i];
+        console.log('Перевод и обработка [' + it.source + ']: ' + it.title);
+
+        const ruTitle = await translateToRussian(it.title);
+        const rawDesc = it.desc || it.title;
+        const ruDesc = await translateToRussian(rawDesc);
+        const text = ruDesc.length > 320 ? ruDesc.slice(0, 320).replace(/\s+\S*$/, '') + '…' : ruDesc;
+
+        let slug = slugify(ruTitle);
         if (!slug) slug = 'news-' + (base + i + 1);
         if (usedSlugs.has(slug)) slug = slug + '-' + (base + i + 1);
         usedSlugs.add(slug);
-        return {
-            title: it.title,
+
+        const tag = detectTag(ruTitle, text);
+
+        articles.push({
+            title: ruTitle,
             text,
+            tag,
             readTime: Math.max(2, Math.round(text.length / 400)),
             slug,
             num: base + i + 1,
             sourceName: it.source,
             sourceUrl: it.link
-        };
-    });
+        });
+    }
 
     console.log('Добавляю статей: ' + articles.length);
     for (const a of articles) {
-        console.log('  #' + a.num + ' [' + a.sourceName + '] ' + a.title);
+        console.log('  #' + a.num + ' [' + a.sourceName + ' / ' + a.tag + '] ' + a.title);
     }
 
     if (DRY_RUN) {
@@ -201,7 +263,7 @@ async function main() {
 
     // 1. script.js → ARTICLE_BANK
     const bankBlock = articles.map(a =>
-        '    { tag: "' + TAG + '", title: "' + jsStr(a.title) + '", text: "' + jsStr(a.text) + '", readTime: ' + a.readTime + ' }'
+        '    { tag: "' + a.tag + '", title: "' + jsStr(a.title) + '", text: "' + jsStr(a.text) + '", readTime: ' + a.readTime + ' }'
     ).join(',\n');
     const newScript = insertBeforeClosing(scriptSrc, 'const ARTICLE_BANK = [', '\n];', ',\n' + bankBlock + '\n');
     fs.writeFileSync(scriptPath, newScript);
@@ -214,12 +276,12 @@ async function main() {
     ).join(',\n');
     contentSrc = insertBeforeClosing(contentSrc, 'const BODIES = [', '\n];', ',\n' + bodiesBlock + '\n');
     const sourcesBlock = articles.map(a =>
-        '    [\n        { name: "' + jsStr(a.sourceName + ' — новость') + '", url: "' + jsStr(a.sourceUrl) + '" }\n    ]'
+        '    [\n        { name: "' + jsStr(a.sourceName + ' — первоисточник') + '", url: "' + jsStr(a.sourceUrl) + '" }\n    ]'
     ).join(',\n');
     contentSrc = insertBeforeClosing(contentSrc, 'const SOURCES = [', '\n];', ',\n' + sourcesBlock + '\n');
     fs.writeFileSync(contentPath, contentSrc);
 
-    // 3. article_images.js → SLUGS (без фото: карточки и страницы корректно работают без изображения)
+    // 3. article_images.js → SLUGS
     const imagesPath = path.join(ROOT, 'article_images.js');
     const imagesSrc = fs.readFileSync(imagesPath, 'utf8');
     const slugsBlock = articles.map(a => '    ' + a.num + ': "' + a.slug + '"').join(',\n');
