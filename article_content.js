@@ -581,6 +581,10 @@ const BODIES = [
     [
         "Кроссовер Haval H3 обновился и внешне, и технически. Что поменяли в машине?"
     ]
+,
+    [
+        "Mercedes-AMG GT Black Series будет использовать новый двигатель V8 с плоским кривошипом и копировать следующий гоночный автомобиль GT3, сохраняя при этом GT 63 Pro в качестве флагмана."
+    ]
 
 ];
 
@@ -902,6 +906,10 @@ const SOURCES = [
 ,
     [
         { name: "Авто Mail.ru — новость", url: "https://auto.mail.ru/article/128424-test-drajv-obnovlennogo-haval-h3-chto-v-nem-stalo-luchshe/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/804991/mercedes-amg-gt-black-v8/" }
     ]
 
 ];

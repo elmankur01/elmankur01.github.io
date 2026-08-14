@@ -150,6 +150,8 @@ const SLUGS = {
     73: "trevoga-zapasa-khoda-pochemu-strakh-pered-batareyami-ukhodit-v-proshloe",
     74: "tesla-i-profsoyuzy-v-evrope-zavershenie-zabastovki-v-shvetsii",
     75: "haval-h3"
+,
+    76: "novaya-chernaya-seriya-mercedes-budet-ispol-zovat-dikiy-ploskiy-v8"
 
 };
 
