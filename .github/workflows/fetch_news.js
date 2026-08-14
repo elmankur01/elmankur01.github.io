@@ -16,11 +16,10 @@ const DRY_RUN = process.env.NEWS_DRY_RUN === '1';
 const TAG = 'Мировые новости';
 
 const FEEDS = [
-    { name: 'Autoblog', url: 'https://www.autoblog.com/rss.xml' },
-    { name: 'Electrek', url: 'https://electrek.co/feed/' },
-    { name: 'InsideEVs', url: 'https://insideevs.com/rss/news/all/' },
-    { name: 'The Verge', url: 'https://www.theverge.com/rss/index.xml' },
-    { name: 'TechCrunch', url: 'https://techcrunch.com/category/transportation/feed/' }
+    { name: 'Motor.ru', url: 'https://motor.ru/rss/news' },
+    { name: 'Quto.ru', url: 'https://quto.ru/rss/news' },
+    { name: 'iXBT Auto', url: 'https://www.ixbt.com/export/auto.rss' },
+    { name: 'Авто Mail.ru', url: 'https://auto.mail.ru/rss/' }
 ];
 
 function stripHtml(s) {
@@ -131,7 +130,7 @@ async function main() {
     for (const f of FEEDS) {
         try {
             const res = await fetch(f.url, {
-                headers: { 'user-agent': 'Mozilla/5.0 (compatible; AvtoTemaBot/1.0; +https://elmankur01.github.io)' },
+                headers: { 'user-agent': 'Mozilla/5.0 (compatible; AvtoTemaBot/1.0; +https://avtotema-news.online)' },
                 signal: AbortSignal.timeout(25000)
             });
             if (!res.ok) { console.log('Пропуск ' + f.name + ': HTTP ' + res.status); continue; }

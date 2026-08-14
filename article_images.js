@@ -144,16 +144,11 @@ const SLUGS = {
     67: "euro-7-novye-ekologicheskie-normy-dlya-avtomobiley",
     68: "nissan-ot-datsun-do-mirovogo-lidera-i-obratno",
     69: "podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov",
-    70: "kia-ev3-is-now-on-sale-for-under-30-000-and-now-we-know-its-epa-range"
-,
-    71: "kia-ev3-prices-and-range-revealed-starting-at-30-000"
-,
-    72: "this-1-800-electric-motorcycle-hits-70-mph-and-could-change-the-game"
-,
-    73: "trump-is-right-ev-range-anxiety-is-a-disease-this-is-how-we-cure-it"
-,
-    74: "tesla-defeats-sweden-8217-s-if-metall-union-after-1-021-day-strike"
-
+    70: "kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km",
+    71: "tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente",
+    72: "avore-ex2s-dostupnyy-elektromototsikl-so-skorostyu-do-115-km-h",
+    73: "trevoga-zapasa-khoda-pochemu-strakh-pered-batareyami-ukhodit-v-proshloe",
+    74: "tesla-i-profsoyuzy-v-evrope-zavershenie-zabastovki-v-shvetsii"
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };

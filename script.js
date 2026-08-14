@@ -77,16 +77,11 @@ const ARTICLE_BANK = [
     { tag: "История марок", title: "Nissan: от Datsun до мирового лидера и обратно", text: "Путь японской марки от маленьких грузовиков до GT-R и первого массового электромобиля Leaf.", readTime: 11 },
     // === АВТО ЛАЙФХАКИ ===
     { tag: "Авто лайфхаки", title: "Подготовка к дальней поездке: чек-лист из 10 пунктов", text: "Перед долгой дорогой стоит проверить не только масло и шины. Собрали простой чек-лист, который спасёт от поломки в 500 км от дома и лишних трат.", readTime: 7 },
-    { tag: "Мировые новости", title: "Kia EV3 is now on sale for under $30,000, and now we know its EPA range", text: "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 also now has an official EPA-estimated driving range of up to 321 miles. Here’s what else to know.", readTime: 2 }
-,
-    { tag: "Мировые новости", title: "Kia EV3 prices and range revealed, starting at $30,000", text: "Kia’s affordable electric SUV is now on sale in the US, starting at $29,890. The 2027 Kia EV3 has an official EPA-estimated driving range of up to 321 miles.", readTime: 2 }
-,
-    { tag: "Мировые новости", title: "This $1,800 electric motorcycle hits 70 MPH and could change the game", text: "A new player in the industry, Avore , thinks its EX2S electric motorcycle could shake things up with impressive performance and accessible pricing.", readTime: 2 }
-,
-    { tag: "Мировые новости", title: "Trump is right: EV range anxiety is a disease – THIS is how we cure it!", text: "On today’s time-sensitive episode of Quick Charge , we revisit the idea that even a broken clock is right twice a day as we examine US President Donald Trump’s takes on electric vehicles, range anxiety, highway road signs, and why he’s absolutely right .", readTime: 2 }
-,
-    { tag: "Мировые новости", title: "Tesla defeats Sweden&#8217;s IF Metall union after 1,021-day strike", text: "Sweden’s largest industrial union, IF Metall, is calling off its strike against Tesla after 1,021 days, the longest labor conflict in modern Swedish history. The union says it’s stopping because Tesla bought out every one of its striking members, leaving the walkout with nothing left to withhold. The dispute started…", readTime: 2 }
-
+    { tag: "Мировые новости", title: "Kia EV3: доступный электрокроссовер с запасом хода до 516 км", text: "Корейский компактный электрокроссовер Kia EV3 официально поступил в продажу. Запас хода по строгой методике EPA составил до 516 км при цене менее 30 000 долларов.", readTime: 6 },
+    { tag: "Мировые новости", title: "Цены и комплектации Kia EV3: новый лидер в доступном сегменте", text: "Объявлены официальные цены и комплектации нового Kia EV3: базовые версии, мощность двигателей и богатое оснащение салона для семейных поездок.", readTime: 5 },
+    { tag: "Мировые новости", title: "Avore EX2S: доступный электромотоцикл со скоростью до 115 км/ч", text: "Новый доступный электрический байк Avore EX2S развивает скорость до 115 км/ч и предлагает отличную альтернативу бензиновым скутерам для города.", readTime: 5 },
+    { tag: "Мировые новости", title: "«Тревога запаса хода»: почему страх перед батареями уходит в прошлое", text: "Разбираем феномен range anxiety: как скоростные зарядные станции и батареи нового поколения избавляют водителей от страха разрядиться в пути.", readTime: 6 },
+    { tag: "Мировые новости", title: "Tesla и профсоюзы в Европе: завершение забастовки в Швеции", text: "После длительного противостояния крупнейший шведский профсоюз IF Metall завершил забастовку против Tesla. Итоги конфликта и влияние на европейский автопром.", readTime: 7 }
 ];
 
 // Количество карточек статей на главной
