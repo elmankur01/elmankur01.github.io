@@ -222,6 +222,18 @@
                 }
             }
 
+            var renderArticleSelect = document.getElementById('renderArticleSelect');
+            if (renderArticleSelect) {
+                renderArticleSelect.innerHTML = '';
+                order.forEach(function (i) {
+                    var opt = document.createElement('option');
+                    opt.value = i;
+                    opt.textContent = (i + 1) + '. ' + items[i].title + '  (' + articleDate(i + 1) + ')';
+                    renderArticleSelect.appendChild(opt);
+                });
+                if (items.length) renderArticleSelect.value = newest;
+            }
+
             renderLikesAnalytics();
         }).catch(function () {
             sendPreview.textContent = 'Ошибка загрузки статей.';
@@ -335,8 +347,52 @@
 
     function showPreview() {
         var a = articles[+articleSelect.value];
-        if (!a) { sendPreview.textContent = ''; return; }
+        var previewBox = document.getElementById('telegramPostPreview');
+        var previewImgBox = document.getElementById('tgPreviewImgBox');
+        var previewImg = document.getElementById('tgPreviewImg');
+        var previewText = document.getElementById('tgPreviewText');
+
+        if (!a) {
+            sendPreview.textContent = '';
+            if (previewBox) previewBox.style.display = 'none';
+            return;
+        }
+
+        var idx = +articleSelect.value;
+        var tagIcons = {
+            'Новые модели': '🚗',
+            'Электромобили': '⚡',
+            'Двигатели': '🔧',
+            'История марок': '🏛️',
+            'Мировые новости': '🌍',
+            'Новости рынка': '📊',
+            'Авто лайфхаки': '💡'
+        };
+        var icon = tagIcons[a.tag] || '🚗';
+        var slug = slugMap[idx + 1] || ('article-' + (idx + 1));
+        var url = 'https://avtotema-news.online/articles/' + slug + '.html';
+
         sendPreview.textContent = '«' + a.title + '» — ' + a.readTime + ' мин · ' + a.tag;
+
+        if (previewBox && previewText) {
+            previewBox.style.display = 'block';
+            var photoPath = imageMap[idx + 1];
+            if (photoPath && previewImgBox && previewImg) {
+                previewImgBox.style.display = 'block';
+                previewImg.src = photoPath;
+            } else if (previewImgBox) {
+                previewImgBox.style.display = 'none';
+            }
+
+            previewText.innerHTML = '<b>' + icon + ' ' + escHtml(a.tag).toUpperCase() + ' | АвтоТема</b>\n' +
+                '━━━━━━━━━━━━━━━━━━━\n\n' +
+                '🔥 <b>' + escHtml(a.title) + '</b>\n\n' +
+                escHtml(a.text) + '\n\n' +
+                '⏱ <i>Время чтения: ~' + a.readTime + ' мин</i>\n\n' +
+                '━━━━━━━━━━━━━━━━━━━\n' +
+                '👉 <b>Читать статью:</b> <a href="' + url + '" target="_blank" style="color:#4a9eff;">avtotema-news.online</a>\n' +
+                '📢 <b>Канал:</b> <a href="https://t.me/avtotema_news" target="_blank" style="color:#4a9eff;">@avtotema_news</a>';
+        }
     }
 
     function sendArticle() {
@@ -559,7 +615,7 @@
         numArr.forEach(function (n) {
             if (n < 1 || n > articles.length) return;
             var slug = slugMap[n] || ('article-' + n);
-            list.push('https://elmankur01.github.io/videos/out_' + n + '_' + slug + '.mp4');
+            list.push('https://avtotema-news.online/videos/out_' + n + '_' + slug + '.mp4');
         });
         return list;
     }
@@ -616,6 +672,269 @@
 
     startVideoBtn.addEventListener('click', startVideoGen);
 
+    // ── Мгновенный рендеринг видео в браузере (HTML5 Canvas + MediaRecorder) ──
+    var renderArticleSelect = document.getElementById('renderArticleSelect');
+    var renderDuration = document.getElementById('renderDuration');
+    var renderVoice = document.getElementById('renderVoice');
+    var startBrowserRenderBtn = document.getElementById('startBrowserRenderBtn');
+    var downloadRenderedVideoBtn = document.getElementById('downloadRenderedVideoBtn');
+    var renderProgressBox = document.getElementById('renderProgressBox');
+    var renderStatusText = document.getElementById('renderStatusText');
+    var renderPercentText = document.getElementById('renderPercentText');
+    var renderProgressBar = document.getElementById('renderProgressBar');
+    var renderPreviewContainer = document.getElementById('renderPreviewContainer');
+    var renderedVideoPlayer = document.getElementById('renderedVideoPlayer');
+    var hiddenCanvas = document.getElementById('renderHiddenCanvas');
+
+    function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
+        var words = text.split(' ');
+        var line = '';
+        var linesCount = 0;
+        for (var n = 0; n < words.length; n++) {
+            var testLine = line + words[n] + ' ';
+            var metrics = ctx.measureText(testLine);
+            if (metrics.width > maxWidth && n > 0) {
+                ctx.fillText(line.trim(), x, y);
+                line = words[n] + ' ';
+                y += lineHeight;
+                linesCount++;
+                if (maxLines && linesCount >= maxLines - 1) {
+                    var remaining = words.slice(n).join(' ');
+                    ctx.fillText(remaining.length > 35 ? (remaining.slice(0, 32) + '…') : remaining, x, y);
+                    return;
+                }
+            } else {
+                line = testLine;
+            }
+        }
+        ctx.fillText(line.trim(), x, y);
+    }
+
+    if (startBrowserRenderBtn && hiddenCanvas) {
+        startBrowserRenderBtn.addEventListener('click', async function () {
+            var idx = renderArticleSelect ? +renderArticleSelect.value : 0;
+            var a = articles[idx];
+            if (!a) {
+                alert('Сначала выберите статью');
+                return;
+            }
+
+            var durationSec = renderDuration ? +renderDuration.value : 9;
+            var photoPath = imageMap[idx + 1] || '';
+            var slug = slugMap[idx + 1] || ('article-' + (idx + 1));
+
+            startBrowserRenderBtn.disabled = true;
+            if (downloadRenderedVideoBtn) downloadRenderedVideoBtn.style.display = 'none';
+            if (renderPreviewContainer) renderPreviewContainer.style.display = 'none';
+            if (renderProgressBox) renderProgressBox.style.display = 'block';
+
+            if (renderStatusText) renderStatusText.textContent = 'Загрузка изображения…';
+            if (renderPercentText) renderPercentText.textContent = '0%';
+            if (renderProgressBar) renderProgressBar.style.width = '0%';
+
+            // Загружаем картинку
+            var carImg = new Image();
+            carImg.crossOrigin = 'anonymous';
+            carImg.src = photoPath ? (photoPath.startsWith('http') ? photoPath : photoPath) : '/og-image.png';
+
+            await new Promise(function (resolve) {
+                carImg.onload = resolve;
+                carImg.onerror = resolve; // продолжаем даже если картинка не загрузилась
+            });
+
+            var ctx = hiddenCanvas.getContext('2d');
+            var fps = 30;
+            var totalFrames = durationSec * fps;
+            var currentFrame = 0;
+
+            // Настройка записи
+            var stream = hiddenCanvas.captureStream(fps);
+            var mimeType = 'video/webm;codecs=vp9';
+            if (window.MediaRecorder && !MediaRecorder.isTypeSupported(mimeType)) {
+                mimeType = MediaRecorder.isTypeSupported('video/webm') ? 'video/webm' : 'video/mp4';
+            }
+
+            var recorder;
+            var chunks = [];
+            try {
+                recorder = new MediaRecorder(stream, { mimeType: mimeType, videoBitsPerSecond: 4000000 });
+            } catch (e) {
+                recorder = new MediaRecorder(stream);
+            }
+
+            recorder.ondataavailable = function (e) {
+                if (e.data && e.data.size > 0) chunks.push(e.data);
+            };
+
+            recorder.onstop = function () {
+                var blob = new Blob(chunks, { type: mimeType });
+                var videoUrl = URL.createObjectURL(blob);
+                if (renderedVideoPlayer) {
+                    renderedVideoPlayer.src = videoUrl;
+                    renderedVideoPlayer.load();
+                }
+                if (renderPreviewContainer) renderPreviewContainer.style.display = 'block';
+                if (downloadRenderedVideoBtn) {
+                    downloadRenderedVideoBtn.href = videoUrl;
+                    downloadRenderedVideoBtn.download = 'avtotema_' + (idx + 1) + '_' + slug + '.' + (mimeType.includes('mp4') ? 'mp4' : 'webm');
+                    downloadRenderedVideoBtn.style.display = 'inline-flex';
+                }
+                if (renderStatusText) renderStatusText.textContent = '✅ Видео успешно срендерено!';
+                startBrowserRenderBtn.disabled = false;
+            };
+
+            // Озвучка через браузер (опционально)
+            if (renderVoice && renderVoice.value === 'speech' && window.speechSynthesis) {
+                try {
+                    window.speechSynthesis.cancel();
+                    var utter = new SpeechSynthesisUtterance(a.title + '. ' + a.text);
+                    utter.lang = 'ru-RU';
+                    utter.rate = 1.05;
+                    window.speechSynthesis.speak(utter);
+                } catch (e) {}
+            }
+
+            recorder.start(100);
+
+            var renderInterval = setInterval(function () {
+                currentFrame++;
+                var progress = currentFrame / totalFrames;
+                var pct = Math.round(progress * 100);
+
+                if (renderProgressBar) renderProgressBar.style.width = pct + '%';
+                if (renderPercentText) renderPercentText.textContent = pct + '%';
+                if (renderStatusText) renderStatusText.textContent = 'Рендеринг кадра ' + currentFrame + ' из ' + totalFrames + '…';
+
+                // Отрисовка кадра на 1080x1920 (9:16)
+                ctx.save();
+
+                // 1. Фон - глубокий премиальный градиент
+                var bgGrad = ctx.createLinearGradient(0, 0, 1080, 1920);
+                bgGrad.addColorStop(0, '#070a0e');
+                bgGrad.addColorStop(0.5, '#0f1722');
+                bgGrad.addColorStop(1, '#05070a');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, 1080, 1920);
+
+                // Декоративные световые акценты
+                var glowGrad = ctx.createRadialGradient(540, 750, 100, 540, 750, 700);
+                glowGrad.addColorStop(0, 'rgba(230, 26, 39, 0.25)');
+                glowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = glowGrad;
+                ctx.fillRect(0, 0, 1080, 1920);
+
+                // 2. Шапка бренда
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 44px -apple-system, system-ui, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('АВТОТЕМА', 540, 140);
+
+                ctx.fillStyle = '#e61a27';
+                ctx.font = '600 28px -apple-system, system-ui, sans-serif';
+                ctx.fillText('ГЛАВНЫЕ АВТОНОВОСТИ И ОБЗОРЫ', 540, 185);
+
+                // 3. Рубрика
+                var tagIcons = {
+                    'Новые модели': '🚗',
+                    'Электромобили': '⚡',
+                    'Двигатели': '🔧',
+                    'История марок': '🏛️',
+                    'Мировые новости': '🌍',
+                    'Новости рынка': '📊',
+                    'Авто лайфхаки': '💡'
+                };
+                var icon = tagIcons[a.tag] || '🚗';
+
+                // Плашка рубрики
+                var tagText = icon + ' ' + a.tag.toUpperCase();
+                ctx.font = 'bold 30px -apple-system, system-ui, sans-serif';
+                var tagWidth = ctx.measureText(tagText).width + 50;
+
+                ctx.fillStyle = 'rgba(230, 26, 39, 0.9)';
+                ctx.beginPath();
+                ctx.roundRect(540 - tagWidth / 2, 240, tagWidth, 54, 27);
+                ctx.fill();
+
+                ctx.fillStyle = '#ffffff';
+                ctx.textAlign = 'center';
+                ctx.fillText(tagText, 540, 277);
+
+                // 4. Изображение автомобиля с эффектом зума Ken Burns
+                if (carImg && carImg.complete && carImg.naturalWidth > 0) {
+                    var cardX = 70;
+                    var cardY = 340;
+                    var cardW = 940;
+                    var cardH = 560;
+
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.roundRect(cardX, cardY, cardW, cardH, 28);
+                    ctx.clip();
+
+                    // Масштабирование зума от 1.0 до 1.15
+                    var zoom = 1.0 + progress * 0.15;
+                    var imgW = cardW * zoom;
+                    var imgH = cardH * zoom;
+                    var imgX = cardX - (imgW - cardW) / 2;
+                    var imgY = cardY - (imgH - cardH) / 2;
+
+                    ctx.drawImage(carImg, imgX, imgY, imgW, imgH);
+                    ctx.restore();
+
+                    // Рамка карточки фото
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+                    ctx.lineWidth = 4;
+                    ctx.beginPath();
+                    ctx.roundRect(cardX, cardY, cardW, cardH, 28);
+                    ctx.stroke();
+                }
+
+                // 5. Заголовок статьи
+                ctx.textAlign = 'left';
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 54px -apple-system, system-ui, sans-serif';
+                ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                ctx.shadowBlur = 16;
+                ctx.shadowOffsetY = 4;
+
+                wrapCanvasText(ctx, a.title, 80, 990, 920, 70, 4);
+
+                // 6. Описание / анонс
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = '#cbd5e1';
+                ctx.font = '400 36px -apple-system, system-ui, sans-serif';
+                wrapCanvasText(ctx, a.text, 80, 1310, 920, 52, 4);
+
+                // 7. Нижний блок - таймлайн и призыв
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+                ctx.fillRect(80, 1680, 920, 8);
+
+                ctx.fillStyle = '#e61a27';
+                ctx.fillRect(80, 1680, 920 * progress, 8);
+
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#f8fafc';
+                ctx.font = 'bold 36px -apple-system, system-ui, sans-serif';
+                ctx.fillText('🔗 Читать на avtotema-news.online', 540, 1750);
+
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = '500 28px -apple-system, system-ui, sans-serif';
+                ctx.fillText('Telegram: @avtotema_news', 540, 1800);
+
+                ctx.restore();
+
+                if (currentFrame >= totalFrames) {
+                    clearInterval(renderInterval);
+                    setTimeout(function () {
+                        if (recorder && recorder.state === 'recording') {
+                            recorder.stop();
+                        }
+                    }, 300);
+                }
+            }, 1000 / fps);
+        });
+    }
+
     // ── Публикация в YouTube и Instagram ──
     var YT_CID = 'at_yt_cid';
     var YT_SECRET = 'at_yt_secret';
@@ -648,7 +967,7 @@
         var a = articles[idx];
         if (!a) return '';
         var slug = slugMap[idx + 1] || ('article-' + (idx + 1));
-        return 'https://elmankur01.github.io/videos/out_' + (idx + 1) + '_' + slug + '.mp4';
+        return 'https://avtotema-news.online/videos/out_' + (idx + 1) + '_' + slug + '.mp4';
     }
 
     function showSocialVideoUrl() {

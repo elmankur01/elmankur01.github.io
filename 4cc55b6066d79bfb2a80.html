@@ -109,17 +109,80 @@
                 <select class="token-input" id="articleSelect">
                     <option value="">Загрузка списка статей…</option>
                 </select>
+                
+                <!-- LIVE TELEGRAM PREVIEW -->
+                <div id="telegramPostPreview" style="margin-top:14px;background:#0d1218;border:1px solid #1f2732;border-radius:10px;padding:14px;display:none;">
+                    <div style="font-size:11px;color:#8b95a3;font-weight:700;text-transform:uppercase;margin-bottom:8px;">📱 Предпросмотр сообщения в Telegram</div>
+                    <div id="tgPreviewImgBox" style="margin-bottom:10px;text-align:center;display:none;">
+                        <img id="tgPreviewImg" src="" alt="Фото авто" style="max-height:160px;width:auto;border-radius:8px;border:1px solid #262e3a;">
+                    </div>
+                    <div id="tgPreviewText" style="color:#f1f5f9;font-size:13px;line-height:1.6;white-space:pre-line;"></div>
+                    <div id="tgPreviewBtns" style="margin-top:10px;display:flex;flex-direction:column;gap:6px;">
+                        <div style="background:#1e293b;color:#4ade80;text-align:center;padding:8px;border-radius:6px;font-size:12px;font-weight:600;">📖 Читать статью на сайте ↗</div>
+                    </div>
+                </div>
+
                 <div class="updated" id="sendPreview" style="margin-top:12px;"></div>
                 <div style="margin-top:16px;">
                     <button class="btn btn-red" id="sendBtn">📤 Отправить в Telegram</button>
                 </div>
                 <div class="updated" id="sendStatus" style="margin-top:12px;"></div>
-                <p class="note">Сообщение формируется так же, как при автоматической рассылке: заголовок, анонс, ссылка на статью и подписка на канал. Отправка идёт напрямую в Bot API из вашего браузера.</p>
+                <p class="note">Сообщение отправляется с HD-фотографией, категорией, временем чтения, разделителями и интерактивными кнопками прямо в Bot API из вашего браузера.</p>
             </div>
 
-            <!-- VIDEO GENERATION -->
+            <!-- IN-BROWSER VIDEO RENDERER -->
             <div class="admin-card">
-                <h2>🎬 Сделать ролики по статьям</h2>
+                <h2>⚡ Мгновенный рендеринг видео в браузере (Shorts / Reels 9:16)</h2>
+                <p class="note">Рендеринг работает прямо в вашем браузере без серверов и без токенов! Создаёт вертикальное видео 1080x1920 со стильной анимацией автомобиля, градиентной подложкой, бейджами и таймлайном.</p>
+
+                <label class="token-label" for="renderArticleSelect">Выберите статью для ролика</label>
+                <select class="token-input" id="renderArticleSelect">
+                    <option value="">Загрузка списка статей…</option>
+                </select>
+
+                <div class="grid-2" style="margin-top:12px;">
+                    <div>
+                        <label class="token-label" for="renderDuration">Длительность ролика</label>
+                        <select class="token-input" id="renderDuration">
+                            <option value="6">6 секунд (быстрый Shorts)</option>
+                            <option value="9" selected>9 секунд (стандартный Reels)</option>
+                            <option value="12">12 секунд (подробный обзор)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="token-label" for="renderVoice">Озвучивание</label>
+                        <select class="token-input" id="renderVoice">
+                            <option value="speech" selected>Голос браузера (озвучить заголовок)</option>
+                            <option value="none">Без голоса (только титры)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+                    <button class="btn btn-red" id="startBrowserRenderBtn">⚡ Срендерить видео прямо сейчас</button>
+                    <a id="downloadRenderedVideoBtn" class="btn btn-gray" style="display:none;text-decoration:none;align-items:center;">⬇ Скачать готовое видео</a>
+                </div>
+
+                <div id="renderProgressBox" style="display:none;margin-top:16px;background:#0d1218;padding:12px;border-radius:8px;border:1px solid #262e3a;">
+                    <div style="display:flex;justify-content:space-between;color:#8b95a3;font-size:12px;margin-bottom:6px;">
+                        <span id="renderStatusText">Рендеринг кадров…</span>
+                        <span id="renderPercentText">0%</span>
+                    </div>
+                    <div style="background:#1a222d;height:8px;border-radius:4px;overflow:hidden;">
+                        <div id="renderProgressBar" style="width:0%;height:100%;background:linear-gradient(90deg, #ef4444, #f59e0b);border-radius:4px;transition:width 0.1s linear;"></div>
+                    </div>
+                </div>
+
+                <div id="renderPreviewContainer" style="display:none;margin-top:16px;text-align:center;">
+                    <video id="renderedVideoPlayer" controls playsinline style="max-width:260px;width:100%;border-radius:12px;border:2px solid #ef4444;box-shadow:0 10px 30px rgba(0,0,0,0.6);"></video>
+                </div>
+
+                <canvas id="renderHiddenCanvas" width="1080" height="1920" style="display:none;"></canvas>
+            </div>
+
+            <!-- VIDEO GENERATION IN CLOUD -->
+            <div class="admin-card">
+                <h2>🎬 Генерация роликов в облаке (GitHub Actions)</h2>
                 <label class="token-label" for="ghTokenInput">GitHub-токен (Personal Access Token, права: actions + artifacts) — хранится в браузере</label>
                 <input type="password" class="token-input" id="ghTokenInput" placeholder="ghp_…" autocomplete="off">
                 <div class="grid-2">
@@ -268,6 +331,6 @@
         </div>
     </main>
 
-    <script src="admin.js?v=6"></script>
+    <script src="admin.js?v=7"></script>
 </body>
 </html>
