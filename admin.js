@@ -228,29 +228,34 @@
         });
     }
 
-    function getArticleLikesCount(id) {
+    function getArticleRealLikes(id) {
         var num = parseInt(id, 10) || 1;
-        var base = 18 + ((num * 13 + 7) % 42);
         var bonus = 0;
         try {
             var bonusMap = JSON.parse(localStorage.getItem('avtotema_likes_bonus')) || {};
             bonus = bonusMap[num] || 0;
         } catch (e) {}
-        return base + bonus;
+        return bonus;
+    }
+
+    function getArticleDisplayLikes(id) {
+        var num = parseInt(id, 10) || 1;
+        var base = 18 + ((num * 13 + 7) % 42);
+        return base + getArticleRealLikes(num);
     }
 
     function renderLikesAnalytics() {
         var listEl = document.getElementById('topLikesList');
-        var totalEl = document.getElementById('totalLikesCount');
-        var avgEl = document.getElementById('avgLikesCount');
-        var topTitleEl = document.getElementById('topArticleTitle');
+        var realEl = document.getElementById('realLikesCount');
+        var likedCountEl = document.getElementById('likedArticlesCount');
+        var displayEl = document.getElementById('totalDisplayLikes');
         var filterEl = document.getElementById('likesTagFilter');
 
         if (!listEl || !articles.length) return;
 
         var tagFilter = filterEl ? filterEl.value : 'all';
 
-        // Собираем лайки для всех статей
+        // Собираем реальные лайки для всех статей
         var stats = articles.map(function (a, i) {
             var id = i + 1;
             return {
@@ -259,33 +264,50 @@
                 tag: a.tag,
                 readTime: a.readTime,
                 slug: slugMap[id] || ('article-' + id),
-                likes: getArticleLikesCount(id)
+                realLikes: getArticleRealLikes(id),
+                displayLikes: getArticleDisplayLikes(id)
             };
         });
 
-        // Общие цифры
-        var totalLikes = stats.reduce(function (sum, item) { return sum + item.likes; }, 0);
-        var avgLikes = Math.round(totalLikes / stats.length);
-        var sortedAll = stats.slice().sort(function (a, b) { return b.likes - a.likes; });
+        // Реальные клики
+        var totalReal = stats.reduce(function (sum, item) { return sum + item.realLikes; }, 0);
+        var articlesWithRealLikes = stats.filter(function (item) { return item.realLikes > 0; }).length;
+        var totalDisplay = stats.reduce(function (sum, item) { return sum + item.displayLikes; }, 0);
 
-        if (totalEl) totalEl.textContent = totalLikes.toLocaleString('ru-RU');
-        if (avgEl) avgEl.textContent = avgLikes;
-        if (topTitleEl && sortedAll.length) {
-            topTitleEl.textContent = sortedAll[0].title;
-            topTitleEl.title = sortedAll[0].title + ' (' + sortedAll[0].likes + ' лайков)';
-        }
+        if (realEl) realEl.textContent = totalReal;
+        if (likedCountEl) likedCountEl.textContent = articlesWithRealLikes;
+        if (displayEl) displayEl.textContent = totalDisplay.toLocaleString('ru-RU') + ' лайков';
 
         // Фильтрация
         var filtered = tagFilter === 'all'
-            ? sortedAll
-            : sortedAll.filter(function (s) { return s.tag === tagFilter; });
+            ? stats
+            : stats.filter(function (s) { return s.tag === tagFilter; });
 
-        var top10 = filtered.slice(0, 10);
-        var maxLikes = top10.length ? top10[0].likes : 1;
+        // Статьи с реальными лайками (сортируем по реальным, затем по номеру)
+        var sortedByReal = filtered.slice().sort(function (a, b) {
+            if (b.realLikes !== a.realLikes) return b.realLikes - a.realLikes;
+            return b.id - a.id;
+        });
 
-        listEl.innerHTML = top10.map(function (item, rank) {
+        if (totalReal === 0) {
+            listEl.innerHTML = '<div style="background:#0d1218;border:1px dashed #262e3a;border-radius:8px;padding:16px;text-align:center;color:#8b95a3;font-size:13px;">' +
+                '📊 <b>Реальных лайков пока: 0</b><br>' +
+                '<span style="font-size:12px;color:#64748b;display:block;margin-top:4px;">На витрине сайта у статей сейчас активен стартовый посев. Как только первые посетители поставят ❤️, здесь сразу появится статистика живых кликов.</span>' +
+            '</div>';
+            return;
+        }
+
+        var topList = sortedByReal.filter(function (s) { return s.realLikes > 0; }).slice(0, 10);
+        if (!topList.length) {
+            listEl.innerHTML = '<div style="background:#0d1218;border:1px dashed #262e3a;border-radius:8px;padding:14px;text-align:center;color:#8b95a3;font-size:13px;">В этой рубрике пока нет реальных лайков.</div>';
+            return;
+        }
+
+        var maxReal = topList[0].realLikes || 1;
+
+        listEl.innerHTML = topList.map(function (item, rank) {
             var medal = rank === 0 ? '🥇' : rank === 1 ? '🥈' : rank === 2 ? '🥉' : '#' + (rank + 1);
-            var pct = Math.round((item.likes / maxLikes) * 100);
+            var pct = Math.max(10, Math.round((item.realLikes / maxReal) * 100));
             return '<div style="background:#0d1218;border:1px solid #1f2732;border-radius:8px;padding:10px 14px;">' +
                 '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px;">' +
                     '<div style="display:flex;align-items:center;gap:8px;overflow:hidden;">' +
@@ -293,14 +315,14 @@
                         '<a href="/articles/' + item.slug + '.html" target="_blank" rel="noopener" style="color:#f1f5f9;font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + esc(item.title) + '</a>' +
                     '</div>' +
                     '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">' +
-                        '<span style="background:rgba(239,68,68,0.15);color:#ff6b6b;font-weight:700;font-size:12px;padding:2px 8px;border-radius:12px;border:1px solid rgba(239,68,68,0.3);">❤️ ' + item.likes + '</span>' +
+                        '<span style="background:rgba(239,68,68,0.2);color:#ff6b6b;font-weight:800;font-size:12px;padding:2px 8px;border-radius:12px;border:1px solid #ef4444;">❤️ +' + item.realLikes + ' реальных</span>' +
                     '</div>' +
                 '</div>' +
                 '<div style="display:flex;align-items:center;gap:10px;">' +
                     '<div style="flex:1;background:#1a222d;height:6px;border-radius:3px;overflow:hidden;">' +
                         '<div style="background:linear-gradient(90deg, #ef4444, #f59e0b);height:100%;width:' + pct + '%;border-radius:3px;transition:width 0.4s ease;"></div>' +
                     '</div>' +
-                    '<span style="color:#8b95a3;font-size:11px;">' + esc(item.tag) + '</span>' +
+                    '<span style="color:#8b95a3;font-size:11px;">' + esc(item.tag) + ' · на сайте: ' + item.displayLikes + '</span>' +
                 '</div>' +
             '</div>';
         }).join('');

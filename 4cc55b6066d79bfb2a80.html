@@ -185,24 +185,24 @@
 
             <!-- LIKES & REACTIONS ANALYTICS -->
             <div class="admin-card">
-                <h2>❤️ Статистика лайков и читательских симпатий</h2>
+                <h2>❤️ Реальная статистика читательских лайков</h2>
                 <div class="grid-3" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:10px;margin-bottom:16px;">
                     <div style="background:#0d1218;padding:12px;border-radius:8px;border:1px solid #262e3a;text-align:center;">
-                        <div style="color:#8b95a3;font-size:12px;">Всего лайков</div>
-                        <div style="color:#ff6b6b;font-size:22px;font-weight:800;margin-top:4px;" id="totalLikesCount">—</div>
+                        <div style="color:#8b95a3;font-size:12px;">Реальных лайков</div>
+                        <div style="color:#ff6b6b;font-size:24px;font-weight:800;margin-top:4px;" id="realLikesCount">0</div>
                     </div>
                     <div style="background:#0d1218;padding:12px;border-radius:8px;border:1px solid #262e3a;text-align:center;">
-                        <div style="color:#8b95a3;font-size:12px;">В среднем на статью</div>
-                        <div style="color:#4ade80;font-size:22px;font-weight:800;margin-top:4px;" id="avgLikesCount">—</div>
+                        <div style="color:#8b95a3;font-size:12px;">Статей с оценками</div>
+                        <div style="color:#4ade80;font-size:24px;font-weight:800;margin-top:4px;" id="likedArticlesCount">0</div>
                     </div>
                     <div style="background:#0d1218;padding:12px;border-radius:8px;border:1px solid #262e3a;text-align:center;">
-                        <div style="color:#8b95a3;font-size:12px;">Лидер читателей 🏆</div>
-                        <div style="color:#facc15;font-size:12px;font-weight:700;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" id="topArticleTitle">—</div>
+                        <div style="color:#8b95a3;font-size:12px;">На витрине сайта</div>
+                        <div style="color:#facc15;font-size:14px;font-weight:700;margin-top:6px;" id="totalDisplayLikes">—</div>
                     </div>
                 </div>
 
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
-                    <h3 style="color:#fff;font-size:15px;margin:0;">🏆 Топ-10 любимых статей</h3>
+                    <h3 style="color:#fff;font-size:15px;margin:0;">🏆 Рейтинг статей по реальным кликам</h3>
                     <select id="likesTagFilter" class="token-input" style="width:auto;padding:6px 12px;font-size:13px;margin:0;">
                         <option value="all">Все рубрики</option>
                         <option value="Новые модели">Новые модели</option>
