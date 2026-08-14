@@ -33,7 +33,13 @@
 
     <title>АвтоТема | Новости автомобильного мира</title>
 
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <script>
+    (function(){
+        var t = localStorage.getItem('avtotema_theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
 
     <script type="application/ld+json">
     {
@@ -83,6 +89,10 @@
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+                    <span class="theme-icon-dark">🌙</span>
+                    <span class="theme-icon-light" hidden>☀️</span>
+                </button>
                 <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
                     ⭐ <span class="fav-count" hidden>0</span>
                 </button>
@@ -94,21 +104,23 @@
     </header>
 
     <main>
-        <!-- HERO -->
-        <section class="hero">
+        <!-- HERO SLIDER: ГЛАВНЫЕ ПРЕМЬЕРЫ -->
+        <section class="hero" id="hero">
             <div class="hero-bg"></div>
-            <div class="container hero-inner">
-                <span class="hero-badge">Автоновости каждый день</span>
-                <h1>Всё, что происходит <span class="accent">в мире автомобилей</span></h1>
-                <p class="hero-sub">Новые модели, электромобили, двигатели будущего, истории легендарных автокомпаний и мировые тренды — коротко и понятно.</p>
-                <div class="hero-actions">
-                    <a href="#subscribe" class="btn btn-primary">Подписаться бесплатно</a>
-                    <a href="#news" class="btn btn-ghost">Читать новости</a>
+            <div class="container hero-slider-container">
+                <div class="hero-section-head">
+                    <span class="section-eyebrow">🔥 Главные премьеры и тренды</span>
+                    <h1>Всё, что происходит <span class="accent">в мире автомобилей</span></h1>
                 </div>
-                <div class="hero-stats">
-                    <div class="hs-item"><strong>7</strong><span>рубрик</span></div>
-                    <div class="hs-item"><strong>24/7</strong><span>новостей</span></div>
-                    <div class="hs-item"><strong>0 ₽</strong><span>подписка</span></div>
+                <div class="hero-slider-box">
+                    <div class="hero-slide-track" id="heroSliderTrack">
+                        <!-- Динамические слайды из hero_slider.js -->
+                    </div>
+                    <div class="hero-slider-controls">
+                        <button type="button" class="slider-arrow" id="heroSliderPrev" aria-label="Предыдущий слайд">‹</button>
+                        <div class="slider-dots" id="heroSliderDots"></div>
+                        <button type="button" class="slider-arrow" id="heroSliderNext" aria-label="Следующий слайд">›</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -482,8 +494,10 @@
 
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
+    <script src="theme.js"></script>
     <script src="article_images.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="hero_slider.js" defer></script>
     <script src="interactive.js" defer></script>
     <script src="favorites.js" defer></script>
     <script src="likes.js" defer></script>

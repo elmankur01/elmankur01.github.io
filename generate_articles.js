@@ -232,12 +232,18 @@ function page(article, n) {
     <meta property="og:image:alt" content="${esc(article.title)}">
     <title>${esc(article.title)} | АвтоТема</title>
     <link rel="canonical" href="${SITE}/articles/${slug}.html">
+    <link rel="stylesheet" href="/styles.css?v=5">
+    <script>
+    (function(){
+        var t = localStorage.getItem('avtotema_theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="/styles.css?v=4">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -325,6 +331,10 @@ function page(article, n) {
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+                    <span class="theme-icon-dark">🌙</span>
+                    <span class="theme-icon-light" hidden>☀️</span>
+                </button>
                 <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
                     ⭐ <span class="fav-count" hidden>0</span>
                 </button>
@@ -417,6 +427,7 @@ function page(article, n) {
         </div>
     </footer>
 
+    <script src="/theme.js"></script>
     <script src="/script.js" defer></script>
     <script src="/article_images.js" defer></script>
     <script src="/favorites.js" defer></script>

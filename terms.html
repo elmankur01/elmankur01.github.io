@@ -16,12 +16,18 @@
     <link rel="canonical" href="https://avtotema-news.online/terms.html">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
     <title>Пользовательское соглашение | АвтоТема</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css?v=5">
+    <script>
+    (function(){
+        var t = localStorage.getItem('avtotema_theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
 </head>
 <body>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><i class="logo-svg">🚗</i></span>Авто<span>Тема</span></a>
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="/#news">Новости</a></li>
@@ -29,6 +35,12 @@
                     <li><a href="/#subscribe">Подписка</a></li>
                 </ul>
             </nav>
+            <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+                    <span class="theme-icon-dark">🌙</span>
+                    <span class="theme-icon-light" hidden>☀️</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -105,6 +117,7 @@
         </div>
     </footer>
 
+    <script src="/theme.js"></script>
     <script src="/footer.js"></script>
 </body>
 </html>
