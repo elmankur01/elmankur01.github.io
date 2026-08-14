@@ -148,7 +148,9 @@ const SLUGS = {
     71: "tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente",
     72: "avore-ex2s-dostupnyy-elektromototsikl-so-skorostyu-do-115-km-h",
     73: "trevoga-zapasa-khoda-pochemu-strakh-pered-batareyami-ukhodit-v-proshloe",
-    74: "tesla-i-profsoyuzy-v-evrope-zavershenie-zabastovki-v-shvetsii"
+    74: "tesla-i-profsoyuzy-v-evrope-zavershenie-zabastovki-v-shvetsii",
+    75: "haval-h3"
+
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };
