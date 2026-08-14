@@ -221,9 +221,94 @@
                     showSocialVideoUrl();
                 }
             }
+
+            renderLikesAnalytics();
         }).catch(function () {
             sendPreview.textContent = 'Ошибка загрузки статей.';
         });
+    }
+
+    function getArticleLikesCount(id) {
+        var num = parseInt(id, 10) || 1;
+        var base = 18 + ((num * 13 + 7) % 42);
+        var bonus = 0;
+        try {
+            var bonusMap = JSON.parse(localStorage.getItem('avtotema_likes_bonus')) || {};
+            bonus = bonusMap[num] || 0;
+        } catch (e) {}
+        return base + bonus;
+    }
+
+    function renderLikesAnalytics() {
+        var listEl = document.getElementById('topLikesList');
+        var totalEl = document.getElementById('totalLikesCount');
+        var avgEl = document.getElementById('avgLikesCount');
+        var topTitleEl = document.getElementById('topArticleTitle');
+        var filterEl = document.getElementById('likesTagFilter');
+
+        if (!listEl || !articles.length) return;
+
+        var tagFilter = filterEl ? filterEl.value : 'all';
+
+        // Собираем лайки для всех статей
+        var stats = articles.map(function (a, i) {
+            var id = i + 1;
+            return {
+                id: id,
+                title: a.title,
+                tag: a.tag,
+                readTime: a.readTime,
+                slug: slugMap[id] || ('article-' + id),
+                likes: getArticleLikesCount(id)
+            };
+        });
+
+        // Общие цифры
+        var totalLikes = stats.reduce(function (sum, item) { return sum + item.likes; }, 0);
+        var avgLikes = Math.round(totalLikes / stats.length);
+        var sortedAll = stats.slice().sort(function (a, b) { return b.likes - a.likes; });
+
+        if (totalEl) totalEl.textContent = totalLikes.toLocaleString('ru-RU');
+        if (avgEl) avgEl.textContent = avgLikes;
+        if (topTitleEl && sortedAll.length) {
+            topTitleEl.textContent = sortedAll[0].title;
+            topTitleEl.title = sortedAll[0].title + ' (' + sortedAll[0].likes + ' лайков)';
+        }
+
+        // Фильтрация
+        var filtered = tagFilter === 'all'
+            ? sortedAll
+            : sortedAll.filter(function (s) { return s.tag === tagFilter; });
+
+        var top10 = filtered.slice(0, 10);
+        var maxLikes = top10.length ? top10[0].likes : 1;
+
+        listEl.innerHTML = top10.map(function (item, rank) {
+            var medal = rank === 0 ? '🥇' : rank === 1 ? '🥈' : rank === 2 ? '🥉' : '#' + (rank + 1);
+            var pct = Math.round((item.likes / maxLikes) * 100);
+            return '<div style="background:#0d1218;border:1px solid #1f2732;border-radius:8px;padding:10px 14px;">' +
+                '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px;">' +
+                    '<div style="display:flex;align-items:center;gap:8px;overflow:hidden;">' +
+                        '<span style="font-size:14px;font-weight:800;color:#facc15;min-width:24px;">' + medal + '</span>' +
+                        '<a href="/articles/' + item.slug + '.html" target="_blank" rel="noopener" style="color:#f1f5f9;font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + esc(item.title) + '</a>' +
+                    '</div>' +
+                    '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">' +
+                        '<span style="background:rgba(239,68,68,0.15);color:#ff6b6b;font-weight:700;font-size:12px;padding:2px 8px;border-radius:12px;border:1px solid rgba(239,68,68,0.3);">❤️ ' + item.likes + '</span>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="display:flex;align-items:center;gap:10px;">' +
+                    '<div style="flex:1;background:#1a222d;height:6px;border-radius:3px;overflow:hidden;">' +
+                        '<div style="background:linear-gradient(90deg, #ef4444, #f59e0b);height:100%;width:' + pct + '%;border-radius:3px;transition:width 0.4s ease;"></div>' +
+                    '</div>' +
+                    '<span style="color:#8b95a3;font-size:11px;">' + esc(item.tag) + '</span>' +
+                '</div>' +
+            '</div>';
+        }).join('');
+    }
+
+    var likesFilterSelect = document.getElementById('likesTagFilter');
+    if (likesFilterSelect) {
+        likesFilterSelect.addEventListener('change', renderLikesAnalytics);
     }
 
     function showPreview() {

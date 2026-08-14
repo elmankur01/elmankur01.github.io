@@ -183,6 +183,41 @@
                 <p class="note">Нужен business/creator аккаунт, связанный со страницей Facebook, и токен с правами <code>instagram_content_publish</code> (обычно получают в Meta Graph API Explorer или через обмен short-lived → long-lived).</p>
             </div>
 
+            <!-- LIKES & REACTIONS ANALYTICS -->
+            <div class="admin-card">
+                <h2>❤️ Статистика лайков и читательских симпатий</h2>
+                <div class="grid-3" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:10px;margin-bottom:16px;">
+                    <div style="background:#0d1218;padding:12px;border-radius:8px;border:1px solid #262e3a;text-align:center;">
+                        <div style="color:#8b95a3;font-size:12px;">Всего лайков</div>
+                        <div style="color:#ff6b6b;font-size:22px;font-weight:800;margin-top:4px;" id="totalLikesCount">—</div>
+                    </div>
+                    <div style="background:#0d1218;padding:12px;border-radius:8px;border:1px solid #262e3a;text-align:center;">
+                        <div style="color:#8b95a3;font-size:12px;">В среднем на статью</div>
+                        <div style="color:#4ade80;font-size:22px;font-weight:800;margin-top:4px;" id="avgLikesCount">—</div>
+                    </div>
+                    <div style="background:#0d1218;padding:12px;border-radius:8px;border:1px solid #262e3a;text-align:center;">
+                        <div style="color:#8b95a3;font-size:12px;">Лидер читателей 🏆</div>
+                        <div style="color:#facc15;font-size:12px;font-weight:700;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" id="topArticleTitle">—</div>
+                    </div>
+                </div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+                    <h3 style="color:#fff;font-size:15px;margin:0;">🏆 Топ-10 любимых статей</h3>
+                    <select id="likesTagFilter" class="token-input" style="width:auto;padding:6px 12px;font-size:13px;margin:0;">
+                        <option value="all">Все рубрики</option>
+                        <option value="Новые модели">Новые модели</option>
+                        <option value="Электромобили">Электромобили</option>
+                        <option value="Двигатели">Двигатели</option>
+                        <option value="История марок">История марок</option>
+                        <option value="Мировые новости">Мировые новости</option>
+                        <option value="Новости рынка">Новости рынка</option>
+                        <option value="Авто лайфхаки">Авто лайфхаки</option>
+                    </select>
+                </div>
+
+                <div id="topLikesList" style="display:flex;flex-direction:column;gap:8px;"></div>
+            </div>
+
             <!-- SITE STATE -->
             <div class="admin-card">
                 <h2>🌐 Состояние сайта</h2>
@@ -233,6 +268,6 @@
         </div>
     </main>
 
-    <script src="admin.js?v=5"></script>
+    <script src="admin.js?v=6"></script>
 </body>
 </html>
