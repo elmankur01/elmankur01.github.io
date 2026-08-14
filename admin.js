@@ -160,9 +160,10 @@
     }
 
     function loadArticles() {
+        var bust = '?v=' + Date.now();
         Promise.all([
-            fetch('/script.js').then(function (r) { return r.text(); }),
-            fetch('/article_images.js').then(function (r) { return r.text(); })
+            fetch('/script.js' + bust).then(function (r) { return r.text(); }),
+            fetch('/article_images.js' + bust).then(function (r) { return r.text(); })
         ]).then(function (res) {
             var src = res[0], img = res[1];
             var sm;
