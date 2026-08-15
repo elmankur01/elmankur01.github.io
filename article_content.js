@@ -589,6 +589,10 @@ const BODIES = [
     [
         "Это не только 911: Porsche сообщил Motor1, что Sonderwunsch уже работает над заказными четырехдверными проектами."
     ]
+,
+    [
+        "C8 Preliator XXV знаменует собой возвращение Spyker к мощным машинам в злобном стиле, отдавая дань уважения авиационному наследию бренда."
+    ]
 
 ];
 
@@ -918,6 +922,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805052/porsche-will-build-one-off-cayenne-panamera/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805046/spyker-c8-preliator-xxv-debut/" }
     ]
 
 ];
