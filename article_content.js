@@ -585,6 +585,10 @@ const BODIES = [
     [
         "Mercedes-AMG GT Black Series будет использовать новый двигатель V8 с плоским кривошипом и копировать следующий гоночный автомобиль GT3, сохраняя при этом GT 63 Pro в качестве флагмана."
     ]
+,
+    [
+        "Это не только 911: Porsche сообщил Motor1, что Sonderwunsch уже работает над заказными четырехдверными проектами."
+    ]
 
 ];
 
@@ -910,6 +914,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/804991/mercedes-amg-gt-black-v8/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805052/porsche-will-build-one-off-cayenne-panamera/" }
     ]
 
 ];

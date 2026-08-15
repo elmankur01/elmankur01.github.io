@@ -152,6 +152,8 @@ const SLUGS = {
     75: "haval-h3"
 ,
     76: "novaya-chernaya-seriya-mercedes-budet-ispol-zovat-dikiy-ploskiy-v8"
+,
+    77: "khotite-unikal-nyy-cayenne-ili-panamera-porsche-sdelaet-eto-vozmozhnym"
 
 };
 
