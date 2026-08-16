@@ -1233,9 +1233,9 @@
 
     if (sendBattleBtn) {
         sendBattleBtn.addEventListener('click', function () {
-            var token = getToken();
-            var chatId = (destSelect && destSelect.value.trim()) || '@avtotema_news';
-            if (!token) {
+            var currentToken = (tokenInput && tokenInput.value.trim()) || token || getStored(TOKEN_KEY) || '';
+            var chatId = (destSelect && destSelect.value.trim()) || ('@' + CHANNEL_USERNAME);
+            if (!currentToken) {
                 battleStatus.className = 'updated error';
                 battleStatus.textContent = '❌ Сохраните токен Telegram-бота в блоке настроек выше!';
                 return;
@@ -1331,7 +1331,7 @@
             battleStatus.className = 'updated';
             battleStatus.textContent = '⏳ Публикация баттла в Telegram…';
 
-            fetch('https://api.telegram.org/bot' + token + '/sendPhoto', {
+            fetch('https://api.telegram.org/bot' + currentToken + '/sendPhoto', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -1346,7 +1346,7 @@
                     battleStatus.className = 'updated success';
                     battleStatus.textContent = '✅ Баттл успешно опубликован в Telegram!';
                     // Отправляем опрос
-                    fetch('https://api.telegram.org/bot' + token + '/sendPoll', {
+                    fetch('https://api.telegram.org/bot' + currentToken + '/sendPoll', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
