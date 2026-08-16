@@ -979,9 +979,17 @@ a:focus-visible, button:focus-visible {
     border-radius: var(--radius);
     padding: 26px;
     transition: all 0.25s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    cursor: pointer;
 }
 
-.history-item:hover { border-color: var(--accent); }
+.history-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
 
 .history-year {
     font-size: 1.6rem;
@@ -990,7 +998,17 @@ a:focus-visible, button:focus-visible {
     min-width: 76px;
 }
 
-.history-item h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.history-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text);
+    transition: color 0.2s;
+}
+
+.history-item:hover h3 {
+    color: var(--accent);
+}
+
 .history-item p { color: var(--muted); font-size: 0.92rem; }
 
 /* ===== Subscribe ===== */
