@@ -1198,6 +1198,177 @@
         });
     });
 
+    // ── Публикация Баттла-сравнения в Telegram (Mini App + Опрос) ──
+    var sendBattleBtn = document.getElementById('sendBattleBtn');
+    var battlePresetSelect = document.getElementById('battlePresetSelect');
+    var battleStatus = document.getElementById('battleStatus');
+
+    var BATTLES_DATA = [
+        {
+            title: 'Битва популярных кроссоверов',
+            cars: ['haval-jolion', 'geely-coolray', 'chery-tiggo-7'],
+            pollQuestion: 'Какой кроссовер до 3 млн ₽ вы бы выбрали?'
+        },
+        {
+            title: 'Битва флагманских электрокаров',
+            cars: ['zeekr-001', 'xiaomi-su7'],
+            pollQuestion: 'Zeekr 001 или Xiaomi SU7: за кем будущее?'
+        },
+        {
+            title: 'Рамный внедорожник против Премиум кроссовера',
+            cars: ['tank-300', 'exeed-rx'],
+            pollQuestion: 'Что лучше для российских дорог: Tank 300 или Exeed RX?'
+        },
+        {
+            title: 'Доступный выбор для города и семьи',
+            cars: ['lada-vesta', 'moskvich-3'],
+            pollQuestion: 'Лада Vesta NG или Москвич 3?'
+        },
+        {
+            title: 'Битва дальнобойных премиум-гибридов',
+            cars: ['li-auto-l7', 'esteo-v27'],
+            pollQuestion: 'Какой гибрид с запасом хода >1200 км круче?'
+        }
+    ];
+
+    if (sendBattleBtn) {
+        sendBattleBtn.addEventListener('click', function () {
+            var token = (tokenInput && tokenInput.value.trim()) || '';
+            var chatId = (chatInput && chatInput.value.trim()) || '';
+            if (!token || !chatId) {
+                battleStatus.className = 'updated error';
+                battleStatus.textContent = '❌ Введите токен бота и ID канала в блоке Telegram выше!';
+                return;
+            }
+
+            var battleIdx = parseInt(battlePresetSelect ? battlePresetSelect.value : '0', 10);
+            var battle = BATTLES_DATA[battleIdx] || BATTLES_DATA[0];
+
+            if (typeof CARS_DATABASE === 'undefined') {
+                battleStatus.className = 'updated error';
+                battleStatus.textContent = '❌ База автомобилей не загружена!';
+                return;
+            }
+
+            var selectedCars = battle.cars.map(function (id) {
+                return CARS_DATABASE.find(function (c) { return c.id === id; });
+            }).filter(Boolean);
+
+            if (selectedCars.length < 2) return;
+
+            var minAccel = Math.min.apply(null, selectedCars.map(function (c) { return c.acceleration; }));
+            var maxClearance = Math.max.apply(null, selectedCars.map(function (c) { return c.clearance; }));
+            var maxTrunk = Math.max.apply(null, selectedCars.map(function (c) { return c.trunk; }));
+
+            var compareUrl = 'https://avtotema-news.online/compare.html?cars=' + battle.cars.join(',');
+
+            var lines = [
+                '⚔️ <b>БИТВА ХАРАКТЕРИСТИК: ' + battle.title.toUpperCase() + '</b> | <i>АвтоТема</i>',
+                '━━━━━━━━━━━━━━━━━━━',
+                selectedCars.map(function (c) { return '🚗 <b>' + c.name + '</b>'; }).join(' <i>vs</i> '),
+                '',
+                '📊 <b>Сравнение характеристик «бок о бок»:</b>',
+                '',
+                '⚡ <b>Разгон 0-100 км/ч:</b>'
+            ];
+
+            selectedCars.forEach(function (c) {
+                var isWin = c.acceleration === minAccel;
+                lines.push('• ' + c.name + ': <b>' + c.acceleration + ' с</b> ' + (isWin ? '🏆 <i>(быстрее всех)</i>' : ''));
+            });
+
+            lines.push('', '🏔️ <b>Дорожный просвет (клиренс):</b>');
+            selectedCars.forEach(function (c) {
+                var isWin = c.clearance === maxClearance;
+                lines.push('• ' + c.name + ': <b>' + c.clearance + ' мм</b> ' + (isWin ? '🏆 <i>(выше всех)</i>' : ''));
+            });
+
+            lines.push('', '📦 <b>Объём багажника:</b>');
+            selectedCars.forEach(function (c) {
+                var isWin = c.trunk === maxTrunk;
+                lines.push('• ' + c.name + ': <b>' + c.trunk + ' л</b> ' + (isWin ? '🏆 <i>(самый вместительный)</i>' : ''));
+            });
+
+            lines.push('', '🐎 <b>Мощность и привод:</b>');
+            selectedCars.forEach(function (c) {
+                lines.push('• ' + c.name + ': <b>' + c.power + ' л.с.</b>, ' + c.drive);
+            });
+
+            lines.push('', '💰 <b>Ориентировочная цена:</b>');
+            selectedCars.forEach(function (c) {
+                lines.push('• ' + c.name + ': <b>' + c.price + '</b>');
+            });
+
+            lines.push(
+                '━━━━━━━━━━━━━━━━━━━',
+                '👇 <i>Нажмите кнопку ниже, чтобы открыть интерактивное сравнение с полными габаритами и графиками!</i>'
+            );
+
+            var text = lines.join('\n');
+
+            var keyboard = {
+                inline_keyboard: [
+                    [
+                        {
+                            text: '📊 Интерактивное сравнение (Mini App)',
+                            web_app: { url: compareUrl }
+                        }
+                    ],
+                    [
+                        {
+                            text: '🌐 Открыть на сайте АвтоТема',
+                            url: compareUrl
+                        }
+                    ]
+                ]
+            };
+
+            var photo = selectedCars[0].image.startsWith('http')
+                ? selectedCars[0].image
+                : 'https://avtotema-news.online' + selectedCars[0].image;
+
+            sendBattleBtn.disabled = true;
+            battleStatus.className = 'updated';
+            battleStatus.textContent = '⏳ Публикация баттла в Telegram…';
+
+            fetch('https://api.telegram.org/bot' + token + '/sendPhoto', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    photo: photo,
+                    caption: text,
+                    parse_mode: 'HTML',
+                    reply_markup: keyboard
+                })
+            }).then(function (r) { return r.json(); }).then(function (data) {
+                if (data.ok) {
+                    battleStatus.className = 'updated success';
+                    battleStatus.textContent = '✅ Баттл успешно опубликован в Telegram!';
+                    // Отправляем опрос
+                    fetch('https://api.telegram.org/bot' + token + '/sendPoll', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            question: battle.pollQuestion,
+                            options: selectedCars.map(function (c) { return c.name; }),
+                            is_anonymous: false
+                        })
+                    }).catch(function () {});
+                } else {
+                    battleStatus.className = 'updated error';
+                    battleStatus.textContent = '❌ Ошибка Telegram: ' + (data.description || JSON.stringify(data));
+                }
+            }).catch(function (e) {
+                battleStatus.className = 'updated error';
+                battleStatus.textContent = '❌ Ошибка сети: ' + e.message;
+            }).finally(function () {
+                sendBattleBtn.disabled = false;
+            });
+        });
+    }
+
     // Состояние сайта — счётчики из sitemap.xml
     var articleCount = document.getElementById('articleCount');
     var sitemapCount = document.getElementById('sitemapCount');

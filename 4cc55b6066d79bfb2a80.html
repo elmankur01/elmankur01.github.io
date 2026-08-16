@@ -130,6 +130,26 @@
                 <p class="note">Сообщение отправляется с HD-фотографией, категорией, временем чтения, разделителями и интерактивными кнопками прямо в Bot API из вашего браузера.</p>
             </div>
 
+            <!-- BATTLE SENDER CARD -->
+            <div class="admin-card">
+                <h2>⚔️ Публикация битвы-сравнения в Telegram (Mini App + Опрос)</h2>
+                <p class="note">Отправляет в Telegram-канал подробную таблицу сравнения параметров «бок о бок», инлайн-кнопку <b>«📊 Интерактивное сравнение (Mini App)»</b> и официальный Telegram-опрос для голосования подписчиков!</p>
+
+                <label class="token-label" for="battlePresetSelect">Выберите баттл для публикации</label>
+                <select class="token-input" id="battlePresetSelect">
+                    <option value="0">🔥 Jolion vs Coolray vs Tiggo 7 (Кроссоверы до 3 млн ₽)</option>
+                    <option value="1">⚡ Zeekr 001 vs Xiaomi SU7 (Флагманские электрокары)</option>
+                    <option value="2">🚙 Tank 300 vs Exeed RX (Внедорожник vs Премиум)</option>
+                    <option value="3">🚗 Lada Vesta vs Москвич 3 (Бюджетный выбор)</option>
+                    <option value="4">🔋 Li Auto L7 vs ESTEO V27 (Премиум гибриды >1200 км)</option>
+                </select>
+
+                <div style="margin-top:16px;">
+                    <button class="btn btn-red" id="sendBattleBtn">⚔️ Опубликовать баттл в Telegram</button>
+                </div>
+                <div class="updated" id="battleStatus" style="margin-top:12px;"></div>
+            </div>
+
             <!-- IN-BROWSER VIDEO RENDERER -->
             <div class="admin-card">
                 <h2>⚡ Мгновенный рендеринг видео в браузере (Shorts / Reels 9:16)</h2>
@@ -331,6 +351,7 @@
         </div>
     </main>
 
-    <script src="admin.js?v=7"></script>
+    <script src="cars_data.js"></script>
+    <script src="admin.js?v=8"></script>
 </body>
 </html>
