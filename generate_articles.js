@@ -440,6 +440,7 @@ function page(article, n) {
 
 function sitemap() {
     const legal = [
+        { path: 'compare.html', freq: 'weekly', priority: '0.9' },
         { path: 'privacy.html', freq: 'yearly', priority: '0.3' },
         { path: 'terms.html', freq: 'yearly', priority: '0.3' }
     ];
