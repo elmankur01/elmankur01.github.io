@@ -106,6 +106,7 @@ function initOwnerReviews(articleKey) {
         }
 
         allReviews.forEach(r => {
+            const card = document.createElement('div');
             card.className = 'review-item-card';
 
             const starsHtml = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
@@ -232,6 +233,7 @@ function initArticleComments(articleKey) {
         }
 
         allComments.forEach((c, idx) => {
+            const card = document.createElement('div');
             card.className = 'comment-card';
 
             const likedKey = 'avtotema_com_liked_' + articleKey + '_' + idx;
