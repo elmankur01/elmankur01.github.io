@@ -585,6 +585,22 @@ const BODIES = [
     [
         "Mercedes-AMG GT Black Series будет использовать новый двигатель V8 с плоским кривошипом и копировать следующий гоночный автомобиль GT3, сохраняя при этом GT 63 Pro в качестве флагмана."
     ]
+,
+    [
+        "Это не только 911: Porsche сообщил Motor1, что Sonderwunsch уже работает над заказными четырехдверными проектами."
+    ]
+,
+    [
+        "C8 Preliator XXV знаменует собой возвращение Spyker к мощным машинам в злобном стиле, отдавая дань уважения авиационному наследию бренда."
+    ]
+,
+    [
+        "Gordon Murray S1 превращает S1 LM в более легкий и чистый турер с двигателем V12, активной аэродинамикой, шестиступенчатой ​​​​механической коробкой передач, а объем производства ограничен 64 автомобилями."
+    ]
+,
+    [
+        "Porsche наблюдает растущий спрос на механическую коробку передач со стороны своих онлайн-поклонников, клиентов и дилеров."
+    ]
 
 ];
 
@@ -910,6 +926,22 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/804991/mercedes-amg-gt-black-v8/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805052/porsche-will-build-one-off-cayenne-panamera/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805046/spyker-c8-preliator-xxv-debut/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805053/gordon-murray-s1-v12-manual/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805043/porsche-911-gt3-manual-take-rate-carrera-s/" }
     ]
 
 ];

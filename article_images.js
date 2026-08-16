@@ -159,6 +159,14 @@ const SLUGS = {
     75: "haval-h3"
 ,
     76: "novaya-chernaya-seriya-mercedes-budet-ispol-zovat-dikiy-ploskiy-v8"
+,
+    77: "khotite-unikal-nyy-cayenne-ili-panamera-porsche-sdelaet-eto-vozmozhnym"
+,
+    78: "spyker-vozvrashchaetsya-debyut-c8-preliator-xxv-moshchnost-yu-789-l-s"
+,
+    79: "gordon-murray-s1-sovremennyy-mclaren-f1-kotorogo-my-zhdali"
+,
+    80: "pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo"
 
 };
 
