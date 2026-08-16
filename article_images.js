@@ -69,7 +69,14 @@ const IMAGES = {
     66: { url: "/images/art-66.jpg", alt: "Российский авторынок в июле 2026: рост, лидеры и доля китайцев", credit: "Eric Jones, CC BY-SA 2.0 (Wikimedia Commons)" },
     67: { url: "/images/art-67.jpg", alt: "Euro 7: новые экологические нормы для автомобилей", credit: "Ruben de Rijcke, CC BY-SA 3.0 (Wikimedia Commons)" },
     68: { url: "/images/nissan-gtr.jpg", alt: "Nissan GT-R (R35)", credit: "Фото: Dinkun Chen, CC BY-SA 4.0 (Wikimedia Commons)" },
-    69: { url: "/images/art-69.jpg", alt: "Дорога в дальнюю поездку", credit: "Фото: Ludovic Gibert, CC BY-SA 3.0 (Wikimedia Commons)" }
+    69: { url: "/images/art-69.jpg", alt: "Дорога в дальнюю поездку", credit: "Фото: Ludovic Gibert, CC BY-SA 3.0 (Wikimedia Commons)" },
+    70: { url: "/images/art-70.jpg", alt: "Kia EV3 электрокроссовер", credit: "Пресс-служба Kia" },
+    71: { url: "/images/art-71.jpg", alt: "Комплектации Kia EV3", credit: "Пресс-служба Kia" },
+    72: { url: "/images/art-72.jpg", alt: "Avore EX2S электромотоцикл", credit: "Официальный фотобанк" },
+    73: { url: "/images/art-73.jpg", alt: "Зарядная станция электромобиля", credit: "Unsplash" },
+    74: { url: "/images/art-74.jpg", alt: "Завод Tesla в Европе", credit: "Unsplash" },
+    75: { url: "/images/art-75.jpg", alt: "Обновленный Haval H3", credit: "Пресс-служба Haval" },
+    76: { url: "/images/art-76.jpg", alt: "Mercedes-AMG Black Series V8", credit: "Пресс-служба Mercedes-Benz" }
 };
 
 // ЧПУ-адреса статей (транслитерация заголовка). Ключ — номер статьи (1-based).
