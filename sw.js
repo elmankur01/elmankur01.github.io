@@ -1,5 +1,5 @@
 // Service Worker для PWA «АвтоТема»
-const CACHE_NAME = 'avtotema-v1';
+const CACHE_NAME = 'avtotema-v2';
 const STATIC_ASSETS = [
     '/',
     '/index.html',
@@ -39,6 +39,11 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
     if (event.request.method !== 'GET') return;
     
+    // Игнорировать расширения браузера (chrome-extension://, moz-extension:// и т.д.)
+    if (!event.request.url.startsWith('http://') && !event.request.url.startsWith('https://')) {
+        return;
+    }
+
     const url = new URL(event.request.url);
     // Не кэшировать служебные / админ страницы
     if (url.pathname.includes('4cc55b6066d79bfb2a80') || url.pathname.includes('4182e144696b3e5c1899') || url.pathname.includes('gate.js')) {
@@ -51,7 +56,7 @@ self.addEventListener('fetch', event => {
                 if (res && res.status === 200 && res.type === 'basic') {
                     const resClone = res.clone();
                     caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, resClone);
+                        cache.put(event.request, resClone).catch(() => {});
                     });
                 }
                 return res;

@@ -221,6 +221,7 @@ function page(article, n) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="${esc(article.text)}">
     <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
     <meta property="og:title" content="${esc(article.title)}">
     <meta property="og:description" content="${esc(article.text)}">
     <meta property="og:type" content="article">
