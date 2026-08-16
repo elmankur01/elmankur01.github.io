@@ -66,28 +66,9 @@ const UGC_POLLS = {
     }
 };
 
-const UGC_DEFAULT_REVIEWS = [
-    {
-        author: 'Михаил С.',
-        city: 'Москва',
-        car: 'Haval Jolion 4WD',
-        rating: 5,
-        mileage: '38 000 км',
-        pros: 'Быстрый прогрев зимой, отличный полный привод',
-        cons: 'Небольшой багажник',
-        text: 'Брал для города и дачи. Полный привод отлично гребёт по снегу, в морозы заводится без проблем. Расход 8.2 л.'
-    }
-];
+const UGC_DEFAULT_REVIEWS = [];
 
-const UGC_DEFAULT_COMMENTS = [
-    {
-        author: 'Сергей_Водитель',
-        badge: 'Стаж 12 лет',
-        date: 'Сегодня, 12:30',
-        likes: 14,
-        text: 'Отличный разбор! Главное вовремя менять масло и фильтры, тогда современный турбомотор ходит без проблем.'
-    }
-];
+const UGC_DEFAULT_COMMENTS = [];
 
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { UGC_POLLS, UGC_DEFAULT_REVIEWS, UGC_DEFAULT_COMMENTS };

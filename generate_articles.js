@@ -386,7 +386,7 @@ function page(article, n) {
                     <!-- UGC COMMUNITY COMMENTS -->
                     <div class="article-comments-box" id="articleCommentsBox">
                         <div class="comments-header-bar">
-                            <div class="comments-title">💬 Обсуждение статьи <span class="comments-count-badge" id="commentsCountBadge">1</span></div>
+                            <div class="comments-title">💬 Обсуждение статьи <span class="comments-count-badge" id="commentsCountBadge">0</span></div>
                         </div>
                         <div class="comment-form-wrap">
                             <div class="comment-form-grid">

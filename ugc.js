@@ -100,8 +100,12 @@ function initOwnerReviews(articleKey) {
 
     function renderReviews() {
         listWrap.innerHTML = '';
+        if (allReviews.length === 0) {
+            listWrap.innerHTML = '<div style="text-align:center;color:var(--muted);font-size:0.84rem;padding:8px 0;">Пока нет отзывов. Нажмите «Оставить свой отзыв», чтобы поделиться опытом!</div>';
+            return;
+        }
+
         allReviews.forEach(r => {
-            const card = document.createElement('div');
             card.className = 'review-item-card';
 
             const starsHtml = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
@@ -222,8 +226,12 @@ function initArticleComments(articleKey) {
         listWrap.innerHTML = '';
         if (countBadge) countBadge.textContent = allComments.length;
 
+        if (allComments.length === 0) {
+            listWrap.innerHTML = '<div style="text-align:center;color:var(--muted);font-size:0.84rem;padding:8px 0;">Пока нет комментариев. Напишите первый комментарий выше!</div>';
+            return;
+        }
+
         allComments.forEach((c, idx) => {
-            const card = document.createElement('div');
             card.className = 'comment-card';
 
             const likedKey = 'avtotema_com_liked_' + articleKey + '_' + idx;
