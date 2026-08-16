@@ -18,6 +18,7 @@
     <title>Твёрдотельные батареи: прототип Mercedes проехал 1205 км | АвтоТема</title>
     <link rel="canonical" href="https://avtotema-news.online/articles/tverdotelnye-batarei-prototip-mercedes-proekhal-1205-km.html">
     <link rel="stylesheet" href="/styles.css?v=5">
+    <link rel="stylesheet" href="/ugc.css?v=1">
     <script>
     (function(){
         var t = localStorage.getItem('avtotema_theme');
@@ -201,6 +202,45 @@
                         <a class="share-btn share-tg" href="https://t.me/share/url?url=https%3A%2F%2Favtotema-news.online%2Farticles%2Ftverdotelnye-batarei-prototip-mercedes-proekhal-1205-km.html&text=%D0%A2%D0%B2%D1%91%D1%80%D0%B4%D0%BE%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D0%B1%D0%B0%D1%82%D0%B0%D1%80%D0%B5%D0%B8%3A%20%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D1%82%D0%B8%D0%BF%20Mercedes%20%D0%BF%D1%80%D0%BE%D0%B5%D1%85%D0%B0%D0%BB%201205%20%D0%BA%D0%BC" target="_blank" rel="noopener nofollow">Telegram</a>
                         <button class="share-btn share-copy" id="copyBtn">Скопировать ссылку</button>
                     </div>
+
+                    <!-- UGC LIVE POLL -->
+                    <div class="article-poll-box" id="articlePollBox">
+                        <div class="poll-badge">📊 Опрос читателей</div>
+                        <h3 class="poll-question" id="pollQuestion">Загрузка опроса…</h3>
+                        <div class="poll-options-list" id="pollOptionsList"></div>
+                        <div class="poll-footer-info">
+                            <span id="pollTotalVotes">Всего голосов: …</span>
+                            <span>🔒 Анонимное голосование</span>
+                        </div>
+                    </div>
+
+                    <!-- UGC OWNER REVIEWS -->
+                    <div class="article-reviews-box" id="articleReviewsBox">
+                        <div class="reviews-header-bar">
+                            <div class="reviews-header-title">⭐ Отзывы реальных владельцев</div>
+                            <button type="button" class="btn-add-review" id="openReviewModalBtn">✍️ Оставить свой отзыв</button>
+                        </div>
+                        <div class="reviews-list-wrap" id="reviewsListWrap"></div>
+                    </div>
+
+                    <!-- UGC COMMUNITY COMMENTS -->
+                    <div class="article-comments-box" id="articleCommentsBox">
+                        <div class="comments-header-bar">
+                            <div class="comments-title">💬 Обсуждение статьи <span class="comments-count-badge" id="commentsCountBadge">3</span></div>
+                        </div>
+                        <div class="comment-form-wrap">
+                            <div class="comment-form-grid">
+                                <input type="text" id="commentAuthorInput" class="comment-input-field" placeholder="Ваше имя или никнейм *" required>
+                                <input type="text" id="commentRoleInput" class="comment-input-field" placeholder="Автомобиль или стаж (например: Haval Jolion / 8 лет)">
+                            </div>
+                            <textarea id="commentTextInput" class="comment-textarea-field" placeholder="Напишите ваш комментарий или мнение о статье… *" required></textarea>
+                            <div class="comment-form-footer">
+                                <button type="button" class="btn-send-comment" id="sendCommentBtn">Отправить комментарий</button>
+                            </div>
+                        </div>
+                        <div class="comments-list-wrap" id="commentsListWrap"></div>
+                    </div>
+
                     
                         <div class="article-sources">
                             <h3>Источники</h3>
@@ -317,11 +357,54 @@
         </div>
     </footer>
 
+    <!-- REVIEW MODAL -->
+    <div class="modal-review-backdrop" id="reviewModalBackdrop">
+        <div class="modal-review-card">
+            <button type="button" class="modal-close-btn" id="closeReviewModalBtn">&times;</button>
+            <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:6px;">✍️ Отзыв реального владельца</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin-bottom:16px;">Поделитесь вашим личным опытом эксплуатации автомобиля</p>
+
+            <div style="margin-bottom:12px;">
+                <label style="font-size:0.85rem;font-weight:700;display:block;margin-bottom:4px;">Ваша оценка:</label>
+                <div class="star-rating-select" id="starRatingSelect">
+                    <span data-val="1">★</span>
+                    <span data-val="2">★</span>
+                    <span data-val="3">★</span>
+                    <span data-val="4">★</span>
+                    <span data-val="5">★</span>
+                </div>
+            </div>
+
+            <div class="comment-form-grid" style="margin-bottom:12px;">
+                <input type="text" id="revAuthorInput" class="comment-input-field" placeholder="Ваше имя *" required>
+                <input type="text" id="revCarInput" class="comment-input-field" placeholder="Марка и модель авто *" required>
+            </div>
+
+            <div style="margin-bottom:12px;">
+                <input type="text" id="revMileageInput" class="comment-input-field" placeholder="Реальный пробег (например: 45 000 км)">
+            </div>
+
+            <div style="margin-bottom:12px;">
+                <input type="text" id="revProsInput" class="comment-input-field" placeholder="Главные плюсы (что больше всего нравится?)">
+            </div>
+
+            <div style="margin-bottom:12px;">
+                <input type="text" id="revConsInput" class="comment-input-field" placeholder="Главные минусы (с какими проблемами столкнулись?)">
+            </div>
+
+            <textarea id="revTextInput" class="comment-textarea-field" placeholder="Подробный текст вашего отзыва… *" required style="min-height:90px;"></textarea>
+
+            <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
+        </div>
+    </div>
+
     <script src="/theme.js"></script>
     <script src="/script.js" defer></script>
     <script src="/article_images.js" defer></script>
     <script src="/favorites.js" defer></script>
     <script src="/likes.js" defer></script>
+    <script src="/ugc_data.js" defer></script>
+    <script src="/ugc.js" defer></script>
     <script src="/footer.js" defer></script>
 </body>
 </html>
