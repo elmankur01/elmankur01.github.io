@@ -2,4 +2,15 @@ User-agent: *
 Disallow: /4cc55b6066d79bfb2a80.html
 Disallow: /4182e144696b3e5c1899.html
 Allow: /
+
+# Запрет отдельного JS-рендеринга для робота Яндекса (сайт 100% пререндерен в чистый HTML)
+User-agent: YandexRenderResourcesBot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /4cc55b6066d79bfb2a80.html
+Disallow: /4182e144696b3e5c1899.html
+Allow: /
+
 Sitemap: https://avtotema-news.online/sitemap.xml
+Host: https://avtotema-news.online
