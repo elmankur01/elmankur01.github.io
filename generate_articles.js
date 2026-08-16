@@ -234,7 +234,7 @@ function page(article, n) {
     <title>${esc(article.title)} | АвтоТема</title>
     <link rel="canonical" href="${SITE}/articles/${slug}.html">
     <link rel="stylesheet" href="/styles.css?v=5">
-    <link rel="stylesheet" href="/ugc.css?v=1">
+    <link rel="stylesheet" href="/ugc.css?v=2">
     <script>
     (function(){
         var t = localStorage.getItem('avtotema_theme');
@@ -386,7 +386,7 @@ function page(article, n) {
                     <!-- UGC COMMUNITY COMMENTS -->
                     <div class="article-comments-box" id="articleCommentsBox">
                         <div class="comments-header-bar">
-                            <div class="comments-title">💬 Обсуждение статьи <span class="comments-count-badge" id="commentsCountBadge">3</span></div>
+                            <div class="comments-title">💬 Обсуждение статьи <span class="comments-count-badge" id="commentsCountBadge">1</span></div>
                         </div>
                         <div class="comment-form-wrap">
                             <div class="comment-form-grid">

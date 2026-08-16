@@ -118,10 +118,11 @@ function initOwnerReviews(articleKey) {
                     </div>
                     <div class="review-stars" title="Оценка ${r.rating} из 5">${starsHtml}</div>
                 </div>
-                <div class="review-pros-cons">
-                    ${r.pros ? `<div class="review-pro"><b>Плюсы:</b> ${r.pros}</div>` : ''}
-                    ${r.cons ? `<div class="review-con"><b>Минусы:</b> ${r.cons}</div>` : ''}
-                </div>
+                ${(r.pros || r.cons) ? `
+                <div class="review-pros-cons-compact">
+                    ${r.pros ? `<span class="review-pro">✅ <b>Плюсы:</b> ${r.pros}</span>` : ''}
+                    ${r.cons ? `<span class="review-con">❌ <b>Минусы:</b> ${r.cons}</span>` : ''}
+                </div>` : ''}
                 <div class="review-text-content">${r.text}</div>
             `;
             listWrap.appendChild(card);
