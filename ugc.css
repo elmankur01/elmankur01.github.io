@@ -84,13 +84,14 @@
 
 /* ── Тело раскрывающегося блока ── */
 .ugc-collapsible-body {
+    display: none;
     padding: 14px 18px 18px;
     border-top: 1px solid var(--border);
     background: var(--bg);
 }
 
-.ugc-collapsible-body[hidden] {
-    display: none !important;
+.ugc-collapsible-box.open .ugc-collapsible-body {
+    display: block !important;
 }
 
 /* ── 1. Опрос ── */

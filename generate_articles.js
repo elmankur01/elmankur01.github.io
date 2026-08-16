@@ -234,7 +234,7 @@ function page(article, n) {
     <title>${esc(article.title)} | АвтоТема</title>
     <link rel="canonical" href="${SITE}/articles/${slug}.html">
     <link rel="stylesheet" href="/styles.css?v=5">
-    <link rel="stylesheet" href="/ugc.css?v=2">
+    <link rel="stylesheet" href="/ugc.css?v=3">
     <script>
     (function(){
         var t = localStorage.getItem('avtotema_theme');
@@ -538,7 +538,7 @@ function page(article, n) {
     <script src="/favorites.js?v=2" defer></script>
     <script src="/likes.js?v=2" defer></script>
     <script src="/ugc_data.js?v=2" defer></script>
-    <script src="/ugc.js?v=3" defer></script>
+    <script src="/ugc.js?v=4" defer></script>
     <script src="/footer.js?v=2" defer></script>
 </body>
 </html>`;

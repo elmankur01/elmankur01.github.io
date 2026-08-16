@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function initUGC() {
     const articleFullEl = document.querySelector('.article-full');
     if (!articleFullEl) return;
 
@@ -8,29 +8,37 @@ document.addEventListener('DOMContentLoaded', function () {
     const tagEl = document.querySelector('.tag');
     const articleTag = tagEl ? tagEl.textContent.trim() : 'Новости';
 
-    initUgcAccordions();
     initInArticlePoll(articleKey, articleTag);
     initOwnerReviews(articleKey);
     initArticleComments(articleKey);
-});
-
-// ── 0. Раскрытие блоков при нажатии (Аккордеон) ──
-function initUgcAccordions() {
-    const boxes = document.querySelectorAll('.ugc-collapsible-box');
-    boxes.forEach(box => {
-        const header = box.querySelector('.ugc-collapsible-header');
-        const body = box.querySelector('.ugc-collapsible-body');
-        if (!header || !body) return;
-
-        header.addEventListener('click', function (e) {
-            // Если кликнули не на отдельную кнопку внутри
-            if (e.target.closest('.btn-add-review')) return;
-            const isOpen = box.classList.toggle('open');
-            header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            body.hidden = !isOpen;
-        });
-    });
 }
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initUGC);
+} else {
+    initUGC();
+}
+
+// ── 0. Раскрытие блоков при нажатии (Аккордеон через глобальное делегирование) ──
+document.addEventListener('click', function (e) {
+    if (e.target.closest('#openReviewModalBtn') || e.target.closest('.btn-add-review')) {
+        const modal = document.getElementById('reviewModalBackdrop');
+        if (modal) modal.classList.add('open');
+        return;
+    }
+
+    const header = e.target.closest('.ugc-collapsible-header') || e.target.closest('.ugc-collapsible-header-wrap');
+    if (!header) return;
+
+    const box = header.closest('.ugc-collapsible-box');
+    if (!box) return;
+
+    const isOpen = box.classList.toggle('open');
+    const headBtn = box.querySelector('.ugc-collapsible-header');
+    if (headBtn) {
+        headBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+});
 
 // ── 1. Интерактивный опрос в статье ──
 function initInArticlePoll(articleKey, tag) {
