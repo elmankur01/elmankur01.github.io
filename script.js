@@ -137,7 +137,8 @@ const TIPS = [
 ];
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     initBurger();
     initScrollTop();
@@ -154,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function initBurger() {
     const burger = document.getElementById('burger');
     const nav = document.querySelector('.nav-list');
+    if (!burger || !nav) return;
     burger.addEventListener('click', () => {
         burger.classList.toggle('active');
         nav.classList.toggle('active');
@@ -169,6 +171,7 @@ function initBurger() {
 // ===== Кнопка «наверх» =====
 function initScrollTop() {
     const btn = document.getElementById('scrollTop');
+    if (!btn) return;
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
