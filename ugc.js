@@ -1,6 +1,3 @@
-// ==========================================
-// АвтоТема — Логика комьюнити и UGC (Опросы, Отзывы, Комментарии)
-// ==========================================
 document.addEventListener('DOMContentLoaded', function () {
     const articleFullEl = document.querySelector('.article-full');
     if (!articleFullEl) return;
@@ -11,10 +8,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const tagEl = document.querySelector('.tag');
     const articleTag = tagEl ? tagEl.textContent.trim() : 'Новости';
 
+    initUgcAccordions();
     initInArticlePoll(articleKey, articleTag);
     initOwnerReviews(articleKey);
     initArticleComments(articleKey);
 });
+
+// ── 0. Раскрытие блоков при нажатии (Аккордеон) ──
+function initUgcAccordions() {
+    const boxes = document.querySelectorAll('.ugc-collapsible-box');
+    boxes.forEach(box => {
+        const header = box.querySelector('.ugc-collapsible-header');
+        const body = box.querySelector('.ugc-collapsible-body');
+        if (!header || !body) return;
+
+        header.addEventListener('click', function (e) {
+            // Если кликнули не на отдельную кнопку внутри
+            if (e.target.closest('.btn-add-review')) return;
+            const isOpen = box.classList.toggle('open');
+            header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            body.hidden = !isOpen;
+        });
+    });
+}
 
 // ── 1. Интерактивный опрос в статье ──
 function initInArticlePoll(articleKey, tag) {
@@ -195,6 +211,15 @@ function initOwnerReviews(articleKey) {
             allReviews.unshift(newReview);
             renderReviews();
             if (modal) modal.classList.remove('open');
+
+            const revBox = document.getElementById('articleReviewsBox');
+            if (revBox) {
+                revBox.classList.add('open');
+                const head = revBox.querySelector('.ugc-collapsible-header');
+                const body = revBox.querySelector('.ugc-collapsible-body');
+                if (head) head.setAttribute('aria-expanded', 'true');
+                if (body) body.hidden = false;
+            }
 
             // Очистка полей
             if (document.getElementById('revAuthorInput')) document.getElementById('revAuthorInput').value = '';

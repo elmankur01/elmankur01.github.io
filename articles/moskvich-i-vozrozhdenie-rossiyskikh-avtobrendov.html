@@ -36,7 +36,7 @@
         "@type": "Article",
         "headline": "Москвич и возрождение российских автобрендов",
         "description": "Завод «Москвич» снова работает полным циклом. Как перезапуск легендарной марки меняет российский автопром.",
-        "datePublished": "2026-09-26",
+        "datePublished": "2026-09-25",
         "inLanguage": "ru",
         "mainEntityOfPage": "https://avtotema-news.online/articles/moskvich-i-vozrozhdenie-rossiyskikh-avtobrendov.html",
         "image": {
@@ -144,7 +144,7 @@
                 <article class="article-full">
                     <span class="tag">Мировые новости</span>
                     <h1>Москвич и возрождение российских автобрендов</h1>
-                    <span class="article-meta">8 мин · 2026-09-26</span>
+                    <span class="article-meta">8 мин · 2026-09-25</span>
                     
     <div class="reader-toolbar">
         <div class="audio-reader-box" id="audioReader">
@@ -203,42 +203,65 @@
                         <button class="share-btn share-copy" id="copyBtn">Скопировать ссылку</button>
                     </div>
 
-                    <!-- UGC LIVE POLL -->
-                    <div class="article-poll-box" id="articlePollBox">
-                        <div class="poll-badge">📊 Опрос читателей</div>
-                        <h3 class="poll-question" id="pollQuestion">Загрузка опроса…</h3>
-                        <div class="poll-options-list" id="pollOptionsList"></div>
-                        <div class="poll-footer-info">
-                            <span id="pollTotalVotes">Всего голосов: …</span>
-                            <span>🔒 Анонимное голосование</span>
+                    <!-- UGC COLLAPSIBLE 1: LIVE POLL -->
+                    <div class="ugc-collapsible-box" id="articlePollBox">
+                        <button type="button" class="ugc-collapsible-header" aria-expanded="false" aria-controls="pollCollapseBody">
+                            <span class="ugc-header-left">
+                                <span class="ugc-icon">📊</span>
+                                <span class="ugc-title">Опрос читателей</span>
+                            </span>
+                            <span class="ugc-toggle-arrow">▼</span>
+                        </button>
+                        <div class="ugc-collapsible-body" id="pollCollapseBody" hidden>
+                            <h3 class="poll-question" id="pollQuestion">Загрузка опроса…</h3>
+                            <div class="poll-options-list" id="pollOptionsList"></div>
+                            <div class="poll-footer-info">
+                                <span id="pollTotalVotes">Всего голосов: 0</span>
+                                <span>🔒 Анонимное голосование</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- UGC OWNER REVIEWS -->
-                    <div class="article-reviews-box" id="articleReviewsBox">
-                        <div class="reviews-header-bar">
-                            <div class="reviews-header-title">⭐ Отзывы реальных владельцев</div>
-                            <button type="button" class="btn-add-review" id="openReviewModalBtn">✍️ Оставить свой отзыв</button>
+                    <!-- UGC COLLAPSIBLE 2: OWNER REVIEWS -->
+                    <div class="ugc-collapsible-box" id="articleReviewsBox">
+                        <div class="ugc-collapsible-header-wrap">
+                            <button type="button" class="ugc-collapsible-header" aria-expanded="false" aria-controls="reviewsCollapseBody">
+                                <span class="ugc-header-left">
+                                    <span class="ugc-icon">⭐</span>
+                                    <span class="ugc-title">Отзывы реальных владельцев</span>
+                                </span>
+                                <span class="ugc-toggle-arrow">▼</span>
+                            </button>
+                            <button type="button" class="btn-add-review" id="openReviewModalBtn">✍️ Оставить отзыв</button>
                         </div>
-                        <div class="reviews-list-wrap" id="reviewsListWrap"></div>
+                        <div class="ugc-collapsible-body" id="reviewsCollapseBody" hidden>
+                            <div class="reviews-list-wrap" id="reviewsListWrap"></div>
+                        </div>
                     </div>
 
-                    <!-- UGC COMMUNITY COMMENTS -->
-                    <div class="article-comments-box" id="articleCommentsBox">
-                        <div class="comments-header-bar">
-                            <div class="comments-title">💬 Обсуждение статьи <span class="comments-count-badge" id="commentsCountBadge">0</span></div>
-                        </div>
-                        <div class="comment-form-wrap">
-                            <div class="comment-form-grid">
-                                <input type="text" id="commentAuthorInput" class="comment-input-field" placeholder="Ваше имя или никнейм *" required>
-                                <input type="text" id="commentRoleInput" class="comment-input-field" placeholder="Автомобиль или стаж (например: Haval Jolion / 8 лет)">
+                    <!-- UGC COLLAPSIBLE 3: COMMUNITY COMMENTS -->
+                    <div class="ugc-collapsible-box" id="articleCommentsBox">
+                        <button type="button" class="ugc-collapsible-header" aria-expanded="false" aria-controls="commentsCollapseBody">
+                            <span class="ugc-header-left">
+                                <span class="ugc-icon">💬</span>
+                                <span class="ugc-title">Обсуждение статьи</span>
+                                <span class="comments-count-badge" id="commentsCountBadge">0</span>
+                            </span>
+                            <span class="ugc-toggle-arrow">▼</span>
+                        </button>
+                        <div class="ugc-collapsible-body" id="commentsCollapseBody" hidden>
+                            <div class="comment-form-wrap">
+                                <div class="comment-form-grid">
+                                    <input type="text" id="commentAuthorInput" class="comment-input-field" placeholder="Ваше имя или никнейм *" required>
+                                    <input type="text" id="commentRoleInput" class="comment-input-field" placeholder="Автомобиль или стаж (например: Haval Jolion / 8 лет)">
+                                </div>
+                                <textarea id="commentTextInput" class="comment-textarea-field" placeholder="Напишите ваш комментарий или мнение о статье… *" required></textarea>
+                                <div class="comment-form-footer">
+                                    <button type="button" class="btn-send-comment" id="sendCommentBtn">Отправить комментарий</button>
+                                </div>
                             </div>
-                            <textarea id="commentTextInput" class="comment-textarea-field" placeholder="Напишите ваш комментарий или мнение о статье… *" required></textarea>
-                            <div class="comment-form-footer">
-                                <button type="button" class="btn-send-comment" id="sendCommentBtn">Отправить комментарий</button>
-                            </div>
+                            <div class="comments-list-wrap" id="commentsListWrap"></div>
                         </div>
-                        <div class="comments-list-wrap" id="commentsListWrap"></div>
                     </div>
 
                     
