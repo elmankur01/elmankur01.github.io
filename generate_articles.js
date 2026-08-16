@@ -536,6 +536,7 @@ function page(article, n) {
                 <a href="/compare.html">Сравнение авто</a>
                 <a href="/privacy.html">Конфиденциальность</a>
                 <a href="/terms.html">Условия использования</a>
+                <a href="mailto:info@avtotema-news.online">info@avtotema-news.online</a>
                 <a href="/">Главная</a>
             </p>
             <p class="age-mark"><span class="age-badge">0+</span> Сайт не содержит материалов, причиняющих вред здоровью и развитию детей (436-ФЗ)</p>

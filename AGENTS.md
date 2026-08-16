@@ -7,7 +7,7 @@
 - **Резервный адрес GitHub Pages:** `https://elmankur01.github.io/`
 - **Репозиторий:** `https://github.com/elmankur01/elmankur01.github.io` (ветка `main`)
 - **Telegram-канал:** `@avtotema_news` (`https://t.me/avtotema_news`)
-- **Владелец (Email):** `elmankur01@gmail.com`
+- **Владелец (Email):** `info@avtotema-news.online` (резервный: `elmankur01@gmail.com`)
 - **Служебная Админ-панель:** `https://avtotema-news.online/4cc55b6066d79bfb2a80.html` (Пароль: `avtotema2026`)
 - **Статистика Telegram:** `https://avtotema-news.online/4182e144696b3e5c1899.html`
 
