@@ -14,44 +14,44 @@
             image: '/images/art-70.jpg'
         },
         {
-            id: 67,
+            id: 26,
             tag: 'Новые модели',
             icon: '🚗',
             title: 'Changan CS75 Plus AWD: локализация и полный привод',
             desc: 'Популярный кроссовер получил долгожданную систему полного привода, адаптированную для российских зимних дорог и локализованную сборку.',
             readTime: '5 мин',
             slug: 'changan-cs75-plus-awd-lokalizatsiya-i-polnyy-privod',
-            image: '/images/art-67.jpg'
+            image: '/images/art-26.jpg'
         },
         {
-            id: 10,
+            id: 25,
             tag: 'Электромобили',
             icon: '⚡',
             title: 'Zeekr, BMW и гонка за 900-вольтовые платформы',
             desc: 'Новое поколение электромобилей переходит на архитектуру 800V и 900V: зарядка на 300 км пробега теперь занимает меньше 10 минут.',
             readTime: '6 мин',
             slug: 'zeekr-bmw-i-gonka-za-900-voltovye-platformy',
-            image: '/images/art-10.jpg'
+            image: '/images/art-25.jpg'
         },
         {
-            id: 1,
+            id: 53,
             tag: 'Новые модели',
             icon: '🚗',
-            title: 'Lada Vesta 2026: что изменилось в главной модели АвтоВАЗа',
+            title: 'Лада Vesta 2026: что изменилось в главной модели АвтоВАЗа',
             desc: 'Автоматическая трансмиссия, обновлённая электроника, расширенный зимний пакет опций и система стабилизации ESC нового поколения.',
             readTime: '4 мин',
             slug: 'lada-vesta-2026-chto-izmenilos-v-glavnoy-modeli-avtovaza',
-            image: '/images/art-01.jpg'
+            image: '/images/art-53.jpg'
         },
         {
-            id: 68,
+            id: 24,
             tag: 'Новые модели',
             icon: '🚗',
-            title: 'Esteo V27: гибридный флагман на 456 л.с. за 5.75 млн рублей',
+            title: 'ESTEO V27: гибридный флагман на 456 л.с. за 5,75 млн рублей',
             desc: 'Премиальный полноразмерный гибридный внедорожник с комбинированным запасом хода свыше 1200 км и разгоном до 100 км/ч за 4.8 секунды.',
             readTime: '6 мин',
             slug: 'esteo-v27-gibrid-na-456-l-s-za-5-75-mln-rubley',
-            image: '/images/art-68.jpg'
+            image: '/images/art-24.jpg'
         }
     ];
 
