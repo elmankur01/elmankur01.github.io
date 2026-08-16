@@ -151,20 +151,33 @@ document.addEventListener('DOMContentLoaded', function () {
     initSearchAndFilter();
 });
 
-// ===== Мобильное меню =====
+// ===== Мобильное меню (Глобальное делегирование кликов) =====
 function initBurger() {
-    const burger = document.getElementById('burger');
-    const nav = document.querySelector('.nav-list');
-    if (!burger || !nav) return;
-    burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
-    nav.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-            burger.classList.remove('active');
-            nav.classList.remove('active');
-        });
+    document.addEventListener('click', function (e) {
+        const burgerBtn = e.target.closest('#burger') || e.target.closest('.burger');
+        if (burgerBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = burgerBtn.classList.toggle('active');
+            const navList = document.querySelector('.nav-list') || document.getElementById('navList');
+            if (navList) {
+                navList.classList.toggle('active', isOpen);
+                burgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+            return;
+        }
+
+        const activeNav = document.querySelector('.nav-list.active');
+        if (activeNav) {
+            if (e.target.closest('.nav-list a') || (!e.target.closest('.nav-list') && !e.target.closest('.burger'))) {
+                activeNav.classList.remove('active');
+                const burger = document.getElementById('burger') || document.querySelector('.burger');
+                if (burger) {
+                    burger.classList.remove('active');
+                    burger.setAttribute('aria-expanded', 'false');
+                }
+            }
+        }
     });
 }
 

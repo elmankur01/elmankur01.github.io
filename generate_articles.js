@@ -275,7 +275,7 @@ function page(article, n) {
     <meta property="og:image:alt" content="${esc(article.title)}">
     <title>${esc(article.title)} | АвтоТема</title>
     <link rel="canonical" href="${SITE}/articles/${slug}.html">
-    <link rel="stylesheet" href="/styles.css?v=5">
+    <link rel="stylesheet" href="/styles.css?v=6">
     <link rel="stylesheet" href="/ugc.css?v=3">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
@@ -581,7 +581,7 @@ function page(article, n) {
     </div>
 
     <script src="/theme.js"></script>
-    <script src="/script.js?v=2" defer></script>
+    <script src="/script.js?v=3" defer></script>
     <script src="/article_images.js?v=2" defer></script>
     <script src="/speech.js?v=1" defer></script>
     <script src="/favorites.js?v=2" defer></script>
@@ -674,6 +674,9 @@ function generateBrandPages() {
             </nav>
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
@@ -711,6 +714,7 @@ function generateBrandPages() {
         </div>
     </footer>
     <script src="/theme.js"></script>
+    <script src="/script.js?v=3" defer></script>
 </body>
 </html>`;
 
@@ -784,6 +788,9 @@ function generateBrandPages() {
             </nav>
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
@@ -840,6 +847,7 @@ function generateBrandPages() {
         </div>
     </footer>
     <script src="/theme.js"></script>
+    <script src="/script.js?v=3" defer></script>
     <script src="/favorites.js" defer></script>
     <script src="/likes.js" defer></script>
 </body>
@@ -900,6 +908,9 @@ function generateTagPages() {
             </nav>
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
@@ -929,6 +940,7 @@ function generateTagPages() {
         </div>
     </footer>
     <script src="/theme.js"></script>
+    <script src="/script.js?v=3" defer></script>
 </body>
 </html>`;
 
@@ -991,6 +1003,9 @@ function generateTagPages() {
             </nav>
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </header>
@@ -1039,6 +1054,7 @@ function generateTagPages() {
         </div>
     </footer>
     <script src="/theme.js"></script>
+    <script src="/script.js?v=3" defer></script>
     <script src="/favorites.js" defer></script>
     <script src="/likes.js" defer></script>
 </body>
