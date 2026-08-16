@@ -1310,14 +1310,14 @@
                 inline_keyboard: [
                     [
                         {
-                            text: '📊 Интерактивное сравнение (Mini App)',
-                            web_app: { url: compareUrl }
+                            text: '📊 Интерактивное сравнение «Бок о бок» ↗',
+                            url: compareUrl
                         }
                     ],
                     [
                         {
-                            text: '🌐 Открыть на сайте АвтоТема',
-                            url: compareUrl
+                            text: '🚗 Все новости на АвтоТеме',
+                            url: 'https://avtotema-news.online/'
                         }
                     ]
                 ]
