@@ -5,11 +5,9 @@
     const LIKED_KEY_PREFIX = 'avtotema_liked_';
     const LIKES_BONUS_KEY = 'avtotema_likes_bonus';
 
-    // Базовый детерминированный посев лайков (чтобы каждая статья имела реалистичный счётчик)
+    // Реальный счётчик лайков (начинается с 0 без искусственной накрутки)
     function getBaseLikes(id) {
-        const num = parseInt(id, 10) || 1;
-        // Число от 18 до 59 в зависимости от ID статьи
-        return 18 + ((num * 13 + 7) % 42);
+        return 0;
     }
 
     function getBonusLikes() {

@@ -51,7 +51,7 @@ function initInArticlePoll(articleKey, tag) {
         }
 
         const count = opt.votes + (savedVoteIdx !== null && parseInt(savedVoteIdx, 10) === idx ? 1 : 0);
-        const percent = Math.round((count / totalVotes) * 100);
+        const percent = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
 
         btn.innerHTML = `
             <span class="poll-option-text">${opt.text}</span>
