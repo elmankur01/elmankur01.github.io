@@ -510,13 +510,13 @@ function page(article, n) {
     </div>
 
     <script src="/theme.js"></script>
-    <script src="/script.js" defer></script>
-    <script src="/article_images.js" defer></script>
-    <script src="/favorites.js" defer></script>
-    <script src="/likes.js" defer></script>
-    <script src="/ugc_data.js" defer></script>
-    <script src="/ugc.js" defer></script>
-    <script src="/footer.js" defer></script>
+    <script src="/script.js?v=2" defer></script>
+    <script src="/article_images.js?v=2" defer></script>
+    <script src="/favorites.js?v=2" defer></script>
+    <script src="/likes.js?v=2" defer></script>
+    <script src="/ugc_data.js?v=2" defer></script>
+    <script src="/ugc.js?v=2" defer></script>
+    <script src="/footer.js?v=2" defer></script>
 </body>
 </html>`;
 }
