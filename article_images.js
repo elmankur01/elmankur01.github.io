@@ -158,6 +158,8 @@ const SLUGS = {
     78: "spyker-vozvrashchaetsya-debyut-c8-preliator-xxv-moshchnost-yu-789-l-s"
 ,
     79: "gordon-murray-s1-sovremennyy-mclaren-f1-kotorogo-my-zhdali"
+,
+    80: "pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo"
 
 };
 
