@@ -1233,11 +1233,11 @@
 
     if (sendBattleBtn) {
         sendBattleBtn.addEventListener('click', function () {
-            var token = (tokenInput && tokenInput.value.trim()) || '';
-            var chatId = (chatInput && chatInput.value.trim()) || '';
-            if (!token || !chatId) {
+            var token = getToken();
+            var chatId = (destSelect && destSelect.value.trim()) || '@avtotema_news';
+            if (!token) {
                 battleStatus.className = 'updated error';
-                battleStatus.textContent = '❌ Введите токен бота и ID канала в блоке Telegram выше!';
+                battleStatus.textContent = '❌ Сохраните токен Telegram-бота в блоке настроек выше!';
                 return;
             }
 
