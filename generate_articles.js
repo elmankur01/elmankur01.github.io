@@ -77,6 +77,7 @@ function readerToolbar(article, n) {
                         </button>
                         <div class="reading-stats">
                             <span class="reading-stat-item">⏱️ ${article.readTime} мин чтения</span>
+                            <span class="reading-stat-item" id="articleViewsWrap">👁️ <span id="articleViewsCount">1</span> <span id="articleViewsWord">просмотр</span></span>
                         </div>
                     </div>`;
 }
@@ -584,6 +585,7 @@ function page(article, n) {
     <script src="/script.js?v=3" defer></script>
     <script src="/article_images.js?v=2" defer></script>
     <script src="/speech.js?v=1" defer></script>
+    <script src="/views.js?v=1" defer></script>
     <script src="/favorites.js?v=2" defer></script>
     <script src="/likes.js?v=2" defer></script>
     <script src="/ugc_data.js?v=2" defer></script>
