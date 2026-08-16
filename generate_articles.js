@@ -522,11 +522,11 @@ function page(article, n) {
                         <span class="social-btn-sub">@avtotema_news</span>
                     </span>
                 </a>
-                <a href="https://youtube.com" class="social-btn yt" target="_blank" rel="noopener noreferrer" aria-label="YouTube-канал">
+                <a href="https://youtube.com/@elman-i3t" class="social-btn yt" target="_blank" rel="noopener noreferrer" aria-label="YouTube-канал">
                     <span class="social-btn-icon">▶️</span>
                     <span class="social-btn-text">
                         <span class="social-btn-name">YouTube</span>
-                        <span class="social-btn-sub">Видеообзоры</span>
+                        <span class="social-btn-sub">@elman-i3t</span>
                     </span>
                 </a>
             </div>
