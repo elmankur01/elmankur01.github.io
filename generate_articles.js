@@ -77,7 +77,6 @@ function readerToolbar(article, n) {
                         </button>
                         <div class="reading-stats">
                             <span class="reading-stat-item">⏱️ ${article.readTime} мин чтения</span>
-                            <span class="reading-stat-item">👁️ ${240 + (n * 37) % 650} просмотров</span>
                         </div>
                     </div>`;
 }
