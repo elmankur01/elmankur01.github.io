@@ -583,6 +583,7 @@ function page(article, n) {
     <script src="/theme.js"></script>
     <script src="/script.js?v=2" defer></script>
     <script src="/article_images.js?v=2" defer></script>
+    <script src="/speech.js?v=1" defer></script>
     <script src="/favorites.js?v=2" defer></script>
     <script src="/likes.js?v=2" defer></script>
     <script src="/ugc_data.js?v=2" defer></script>
