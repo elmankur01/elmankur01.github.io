@@ -76,7 +76,11 @@ const IMAGES = {
     73: { url: "/images/art-73.jpg", alt: "Зарядная станция электромобиля", credit: "Unsplash" },
     74: { url: "/images/art-74.jpg", alt: "Завод Tesla в Европе", credit: "Unsplash" },
     75: { url: "/images/art-75.jpg", alt: "Обновленный Haval H3", credit: "Пресс-служба Haval" },
-    76: { url: "/images/art-76.jpg", alt: "Mercedes-AMG Black Series V8", credit: "Пресс-служба Mercedes-Benz" }
+    76: { url: "/images/art-76.jpg", alt: "Mercedes-AMG Black Series V8", credit: "Пресс-служба Mercedes-Benz" },
+    77: { url: "/images/art-77.jpg", alt: "Porsche Cayenne и Panamera", credit: "Unsplash" },
+    78: { url: "/images/art-78.jpg", alt: "Spyker C8 Preliator XXV", credit: "Unsplash" },
+    79: { url: "/images/art-79.jpg", alt: "Gordon Murray S1", credit: "Unsplash" },
+    80: { url: "/images/art-80.jpg", alt: "Porsche 911 Carrera S", credit: "Unsplash" }
 };
 
 // ЧПУ-адреса статей (транслитерация заголовка). Ключ — номер статьи (1-based).
