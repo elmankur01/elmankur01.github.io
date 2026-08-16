@@ -234,10 +234,97 @@
                 if (items.length) renderArticleSelect.value = newest;
             }
 
+            renderViewsAnalytics();
             renderLikesAnalytics();
         }).catch(function () {
             sendPreview.textContent = 'Ошибка загрузки статей.';
         });
+    }
+
+    function getArticleViews(slug) {
+        var val = localStorage.getItem('avtotema_views_' + slug);
+        return parseInt(val, 10) || 0;
+    }
+
+    function renderViewsAnalytics() {
+        var listEl = document.getElementById('topViewsList');
+        var totalViewsEl = document.getElementById('totalViewsCount');
+        var viewedArticlesEl = document.getElementById('viewedArticlesCount');
+        var filterEl = document.getElementById('viewsTagFilter');
+
+        if (!listEl || !articles.length) return;
+
+        var tagFilter = filterEl ? filterEl.value : 'all';
+
+        var stats = articles.map(function (a, i) {
+            var id = i + 1;
+            var slug = slugMap[id] || ('article-' + id);
+            return {
+                id: id,
+                title: a.title,
+                tag: a.tag,
+                slug: slug,
+                views: getArticleViews(slug)
+            };
+        });
+
+        var totalViews = stats.reduce(function (sum, item) { return sum + item.views; }, 0);
+        var viewedCount = stats.filter(function (item) { return item.views > 0; }).length;
+
+        if (totalViewsEl) totalViewsEl.textContent = totalViews.toLocaleString('ru-RU');
+        if (viewedArticlesEl) viewedArticlesEl.textContent = viewedCount;
+
+        var filtered = tagFilter === 'all'
+            ? stats
+            : stats.filter(function (s) { return s.tag === tagFilter; });
+
+        var sorted = filtered.slice().sort(function (a, b) {
+            if (b.views !== a.views) return b.views - a.views;
+            return a.id - b.id;
+        });
+
+        if (totalViews === 0) {
+            listEl.innerHTML = '<div style="background:#0d1218;border:1px dashed #262e3a;border-radius:8px;padding:16px;text-align:center;color:#8b95a3;font-size:13px;">' +
+                '👁️ <b>Просмотров в локальном кэше пока: 0</b><br>' +
+                '<span style="font-size:12px;color:#64748b;display:block;margin-top:4px;">При открытии статей читателями здесь отображается список самых читаемых материалов. Для полной картины визитов нажмите «GitHub Traffic».</span>' +
+            '</div>';
+            return;
+        }
+
+        var topList = sorted.filter(function (s) { return s.views > 0; }).slice(0, 10);
+        if (!topList.length) {
+            listEl.innerHTML = '<div style="background:#0d1218;border:1px dashed #262e3a;border-radius:8px;padding:14px;text-align:center;color:#8b95a3;font-size:13px;">В этой рубрике пока нет зафиксированных просмотров.</div>';
+            return;
+        }
+
+        var maxViews = topList[0].views || 1;
+
+        listEl.innerHTML = topList.map(function (item, rank) {
+            var medal = rank === 0 ? '🥇' : rank === 1 ? '🥈' : rank === 2 ? '🥉' : '#' + (rank + 1);
+            var pct = Math.max(10, Math.round((item.views / maxViews) * 100));
+            return '<div style="background:#0d1218;border:1px solid #1f2732;border-radius:8px;padding:10px 14px;">' +
+                '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px;">' +
+                '<div style="display:flex;align-items:center;gap:8px;overflow:hidden;">' +
+                    '<span style="font-size:14px;font-weight:800;color:#38bdf8;min-width:24px;">' + medal + '</span>' +
+                    '<a href="/articles/' + item.slug + '.html" target="_blank" rel="noopener" style="color:#f1f5f9;font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + esc(item.title) + '</a>' +
+                '</div>' +
+                '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">' +
+                    '<span style="background:rgba(56,189,248,0.15);color:#38bdf8;font-weight:800;font-size:12px;padding:2px 8px;border-radius:12px;border:1px solid #0284c7;">👁️ ' + item.views.toLocaleString('ru-RU') + '</span>' +
+                '</div>' +
+            '</div>' +
+            '<div style="display:flex;align-items:center;gap:10px;">' +
+                '<div style="flex:1;background:#1a222d;height:6px;border-radius:3px;overflow:hidden;">' +
+                    '<div style="background:linear-gradient(90deg, #0284c7, #38bdf8);height:100%;width:' + pct + '%;border-radius:3px;transition:width 0.4s ease;"></div>' +
+                '</div>' +
+                '<span style="color:#8b95a3;font-size:11px;">' + esc(item.tag) + '</span>' +
+            '</div>' +
+        '</div>';
+        }).join('');
+    }
+
+    var viewsFilterSelect = document.getElementById('viewsTagFilter');
+    if (viewsFilterSelect) {
+        viewsFilterSelect.addEventListener('change', renderViewsAnalytics);
     }
 
     function getArticleRealLikes(id) {
@@ -252,8 +339,7 @@
 
     function getArticleDisplayLikes(id) {
         var num = parseInt(id, 10) || 1;
-        var base = 18 + ((num * 13 + 7) % 42);
-        return base + getArticleRealLikes(num);
+        return getArticleRealLikes(num);
     }
 
     function renderLikesAnalytics() {
@@ -304,7 +390,7 @@
         if (totalReal === 0) {
             listEl.innerHTML = '<div style="background:#0d1218;border:1px dashed #262e3a;border-radius:8px;padding:16px;text-align:center;color:#8b95a3;font-size:13px;">' +
                 '📊 <b>Реальных лайков пока: 0</b><br>' +
-                '<span style="font-size:12px;color:#64748b;display:block;margin-top:4px;">На витрине сайта у статей сейчас активен стартовый посев. Как только первые посетители поставят ❤️, здесь сразу появится статистика живых кликов.</span>' +
+                '<span style="font-size:12px;color:#64748b;display:block;margin-top:4px;">Как только первые посетители поставят ❤️, здесь сразу появится статистика живых кликов.</span>' +
             '</div>';
             return;
         }
@@ -334,7 +420,7 @@
                     '<div style="flex:1;background:#1a222d;height:6px;border-radius:3px;overflow:hidden;">' +
                         '<div style="background:linear-gradient(90deg, #ef4444, #f59e0b);height:100%;width:' + pct + '%;border-radius:3px;transition:width 0.4s ease;"></div>' +
                     '</div>' +
-                    '<span style="color:#8b95a3;font-size:11px;">' + esc(item.tag) + ' · на сайте: ' + item.displayLikes + '</span>' +
+                    '<span style="color:#8b95a3;font-size:11px;">' + esc(item.tag) + '</span>' +
                 '</div>' +
             '</div>';
         }).join('');
