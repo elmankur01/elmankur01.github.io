@@ -758,6 +758,35 @@
 
     startVideoBtn.addEventListener('click', startVideoGen);
 
+    // ── Автопилот автоновостей (GitHub Actions dispatch) ──
+    var triggerAutopilotBtn = document.getElementById('triggerAutopilotBtn');
+    var autopilotStatus = document.getElementById('autopilotStatus');
+
+    if (triggerAutopilotBtn) {
+        triggerAutopilotBtn.addEventListener('click', function () {
+            var token = (ghTokenInput && ghTokenInput.value || localStorage.getItem(TOKEN_KEY) || '').trim();
+            if (!token) {
+                if (autopilotStatus) autopilotStatus.innerHTML = '<span class="badge err">Для ручного запуска укажите GitHub-токен в блоке ниже (или дождитесь расписания 10:00 и 18:00 МСК)</span>';
+                return;
+            }
+            triggerAutopilotBtn.disabled = true;
+            if (autopilotStatus) autopilotStatus.innerHTML = '<span class="badge ok">⏳ Запускаю сбор свежих новостей из сети…</span>';
+
+            fetch('https://api.github.com/repos/' + GH_REPO + '/actions/workflows/auto_news.yml/dispatches', {
+                method: 'POST',
+                headers: ghHeaders({ 'Content-Type': 'application/json' }),
+                body: JSON.stringify({ ref: 'main' })
+            }).then(function (r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                if (autopilotStatus) autopilotStatus.innerHTML = '<span class="badge ok">🚀 Автопилот запущен! Робот собирает и переводит статьи в облаке. Статус можно смотреть в <a href="https://github.com/' + GH_REPO + '/actions/workflows/auto_news.yml" target="_blank" rel="noopener" style="color:#4a9eff;">Журнале запусков</a></span>';
+                setTimeout(function () { triggerAutopilotBtn.disabled = false; }, 8000);
+            }).catch(function (e) {
+                triggerAutopilotBtn.disabled = false;
+                if (autopilotStatus) autopilotStatus.innerHTML = '<span class="badge err">Ошибка запуска: ' + esc(e.message || e) + '</span>';
+            });
+        });
+    }
+
     // ── Мгновенный рендеринг видео в браузере (HTML5 Canvas + MediaRecorder) ──
     var renderArticleSelect = document.getElementById('renderArticleSelect');
     var renderDuration = document.getElementById('renderDuration');

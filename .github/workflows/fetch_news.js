@@ -160,16 +160,7 @@ function insertBeforeClosing(src, marker, closing, block) {
 }
 
 function commitAll() {
-    if (DRY_RUN) return;
-    execSync('git config user.name "github-actions[bot]"', { stdio: 'inherit' });
-    execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"', { stdio: 'inherit' });
-    execSync('git add script.js article_content.js article_images.js state/seen_news.json', { stdio: 'inherit' });
-    const changed = execSync('git diff --cached --quiet; echo $?').toString().trim();
-    if (changed === '0') { console.log('Нет изменений для коммита'); return; }
-    execSync('git commit -m "Auto: добавлены свежие мировые автоновости"', { stdio: 'inherit' });
-    execSync('git pull --rebase origin main', { stdio: 'inherit' });
-    execSync('git push', { stdio: 'inherit' });
-    console.log('Запушено: статьи добавлены в банк');
+    console.log('Файлы успешно подготовлены');
 }
 
 async function main() {
