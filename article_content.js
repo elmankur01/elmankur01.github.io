@@ -601,6 +601,10 @@ const BODIES = [
     [
         "Porsche наблюдает растущий спрос на механическую коробку передач со стороны своих онлайн-поклонников, клиентов и дилеров."
     ]
+,
+    [
+        "Ferrari Luce Chassis 0 становится разовым благотворительным ореолом, отправляя каждый доллар в Фонд Ferrari вместо того, чтобы сигнализировать о реальных ценах на электромобили."
+    ]
 
 ];
 
@@ -942,6 +946,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805043/porsche-911-gt3-manual-take-rate-carrera-s/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805122/ferrari-luce-ev-charity-car/" }
     ]
 
 ];
