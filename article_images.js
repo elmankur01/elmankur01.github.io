@@ -173,6 +173,8 @@ const SLUGS = {
     80: "pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo"
 ,
     81: "blagotvoritel-nyy-avtomobil-ferrari-luce-prodan-za-sumasshedshie-40-millionov-do"
+,
+    82: "dve-legendy-mercedes-odin-epicheskiy-drayv-300-sls-protiv-zerkal-naya-kamera-sti"
 
 };
 
