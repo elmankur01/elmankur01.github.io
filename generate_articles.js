@@ -21,8 +21,11 @@ try {
     const content = require('./article_content.js');
     bodies = content.BODIES || content;
     sources = content.SOURCES || [];
-    images = content.IMAGES || [];
-    slugs = content.SLUGS || {};
+} catch (e) {}
+try {
+    const imgData = require('./article_images.js');
+    images = imgData.IMAGES || [];
+    slugs = imgData.SLUGS || {};
 } catch (e) {}
 
 const outDir = path.join(__dirname, 'articles');
