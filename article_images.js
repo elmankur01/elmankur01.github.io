@@ -80,7 +80,9 @@ const IMAGES = {
     77: { url: "/images/art-77.jpg", alt: "Porsche Cayenne и Panamera", credit: "Unsplash" },
     78: { url: "/images/art-78.jpg", alt: "Spyker C8 Preliator XXV", credit: "Unsplash" },
     79: { url: "/images/art-79.jpg", alt: "Gordon Murray S1", credit: "Unsplash" },
-    80: { url: "/images/art-80.jpg", alt: "Porsche 911 Carrera S", credit: "Unsplash" }
+    80: { url: "/images/art-80.jpg", alt: "Porsche 911 Carrera S", credit: "Unsplash" },
+    81: { url: "/images/art-81.jpg", alt: "Уникальный суперкар Ferrari Luce", credit: "Пресс-служба Ferrari / Motor1" },
+    82: { url: "/images/art-82.jpg", alt: "Mercedes-Benz 300 SLS и SLR Stirling Moss", credit: "Mercedes-Benz Classic" }
 };
 
 // ЧПУ-адреса статей (транслитерация заголовка). Ключ — номер статьи (1-based).
@@ -170,12 +172,9 @@ const SLUGS = {
 ,
     79: "gordon-murray-s1-sovremennyy-mclaren-f1-kotorogo-my-zhdali"
 ,
-    80: "pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo"
-,
-    81: "blagotvoritel-nyy-avtomobil-ferrari-luce-prodan-za-sumasshedshie-40-millionov-do"
-,
-    82: "dve-legendy-mercedes-odin-epicheskiy-drayv-300-sls-protiv-zerkal-naya-kamera-sti"
-
+    80: "pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo",
+    81: "ferrari-luce-prodan-za-40-millionov-dollarov",
+    82: "mercedes-300-sls-protiv-slr-stirling-moss"
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };

@@ -222,6 +222,39 @@ const BRANDS = [
         heroImage: '/images/art-24.jpg',
         description: 'ESTEO — новый высокотехнологичный бренд гибридных премиум-кроссоверов. Флагман V27 мощностью 456 л.с. предлагает запас хода до 1200 км и адаптивный полный привод.',
         keywords: ['esteo', 'эстео', 'v27', 'esteo v27']
+    },
+    {
+        slug: 'ferrari',
+        name: 'Ferrari',
+        nameRu: 'Феррари',
+        country: 'Италия 🇮🇹',
+        year: 1939,
+        logo: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/ferrari.jpg',
+        description: 'Ferrari — легендарный итальянский производитель суперкаров и символ мирового автоспорта. От гоночных болидов Формулы-1 до эксклюзивных дорожных шедевров в Маранелло.',
+        keywords: ['ferrari', 'феррари', 'luce', 'maranello', 'маранелло', 'enzo', 'sf90', 'f8', '296 gtb']
+    },
+    {
+        slug: 'porsche',
+        name: 'Porsche',
+        nameRu: 'Порше',
+        country: 'Германия 🇩🇪',
+        year: 1931,
+        logo: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/porsche-911.jpg',
+        description: 'Porsche — эталон спортивного инжиниринга. Легендарное семейство 911, спорткары 718 Cayman/Boxster, премиум-кроссоверы Cayenne и Macan, а также электрокар Taycan.',
+        keywords: ['porsche', 'порше', '911', 'carrera', 'каррера', 'cayenne', 'кайен', 'panamera', 'панамера', 'taycan', 'тайкан', 'gt3']
+    },
+    {
+        slug: 'mercedes',
+        name: 'Mercedes-Benz',
+        nameRu: 'Мерседес-Бенц',
+        country: 'Германия 🇩🇪',
+        year: 1926,
+        logo: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/art-38.jpg',
+        description: 'Mercedes-Benz — «The Best or Nothing». Изобретатель первого в мире автомобиля, создатель представительского S-Class, спортивного подразделения AMG и легендарного G-Class.',
+        keywords: ['mercedes', 'мерседес', 'mercedes-benz', 'amg', 'майбах', 'maybach', 'gelandewagen', 'гелик', 's-class', '300 sls', 'stirling moss']
     }
 ];
 
@@ -288,7 +321,7 @@ const TAGS = [
         hashtag: '#бюджетные_авто',
         icon: '💰',
         description: 'Автомобили до 2 млн рублей в России: Lada Vesta, Granta, Москвич 3, скидки, льготы и программы господдержки.',
-        keywords: ['бюджетн', 'до 2 млн', 'цена', 'lada', 'веста', 'москвич', 'скидк', 'господдержк', 'льгот']
+        keywords: ['бюджетн', 'до 2 млн', 'до 1.5 млн', 'недорог', 'дешев', 'эконом-класс', 'господдержк', 'льгот']
     },
     {
         slug: 'vnedorozhniki',
