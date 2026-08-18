@@ -98,6 +98,8 @@ const ARTICLE_BANK = [
     { tag: "Мировые новости", title: "Две легенды Mercedes: сравнительный тест 300 SLS и SLR Stirling Moss", text: "Уникальный тест-драйв двух редчайших спорткаров Mercedes-Benz: исторический 300 SLS и спидстер SLR Stirling Moss на гоночном треке.", readTime: 6 }
 ,
     { tag: "Двигатели", title: "Новый Mercedes C-Class не вернет AMG C63 V8", text: "У Mercedes есть убедительное объяснение, почему V8 не возвращается.", readTime: 2 }
+,
+    { tag: "Новые модели", title: "Jeep только что представил новый Cherokee. Но еще один уже в пути", text: "Новый Jeep Cherokee поступит в производство в конце 2029 года и будет базироваться на новой платформе STLA One от Stellantis.", readTime: 2 }
 
 ];
 

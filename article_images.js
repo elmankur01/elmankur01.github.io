@@ -176,6 +176,8 @@ const SLUGS = {
     81: "ferrari-luce-prodan-za-40-millionov-dollarov",
     82: "mercedes-300-sls-protiv-slr-stirling-moss",
     83: "novyy-mercedes-c-class-ne-vernet-amg-c63-v8"
+,
+    84: "jeep-tol-ko-chto-predstavil-novyy-cherokee-no-eshche-odin-uzhe-v-puti"
 
 };
 

@@ -619,6 +619,10 @@ const BODIES = [
     [
         "У Mercedes есть убедительное объяснение, почему V8 не возвращается."
     ]
+,
+    [
+        "Новый Jeep Cherokee поступит в производство в конце 2029 года и будет базироваться на новой платформе STLA One от Stellantis."
+    ]
 
 ];
 
@@ -972,6 +976,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805263/new-mercedes-c-class-no-amg-c63-v8/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805341/next-generation-jeep-cherokee-new-platform-2029/" }
     ]
 
 ];
