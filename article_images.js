@@ -174,7 +174,9 @@ const SLUGS = {
 ,
     80: "pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo",
     81: "ferrari-luce-prodan-za-40-millionov-dollarov",
-    82: "mercedes-300-sls-protiv-slr-stirling-moss"
+    82: "mercedes-300-sls-protiv-slr-stirling-moss",
+    83: "novyy-mercedes-c-class-ne-vernet-amg-c63-v8"
+
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };
