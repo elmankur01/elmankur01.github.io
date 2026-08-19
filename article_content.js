@@ -623,6 +623,10 @@ const BODIES = [
     [
         "Новый Jeep Cherokee поступит в производство в конце 2029 года и будет базироваться на новой платформе STLA One от Stellantis."
     ]
+,
+    [
+        "Ограниченная серия в 2500 гибридных седанов SE для США, Toyota Corolla 60th Anniversary Special Edition 2027 года отличается эффективностью, стилем и наследием."
+    ]
 
 ];
 
@@ -980,6 +984,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805341/next-generation-jeep-cherokee-new-platform-2029/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805394/2027-toyota-corolla-60th-anniversary/" }
     ]
 
 ];

@@ -100,6 +100,8 @@ const ARTICLE_BANK = [
     { tag: "Двигатели", title: "Новый Mercedes C-Class не вернет AMG C63 V8", text: "У Mercedes есть убедительное объяснение, почему V8 не возвращается.", readTime: 2 }
 ,
     { tag: "Новые модели", title: "Jeep только что представил новый Cherokee. Но еще один уже в пути", text: "Новый Jeep Cherokee поступит в производство в конце 2029 года и будет базироваться на новой платформе STLA One от Stellantis.", readTime: 2 }
+,
+    { tag: "Мировые новости", title: "Сделано всего 2500 экземпляров: Toyota Corolla, посвященная 60-летию Toyota, является гибридом", text: "Ограниченная серия в 2500 гибридных седанов SE для США, Toyota Corolla 60th Anniversary Special Edition 2027 года отличается эффективностью, стилем и наследием.", readTime: 2 }
 
 ];
 

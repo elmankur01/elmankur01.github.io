@@ -178,6 +178,8 @@ const SLUGS = {
     83: "novyy-mercedes-c-class-ne-vernet-amg-c63-v8"
 ,
     84: "jeep-tol-ko-chto-predstavil-novyy-cherokee-no-eshche-odin-uzhe-v-puti"
+,
+    85: "sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota"
 
 };
 
