@@ -627,6 +627,10 @@ const BODIES = [
     [
         "Ограниченная серия в 2500 гибридных седанов SE для США, Toyota Corolla 60th Anniversary Special Edition 2027 года отличается эффективностью, стилем и наследием."
     ]
+,
+    [
+        "Канада становится ключевым испытательным полигоном для гибридной линейки Lamborghini Revuelto и Urus SE, поскольку бренд меняет свои планы в Северной Америке."
+    ]
 
 ];
 
@@ -988,6 +992,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805394/2027-toyota-corolla-60th-anniversary/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805470/lamborghini-hybrid-strategy-puts-canada/" }
     ]
 
 ];

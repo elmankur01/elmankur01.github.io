@@ -180,6 +180,8 @@ const SLUGS = {
     84: "jeep-tol-ko-chto-predstavil-novyy-cherokee-no-eshche-odin-uzhe-v-puti"
 ,
     85: "sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota"
+,
+    86: "gibridnoe-budushchee-lamborghini-obretaet-formu-i-odna-strana-mozhet-sygrat-bole"
 
 };
 
