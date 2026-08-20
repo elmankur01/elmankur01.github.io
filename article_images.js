@@ -184,6 +184,8 @@ const SLUGS = {
     86: "gibridnoe-budushchee-lamborghini-obretaet-formu-i-odna-strana-mozhet-sygrat-bole"
 ,
     87: "bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya"
+,
+    88: "kaliforniya-utverdila-novye-pravila-effektivnosti-zameny-shin-vot-chto-eto-znach"
 
 };
 

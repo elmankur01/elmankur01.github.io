@@ -635,6 +635,10 @@ const BODIES = [
     [
         "У нас есть несколько идей, что это может быть."
     ]
+,
+    [
+        "Запасные шины должны быть такими же эффективными, как шины нового автомобиля, но для энтузиастов есть несколько лазеек."
+    ]
 
 ];
 
@@ -1004,6 +1008,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805536/new-bmw-m2-version-report/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805502/california-replacement-tire-rules-passed/" }
     ]
 
 ];
