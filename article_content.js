@@ -631,6 +631,10 @@ const BODIES = [
     [
         "Канада становится ключевым испытательным полигоном для гибридной линейки Lamborghini Revuelto и Urus SE, поскольку бренд меняет свои планы в Северной Америке."
     ]
+,
+    [
+        "У нас есть несколько идей, что это может быть."
+    ]
 
 ];
 
@@ -996,6 +1000,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805470/lamborghini-hybrid-strategy-puts-canada/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805536/new-bmw-m2-version-report/" }
     ]
 
 ];

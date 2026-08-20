@@ -182,6 +182,8 @@ const SLUGS = {
     85: "sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota"
 ,
     86: "gibridnoe-budushchee-lamborghini-obretaet-formu-i-odna-strana-mozhet-sygrat-bole"
+,
+    87: "bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya"
 
 };
 
