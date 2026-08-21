@@ -639,6 +639,10 @@ const BODIES = [
     [
         "Запасные шины должны быть такими же эффективными, как шины нового автомобиля, но для энтузиастов есть несколько лазеек."
     ]
+,
+    [
+        "Temerario Tricolore выдвигает программу Lamborghini Ad Personam и гибридное оборудование V8 на центральное место рядом с Revuelto SV и Urus SE Performante."
+    ]
 
 ];
 
@@ -1012,6 +1016,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805502/california-replacement-tire-rules-passed/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805666/lamborghini-temerario-tricolore-pebble-beach/" }
     ]
 
 ];
