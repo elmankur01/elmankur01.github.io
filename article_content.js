@@ -643,6 +643,10 @@ const BODIES = [
     [
         "Temerario Tricolore выдвигает программу Lamborghini Ad Personam и гибридное оборудование V8 на центральное место рядом с Revuelto SV и Urus SE Performante."
     ]
+,
+    [
+        "Франц фон Хольцхаузен отправляет свое шасси Model S Plaid Signature Edition 001 в компанию Unplugged Performance для консервации, отдавая приоритет краске и интерьеру над дополнительной мощностью."
+    ]
 
 ];
 
@@ -1020,6 +1024,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805666/lamborghini-temerario-tricolore-pebble-beach/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805705/tesla-design-boss-protects-model/" }
     ]
 
 ];

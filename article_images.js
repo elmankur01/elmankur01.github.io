@@ -188,6 +188,8 @@ const SLUGS = {
     88: "kaliforniya-utverdila-novye-pravila-effektivnosti-zameny-shin-vot-chto-eto-znach"
 ,
     89: "lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe"
+,
+    90: "pochemu-glavnyy-dizayner-tesla-sokhranil-svoy-pled-001-model-s"
 
 };
 
