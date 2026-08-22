@@ -192,6 +192,8 @@ const SLUGS = {
     90: "pochemu-glavnyy-dizayner-tesla-sokhranil-svoy-pled-001-model-s"
 ,
     91: "ford-rassmatrivaet-vozmozhnost-sozdaniya-deshevogo-ralliynogo-avtomobilya-konech"
+,
+    92: "federaly-rasshiryayut-rassledovanie-problemnykh-dvigateley-v8-gm"
 
 };
 
