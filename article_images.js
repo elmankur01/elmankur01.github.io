@@ -190,6 +190,8 @@ const SLUGS = {
     89: "lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe"
 ,
     90: "pochemu-glavnyy-dizayner-tesla-sokhranil-svoy-pled-001-model-s"
+,
+    91: "ford-rassmatrivaet-vozmozhnost-sozdaniya-deshevogo-ralliynogo-avtomobilya-konech"
 
 };
 

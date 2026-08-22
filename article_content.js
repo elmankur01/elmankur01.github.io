@@ -647,6 +647,10 @@ const BODIES = [
     [
         "Франц фон Хольцхаузен отправляет свое шасси Model S Plaid Signature Edition 001 в компанию Unplugged Performance для консервации, отдавая приоритет краске и интерьеру над дополнительной мощностью."
     ]
+,
+    [
+        "Генеральный директор Джим Фарли говорит, что Ford «в восторге от нашего раллийного направления» и считает, что бренд должен предложить доступный раллийный автомобиль."
+    ]
 
 ];
 
@@ -1028,6 +1032,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805705/tesla-design-boss-protects-model/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805740/affordable-ford-rally-car-jim-farley-rumor/" }
     ]
 
 ];
