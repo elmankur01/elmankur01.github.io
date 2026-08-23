@@ -659,6 +659,10 @@ const BODIES = [
     [
         "A government website indicates that the V6-powered sport sedan is dead for 2027."
     ]
+,
+    [
+        "According to BMW, the Vision Alpina will take the place of the 8 Series in the lineup."
+    ]
 
 ];
 
@@ -1052,6 +1056,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805746/genesis-g70-v6-engine-discontinued/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805697/bmw-8-series-ends-alpina/" }
     ]
 
 ];

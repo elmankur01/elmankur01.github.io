@@ -196,6 +196,8 @@ const SLUGS = {
     92: "federaly-rasshiryayut-rassledovanie-problemnykh-dvigateley-v8-gm"
 ,
     93: "the-genesis-g70-is-losing-its-best-engine"
+,
+    94: "bmw-killed-any-hopes-of-a-new-8-series-not-feasible"
 
 };
 
