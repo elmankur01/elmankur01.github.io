@@ -194,6 +194,8 @@ const SLUGS = {
     91: "ford-rassmatrivaet-vozmozhnost-sozdaniya-deshevogo-ralliynogo-avtomobilya-konech"
 ,
     92: "federaly-rasshiryayut-rassledovanie-problemnykh-dvigateley-v8-gm"
+,
+    93: "the-genesis-g70-is-losing-its-best-engine"
 
 };
 

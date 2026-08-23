@@ -655,6 +655,10 @@ const BODIES = [
     [
         "Национальная администрация безопасности дорожного движения получила жалобы на отказы двигателей, выходящие за рамки прошлогоднего отзыва."
     ]
+,
+    [
+        "A government website indicates that the V6-powered sport sedan is dead for 2027."
+    ]
 
 ];
 
@@ -1044,6 +1048,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805731/nhtsa-gm-l87-v8-investigation-expands/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805746/genesis-g70-v6-engine-discontinued/" }
     ]
 
 ];
