@@ -198,6 +198,8 @@ const SLUGS = {
     93: "the-genesis-g70-is-losing-its-best-engine"
 ,
     94: "bmw-killed-any-hopes-of-a-new-8-series-not-feasible"
+,
+    95: "the-volkswagen-tukan-is-a-new-small-truck-the-us-can-t-have"
 
 };
 

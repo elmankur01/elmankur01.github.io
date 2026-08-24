@@ -120,6 +120,8 @@ const ARTICLE_BANK = [
     { tag: "Двигатели", title: "The Genesis G70 Is Losing Its Best Engine", text: "A government website indicates that the V6-powered sport sedan is dead for 2027.", readTime: 2 }
 ,
     { tag: "Мировые новости", title: "BMW Killed Any Hopes Of A New 8 Series: 'Not Feasible'", text: "According to BMW, the Vision Alpina will take the place of the 8 Series in the lineup.", readTime: 2 }
+,
+    { tag: "Мировые новости", title: "The Volkswagen Tukan Is A New Small Truck The US Can't Have", text: "The VW Tukan is the successor to the Saveiro and debuts in single- and double-cab versions.", readTime: 2 }
 
 ];
 

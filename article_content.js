@@ -663,6 +663,10 @@ const BODIES = [
     [
         "According to BMW, the Vision Alpina will take the place of the 8 Series in the lineup."
     ]
+,
+    [
+        "The VW Tukan is the successor to the Saveiro and debuts in single- and double-cab versions."
+    ]
 
 ];
 
@@ -1060,6 +1064,10 @@ const SOURCES = [
 ,
     [
         { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805697/bmw-8-series-ends-alpina/" }
+    ]
+,
+    [
+        { name: "Motor1 Global — первоисточник", url: "https://www.motor1.com/news/805837/2027-vw-tukan-specs-details-photos/" }
     ]
 
 ];
