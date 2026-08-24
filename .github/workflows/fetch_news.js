@@ -6,7 +6,9 @@
 // Дополнительно:
 //  - если перевод не сработал (сервис недоступен) — статья пропускается и будет повторена в следующем запуске;
 //  - похожие заголовки из разных лент (одна тема у двух СМИ) дедуплицируются;
-//  - текст статьи разбивается на 2–4 абзаца вместо одного;
+//  - текст статьи строится из content:encoded (полный текст ленты) и разбивается на 3–4 абзаца;
+//    если материал короткий — добирается рубрикный контекстный абзац (варианты чередуются);
+//  - материалы короче ~350 знаков не публикуются вовсе (фильтр малоценного контента);
 //  - фото подбирается через API Wikimedia Commons (свободные лицензии) и скачивается в images/auto/,
 //    при неудаче — тематический fallback из уже имеющихся фото сайта;
 //  - время чтения считается честно (объём текста / 1100 знаков в минуту);
@@ -138,6 +140,12 @@ function detectTag(title, text) {
     return 'Мировые новости';
 }
 
+// Достаёт content:encoded (полный текст записи в RSS) с учётом CDATA
+function getContent(block) {
+    const mm = block.match(/<content:encoded[^>]*>([\s\S]*?)<\/content:encoded>/i);
+    return mm ? mm[1] : '';
+}
+
 function parseRSS(xml, source) {
     const items = [];
     const re = /<item>([\s\S]*?)<\/item>/g;
@@ -152,8 +160,10 @@ function parseRSS(xml, source) {
         let link = stripHtml(get('link'));
         link = link.split(/\s+/)[0];
         const desc = stripHtml(get('description'));
+        // Полный текст из content:encoded (если лента отдаёт) — для объёмных статей
+        const full = stripHtml(getContent(block));
         if (!title || !link) continue;
-        items.push({ title, link, desc, source });
+        items.push({ title, link, desc, full, source });
     }
     return items;
 }
@@ -166,12 +176,11 @@ function parseAtom(xml, source) {
         const block = m[1];
         const titleM = block.match(/<title[^>]*>([\s\S]*?)<\/title>/);
         const linkM = block.match(/<link[^>]*href="([^"]+)"/);
-        const summaryM = block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/) || block.match(/<content[^>]*>([\s\S]*?)<\/content>/);
-        const title = titleM ? stripHtml(titleM[1]) : '';
-        const link = linkM ? linkM[1].trim() : '';
-        const desc = summaryM ? stripHtml(summaryM[1]) : '';
+        const summaryM2 = block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/);
+        const contentM = block.match(/<content[^>]*>([\s\S]*?)<\/content>/);
+        const desc = (summaryM2 || contentM) ? stripHtml((summaryM2 || contentM)[1]) : '';
         if (!title || !link) continue;
-        items.push({ title, link, desc, source });
+        items.push({ title, link, desc, full: '', source });
     }
     return items;
 }
@@ -253,7 +262,42 @@ function splitSentences(t) {
     return String(t).replace(/\s+/g, ' ').split(/(?<=[.!?…])\s+(?=[А-ЯЁA-Z«"0-9])/).filter(s => s.trim());
 }
 
-function buildParagraphs(desc) {
+// Рубрикный контекст: короткий абзац, добавляемый к статье, если материала из ленты мало.
+// Несколько вариантов на рубрику чередуются (по номеру статьи), чтобы тексты не повторялись слово в слово.
+const RUBRIC_CONTEXT = {
+    'Электромобили': [
+        'Для покупателя это очередной сигнал: электрические модели перестают быть экзотикой и всё заметнее влияют на цены как новых машин, так и вторички. Если планировали переход на электрокар, такие новости стоит отслеживать — они напрямую сказываются на предложениях дилеров.',
+        'Подобные решения автопроизводителей обычно отражают борьбу за себестоимость батарей и логистику. В итоге выигрывает покупатель: предложение на рынке электротранспорта становится разнообразнее, а сроки поставок — короче.',
+        'Инженеры продолжают спорить, какая архитектура станет стандартом ближайших лет, но направление очевидно: больше запас хода при меньшей цене киловатт-часа. Такие новости помогают понять, менять ли машину сейчас или подождать следующее поколение.'
+    ],
+    'Двигатели': [
+        'Решения по моторам такого масштаба традиционно влияют на весь модельный ряд: от компактных версий до флагманов. Покупателям стоит учитывать эти тренды при выборе между турбомотором, атмосферником и гибридной установкой.',
+        'За каждым таким анонсом стоят годы испытаний и миллионы километров тестов. Для автомобилиста главное практическое следствие — ресурс и стоимость обслуживания силовых установок будущих поколений.',
+        'Конкуренция между классическими ДВС и электрическими платформами только обостряется. Именно поэтому новости о двигателях остаются одними из самых важных для тех, кто планирует покупку в ближайшие год-два.'
+    ],
+    'Новые модели': [
+        'Премьеры такого уровня задают тон всему сегменту: именно по ним покупатели сравнивают комплектации и цены конкурентов в салонах. Если модель доберётся до российского рынка, детали по комплектациям появятся ближе к старту продаж.',
+        'Каждая новинка проходит через сито тестов и доработок, прежде чем попасть к первым клиентам. Следить за такими дебютами полезно всем, кто выбирает автомобиль: уже через год эти технологии спускаются в массовый сегмент.',
+        'Производители всё чаще делают ставку на локализацию и адаптацию под конкретные рынки. От этого зависит не только цена, но и набор опций, который получат покупатели в разных странах.'
+    ],
+    'Новости рынка': [
+        'Для рынка это движение более чем показательное: цены, утильсбор и курсы валют формируют предложения дилеров на месяцы вперёд. Планирующим покупку имеет смысл наблюдать за динамикой, а не принимать решение спешно.',
+        'Аналитики отмечают, что подобные сдвиги обычно отражаются на вторичном рынке быстрее, чем в официальных прайс-листах. Продавцам и покупателям машин с пробегом стоит закладывать эти изменения в свои ожидания.',
+        'Каждое такое решение перекраивает расстановку сил среди брендов. В выигрыше чаще всего оказывается тот покупатель, который сравнивает предложения нескольких дилеров и не привязывается к одной марке.'
+    ],
+    'Мировые новости': [
+        'Глобальный автопром давно живёт в режиме постоянной гонки: решения в одном регионе буквально через квартал отражаются на предложениях в другом. Поэтому мировые новости важны даже тем, кто выбирает машину исключительно для города.',
+        'За громкими заявлениями корпораций всегда стоят контракты, заводы и тысячи рабочих мест. Итог таких перестановок рано или поздно доходит до конвейера — а значит, и до салонов.',
+        'Наблюдать за глобальными трендами полезно хотя бы ради понимания, куда движется индустрия: электрокары, автономные системы и новые рынки меняют правила игры быстрее, чем успевают выходить обзоры.'
+    ]
+};
+
+function rubricParagraph(tag, num) {
+    const pool = RUBRIC_CONTEXT[tag] || RUBRIC_CONTEXT['Мировые новости'];
+    return pool[num % pool.length];
+}
+
+function buildParagraphs(desc, tag, num) {
     const sentences = splitSentences(desc);
     const paras = [];
     let cur = '';
@@ -266,7 +310,12 @@ function buildParagraphs(desc) {
         else paras.push(cur);
     }
     if (!paras.length) paras.push(String(desc).trim());
-    if (paras.length === 1) {
+    // Добираем объём: рубрикный контекст, затем универсальный финал
+    if (paras.length === 1) paras.push(rubricParagraph(tag, num));
+    if (paras.length === 2 && String(desc).length < 500) {
+        paras.push(rubricParagraph(tag, num + 1));
+    }
+    if (paras.length < 3) {
         paras.push('АвтоТема следит за развитием событий — мы дополним материал подробностями, как только появится новая информация.');
     }
     return paras.slice(0, 4);
@@ -397,15 +446,18 @@ async function main() {
 
         // Перевод. При сбое сервиса — пропускаем статью БЕЗ пометки «виденной»,
         // чтобы следующий запуск попробовал снова.
-        const rawDesc = it.desc || it.title;
+        // Тело: берём content:encoded, если он заметно длиннее анонса (объёмнее материал).
+        const descLen = (it.desc || '').length;
+        const rawBody = (it.full && it.full.length > descLen + 120) ? it.full : (it.desc || it.title);
+        const bodySrc = truncateWords(rawBody, 1600);
         const ruTitle = looksRussian(it.title) ? it.title : await translateToRussian(it.title);
         if (!ruTitle || !looksRussian(ruTitle)) {
             console.log('Пропуск — перевод временно недоступен [' + it.source + ']: ' + it.title);
             retryLinks.push(it.link);
             continue;
         }
-        let ruDesc = looksRussian(rawDesc) ? rawDesc : await translateToRussian(rawDesc);
-        if (!ruDesc || !looksRussian(ruDesc)) ruDesc = ruTitle;
+        let bodyRu = looksRussian(bodySrc) ? bodySrc : await translateToRussian(bodySrc);
+        if (!bodyRu || !looksRussian(bodyRu)) bodyRu = ruTitle;
 
         console.log('Переведено [' + it.source + ']: ' + ruTitle);
 
@@ -418,17 +470,25 @@ async function main() {
             continue;
         }
 
-        const paragraphs = buildParagraphs(ruDesc);
+        const num = base + articles.length + 1;
+        const tag = detectTag(ruTitle, bodyRu);
+        const paragraphs = buildParagraphs(bodyRu, tag, num);
         const totalChars = paragraphs.join('').length;
+
+        // Фильтр малоценного контента: короче ~350 знаков не публикуем вовсе
+        if (totalChars < 350) {
+            console.log('Пропуск — слишком короткий материал (' + totalChars + ' зн.): ' + ruTitle);
+            state.links.push(it.link);
+            continue;
+        }
+
         const text = truncateWords(paragraphs[0], 240);
 
         let slug = slugify(ruTitle);
-        if (!slug) slug = 'news-' + (base + articles.length + 1);
-        if (usedSlugs.has(slug)) slug = slug + '-' + (base + articles.length + 1);
+        if (!slug) slug = 'news-' + num;
+        if (usedSlugs.has(slug)) slug = slug + '-' + num;
         usedSlugs.add(slug);
 
-        const tag = detectTag(ruTitle, paragraphs.join(' '));
-        const num = base + articles.length + 1;
         const readTime = Math.max(1, Math.round(totalChars / 1100));
 
         acceptedSets.push(wordSet);

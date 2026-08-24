@@ -88,6 +88,8 @@ const IMAGES = {
     94: { url: "/images/auto/art-94.jpg", alt: "BMW убила все надежды на новую 8-ю серию: «невозможно»", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
     95: { url: "/images/auto/art-95.jpg", alt: "Volkswagen Tukan — новый небольшой пикап, которого в США не будет", credit: "Фото: c5karl, CC BY 2.0" }
+,
+    96: { url: "/images/auto/art-96.jpg", alt: "Киберкабина Tesla без руля появится в Остине 3 сентября", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
 
 };
 
@@ -205,7 +207,9 @@ const SLUGS = {
 ,
     94: "bmw-ubila-vse-nadezhdy-na-novuyu-8-yu-seriyu-nevozmozhno"
 ,
-    95: "volkswagen-tukan-novyy-nebolshoy-pikap-kotorogo-v-ssa-ne-budet"
+    95: "volkswagen-tukan-novyy-nebolshoy-pikap-kotorogo-v-ssa-ne-budet",
+    96: "kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya"
+
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };
