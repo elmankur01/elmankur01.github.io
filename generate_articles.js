@@ -258,7 +258,7 @@ function articleNav(n) {
 function page(article, n) {
     const slug = slugs[n] || ('article-' + n);
     const imgObj = images[n] || {};
-    const ogImg = imgObj.url ? `${SITE}${imgObj.url}` : `${SITE}/og-image.jpg`;
+    const ogImg = imgObj.url ? `${SITE}${imgObj.url}` : `${SITE}/og-image.png`;
 
     return `<!DOCTYPE html>
 <html lang="ru">
@@ -654,6 +654,13 @@ function generateBrandPages() {
     <title>Каталог марок автомобилей | АвтоТема</title>
     <meta name="description" content="Полный каталог автомобильных брендов: китайские, европейские, российские и японские марки. Новости, обзоры, сравнения и характеристики.">
     <link rel="canonical" href="${SITE}/brands/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Каталог марок автомобилей | АвтоТема">
+    <meta property="og:description" content="Полный каталог автомобильных брендов: китайские, европейские, российские и японские марки. Новости, обзоры, сравнения и характеристики.">
+    <meta property="og:url" content="${SITE}/brands/">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="${SITE}/og-image.png">
     <link rel="stylesheet" href="/styles.css?v=5">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
@@ -748,6 +755,13 @@ function generateBrandPages() {
     <title>Автомобили ${esc(b.name)}: новости, обзоры, история марки | АвтоТема</title>
     <meta name="description" content="Всё о марке ${esc(b.name)}: свежие новости, тест-драйвы, история компании ${esc(b.name)}, технические характеристики и сравнение моделей.">
     <link rel="canonical" href="${SITE}/brands/${b.slug}.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Автомобили ${esc(b.name)}: новости, обзоры, история марки | АвтоТема">
+    <meta property="og:description" content="Всё о марке ${esc(b.name)}: свежие новости, тест-драйвы, история компании ${esc(b.name)}, технические характеристики и сравнение моделей.">
+    <meta property="og:url" content="${SITE}/brands/${b.slug}.html">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="${SITE}/og-image.png">
     <link rel="stylesheet" href="/styles.css?v=5">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
@@ -890,6 +904,13 @@ function generateTagPages() {
     <title>Тематические теги и рубрики | АвтоТема</title>
     <meta name="description" content="Облако тегов и тем автопортала АвтоТема: полный привод, электромобили, гибриды, вариаторы, кроссоверы и китайские авто.">
     <link rel="canonical" href="${SITE}/tags/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Тематические теги и рубрики | АвтоТема">
+    <meta property="og:description" content="Облако тегов и тем автопортала АвтоТема: полный привод, электромобили, гибриды, вариаторы, кроссоверы и китайские авто.">
+    <meta property="og:url" content="${SITE}/tags/">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="${SITE}/og-image.png">
     <link rel="stylesheet" href="/styles.css?v=5">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
@@ -974,6 +995,13 @@ function generateTagPages() {
     <title>${esc(t.name)} (${esc(t.hashtag)}) — статьи и обзоры | АвтоТема</title>
     <meta name="description" content="${esc(t.description)}">
     <link rel="canonical" href="${SITE}/tags/${t.slug}.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="${esc(t.name)} (${esc(t.hashtag)}) — статьи и обзоры | АвтоТема">
+    <meta property="og:description" content="${esc(t.description)}">
+    <meta property="og:url" content="${SITE}/tags/${t.slug}.html">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="${SITE}/og-image.png">
     <link rel="stylesheet" href="/styles.css?v=5">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>

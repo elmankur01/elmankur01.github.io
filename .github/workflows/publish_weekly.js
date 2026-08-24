@@ -4,13 +4,15 @@
 // Дайджест ничего не коммитит: статьи уже отмечены в posted.json при публикации.
 // Токен берётся из секрета TELEGRAM_BOT_TOKEN, ID канала — из секрета TELEGRAM_CHAT_ID
 const fs = require('fs');
+const vm = require('vm');
 const { loadPostedWithDates } = require('./posted_state');
 
 const src = fs.readFileSync('script.js', 'utf8');
 const m = src.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
 if (!m) { console.error('ARTICLE_BANK не найден'); process.exit(1); }
 
-const bank = eval(m[1]);
+// Безопасный разбор литерала вместо eval
+const bank = vm.runInNewContext('(' + m[1] + ')', Object.create(null), { timeout: 3000 });
 let slugs = {};
 try { slugs = require('../../article_images.js').SLUGS || {}; } catch (e) {}
 
