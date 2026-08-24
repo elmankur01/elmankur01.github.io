@@ -100,7 +100,9 @@ const IMAGES = {
     89: { url: "/images/auto/art-89.jpg", alt: "Lamborghini Temerario Tricolore зажёг краску на галечном пляже", credit: "Фото: Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },
     90: { url: "/images/auto/art-90.jpg", alt: "Почему главный дизайнер Tesla сохранил свой плед №001 Model S", credit: "Фото: Granada, CC BY-SA 4.0 (Wikimedia Commons)" },
     91: { url: "/images/auto/art-91.jpg", alt: "Ford рассматривает возможность создания дешевого раллийного автомобиля? Конечно, звучит так", credit: "Фото: Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },
-    92: { url: "/images/auto/art-92.jpg", alt: "Федералы расширяют расследование проблемных двигателей V8 GM", credit: "Фото: Bryn Hughes, CC BY-SA 4.0 (Wikimedia Commons)" }
+    92: { url: "/images/auto/art-92.jpg", alt: "Федералы расширяют расследование проблемных двигателей V8 GM", credit: "Фото: Bryn Hughes, CC BY-SA 4.0 (Wikimedia Commons)" },
+    97: { url: "/images/auto/art-97.jpg", alt: "Volvo хочет, чтобы ее PHEV двигались как электромобили", credit: "Фото: Dietmar Rabich, CC BY-SA 4.0" }
+
 };
 
 // ЧПУ-адреса статей (транслитерация заголовка). Ключ — номер статьи (1-based).
@@ -219,6 +221,8 @@ const SLUGS = {
 ,
     95: "volkswagen-tukan-novyy-nebolshoy-pikap-kotorogo-v-ssa-ne-budet",
     96: "kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya"
+,
+    97: "volvo-khochet-chtoby-ee-phev-dvigalis-kak-elektromobili"
 
 };
 
