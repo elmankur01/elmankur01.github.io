@@ -1,66 +1,101 @@
-// Service Worker для PWA «АвтоТема»
-const CACHE_NAME = 'avtotema-v2';
-const STATIC_ASSETS = [
+// Service Worker АвтоТемы.
+// Стратегии:
+//  - HTML-страницы: network-first (новости всегда свежие; при офлайне — из кэша, затем главная);
+//  - статика (CSS/JS/шрифты/картинки): stale-while-revalidate (мгновенно из кэша + фоновое обновление);
+//    версии файлов задаются query-параметрами (?v=N), поэтому обновление подхватывается автоматически;
+//  - служебные страницы (админка, статистика) и запросы не GET не перехватываются.
+const VERSION = 'v3';
+const STATIC_CACHE = 'avtotema-static-' + VERSION;
+const PAGE_CACHE = 'avtotema-pages-' + VERSION;
+
+// Ядро для офлайна: главная и ключевые ресурсы
+const PRECACHE_URLS = [
     '/',
-    '/index.html',
-    '/styles.css',
-    '/script.js',
-    '/interactive.js',
-    '/footer.js',
-    '/article_images.js',
+    '/styles.css?v=6',
+    '/theme.js',
+    '/script.js?v=3',
+    '/likes.js?v=2',
+    '/footer.js?v=2',
     '/manifest.json',
-    '/logo-icon.svg',
-    '/favicon.png',
-    '/favicon.ico'
+    '/favicon.ico',
+    '/logo-icon.svg'
 ];
 
-self.addEventListener('install', event => {
+// Служебные пути — SW их не обслуживает
+const BYPASS_PATHS = [
+    '/4cc55b6066d79bfb2a80.html',
+    '/4182e144696b3e5c1899.html',
+    '/state/'
+];
+
+self.addEventListener('install', function (event) {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(STATIC_ASSETS).catch(() => {});
-        })
+        caches.open(STATIC_CACHE)
+            .then(function (cache) { return cache.addAll(PRECACHE_URLS); })
+            .then(function () { return self.skipWaiting(); })
     );
-    self.skipWaiting();
 });
 
-self.addEventListener('activate', event => {
+self.addEventListener('activate', function (event) {
     event.waitUntil(
-        caches.keys().then(keys => {
-            return Promise.all(
-                keys.map(k => {
-                    if (k !== CACHE_NAME) return caches.delete(k);
-                })
-            );
-        })
+        caches.keys().then(function (keys) {
+            return Promise.all(keys.map(function (key) {
+                if (key !== STATIC_CACHE && key !== PAGE_CACHE) return caches.delete(key);
+            }));
+        }).then(function () { return self.clients.claim(); })
     );
-    self.clients.claim();
 });
 
-self.addEventListener('fetch', event => {
-    if (event.request.method !== 'GET') return;
-    
-    // Игнорировать расширения браузера (chrome-extension://, moz-extension:// и т.д.)
-    if (!event.request.url.startsWith('http://') && !event.request.url.startsWith('https://')) {
-        return;
-    }
+function isStaticAsset(url) {
+    return /\.(css|js|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|otf)(\?|$)/i.test(url.pathname) ||
+           url.pathname.startsWith('/fonts/') ||
+           url.pathname.startsWith('/images/');
+}
 
-    const url = new URL(event.request.url);
-    // Не кэшировать служебные / админ страницы
-    if (url.pathname.includes('4cc55b6066d79bfb2a80') || url.pathname.includes('4182e144696b3e5c1899') || url.pathname.includes('gate.js')) {
-        return;
-    }
+function isHtmlRequest(request, url) {
+    if (request.mode === 'navigate') return true;
+    var accept = request.headers.get('accept') || '';
+    return accept.indexOf('text/html') !== -1 && !isStaticAsset(url);
+}
 
-    event.respondWith(
-        fetch(event.request)
-            .then(res => {
-                if (res && res.status === 200 && res.type === 'basic') {
-                    const resClone = res.clone();
-                    caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, resClone).catch(() => {});
-                    });
-                }
-                return res;
+self.addEventListener('fetch', function (event) {
+    var request = event.request;
+    if (request.method !== 'GET') return;
+
+    var url = new URL(request.url);
+    if (url.origin !== location.origin) return;
+    if (BYPASS_PATHS.some(function (p) { return url.pathname.startsWith(p); })) return;
+
+    // Статика: мгновенно из кэша + фоновое обновление
+    if (isStaticAsset(url)) {
+        event.respondWith(
+            caches.open(STATIC_CACHE).then(function (cache) {
+                return cache.match(request).then(function (cached) {
+                    var network = fetch(request).then(function (response) {
+                        if (response && response.ok) cache.put(request, response.clone());
+                        return response;
+                    }).catch(function () { return cached; });
+                    return cached || network;
+                });
             })
-            .catch(() => caches.match(event.request))
-    );
+        );
+        return;
+    }
+
+    // HTML: сначала сеть, при офлайне — кэш, затем главная
+    if (isHtmlRequest(request, url)) {
+        event.respondWith(
+            fetch(request).then(function (response) {
+                if (response && response.ok) {
+                    var copy = response.clone();
+                    caches.open(PAGE_CACHE).then(function (cache) { cache.put(request, copy); });
+                }
+                return response;
+            }).catch(function () {
+                return caches.match(request).then(function (cached) {
+                    return cached || caches.match('/');
+                });
+            })
+        );
+    }
 });

@@ -286,7 +286,9 @@ function page(article, n) {
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
-        var t = localStorage.getItem('avtotema_theme');
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
         if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     })();
     </script>
@@ -665,7 +667,9 @@ function generateBrandPages() {
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
-        var t = localStorage.getItem('avtotema_theme');
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
         if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     })();
     </script>
@@ -766,7 +770,9 @@ function generateBrandPages() {
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
-        var t = localStorage.getItem('avtotema_theme');
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
         if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     })();
     </script>
@@ -915,7 +921,9 @@ function generateTagPages() {
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
-        var t = localStorage.getItem('avtotema_theme');
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
         if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     })();
     </script>
@@ -1006,7 +1014,9 @@ function generateTagPages() {
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
-        var t = localStorage.getItem('avtotema_theme');
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
         if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     })();
     </script>
