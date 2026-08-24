@@ -90,7 +90,17 @@ const IMAGES = {
     95: { url: "/images/auto/art-95.jpg", alt: "Volkswagen Tukan — новый небольшой пикап, которого в США не будет", credit: "Фото: c5karl, CC BY 2.0" }
 ,
     96: { url: "/images/auto/art-96.jpg", alt: "Киберкабина Tesla без руля появится в Остине 3 сентября", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
-
+,
+    83: { url: "/images/auto/art-83.jpg", alt: "Новый Mercedes C-Class не вернет AMG C63 V8", credit: "Фото: user:AngMoKio, CC BY-SA 2.5 (Wikimedia Commons)" },
+    84: { url: "/images/auto/art-84.jpg", alt: "Jeep только что представил новый Cherokee. Но еще один уже в пути", credit: "Фото: Rudolf Stricker, CC BY-SA 3.0 (Wikimedia Commons)" },
+    85: { url: "/images/auto/art-85.jpg", alt: "Сделано всего 2500 экземпляров: Toyota Corolla, посвященная 60-летию Toyota, является гибридом", credit: "Фото: Petar Milošević, CC BY-SA 4.0 (Wikimedia Commons)" },
+    86: { url: "/images/auto/art-86.jpg", alt: "Гибридное будущее Lamborghini обретает форму, и одна страна может сыграть более важную роль", credit: "Фото: Matti Blume, CC BY 2.0 de (Wikimedia Commons)" },
+    87: { url: "/images/auto/art-87.jpg", alt: "BMW еще не закончила с M2. Предположительно выйдет новая версия", credit: "Фото: Matti Blume, CC BY-SA 4.0 (Wikimedia Commons)" },
+    88: { url: "/images/auto/art-88.jpg", alt: "Калифорния утвердила новые правила эффективности замены шин. Вот что это значит", credit: "Фото: Ken Lund from Reno, Nevada, USA, CC BY-SA 2.0 (Wikimedia Commons)" },
+    89: { url: "/images/auto/art-89.jpg", alt: "Lamborghini Temerario Tricolore зажёг краску на галечном пляже", credit: "Фото: Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },
+    90: { url: "/images/auto/art-90.jpg", alt: "Почему главный дизайнер Tesla сохранил свой плед №001 Model S", credit: "Фото: Granada, CC BY-SA 4.0 (Wikimedia Commons)" },
+    91: { url: "/images/auto/art-91.jpg", alt: "Ford рассматривает возможность создания дешевого раллийного автомобиля? Конечно, звучит так", credit: "Фото: Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },
+    92: { url: "/images/auto/art-92.jpg", alt: "Федералы расширяют расследование проблемных двигателей V8 GM", credit: "Фото: Bryn Hughes, CC BY-SA 4.0 (Wikimedia Commons)" }
 };
 
 // ЧПУ-адреса статей (транслитерация заголовка). Ключ — номер статьи (1-based).
