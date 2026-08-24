@@ -1,17 +1,27 @@
 // Скрипт для GitHub Actions: автоматически добавляет статьи в банк из мировых авто-СМИ и российских источников.
 // Запускается из auto_news.yml (по расписанию, 2 раза в день).
 // Зарубежные новости (Motor1, Electrek, Autocar, Car & Driver) автоматически качественно переводятся на русский язык.
-// Статьи добавляются в ARTICLE_BANK (script.js), BODIES/SOURCES (article_content.js) и SLUGS (article_images.js).
+// Статьи добавляются в ARTICLE_BANK (script.js), BODIES/SOURCES (article_content.js) и SLUGS/IMAGES (article_images.js).
 // Уже использованные ссылки не повторяются (state/seen_news.json).
+// Дополнительно:
+//  - если перевод не сработал (сервис недоступен) — статья пропускается и будет повторена в следующем запуске;
+//  - похожие заголовки из разных лент (одна тема у двух СМИ) дедуплицируются;
+//  - текст статьи разбивается на 2–4 абзаца вместо одного;
+//  - фото подбирается через API Wikimedia Commons (свободные лицензии) и скачивается в images/auto/,
+//    при неудаче — тематический fallback из уже имеющихся фото сайта;
+//  - время чтения считается честно (объём текста / 1100 знаков в минуту);
+//  - state/seen_news.json автоматически ужимается до последних 2000 ссылок.
 // Для теста без изменений: NEWS_DRY_RUN=1 node .github/workflows/fetch_news.js
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const vm = require('vm');
 
 const ROOT = path.join(__dirname, '..', '..');
 const STATE_FILE = path.join(ROOT, 'state', 'seen_news.json');
 const TARGET = parseInt(process.env.NEWS_TARGET || '1', 10);
 const DRY_RUN = process.env.NEWS_DRY_RUN === '1';
+
+const UA = { 'user-agent': 'Mozilla/5.0 (compatible; AvtoTemaBot/1.0; +https://avtotema-news.online)' };
 
 const FEEDS = [
     // Ведущие мировые автоиздания
@@ -27,6 +37,15 @@ const FEEDS = [
     { name: 'Авто Mail.ru', url: 'https://auto.mail.ru/rss/' }
 ];
 
+// Тематический запас фотографий сайта (если Commons ничего не нашёл / скачивание не удалось).
+const FALLBACK_POOLS = {
+    'Электромобили': ['/images/art-01.jpg', '/images/art-15.jpg', '/images/art-10.jpg'],
+    'Двигатели': ['/images/art-08.jpg', '/images/art-14.jpg'],
+    'Новые модели': ['/images/art-02.jpg', '/images/art-07.jpg'],
+    'Новости рынка': ['/images/art-17.jpg', '/images/art-13.jpg']
+};
+const FALLBACK_DEFAULT = ['/images/art-05.jpg', '/images/art-06.jpg', '/images/ferrari.jpg'];
+
 function stripHtml(s) {
     return String(s || '')
         .replace(/<!\[CDATA\[|\]\]>/g, '')
@@ -41,26 +60,65 @@ function stripHtml(s) {
         .trim();
 }
 
+function cyrLat(text) {
+    const t = String(text || '');
+    return {
+        lat: (t.match(/[a-zA-Z]/g) || []).length,
+        cyr: (t.match(/[а-яА-ЯёЁ]/g) || []).length
+    };
+}
+
+function looksRussian(text) {
+    const c = cyrLat(text);
+    return c.cyr >= c.lat && c.cyr > 5;
+}
+
+// Переводчики по цепочке: основной gtx → зеркало clients5 → запасной MyMemory.
+// Возвращает переведённый текст или null, если не сработал ни один сервис.
+async function translateViaGtx(text) {
+    const url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ru&dt=t&q=' + encodeURIComponent(text);
+    const res = await fetch(url, Object.assign({ signal: AbortSignal.timeout(10000) }, UA));
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data && data[0]) return data[0].map(x => x[0]).join('');
+    return null;
+}
+
+async function translateViaClients5(text) {
+    const url = 'https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=ru&q=' + encodeURIComponent(text);
+    const res = await fetch(url, Object.assign({ signal: AbortSignal.timeout(10000) }, UA));
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!Array.isArray(data) || !data.length) return null;
+    if (typeof data[0] === 'string') return data.join(' ');
+    if (Array.isArray(data[0])) return data.map(x => (Array.isArray(x) ? x[0] : x)).join('');
+    return null;
+}
+
+async function translateViaMyMemory(text) {
+    // Бесплатный официальный API, лимит ~500 знаков на запрос
+    const chunk = String(text).slice(0, 480);
+    const url = 'https://api.mymemory.translated.net/get?langpair=en|ru&q=' + encodeURIComponent(chunk);
+    const res = await fetch(url, Object.assign({ signal: AbortSignal.timeout(10000) }, UA));
+    if (!res.ok) return null;
+    const data = await res.json();
+    const out = data && data.responseData && data.responseData.translatedText;
+    return (out && !/<\//.test(out)) ? out : null;
+}
+
 async function translateToRussian(text) {
     if (!text) return '';
-    const latinCount = (text.match(/[a-zA-Z]/g) || []).length;
-    const cyrillicCount = (text.match(/[а-яА-ЯёЁ]/g) || []).length;
-    // Если уже на русском — возвращаем как есть
-    if (cyrillicCount >= latinCount && cyrillicCount > 5) return text;
+    if (looksRussian(text)) return text;
 
-    try {
-        const url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ru&dt=t&q=' + encodeURIComponent(text);
-        const res = await fetch(url, { signal: AbortSignal.timeout(10000) });
-        if (res.ok) {
-            const data = await res.json();
-            if (data && data[0]) {
-                return data[0].map(x => x[0]).join('');
-            }
-        }
-    } catch (e) {
-        console.log('Ошибка автоперевода: ' + e.message);
+    const providers = [translateViaGtx, translateViaClients5, translateViaMyMemory];
+    for (const provider of providers) {
+        try {
+            const out = await provider(text);
+            if (out && looksRussian(out)) return out;
+        } catch (e) { /* пробуем следующего поставщика */ }
     }
-    return text;
+    console.log('Все переводчики недоступны');
+    return null;
 }
 
 function detectTag(title, text) {
@@ -127,6 +185,8 @@ function loadSeen() {
 
 function saveSeen(state) {
     if (DRY_RUN) return;
+    // Ужимаем историю, чтобы файл не рос бесконечно
+    state.links = state.links.slice(-2000);
     fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
     const tmp = STATE_FILE + '.tmp';
     fs.writeFileSync(tmp, JSON.stringify({ updated: new Date().toISOString(), links: state.links, added: state.added }, null, 2) + '\n');
@@ -135,6 +195,16 @@ function saveSeen(state) {
 
 function jsStr(s) {
     return String(s || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/[\n\r\t]+/g, ' ');
+}
+
+// Безопасный разбор JS-литерала массива (вместо eval): изолированная песочница без доступа к fs/network/process.
+function parseArrayLiteral(literal, label) {
+    try {
+        return vm.runInNewContext('(' + literal + ')', Object.create(null), { timeout: 3000 });
+    } catch (e) {
+        console.error('Не удалось разобрать литерал ' + label + ': ' + e.message);
+        process.exit(1);
+    }
 }
 
 function slugify(title) {
@@ -151,16 +221,121 @@ function slugify(title) {
     return slug;
 }
 
+// ---------- Дедупликация похожих тем ----------
+
+const DEDUP_STOP = new Set([
+    'в','на','и','с','по','для','о','от','до','за','из','у','же','не','что','как','это','эта','этот',
+    'новый','новая','новое','новые','будет','будут','своих','очень','после','также','более','самых',
+    'the','a','an','of','in','for','to','on','with','and','is','are','was','were','new','its','his'
+]);
+
+function titleWordSet(title) {
+    const words = String(title || '')
+        .toLowerCase()
+        .replace(/ё/g, 'е')
+        .replace(/[^a-zа-я0-9\s]/g, ' ')
+        .split(/\s+/)
+        .filter(w => w.length > 2 && !DEDUP_STOP.has(w))
+        .map(w => w.slice(0, 6));
+    return new Set(words);
+}
+
+function titlesSimilar(aSet, bSet) {
+    if (!aSet.size || !bSet.size) return false;
+    let inter = 0;
+    for (const w of aSet) if (bSet.has(w)) inter++;
+    return inter / Math.min(aSet.size, bSet.size) >= 0.6;
+}
+
+// ---------- Разбивка текста на абзацы ----------
+
+function splitSentences(t) {
+    return String(t).replace(/\s+/g, ' ').split(/(?<=[.!?…])\s+(?=[А-ЯЁA-Z«"0-9])/).filter(s => s.trim());
+}
+
+function buildParagraphs(desc) {
+    const sentences = splitSentences(desc);
+    const paras = [];
+    let cur = '';
+    for (const s of sentences) {
+        cur = cur ? cur + ' ' + s : s;
+        if (cur.length >= 260) { paras.push(cur); cur = ''; }
+    }
+    if (cur) {
+        if (paras.length && cur.length < 80) paras[paras.length - 1] += ' ' + cur;
+        else paras.push(cur);
+    }
+    if (!paras.length) paras.push(String(desc).trim());
+    if (paras.length === 1) {
+        paras.push('АвтоТема следит за развитием событий — мы дополним материал подробностями, как только появится новая информация.');
+    }
+    return paras.slice(0, 4);
+}
+
+function truncateWords(t, maxLen) {
+    if (String(t).length <= maxLen) return t;
+    return String(t).slice(0, maxLen).replace(/\s+\S*$/, '') + '…';
+}
+
+// ---------- Фото: Wikimedia Commons ----------
+
+// Ключевые слова для поиска фото на Commons. Стратегия: фото ищем только по бренду или типу кузова —
+// так выдача стабильно содержит машины. Если в заголовке ни бренда, ни термина нет,
+// возвращаем пустую строку и статья получает тематический fallback сайта.
+const CAR_BRANDS = new Set(['tesla','bmw','toyota','honda','ford','chevrolet','porsche','audi','mercedes','volkswagen','nissan','hyundai','kia','volvo','mazda','subaru','lexus','ferrari','lamborghini','byd','zeekr','chery','haval','geely','exeed','xiaomi','nio','rivian','lucid','bentley','mclaren','bugatti','jaguar','rover','mini','skoda','peugeot','renault','fiat','jeep','dodge','ram','gmc','cadillac','lincoln','buick','acura','infiniti','genesis','polestar','suzuki','mitsubishi','cupra','rimac','omoda','jaecoo','kaiyi','moskvich','lada','uaz','kamaz','aurus']);
+const CAR_TERMS = new Set(['suv','crossover','sedan','ev','truck','pickup','coupe','roadster','hatchback','wagon','convertible','hypercar','supercar']);
+
+function commonsQuery(enTitle) {
+    const words = String(enTitle || '').match(/[A-Za-z][A-Za-z0-9\-]{2,}/g) || [];
+    const brand = words.find(w => CAR_BRANDS.has(w.toLowerCase()));
+    if (brand) return brand + ' automobile';
+    const term = words.find(w => CAR_TERMS.has(w.toLowerCase()));
+    if (term) return term + ' automobile';
+    return '';
+}
+
+async function fetchCommonsImage(query) {
+    if (!query) return null;
+    const api = 'https://commons.wikimedia.org/w/api.php?action=query&format=json'
+        + '&generator=search&gsrsearch=' + encodeURIComponent('filetype:bitmap ' + query)
+        + '&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url|mime|size|extmetadata&iiurlwidth=1280';
+    try {
+        const res = await fetch(api, Object.assign({ signal: AbortSignal.timeout(20000) }, UA));
+        if (!res.ok) return null;
+        const data = await res.json();
+        const pages = Object.values((data.query && data.query.pages) || {});
+        // Сортируем по index — релевантность выдачи поиска
+        pages.sort((a, b) => (a.index || 99) - (b.index || 99));
+        for (const p of pages) {
+            const ii = p.imageinfo && p.imageinfo[0];
+            if (!ii || ii.mime !== 'image/jpeg') continue;
+            if ((ii.width || 0) < 700) continue;
+            const meta = ii.extmetadata || {};
+            const artist = stripHtml((meta.Artist && meta.Artist.value) || '').slice(0, 60) || 'Wikimedia Commons';
+            const lic = stripHtml((meta.LicenseShortName && meta.LicenseShortName.value) || '') || 'Wikimedia Commons';
+            return { thumb: ii.thumburl || ii.url, credit: ('Фото: ' + artist + ', ' + lic).slice(0, 140) };
+        }
+    } catch (e) {
+        console.log('Поиск фото Commons не удался: ' + e.message);
+    }
+    return null;
+}
+
+async function downloadImage(localPath, url) {
+    const res = await fetch(url, Object.assign({ signal: AbortSignal.timeout(30000) }, UA));
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const buf = Buffer.from(await res.arrayBuffer());
+    if (buf.length < 10000 || buf.length > 6 * 1024 * 1024) throw new Error('подозрительный размер файла');
+    fs.mkdirSync(path.dirname(path.join(ROOT, '.' + localPath)), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, '.' + localPath), buf);
+}
+
 function insertBeforeClosing(src, marker, closing, block) {
     const mi = src.indexOf(marker);
     if (mi < 0) throw new Error('Маркер не найден: ' + marker);
     const ci = src.indexOf(closing, mi);
-    if (ci < 0) throw new Error('Закрывающий маркер не найден: ' + closing);
+    if (ci < 0) throw new Error('Закрывающий маркер не найден: ' + marker);
     return src.slice(0, ci) + block + src.slice(ci);
-}
-
-function commitAll() {
-    console.log('Файлы успешно подготовлены');
 }
 
 async function main() {
@@ -171,7 +346,7 @@ async function main() {
     for (const f of FEEDS) {
         try {
             const res = await fetch(f.url, {
-                headers: { 'user-agent': 'Mozilla/5.0 (compatible; AvtoTemaBot/1.0; +https://avtotema-news.online)' },
+                headers: UA,
                 signal: AbortSignal.timeout(25000)
             });
             if (!res.ok) { console.log('Пропуск ' + f.name + ': HTTP ' + res.status); continue; }
@@ -209,42 +384,102 @@ async function main() {
     const scriptSrc = fs.readFileSync(scriptPath, 'utf8');
     const m = scriptSrc.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
     if (!m) { console.error('ARTICLE_BANK не найден в script.js'); process.exit(1); }
-    const bank = eval(m[1]);
+    const bank = parseArrayLiteral(m[1], 'ARTICLE_BANK');
     const base = bank.length;
+    const bankTitleSets = bank.map(a => titleWordSet(a.title));
     const usedSlugs = new Set();
+    const acceptedSets = [];
 
     const articles = [];
+    const retryLinks = [];
     for (let i = 0; i < selected.length; i++) {
         const it = selected[i];
-        console.log('Перевод и обработка [' + it.source + ']: ' + it.title);
 
-        const ruTitle = await translateToRussian(it.title);
+        // Перевод. При сбое сервиса — пропускаем статью БЕЗ пометки «виденной»,
+        // чтобы следующий запуск попробовал снова.
         const rawDesc = it.desc || it.title;
-        const ruDesc = await translateToRussian(rawDesc);
-        const text = ruDesc.length > 320 ? ruDesc.slice(0, 320).replace(/\s+\S*$/, '') + '…' : ruDesc;
+        const ruTitle = looksRussian(it.title) ? it.title : await translateToRussian(it.title);
+        if (!ruTitle || !looksRussian(ruTitle)) {
+            console.log('Пропуск — перевод временно недоступен [' + it.source + ']: ' + it.title);
+            retryLinks.push(it.link);
+            continue;
+        }
+        let ruDesc = looksRussian(rawDesc) ? rawDesc : await translateToRussian(rawDesc);
+        if (!ruDesc || !looksRussian(ruDesc)) ruDesc = ruTitle;
+
+        console.log('Переведено [' + it.source + ']: ' + ruTitle);
+
+        // Дедупликация тем: слишком похожий заголовок уже есть в банке или в этой партии
+        const wordSet = titleWordSet(ruTitle);
+        const isDup = bankTitleSets.some(set => titlesSimilar(wordSet, set)) || acceptedSets.some(set => titlesSimilar(wordSet, set));
+        if (isDup) {
+            console.log('Пропуск — дубликат темы: ' + ruTitle);
+            state.links.push(it.link);
+            continue;
+        }
+
+        const paragraphs = buildParagraphs(ruDesc);
+        const totalChars = paragraphs.join('').length;
+        const text = truncateWords(paragraphs[0], 240);
 
         let slug = slugify(ruTitle);
-        if (!slug) slug = 'news-' + (base + i + 1);
-        if (usedSlugs.has(slug)) slug = slug + '-' + (base + i + 1);
+        if (!slug) slug = 'news-' + (base + articles.length + 1);
+        if (usedSlugs.has(slug)) slug = slug + '-' + (base + articles.length + 1);
         usedSlugs.add(slug);
 
-        const tag = detectTag(ruTitle, text);
+        const tag = detectTag(ruTitle, paragraphs.join(' '));
+        const num = base + articles.length + 1;
+        const readTime = Math.max(1, Math.round(totalChars / 1100));
+
+        acceptedSets.push(wordSet);
 
         articles.push({
             title: ruTitle,
+            origTitle: it.title,
             text,
+            paragraphs,
             tag,
-            readTime: Math.max(2, Math.round(text.length / 400)),
+            readTime,
             slug,
-            num: base + i + 1,
+            num,
             sourceName: it.source,
             sourceUrl: it.link
         });
     }
 
+    if (!articles.length) {
+        console.log(retryLinks.length ? 'Переводчик недоступен — статьи будут обработаны в следующем запуске' : 'Новых подходящих статей нет');
+        saveSeen(state);
+        process.exit(0);
+    }
+
     console.log('Добавляю статей: ' + articles.length);
+
+    // Подбираем фото: сперва Wikimedia Commons (по бренду/типу), при неудаче — тематический fallback сайта.
     for (const a of articles) {
-        console.log('  #' + a.num + ' [' + a.sourceName + ' / ' + a.tag + '] ' + a.title);
+        const query = commonsQuery(a.origTitle);
+        if (DRY_RUN) {
+            console.log('[DRY RUN] фото: ' + (query ? 'искали бы «' + query + '»' : 'бренда/типа кузова нет — сразу fallback') + ', рубрика ' + a.tag);
+            a.image = { url: FALLBACK_POOLS[a.tag] ? FALLBACK_POOLS[a.tag][a.num % FALLBACK_POOLS[a.tag].length] : FALLBACK_DEFAULT[a.num % FALLBACK_DEFAULT.length], alt: a.title, credit: 'Фото: АвтоТема' };
+            continue;
+        }
+        const found = query ? await fetchCommonsImage(query) : null;
+        let image = null;
+        if (found) {
+            const localUrl = '/images/auto/art-' + a.num + '.jpg';
+            try {
+                await downloadImage(localUrl, found.thumb);
+                image = { url: localUrl, alt: a.title, credit: found.credit };
+            } catch (e) {
+                console.log('Скачивание фото не удалось (' + e.message + '), берём fallback');
+            }
+        }
+        if (!image) {
+            const pool = FALLBACK_POOLS[a.tag] || FALLBACK_DEFAULT;
+            image = { url: pool[a.num % pool.length], alt: a.title, credit: 'Фото: АвтоТема' };
+        }
+        a.image = image;
+        console.log('  #' + a.num + ' [' + a.sourceName + ' / ' + a.tag + '] ' + a.title + ' | фото: ' + a.image.url);
     }
 
     if (DRY_RUN) {
@@ -259,11 +494,11 @@ async function main() {
     const newScript = insertBeforeClosing(scriptSrc, 'const ARTICLE_BANK = [', '\n];', ',\n' + bankBlock + '\n');
     fs.writeFileSync(scriptPath, newScript);
 
-    // 2. article_content.js → BODIES (по одному абзацу с текстом) и SOURCES (ссылка на новость)
+    // 2. article_content.js → BODIES (2–4 абзаца) и SOURCES (ссылка на новость)
     const contentPath = path.join(ROOT, 'article_content.js');
     let contentSrc = fs.readFileSync(contentPath, 'utf8');
     const bodiesBlock = articles.map(a =>
-        '    [\n        "' + jsStr(a.text) + '"\n    ]'
+        '    [\n' + a.paragraphs.map(p => '        "' + jsStr(p) + '"').join(',\n') + '\n    ]'
     ).join(',\n');
     contentSrc = insertBeforeClosing(contentSrc, 'const BODIES = [', '\n];', ',\n' + bodiesBlock + '\n');
     const sourcesBlock = articles.map(a =>
@@ -272,19 +507,25 @@ async function main() {
     contentSrc = insertBeforeClosing(contentSrc, 'const SOURCES = [', '\n];', ',\n' + sourcesBlock + '\n');
     fs.writeFileSync(contentPath, contentSrc);
 
-    // 3. article_images.js → SLUGS
+    // 3. article_images.js → SLUGS + IMAGES (фото скачаны локально либо fallback)
     const imagesPath = path.join(ROOT, 'article_images.js');
     const imagesSrc = fs.readFileSync(imagesPath, 'utf8');
     const slugsBlock = articles.map(a => '    ' + a.num + ': "' + a.slug + '"').join(',\n');
-    const newImages = insertBeforeClosing(imagesSrc, 'const SLUGS = {', '\n};', ',\n' + slugsBlock + '\n');
+    let newImages = insertBeforeClosing(imagesSrc, 'const SLUGS = {', '\n};', ',\n' + slugsBlock + '\n');
+    const imagesBlock = articles.map(a =>
+        '    ' + a.num + ': { url: "' + jsStr(a.image.url) + '", alt: "' + jsStr(a.image.alt) + '", credit: "' + jsStr(a.image.credit) + '" }'
+    ).join(',\n');
+    newImages = insertBeforeClosing(newImages, 'const IMAGES = {', '\n};', ',\n' + imagesBlock + '\n');
     fs.writeFileSync(imagesPath, newImages);
 
-    // 4. state/seen_news.json — запоминаем использованные ссылки
-    for (const it of selected) state.links.push(it.link);
+    // 4. state/seen_news.json — запоминаем использованные ссылки (неудачный перевод оставляем на следующий раз)
+    for (const it of selected) {
+        if (!retryLinks.includes(it.link)) state.links.push(it.link);
+    }
     state.added += articles.length;
     saveSeen(state);
 
-    commitAll();
+    console.log('Файлы успешно подготовлены');
     process.exit(0);
 }
 

@@ -3,6 +3,7 @@
 // Запуск: node generate_articles.js
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 const { BRANDS, TAGS } = require('./seo_taxonomy.js');
 
 const SITE = 'https://avtotema-news.online';
@@ -11,7 +12,8 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const src = fs.readFileSync(path.join(__dirname, 'script.js'), 'utf8');
 const m = src.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
 if (!m) { console.error('ARTICLE_BANK не найден'); process.exit(1); }
-const bank = eval(m[1]);
+// Безопасный разбор литерала вместо eval
+const bank = vm.runInNewContext('(' + m[1] + ')', Object.create(null), { timeout: 3000 });
 
 let bodies = [];
 let sources = [];

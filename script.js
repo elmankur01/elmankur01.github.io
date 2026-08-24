@@ -117,11 +117,11 @@ const ARTICLE_BANK = [
 ,
     { tag: "Двигатели", title: "Федералы расширяют расследование проблемных двигателей V8 GM", text: "Национальная администрация безопасности дорожного движения получила жалобы на отказы двигателей, выходящие за рамки прошлогоднего отзыва.", readTime: 2 }
 ,
-    { tag: "Двигатели", title: "The Genesis G70 Is Losing Its Best Engine", text: "A government website indicates that the V6-powered sport sedan is dead for 2027.", readTime: 2 }
+    { tag: "Двигатели", title: "Genesis G70 теряет свой лучший двигатель", text: "На правительственном веб-сайте указано, что спортивный седан с двигателем V6 прекратит свое существование в 2027 году.", readTime: 1 }
 ,
-    { tag: "Мировые новости", title: "BMW Killed Any Hopes Of A New 8 Series: 'Not Feasible'", text: "According to BMW, the Vision Alpina will take the place of the 8 Series in the lineup.", readTime: 2 }
+    { tag: "Мировые новости", title: "BMW убила все надежды на новую 8-ю серию: «невозможно»", text: "По данным BMW, Vision Alpina займет место 8-й серии в линейке.", readTime: 1 }
 ,
-    { tag: "Мировые новости", title: "The Volkswagen Tukan Is A New Small Truck The US Can't Have", text: "The VW Tukan is the successor to the Saveiro and debuts in single- and double-cab versions.", readTime: 2 }
+    { tag: "Новые модели", title: "Volkswagen Tukan — новый небольшой пикап, которого в США не будет", text: "VW Tukan является преемником Saveiro и дебютирует в версиях с одинарной и двойной кабиной.", readTime: 1 }
 
 ];
 

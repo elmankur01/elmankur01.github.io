@@ -82,7 +82,11 @@ const IMAGES = {
     79: { url: "/images/art-79.jpg", alt: "Gordon Murray S1", credit: "Unsplash" },
     80: { url: "/images/art-80.jpg", alt: "Porsche 911 Carrera S", credit: "Unsplash" },
     81: { url: "/images/art-81.jpg", alt: "Уникальный суперкар Ferrari Luce", credit: "Пресс-служба Ferrari / Motor1" },
-    82: { url: "/images/art-82.jpg", alt: "Mercedes-Benz 300 SLS и SLR Stirling Moss", credit: "Mercedes-Benz Classic" }
+    82: { url: "/images/art-82.jpg", alt: "Mercedes-Benz 300 SLS и SLR Stirling Moss", credit: "Mercedes-Benz Classic" },
+    93: { url: "/images/auto/art-93.jpg", alt: "Genesis G70 теряет свой лучший двигатель", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    94: { url: "/images/auto/art-94.jpg", alt: "BMW убила все надежды на новую 8-ю серию: «невозможно»", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
+
 };
 
 // ЧПУ-адреса статей (транслитерация заголовка). Ключ — номер статьи (1-based).
@@ -195,12 +199,13 @@ const SLUGS = {
 ,
     92: "federaly-rasshiryayut-rassledovanie-problemnykh-dvigateley-v8-gm"
 ,
-    93: "the-genesis-g70-is-losing-its-best-engine"
+    93: "genesis-g70-teryaet-svoy-luchshiy-dvigatel"
 ,
-    94: "bmw-killed-any-hopes-of-a-new-8-series-not-feasible"
+    94: "bmw-ubila-vse-nadezhdy-na-novuyu-8-yu-seriyu-nevozmozhno"
 ,
-    95: "the-volkswagen-tukan-is-a-new-small-truck-the-us-can-t-have"
-
+    95: "volkswagen-tukan-novyy-nebolshoy-pikap-kotorogo-v-ssa-ne-budet"
+,
+    95: { url: "/images/auto/art-95.jpg", alt: "Volkswagen Tukan — новый небольшой пикап, которого в США не будет", credit: "Фото: c5karl, CC BY 2.0" }
 };
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { IMAGES, SLUGS };
