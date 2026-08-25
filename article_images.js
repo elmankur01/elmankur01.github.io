@@ -104,6 +104,8 @@ const IMAGES = {
     97: { url: "/images/auto/art-97.jpg", alt: "Volvo хочет, чтобы ее PHEV двигались как электромобили", credit: "Фото: Dietmar Rabich, CC BY-SA 4.0" }
 ,
     98: { url: "/images/auto/art-98.jpg", alt: "Hyundai буквально поднимает крышу новым элитным Palisade", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    99: { url: "/images/auto/art-99.jpg", alt: "Land Rover Дэниела Крейга 1959 года с рукописной запиской выставлен на аукцион", credit: "Фото: DeFacto, CC BY-SA 4.0" }
 
 };
 
@@ -227,6 +229,8 @@ const SLUGS = {
     97: "volvo-khochet-chtoby-ee-phev-dvigalis-kak-elektromobili"
 ,
     98: "hyundai-bukval-no-podnimaet-kryshu-novym-elitnym-palisade"
+,
+    99: "land-rover-deniela-kreyga-1959-goda-s-rukopisnoy-zapiskoy-vystavlen-na-auktsion"
 
 };
 
