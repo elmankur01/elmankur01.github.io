@@ -332,12 +332,17 @@ function truncateWords(t, maxLen) {
 // так выдача стабильно содержит машины. Если в заголовке ни бренда, ни термина нет,
 // возвращаем пустую строку и статья получает тематический fallback сайта.
 const CAR_BRANDS = new Set(['tesla','bmw','toyota','honda','ford','chevrolet','porsche','audi','mercedes','volkswagen','nissan','hyundai','kia','volvo','mazda','subaru','lexus','ferrari','lamborghini','byd','zeekr','chery','haval','geely','exeed','xiaomi','nio','rivian','lucid','bentley','mclaren','bugatti','jaguar','rover','mini','skoda','peugeot','renault','fiat','jeep','dodge','ram','gmc','cadillac','lincoln','buick','acura','infiniti','genesis','polestar','suzuki','mitsubishi','cupra','rimac','omoda','jaecoo','kaiyi','moskvich','lada','uaz','kamaz','aurus']);
+// Марки, у которых на Wikimedia Commons нет подходящих фото — поиск пропускается, сразу fallback.
+const SKIP_PHOTO_BRANDS = new Set(['esteo']);
 const CAR_TERMS = new Set(['suv','crossover','sedan','ev','truck','pickup','coupe','roadster','hatchback','wagon','convertible','hypercar','supercar']);
 
 function commonsQuery(enTitle) {
     const words = String(enTitle || '').match(/[A-Za-z][A-Za-z0-9\-]{2,}/g) || [];
     const brand = words.find(w => CAR_BRANDS.has(w.toLowerCase()));
-    if (brand) return brand + ' automobile';
+    if (brand) {
+        if (SKIP_PHOTO_BRANDS.has(brand.toLowerCase())) return '';
+        return brand + ' automobile';
+    }
     const term = words.find(w => CAR_TERMS.has(w.toLowerCase()));
     if (term) return term + ' automobile';
     return '';
