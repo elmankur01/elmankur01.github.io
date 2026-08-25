@@ -102,6 +102,8 @@ const IMAGES = {
     91: { url: "/images/auto/art-91.jpg", alt: "Ford рассматривает возможность создания дешевого раллийного автомобиля? Конечно, звучит так", credit: "Фото: Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },
     92: { url: "/images/auto/art-92.jpg", alt: "Федералы расширяют расследование проблемных двигателей V8 GM", credit: "Фото: Bryn Hughes, CC BY-SA 4.0 (Wikimedia Commons)" },
     97: { url: "/images/auto/art-97.jpg", alt: "Volvo хочет, чтобы ее PHEV двигались как электромобили", credit: "Фото: Dietmar Rabich, CC BY-SA 4.0" }
+,
+    98: { url: "/images/auto/art-98.jpg", alt: "Hyundai буквально поднимает крышу новым элитным Palisade", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 
 };
 
@@ -223,6 +225,8 @@ const SLUGS = {
     96: "kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya"
 ,
     97: "volvo-khochet-chtoby-ee-phev-dvigalis-kak-elektromobili"
+,
+    98: "hyundai-bukval-no-podnimaet-kryshu-novym-elitnym-palisade"
 
 };
 
