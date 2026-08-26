@@ -106,6 +106,8 @@ const IMAGES = {
     98: { url: "/images/auto/art-98.jpg", alt: "Hyundai буквально поднимает крышу новым элитным Palisade", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     99: { url: "/images/auto/art-99.jpg", alt: "Land Rover Дэниела Крейга 1959 года с рукописной запиской выставлен на аукцион", credit: "Фото: DeFacto, CC BY-SA 4.0" }
+,
+    100: { url: "/images/art-15.jpg", alt: "Lotus теперь одна компания: что это значит для Emira и электромобилей", credit: "Фото: АвтоТема" }
 
 };
 
@@ -231,6 +233,8 @@ const SLUGS = {
     98: "hyundai-bukval-no-podnimaet-kryshu-novym-elitnym-palisade"
 ,
     99: "land-rover-deniela-kreyga-1959-goda-s-rukopisnoy-zapiskoy-vystavlen-na-auktsion"
+,
+    100: "lotus-teper-odna-kompaniya-chto-eto-znachit-dlya-emira-i-elektromobiley"
 
 };
 
