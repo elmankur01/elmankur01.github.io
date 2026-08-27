@@ -110,6 +110,8 @@ const IMAGES = {
     100: { url: "/images/art-15.jpg", alt: "Lotus теперь одна компания: что это значит для Emira и электромобилей", credit: "Фото: АвтоТема" }
 ,
     101: { url: "/images/auto/art-101.jpg", alt: "Lincoln Corsair возвращается в 2027 году как гибрид китайского производства", credit: "Фото: Andrew Jameson, CC BY-SA 3.0" }
+,
+    102: { url: "/images/art-05.jpg", alt: "Ford Ranger Super Duty уже стал огромным хитом в Австралии", credit: "Фото: АвтоТема" }
 
 };
 
@@ -239,6 +241,8 @@ const SLUGS = {
     100: "lotus-teper-odna-kompaniya-chto-eto-znachit-dlya-emira-i-elektromobiley"
 ,
     101: "lincoln-corsair-vozvrashchaetsya-v-2027-godu-kak-gibrid-kitayskogo-proizvodstva"
+,
+    102: "ford-ranger-super-duty-uzhe-stal-ogromnym-khitom-v-avstralii"
 
 };
 
