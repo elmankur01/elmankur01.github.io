@@ -112,6 +112,8 @@ const IMAGES = {
     101: { url: "/images/auto/art-101.jpg", alt: "Lincoln Corsair возвращается в 2027 году как гибрид китайского производства", credit: "Фото: Andrew Jameson, CC BY-SA 3.0" }
 ,
     102: { url: "/images/art-05.jpg", alt: "Ford Ranger Super Duty уже стал огромным хитом в Австралии", credit: "Фото: АвтоТема" }
+,
+    103: { url: "/images/auto/art-103.jpg", alt: "Acura заявила, что не будет производить спортивные автомобили. Теперь дверь открыта", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 
 };
 
@@ -243,6 +245,8 @@ const SLUGS = {
     101: "lincoln-corsair-vozvrashchaetsya-v-2027-godu-kak-gibrid-kitayskogo-proizvodstva"
 ,
     102: "ford-ranger-super-duty-uzhe-stal-ogromnym-khitom-v-avstralii"
+,
+    103: "acura-zayavila-chto-ne-budet-proizvodit-sportivnye-avtomobili-teper-dver-otkryta"
 
 };
 
