@@ -114,6 +114,8 @@ const IMAGES = {
     102: { url: "/images/art-05.jpg", alt: "Ford Ranger Super Duty уже стал огромным хитом в Австралии", credit: "Фото: АвтоТема" }
 ,
     103: { url: "/images/auto/art-103.jpg", alt: "Acura заявила, что не будет производить спортивные автомобили. Теперь дверь открыта", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+,
+    104: { url: "/images/auto/art-104.jpg", alt: "У Mitsubishi скоро появится 7 новых моделей. Вот они все", credit: "Фото: Kuha455405, CC BY-SA 3.0" }
 
 };
 
@@ -247,6 +249,8 @@ const SLUGS = {
     102: "ford-ranger-super-duty-uzhe-stal-ogromnym-khitom-v-avstralii"
 ,
     103: "acura-zayavila-chto-ne-budet-proizvodit-sportivnye-avtomobili-teper-dver-otkryta"
+,
+    104: "u-mitsubishi-skoro-poyavitsya-7-novykh-modeley-vot-oni-vse"
 
 };
 
