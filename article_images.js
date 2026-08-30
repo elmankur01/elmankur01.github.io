@@ -120,6 +120,8 @@ const IMAGES = {
     105: { url: "/images/art-05.jpg", alt: "История происхождения Maserati получила голливудское освещение в новом фильме: смотрите трейлер", credit: "Фото: АвтоТема" }
 ,
     106: { url: "/images/auto/art-106.jpg", alt: "Это Мустанг, который, как мы хотим, построил Форд", credit: "Фото: Richard Smith, CC BY 2.0" }
+,
+    107: { url: "/images/auto/art-107.jpg", alt: "Lotus возвращает топливо с новым гибридным суперкаром", credit: "Фото: Yu Chu Chin, CC BY-SA 4.0" }
 
 };
 
@@ -259,6 +261,8 @@ const SLUGS = {
     105: "istoriya-proiskhozhdeniya-maserati-poluchila-gollivudskoe-osveshchenie-v-novom-f"
 ,
     106: "eto-mustang-kotoryy-kak-my-khotim-postroil-ford"
+,
+    107: "lotus-vozvrashchaet-toplivo-s-novym-gibridnym-superkarom"
 
 };
 
