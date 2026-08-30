@@ -118,6 +118,8 @@ const IMAGES = {
     104: { url: "/images/auto/art-104.jpg", alt: "У Mitsubishi скоро появится 7 новых моделей. Вот они все", credit: "Фото: Kuha455405, CC BY-SA 3.0" }
 ,
     105: { url: "/images/art-05.jpg", alt: "История происхождения Maserati получила голливудское освещение в новом фильме: смотрите трейлер", credit: "Фото: АвтоТема" }
+,
+    106: { url: "/images/auto/art-106.jpg", alt: "Это Мустанг, который, как мы хотим, построил Форд", credit: "Фото: Richard Smith, CC BY 2.0" }
 
 };
 
@@ -255,6 +257,8 @@ const SLUGS = {
     104: "u-mitsubishi-skoro-poyavitsya-7-novykh-modeley-vot-oni-vse"
 ,
     105: "istoriya-proiskhozhdeniya-maserati-poluchila-gollivudskoe-osveshchenie-v-novom-f"
+,
+    106: "eto-mustang-kotoryy-kak-my-khotim-postroil-ford"
 
 };
 
