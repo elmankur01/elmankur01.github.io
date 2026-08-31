@@ -124,6 +124,8 @@ const IMAGES = {
     107: { url: "/images/auto/art-107.jpg", alt: "Lotus возвращает топливо с новым гибридным суперкаром", credit: "Фото: Yu Chu Chin, CC BY-SA 4.0" }
 ,
     108: { url: "/images/auto/art-108.jpg", alt: "Крупная сделка Honda и Nissan по программному обеспечению после их неудачного слияния", credit: "Фото: MattiPaavola, CC BY-SA 3.0" }
+,
+    109: { url: "/images/art-06.jpg", alt: "Ford Bronco Sport и Maverick получат снижение цен к 2027 году, но потеряют некоторые функции", credit: "Фото: АвтоТема" }
 
 };
 
@@ -267,6 +269,8 @@ const SLUGS = {
     107: "lotus-vozvrashchaet-toplivo-s-novym-gibridnym-superkarom"
 ,
     108: "krupnaya-sdelka-honda-i-nissan-po-programmnomu-obespecheniyu-posle-ikh-neudachno"
+,
+    109: "ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n"
 
 };
 
