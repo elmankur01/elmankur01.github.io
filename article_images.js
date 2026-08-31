@@ -122,6 +122,8 @@ const IMAGES = {
     106: { url: "/images/auto/art-106.jpg", alt: "Это Мустанг, который, как мы хотим, построил Форд", credit: "Фото: Richard Smith, CC BY 2.0" }
 ,
     107: { url: "/images/auto/art-107.jpg", alt: "Lotus возвращает топливо с новым гибридным суперкаром", credit: "Фото: Yu Chu Chin, CC BY-SA 4.0" }
+,
+    108: { url: "/images/auto/art-108.jpg", alt: "Крупная сделка Honda и Nissan по программному обеспечению после их неудачного слияния", credit: "Фото: MattiPaavola, CC BY-SA 3.0" }
 
 };
 
@@ -263,6 +265,8 @@ const SLUGS = {
     106: "eto-mustang-kotoryy-kak-my-khotim-postroil-ford"
 ,
     107: "lotus-vozvrashchaet-toplivo-s-novym-gibridnym-superkarom"
+,
+    108: "krupnaya-sdelka-honda-i-nissan-po-programmnomu-obespecheniyu-posle-ikh-neudachno"
 
 };
 
