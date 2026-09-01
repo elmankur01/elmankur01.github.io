@@ -152,6 +152,8 @@ const ARTICLE_BANK = [
     { tag: "Мировые новости", title: "Ford Bronco Sport и Maverick получат снижение цен к 2027 году, но потеряют некоторые функции", text: "Maverick Lobo и Tremor станут на тысячи дешевле в 2027 году, но Ford ограничивает доступность EcoBoost и сокращает функции в некоторых комплектациях Bronco Sport.", readTime: 1 }
 ,
     { tag: "Мировые новости", title: "Ram придает своим рабочим лошадям мрачный новый вид к 2027 году", text: "Chassis Cab Night Edition привносит затемненный стиль для коммерческих грузовиков.", readTime: 1 }
+,
+    { tag: "Мировые новости", title: "Aston Martin пойман на тестировании своего конкурента Porsche 911 GT3: видео", text: "Aston Martin разрабатывает еще более экстремальный Vantage, и похоже, что Porsche 911 GT3 твердо в его планах.", readTime: 1 }
 
 ];
 

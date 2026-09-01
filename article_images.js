@@ -128,6 +128,8 @@ const IMAGES = {
     109: { url: "/images/art-06.jpg", alt: "Ford Bronco Sport и Maverick получат снижение цен к 2027 году, но потеряют некоторые функции", credit: "Фото: АвтоТема" }
 ,
     110: { url: "/images/auto/art-110.jpg", alt: "Ram придает своим рабочим лошадям мрачный новый вид к 2027 году", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
+,
+    111: { url: "/images/auto/art-111.jpg", alt: "Aston Martin пойман на тестировании своего конкурента Porsche 911 GT3: видео", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
 
 };
 
@@ -275,6 +277,8 @@ const SLUGS = {
     109: "ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n"
 ,
     110: "ram-pridaet-svoim-rabochim-loshadyam-mrachnyy-novyy-vid-k-2027-godu"
+,
+    111: "aston-martin-poyman-na-testirovanii-svoego-konkurenta-porsche-911-gt3-video"
 
 };
 
