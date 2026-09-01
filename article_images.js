@@ -126,6 +126,8 @@ const IMAGES = {
     108: { url: "/images/auto/art-108.jpg", alt: "Крупная сделка Honda и Nissan по программному обеспечению после их неудачного слияния", credit: "Фото: MattiPaavola, CC BY-SA 3.0" }
 ,
     109: { url: "/images/art-06.jpg", alt: "Ford Bronco Sport и Maverick получат снижение цен к 2027 году, но потеряют некоторые функции", credit: "Фото: АвтоТема" }
+,
+    110: { url: "/images/auto/art-110.jpg", alt: "Ram придает своим рабочим лошадям мрачный новый вид к 2027 году", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
 
 };
 
@@ -271,6 +273,8 @@ const SLUGS = {
     108: "krupnaya-sdelka-honda-i-nissan-po-programmnomu-obespecheniyu-posle-ikh-neudachno"
 ,
     109: "ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n"
+,
+    110: "ram-pridaet-svoim-rabochim-loshadyam-mrachnyy-novyy-vid-k-2027-godu"
 
 };
 
