@@ -130,6 +130,8 @@ const IMAGES = {
     110: { url: "/images/auto/art-110.jpg", alt: "Ram придает своим рабочим лошадям мрачный новый вид к 2027 году", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
 ,
     111: { url: "/images/auto/art-111.jpg", alt: "Aston Martin пойман на тестировании своего конкурента Porsche 911 GT3: видео", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
+,
+    112: { url: "/images/art-15.jpg", alt: "Grok от Tesla теперь выполняет 116 голосовых команд, но многие владельцы заблокированы", credit: "Фото: АвтоТема" }
 
 };
 
@@ -279,6 +281,8 @@ const SLUGS = {
     110: "ram-pridaet-svoim-rabochim-loshadyam-mrachnyy-novyy-vid-k-2027-godu"
 ,
     111: "aston-martin-poyman-na-testirovanii-svoego-konkurenta-porsche-911-gt3-video"
+,
+    112: "grok-ot-tesla-teper-vypolnyaet-116-golosovykh-komand-no-mnogie-vladel-tsy-zablok"
 
 };
 
