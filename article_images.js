@@ -136,6 +136,8 @@ const IMAGES = {
     113: { url: "/images/auto/art-113.jpg", alt: "Subaru WRX демонстрирует огромный рост продаж", credit: "Фото: Jacek Halicki, CC BY-SA 3.0" }
 ,
     114: { url: "/images/art-05.jpg", alt: "Новые автомобильные камеры GM теперь записывают пассажиров после OTA-обновления", credit: "Фото: АвтоТема" }
+,
+    115: { url: "/images/auto/art-115.jpg", alt: "Бренд Volkswagen Seat может оказаться на плахе: отчет", credit: "Фото: Palauenc05, CC BY-SA 4.0" }
 
 };
 
@@ -291,6 +293,8 @@ const SLUGS = {
     113: "subaru-wrx-demonstriruet-ogromnyy-rost-prodazh"
 ,
     114: "novye-avtomobil-nye-kamery-gm-teper-zapisyvayut-passazhirov-posle-ota-obnovleniy"
+,
+    115: "brend-volkswagen-seat-mozhet-okazat-sya-na-plakhe-otchet"
 
 };
 
