@@ -134,6 +134,8 @@ const IMAGES = {
     112: { url: "/images/art-15.jpg", alt: "Grok от Tesla теперь выполняет 116 голосовых команд, но многие владельцы заблокированы", credit: "Фото: АвтоТема" }
 ,
     113: { url: "/images/auto/art-113.jpg", alt: "Subaru WRX демонстрирует огромный рост продаж", credit: "Фото: Jacek Halicki, CC BY-SA 3.0" }
+,
+    114: { url: "/images/art-05.jpg", alt: "Новые автомобильные камеры GM теперь записывают пассажиров после OTA-обновления", credit: "Фото: АвтоТема" }
 
 };
 
@@ -287,6 +289,8 @@ const SLUGS = {
     112: "grok-ot-tesla-teper-vypolnyaet-116-golosovykh-komand-no-mnogie-vladel-tsy-zablok"
 ,
     113: "subaru-wrx-demonstriruet-ogromnyy-rost-prodazh"
+,
+    114: "novye-avtomobil-nye-kamery-gm-teper-zapisyvayut-passazhirov-posle-ota-obnovleniy"
 
 };
 
