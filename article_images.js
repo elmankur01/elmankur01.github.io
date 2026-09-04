@@ -140,6 +140,8 @@ const IMAGES = {
     115: { url: "/images/auto/art-115.jpg", alt: "Бренд Volkswagen Seat может оказаться на плахе: отчет", credit: "Фото: Palauenc05, CC BY-SA 4.0" }
 ,
     116: { url: "/images/auto/art-116.jpg", alt: "Tesla неправильно определила диапазон своей модели Y L, Агентство по охране окружающей среды дает ей больше миль", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
+,
+    117: { url: "/images/auto/art-117.jpg", alt: "Toyota Highlander EV сталкивается с новыми задержками", credit: "Фото: Petar Milošević, CC BY-SA 4.0" }
 
 };
 
@@ -299,6 +301,8 @@ const SLUGS = {
     115: "brend-volkswagen-seat-mozhet-okazat-sya-na-plakhe-otchet"
 ,
     116: "tesla-nepravil-no-opredelila-diapazon-svoey-modeli-y-l-agentstvo-po-okhrane-okru"
+,
+    117: "toyota-highlander-ev-stalkivaetsya-s-novymi-zaderzhkami"
 
 };
 
