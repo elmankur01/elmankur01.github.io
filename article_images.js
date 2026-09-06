@@ -148,6 +148,8 @@ const IMAGES = {
     119: { url: "/images/auto/art-119.jpg", alt: "Раньше Bentley превосходил Rolls-Royce по продажам в соотношении 3 к 1. Больше нет", credit: "Фото: M 93, CC BY-SA 3.0 de" }
 ,
     120: { url: "/images/art-05.jpg", alt: "За рубежом новый Pajero на удивление дорог. Это может быть плохой новостью для Америки", credit: "Фото: АвтоТема" }
+,
+    121: { url: "/images/auto/art-121.jpg", alt: "Ford не скажет, сможет ли Fathom за 29 945 долларов буксировать ваш прицеп", credit: "Фото: Richard Smith, CC BY 2.0" }
 
 };
 
@@ -315,6 +317,8 @@ const SLUGS = {
     119: "ran-she-bentley-prevoskhodil-rolls-royce-po-prodazham-v-sootnoshenii-3-k-1-bol-s"
 ,
     120: "za-rubezhom-novyy-pajero-na-udivlenie-dorog-eto-mozhet-byt-plokhoy-novost-yu-dly"
+,
+    121: "ford-ne-skazhet-smozhet-li-fathom-za-29-945-dollarov-buksirovat-vash-pritsep"
 
 };
 
