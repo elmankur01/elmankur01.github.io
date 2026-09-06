@@ -146,6 +146,8 @@ const IMAGES = {
     118: { url: "/images/auto/art-118.jpg", alt: "Dodge Durango станет темнее в 2027 году с новой краской", credit: "Фото: Ermell, CC BY-SA 4.0" }
 ,
     119: { url: "/images/auto/art-119.jpg", alt: "Раньше Bentley превосходил Rolls-Royce по продажам в соотношении 3 к 1. Больше нет", credit: "Фото: M 93, CC BY-SA 3.0 de" }
+,
+    120: { url: "/images/art-05.jpg", alt: "За рубежом новый Pajero на удивление дорог. Это может быть плохой новостью для Америки", credit: "Фото: АвтоТема" }
 
 };
 
@@ -311,6 +313,8 @@ const SLUGS = {
     118: "dodge-durango-stanet-temnee-v-2027-godu-s-novoy-kraskoy"
 ,
     119: "ran-she-bentley-prevoskhodil-rolls-royce-po-prodazham-v-sootnoshenii-3-k-1-bol-s"
+,
+    120: "za-rubezhom-novyy-pajero-na-udivlenie-dorog-eto-mozhet-byt-plokhoy-novost-yu-dly"
 
 };
 
