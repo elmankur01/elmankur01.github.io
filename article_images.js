@@ -152,6 +152,8 @@ const IMAGES = {
     121: { url: "/images/auto/art-121.jpg", alt: "Ford не скажет, сможет ли Fathom за 29 945 долларов буксировать ваш прицеп", credit: "Фото: Richard Smith, CC BY 2.0" }
 ,
     122: { url: "/images/auto/art-122.jpg", alt: "У Polestar новый облик, и это не напугает покупателей, говорит дизайнер", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
+,
+    123: { url: "/images/auto/art-123.jpg", alt: "Mitsubishi показала концепт Ralliart Pajero, но заявила, что он не будет производиться", credit: "Фото: Kuha455405, CC BY-SA 3.0" }
 
 };
 
@@ -323,6 +325,8 @@ const SLUGS = {
     121: "ford-ne-skazhet-smozhet-li-fathom-za-29-945-dollarov-buksirovat-vash-pritsep"
 ,
     122: "u-polestar-novyy-oblik-i-eto-ne-napugaet-pokupateley-govorit-dizayner"
+,
+    123: "mitsubishi-pokazala-kontsept-ralliart-pajero-no-zayavila-chto-on-ne-budet-proizv"
 
 };
 
