@@ -156,6 +156,8 @@ const IMAGES = {
     123: { url: "/images/auto/art-123.jpg", alt: "Mitsubishi показала концепт Ralliart Pajero, но заявила, что он не будет производиться", credit: "Фото: Kuha455405, CC BY-SA 3.0" }
 ,
     124: { url: "/images/auto/art-124.jpg", alt: "Только один Ferrari Enzo был построен в матово-черном цвете и теперь выставлен на частную продажу", credit: "Фото: ermell, CC BY-SA 4.0" }
+,
+    125: { url: "/images/art-14.jpg", alt: "GM готовит масштабную модернизацию трансмиссии для своих грузовиков HD: отчет", credit: "Фото: АвтоТема" }
 
 };
 
@@ -331,6 +333,8 @@ const SLUGS = {
     123: "mitsubishi-pokazala-kontsept-ralliart-pajero-no-zayavila-chto-on-ne-budet-proizv"
 ,
     124: "tol-ko-odin-ferrari-enzo-byl-postroen-v-matovo-chernom-tsvete-i-teper-vystavlen-"
+,
+    125: "gm-gotovit-masshtabnuyu-modernizatsiyu-transmissii-dlya-svoikh-gruzovikov-hd-otc"
 
 };
 
