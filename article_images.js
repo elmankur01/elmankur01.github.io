@@ -160,6 +160,8 @@ const IMAGES = {
     125: { url: "/images/art-14.jpg", alt: "GM готовит масштабную модернизацию трансмиссии для своих грузовиков HD: отчет", credit: "Фото: АвтоТема" }
 ,
     126: { url: "/images/auto/art-126.jpg", alt: "Audi с мощностью более 987 л.с. дебютирует в Италии", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
+,
+    127: { url: "/images/auto/art-127.jpg", alt: "Honda Passport TrailSport 2027 года стала намного более функциональной", credit: "Фото: MattiPaavola, CC BY-SA 3.0" }
 
 };
 
@@ -339,6 +341,8 @@ const SLUGS = {
     125: "gm-gotovit-masshtabnuyu-modernizatsiyu-transmissii-dlya-svoikh-gruzovikov-hd-otc"
 ,
     126: "audi-s-moshchnost-yu-bolee-987-l-s-debyutiruet-v-italii"
+,
+    127: "honda-passport-trailsport-2027-goda-stala-namnogo-bolee-funktsional-noy"
 
 };
 
