@@ -158,6 +158,8 @@ const IMAGES = {
     124: { url: "/images/auto/art-124.jpg", alt: "Только один Ferrari Enzo был построен в матово-черном цвете и теперь выставлен на частную продажу", credit: "Фото: ermell, CC BY-SA 4.0" }
 ,
     125: { url: "/images/art-14.jpg", alt: "GM готовит масштабную модернизацию трансмиссии для своих грузовиков HD: отчет", credit: "Фото: АвтоТема" }
+,
+    126: { url: "/images/auto/art-126.jpg", alt: "Audi с мощностью более 987 л.с. дебютирует в Италии", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
 
 };
 
@@ -335,6 +337,8 @@ const SLUGS = {
     124: "tol-ko-odin-ferrari-enzo-byl-postroen-v-matovo-chernom-tsvete-i-teper-vystavlen-"
 ,
     125: "gm-gotovit-masshtabnuyu-modernizatsiyu-transmissii-dlya-svoikh-gruzovikov-hd-otc"
+,
+    126: "audi-s-moshchnost-yu-bolee-987-l-s-debyutiruet-v-italii"
 
 };
 
