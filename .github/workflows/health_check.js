@@ -70,6 +70,10 @@ async function checkLastPost() {
 }
 
 async function sendReport(text) {
+    if (!TOKEN || !OWNER_CHAT_ID) {
+        console.log('ℹ️ TELEGRAM_BOT_TOKEN или TELEGRAM_OWNER_CHAT_ID не заданы — отчёт выведен в консоль.');
+        return;
+    }
     const r = await fetch('https://api.telegram.org/bot' + TOKEN + '/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -59,31 +59,41 @@ const tagIcons = {
 };
 const icon = tagIcons[article.tag] || '🚗';
 
-// Подпись: полный текст статьи (все абзацы), при необходимости укорачиваем до лимита Telegram (~1024 знака на caption)
+function buildPostText(bodyContent) {
+    return [
+        icon + ' <b>' + (article.tag || 'Автоновости').toUpperCase() + '</b> | <i>АвтоТема</i>',
+        '━━━━━━━━━━━━━━━━━━━',
+        '',
+        '🔥 <b>' + escHtml(article.title) + '</b>',
+        '',
+        escHtml(bodyContent),
+        '',
+        '⏱ <i>Время чтения: ~' + (article.readTime || 5) + ' мин</i>',
+        '',
+        '━━━━━━━━━━━━━━━━━━━',
+        '👉 <b>Читать полную версию статьи:</b>',
+        '🔗 <a href="' + url + '">avtotema-news.online</a>',
+        '',
+        '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+        '',
+        '#авто #новости #' + ((article.tag || 'новости').replace(/\s+/g, '_').toLowerCase())
+    ].join('\n');
+}
+
 let bodyText = Array.isArray(bodies[offset]) ? bodies[offset].join('\n\n') : '';
-if (bodyText.length > 850) bodyText = bodyText.slice(0, 850).replace(/\s+\S*$/, '') + '…';
 if (!bodyText) bodyText = article.text;
 
-const url = 'https://avtotema-news.online/articles/' + (slugs[nextN] || ('article-' + nextN)) + '.html';
+const img = images[nextN];
+const photoUrl = (img && img.url) ? ('https://avtotema-news.online' + img.url) : null;
 
-const text = [
-    icon + ' <b>' + (article.tag || 'Автоновости').toUpperCase() + '</b> | <i>АвтоТема</i>',
-    '━━━━━━━━━━━━━━━━━━━',
-    '',
-    '🔥 <b>' + escHtml(article.title) + '</b>',
-    '',
-    escHtml(bodyText),
-    '',
-    '⏱ <i>Время чтения: ~' + (article.readTime || 5) + ' мин</i>',
-    '',
-    '━━━━━━━━━━━━━━━━━━━',
-    '👉 <b>Читать полную версию статьи:</b>',
-    '🔗 <a href="' + url + '">avtotema-news.online</a>',
-    '',
-    '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
-    '',
-    '#авто #новости #' + ((article.tag || 'новости').replace(/\s+/g, '_').toLowerCase())
-].join('\n');
+// Лимит подписи к фото в Telegram — строго 1024 знака. Ограничиваем с запасом до 1000 знаков:
+let text = buildPostText(bodyText);
+if (photoUrl && text.length > 1000) {
+    const excess = text.length - 1000;
+    const targetLen = Math.max(100, bodyText.length - excess - 15);
+    bodyText = bodyText.slice(0, targetLen).replace(/\s+\S*$/, '') + '…';
+    text = buildPostText(bodyText);
+}
 
 const replyMarkup = {
     inline_keyboard: [
@@ -92,25 +102,48 @@ const replyMarkup = {
     ]
 };
 
-const img = images[nextN];
-const photoUrl = (img && img.url) ? ('https://avtotema-news.online' + img.url) : null;
-const apiMethod = photoUrl ? 'sendPhoto' : 'sendMessage';
-const apiPayload = photoUrl
-    ? { chat_id: chatId, photo: photoUrl, caption: text, parse_mode: 'HTML', reply_markup: replyMarkup }
-    : { chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup };
+async function send() {
+    let method = photoUrl ? 'sendPhoto' : 'sendMessage';
+    let payload = photoUrl
+        ? { chat_id: chatId, photo: photoUrl, caption: text, parse_mode: 'HTML', reply_markup: replyMarkup }
+        : { chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup };
 
-fetch('https://api.telegram.org/bot' + token + '/' + apiMethod, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(apiPayload)
-}).then(r => r.json()).then(j => {
-    if (j.ok) {
-        console.log('✅ Опубликовано (' + apiMethod + ', статья #' + nextN + ')');
-        const postedList = loadPosted();
-        postedList.push(nextN);
-        savePosted(postedList);
-        commitAndPush();
-        process.exit(0);
+    try {
+        let r = await fetch('https://api.telegram.org/bot' + token + '/' + method, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        let j = await r.json();
+
+        // Если отправка фото вернула ошибку, делаем автоматический фоллбек на текстовое сообщение
+        if (!j.ok && photoUrl) {
+            console.warn('sendPhoto не удался (' + (j.description || '') + '), отправляю как sendMessage...');
+            method = 'sendMessage';
+            payload = { chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup };
+            r = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            j = await r.json();
+        }
+
+        if (j.ok) {
+            console.log('✅ Опубликовано (' + method + ', статья #' + nextN + ')');
+            const postedList = loadPosted();
+            postedList.push(nextN);
+            savePosted(postedList);
+            commitAndPush();
+            process.exit(0);
+        } else {
+            console.error('Ошибка Telegram:', JSON.stringify(j));
+            process.exit(1);
+        }
+    } catch (e) {
+        console.error('Ошибка сети:', e);
+        process.exit(1);
     }
-    else { console.error('Ошибка Telegram:', JSON.stringify(j)); process.exit(1); }
-}).catch(e => { console.error(e); process.exit(1); });
+}
+
+send();
