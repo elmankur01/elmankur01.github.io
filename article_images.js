@@ -164,6 +164,8 @@ const IMAGES = {
     127: { url: "/images/auto/art-127.jpg", alt: "Honda Passport TrailSport 2027 года стала намного более функциональной", credit: "Фото: MattiPaavola, CC BY-SA 3.0" }
 ,
     128: { url: "/images/auto/art-128.jpg", alt: "Арендаторы Audi EV получают до 10 000 долларов за сохранение своих автомобилей", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
+,
+    129: { url: "/images/art-05.jpg", alt: "Это автомобили, которые, скорее всего, пройдут 250 000 миль", credit: "Фото: АвтоТема" }
 
 };
 
@@ -347,6 +349,8 @@ const SLUGS = {
     127: "honda-passport-trailsport-2027-goda-stala-namnogo-bolee-funktsional-noy"
 ,
     128: "arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil"
+,
+    129: "eto-avtomobili-kotorye-skoree-vsego-proydut-250-000-mil"
 
 };
 
