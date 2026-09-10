@@ -59,6 +59,9 @@ const tagIcons = {
 };
 const icon = tagIcons[article.tag] || '🚗';
 
+const slug = slugs[nextN] || ('article-' + nextN);
+const url = 'https://avtotema-news.online/articles/' + slug + '.html';
+
 function buildPostText(bodyContent) {
     return [
         icon + ' <b>' + (article.tag || 'Автоновости').toUpperCase() + '</b> | <i>АвтоТема</i>',
