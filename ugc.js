@@ -1,3 +1,7 @@
+function esc(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 function initUGC() {
     const articleFullEl = document.querySelector('.article-full');
     if (!articleFullEl) return;
@@ -134,25 +138,25 @@ function initOwnerReviews(articleKey) {
             card.className = 'review-item-card';
 
             const starsHtml = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
-            const avatarInitial = (r.author || 'А')[0].toUpperCase();
+            const avatarInitial = esc((r.author || 'А')[0].toUpperCase());
 
             card.innerHTML = `
                 <div class="review-item-top">
                     <div class="review-author-info">
                         <div class="review-author-avatar">${avatarInitial}</div>
                         <div>
-                            <div class="review-author-name">${r.author} ${r.city ? `(${r.city})` : ''}</div>
-                            <div class="review-car-badge">🚗 ${r.car} · Пробег: ${r.mileage}</div>
+                            <div class="review-author-name">${esc(r.author)} ${r.city ? `(${esc(r.city)})` : ''}</div>
+                            <div class="review-car-badge">🚗 ${esc(r.car)} · Пробег: ${esc(r.mileage)}</div>
                         </div>
                     </div>
                     <div class="review-stars" title="Оценка ${r.rating} из 5">${starsHtml}</div>
                 </div>
                 ${(r.pros || r.cons) ? `
                 <div class="review-pros-cons-compact">
-                    ${r.pros ? `<span class="review-pro">✅ <b>Плюсы:</b> ${r.pros}</span>` : ''}
-                    ${r.cons ? `<span class="review-con">❌ <b>Минусы:</b> ${r.cons}</span>` : ''}
+                    ${r.pros ? `<span class="review-pro">✅ <b>Плюсы:</b> ${esc(r.pros)}</span>` : ''}
+                    ${r.cons ? `<span class="review-con">❌ <b>Минусы:</b> ${esc(r.cons)}</span>` : ''}
                 </div>` : ''}
-                <div class="review-text-content">${r.text}</div>
+                <div class="review-text-content">${esc(r.text)}</div>
             `;
             listWrap.appendChild(card);
         });
@@ -275,12 +279,12 @@ function initArticleComments(articleKey) {
             card.innerHTML = `
                 <div class="comment-card-top">
                     <div>
-                        <b>${c.author}</b>
-                        ${c.badge ? `<span class="comment-author-badge">${c.badge}</span>` : ''}
+                        <b>${esc(c.author)}</b>
+                        ${c.badge ? `<span class="comment-author-badge">${esc(c.badge)}</span>` : ''}
                     </div>
-                    <span class="comment-date-text">${c.date || 'Только что'}</span>
+                    <span class="comment-date-text">${esc(c.date || 'Только что')}</span>
                 </div>
-                <div class="comment-body-text">${c.text}</div>
+                <div class="comment-body-text">${esc(c.text)}</div>
                 <div class="comment-card-actions">
                     <button type="button" class="comment-like-btn ${isLiked ? 'liked' : ''}" data-idx="${idx}">
                         👍 <span>${c.likes || 0}</span>
