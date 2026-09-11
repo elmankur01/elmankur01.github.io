@@ -168,6 +168,8 @@ const IMAGES = {
     129: { url: "/images/art-05.jpg", alt: "Это автомобили, которые, скорее всего, пройдут 250 000 миль", credit: "Фото: АвтоТема" }
 ,
     130: { url: "/images/auto/art-130.jpg", alt: "Stellantis задержался: Jeep EREV и Ram REV открывают новую хронологию", credit: "Фото: Ryan Sharpe, CC BY-SA 4.0" }
+,
+    131: { url: "/images/auto/art-131.jpg", alt: "Самый экстремальный Мустанг Форда встречается даже реже, чем вы думаете", credit: "Фото: Richard Smith, CC BY 2.0" }
 
 };
 
@@ -355,6 +357,8 @@ const SLUGS = {
     129: "eto-avtomobili-kotorye-skoree-vsego-proydut-250-000-mil"
 ,
     130: "stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu"
+,
+    131: "samyy-ekstremal-nyy-mustang-forda-vstrechaetsya-dazhe-rezhe-chem-vy-dumaete"
 
 };
 
