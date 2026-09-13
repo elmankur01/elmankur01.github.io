@@ -176,6 +176,8 @@ const IMAGES = {
     133: { url: "/images/auto/art-133.jpg", alt: "Видео: Genesis Magma GT звучит как настоящий суперкар", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     134: { url: "/images/art-08.jpg", alt: "Этот двигатель V8 с двойным турбонаддувом развивает мощность 1200 л.с. без гоночного топлива", credit: "Фото: АвтоТема" }
+,
+    135: { url: "/images/auto/art-135.jpg", alt: "Позолоченный Cadillac 1953 года продан за 1 275 000 долларов, установив аукционный рекорд", credit: "Фото: Berthold Werner, CC BY-SA 3.0" }
 
 };
 
@@ -371,6 +373,8 @@ const SLUGS = {
     133: "video-genesis-magma-gt-zvuchit-kak-nastoyashchiy-superkar"
 ,
     134: "etot-dvigatel-v8-s-dvoynym-turbonadduvom-razvivaet-moshchnost-1200-l-s-bez-gonoc"
+,
+    135: "pozolochennyy-cadillac-1953-goda-prodan-za-1-275-000-dollarov-ustanoviv-auktsion"
 
 };
 
