@@ -174,6 +174,8 @@ const IMAGES = {
     132: { url: "/images/auto/art-132.jpg", alt: "Небольшой рабочий фургон Ram вернется в 2027 году по цене менее 40 000 долларов", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
 ,
     133: { url: "/images/auto/art-133.jpg", alt: "Видео: Genesis Magma GT звучит как настоящий суперкар", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    134: { url: "/images/art-08.jpg", alt: "Этот двигатель V8 с двойным турбонаддувом развивает мощность 1200 л.с. без гоночного топлива", credit: "Фото: АвтоТема" }
 
 };
 
@@ -367,6 +369,8 @@ const SLUGS = {
     132: "nebol-shoy-rabochiy-furgon-ram-vernetsya-v-2027-godu-po-tsene-menee-40-000-dolla"
 ,
     133: "video-genesis-magma-gt-zvuchit-kak-nastoyashchiy-superkar"
+,
+    134: "etot-dvigatel-v8-s-dvoynym-turbonadduvom-razvivaet-moshchnost-1200-l-s-bez-gonoc"
 
 };
 
