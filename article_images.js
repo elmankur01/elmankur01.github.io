@@ -180,6 +180,8 @@ const IMAGES = {
     135: { url: "/images/auto/art-135.jpg", alt: "Позолоченный Cadillac 1953 года продан за 1 275 000 долларов, установив аукционный рекорд", credit: "Фото: Berthold Werner, CC BY-SA 3.0" }
 ,
     136: { url: "/images/auto/art-136.jpg", alt: "Этот массивный китайский внедорожник в буквальном смысле является танком", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    137: { url: "/images/ferrari.jpg", alt: "У покупателей Corvette Grand Sport явно есть любимый цвет", credit: "Фото: АвтоТема" }
 
 };
 
@@ -379,6 +381,8 @@ const SLUGS = {
     135: "pozolochennyy-cadillac-1953-goda-prodan-za-1-275-000-dollarov-ustanoviv-auktsion"
 ,
     136: "etot-massivnyy-kitayskiy-vnedorozhnik-v-bukval-nom-smysle-yavlyaetsya-tankom"
+,
+    137: "u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet"
 
 };
 
