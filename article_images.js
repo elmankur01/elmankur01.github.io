@@ -182,6 +182,8 @@ const IMAGES = {
     136: { url: "/images/auto/art-136.jpg", alt: "Этот массивный китайский внедорожник в буквальном смысле является танком", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     137: { url: "/images/ferrari.jpg", alt: "У покупателей Corvette Grand Sport явно есть любимый цвет", credit: "Фото: АвтоТема" }
+,
+    138: { url: "/images/auto/art-138.jpg", alt: "Источники сообщают, что Jaguar Land Rover планирует построить в США пикап Defender с использованием Stellantis", credit: "Фото: DeFacto, CC BY-SA 4.0" }
 
 };
 
@@ -383,6 +385,8 @@ const SLUGS = {
     136: "etot-massivnyy-kitayskiy-vnedorozhnik-v-bukval-nom-smysle-yavlyaetsya-tankom"
 ,
     137: "u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet"
+,
+    138: "istochniki-soobshchayut-chto-jaguar-land-rover-planiruet-postroit-v-ssha-pikap-d"
 
 };
 
