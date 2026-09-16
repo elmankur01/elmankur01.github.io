@@ -184,6 +184,8 @@ const IMAGES = {
     137: { url: "/images/ferrari.jpg", alt: "У покупателей Corvette Grand Sport явно есть любимый цвет", credit: "Фото: АвтоТема" }
 ,
     138: { url: "/images/auto/art-138.jpg", alt: "Источники сообщают, что Jaguar Land Rover планирует построить в США пикап Defender с использованием Stellantis", credit: "Фото: DeFacto, CC BY-SA 4.0" }
+,
+    139: { url: "/images/auto/art-139.jpg", alt: "Porsche Cayenne Electric 2027 выходит на новый уровень благодаря автоматическим дверям и многому другому", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
 
 };
 
@@ -387,6 +389,8 @@ const SLUGS = {
     137: "u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet"
 ,
     138: "istochniki-soobshchayut-chto-jaguar-land-rover-planiruet-postroit-v-ssha-pikap-d"
+,
+    139: "porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski"
 
 };
 
