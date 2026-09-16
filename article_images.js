@@ -186,6 +186,8 @@ const IMAGES = {
     138: { url: "/images/auto/art-138.jpg", alt: "Источники сообщают, что Jaguar Land Rover планирует построить в США пикап Defender с использованием Stellantis", credit: "Фото: DeFacto, CC BY-SA 4.0" }
 ,
     139: { url: "/images/auto/art-139.jpg", alt: "Porsche Cayenne Electric 2027 выходит на новый уровень благодаря автоматическим дверям и многому другому", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
+,
+    140: { url: "/images/auto/art-140.jpg", alt: "Новейшая шина Firestone обещает увеличить пробег и улучшить сцепление с дорогой для вашего внедорожника", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 
 };
 
@@ -391,6 +393,8 @@ const SLUGS = {
     138: "istochniki-soobshchayut-chto-jaguar-land-rover-planiruet-postroit-v-ssha-pikap-d"
 ,
     139: "porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski"
+,
+    140: "noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-"
 
 };
 
