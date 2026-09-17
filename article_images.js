@@ -190,6 +190,8 @@ const IMAGES = {
     140: { url: "/images/auto/art-140.jpg", alt: "Новейшая шина Firestone обещает увеличить пробег и улучшить сцепление с дорогой для вашего внедорожника", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     141: { url: "/images/auto/art-141.jpg", alt: "Вы можете купить шестиколесный Ford EcoSport 2019 года без резерва", credit: "Фото: Richard Smith, CC BY 2.0" }
+,
+    142: { url: "/images/art-15.jpg", alt: "Новые двигатели Chevy V8 отказались от щупа и стали цифровыми", credit: "Фото: АвтоТема" }
 
 };
 
@@ -399,6 +401,8 @@ const SLUGS = {
     140: "noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-"
 ,
     141: "vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva"
+,
+    142: "novye-dvigateli-chevy-v8-otkazalis-ot-shchupa-i-stali-tsifrovymi"
 
 };
 
