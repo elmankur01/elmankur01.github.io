@@ -188,6 +188,8 @@ const IMAGES = {
     139: { url: "/images/auto/art-139.jpg", alt: "Porsche Cayenne Electric 2027 выходит на новый уровень благодаря автоматическим дверям и многому другому", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
 ,
     140: { url: "/images/auto/art-140.jpg", alt: "Новейшая шина Firestone обещает увеличить пробег и улучшить сцепление с дорогой для вашего внедорожника", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    141: { url: "/images/auto/art-141.jpg", alt: "Вы можете купить шестиколесный Ford EcoSport 2019 года без резерва", credit: "Фото: Richard Smith, CC BY 2.0" }
 
 };
 
@@ -395,6 +397,8 @@ const SLUGS = {
     139: "porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski"
 ,
     140: "noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-"
+,
+    141: "vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva"
 
 };
 
