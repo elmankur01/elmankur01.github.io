@@ -194,6 +194,8 @@ const IMAGES = {
     142: { url: "/images/art-15.jpg", alt: "Новые двигатели Chevy V8 отказались от щупа и стали цифровыми", credit: "Фото: АвтоТема" }
 ,
     143: { url: "/images/auto/art-143.jpg", alt: "Следующими электромобилями Maserati могут стать большой GT и внедорожник: отчет", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    144: { url: "/images/art-01.jpg", alt: "Цены на бензин выросли, как и продажи электромобилей", credit: "Фото: АвтоТема" }
 
 };
 
@@ -407,6 +409,8 @@ const SLUGS = {
     142: "novye-dvigateli-chevy-v8-otkazalis-ot-shchupa-i-stali-tsifrovymi"
 ,
     143: "sleduyushchimi-elektromobilyami-maserati-mogut-stat-bol-shoy-gt-i-vnedorozhnik-o"
+,
+    144: "tseny-na-benzin-vyrosli-kak-i-prodazhi-elektromobiley"
 
 };
 
