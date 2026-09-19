@@ -196,6 +196,8 @@ const IMAGES = {
     143: { url: "/images/auto/art-143.jpg", alt: "Следующими электромобилями Maserati могут стать большой GT и внедорожник: отчет", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     144: { url: "/images/art-01.jpg", alt: "Цены на бензин выросли, как и продажи электромобилей", credit: "Фото: АвтоТема" }
+,
+    145: { url: "/images/auto/art-145.jpg", alt: "Следующий Audi A4 отложен до 2029 года, поскольку новая платформа электромобилей VW отстает", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
 
 };
 
@@ -411,6 +413,8 @@ const SLUGS = {
     143: "sleduyushchimi-elektromobilyami-maserati-mogut-stat-bol-shoy-gt-i-vnedorozhnik-o"
 ,
     144: "tseny-na-benzin-vyrosli-kak-i-prodazhi-elektromobiley"
+,
+    145: "sleduyushchiy-audi-a4-otlozhen-do-2029-goda-poskol-ku-novaya-platforma-elektromo"
 
 };
 
