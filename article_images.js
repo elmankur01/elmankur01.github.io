@@ -200,6 +200,8 @@ const IMAGES = {
     145: { url: "/images/auto/art-145.jpg", alt: "Следующий Audi A4 отложен до 2029 года, поскольку новая платформа электромобилей VW отстает", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
 ,
     146: { url: "/images/ferrari.jpg", alt: "Джереми Кларксон продает три своих самых знаменитых автомобиля Grand Tour", credit: "Фото: АвтоТема" }
+,
+    147: { url: "/images/auto/art-147.jpg", alt: "Впервые за шесть лет Ford не выиграет премию «Грузовик года в Северной Америке»", credit: "Фото: Richard Smith, CC BY 2.0" }
 
 };
 
@@ -419,6 +421,8 @@ const SLUGS = {
     145: "sleduyushchiy-audi-a4-otlozhen-do-2029-goda-poskol-ku-novaya-platforma-elektromo"
 ,
     146: "dzheremi-klarkson-prodaet-tri-svoikh-samykh-znamenitykh-avtomobilya-grand-tour"
+,
+    147: "vpervye-za-shest-let-ford-ne-vyigraet-premiyu-gruzovik-goda-v-severnoy-amerike"
 
 };
 
