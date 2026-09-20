@@ -202,6 +202,8 @@ const IMAGES = {
     146: { url: "/images/ferrari.jpg", alt: "Джереми Кларксон продает три своих самых знаменитых автомобиля Grand Tour", credit: "Фото: АвтоТема" }
 ,
     147: { url: "/images/auto/art-147.jpg", alt: "Впервые за шесть лет Ford не выиграет премию «Грузовик года в Северной Америке»", credit: "Фото: Richard Smith, CC BY 2.0" }
+,
+    148: { url: "/images/art-06.jpg", alt: "Новый генеральный директор Apple — автомобильный парень. Ему принадлежит один из самых редких Porsche, когда-либо построенных", credit: "Фото: АвтоТема" }
 
 };
 
@@ -423,6 +425,8 @@ const SLUGS = {
     146: "dzheremi-klarkson-prodaet-tri-svoikh-samykh-znamenitykh-avtomobilya-grand-tour"
 ,
     147: "vpervye-za-shest-let-ford-ne-vyigraet-premiyu-gruzovik-goda-v-severnoy-amerike"
+,
+    148: "novyy-general-nyy-direktor-apple-avtomobil-nyy-paren-emu-prinadlezhit-odin-iz-sa"
 
 };
 
