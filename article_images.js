@@ -204,6 +204,8 @@ const IMAGES = {
     147: { url: "/images/auto/art-147.jpg", alt: "Впервые за шесть лет Ford не выиграет премию «Грузовик года в Северной Америке»", credit: "Фото: Richard Smith, CC BY 2.0" }
 ,
     148: { url: "/images/art-06.jpg", alt: "Новый генеральный директор Apple — автомобильный парень. Ему принадлежит один из самых редких Porsche, когда-либо построенных", credit: "Фото: АвтоТема" }
+,
+    149: { url: "/images/auto/art-149.jpg", alt: "Nissan Rogue Hybrid 2027 года дебютирует с расходом топлива 38 миль на галлон. Но это не традиционный гибрид", credit: "Фото: EurovisionNim, CC BY-SA 4.0" }
 
 };
 
@@ -427,6 +429,8 @@ const SLUGS = {
     147: "vpervye-za-shest-let-ford-ne-vyigraet-premiyu-gruzovik-goda-v-severnoy-amerike"
 ,
     148: "novyy-general-nyy-direktor-apple-avtomobil-nyy-paren-emu-prinadlezhit-odin-iz-sa"
+,
+    149: "nissan-rogue-hybrid-2027-goda-debyutiruet-s-raskhodom-topliva-38-mil-na-gallon-n"
 
 };
 
