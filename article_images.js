@@ -206,6 +206,8 @@ const IMAGES = {
     148: { url: "/images/art-06.jpg", alt: "Новый генеральный директор Apple — автомобильный парень. Ему принадлежит один из самых редких Porsche, когда-либо построенных", credit: "Фото: АвтоТема" }
 ,
     149: { url: "/images/auto/art-149.jpg", alt: "Nissan Rogue Hybrid 2027 года дебютирует с расходом топлива 38 миль на галлон. Но это не традиционный гибрид", credit: "Фото: EurovisionNim, CC BY-SA 4.0" }
+,
+    150: { url: "/images/auto/art-150.jpg", alt: "Porsche работает над автоматической коробкой передач, которая выдает себя за механическую", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
 
 };
 
@@ -431,6 +433,8 @@ const SLUGS = {
     148: "novyy-general-nyy-direktor-apple-avtomobil-nyy-paren-emu-prinadlezhit-odin-iz-sa"
 ,
     149: "nissan-rogue-hybrid-2027-goda-debyutiruet-s-raskhodom-topliva-38-mil-na-gallon-n"
+,
+    150: "porsche-rabotaet-nad-avtomaticheskoy-korobkoy-peredach-kotoraya-vydaet-sebya-za-"
 
 };
 
