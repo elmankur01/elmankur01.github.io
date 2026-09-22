@@ -208,6 +208,8 @@ const IMAGES = {
     149: { url: "/images/auto/art-149.jpg", alt: "Nissan Rogue Hybrid 2027 года дебютирует с расходом топлива 38 миль на галлон. Но это не традиционный гибрид", credit: "Фото: EurovisionNim, CC BY-SA 4.0" }
 ,
     150: { url: "/images/auto/art-150.jpg", alt: "Porsche работает над автоматической коробкой передач, которая выдает себя за механическую", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
+,
+    151: { url: "/images/auto/art-151.jpg", alt: "Заказы Volkswagen на электромобили опережают заказы на бензиновые автомобили в Германии, но это создает проблему", credit: "Фото: Palauenc05, CC BY-SA 4.0" }
 
 };
 
@@ -435,6 +437,8 @@ const SLUGS = {
     149: "nissan-rogue-hybrid-2027-goda-debyutiruet-s-raskhodom-topliva-38-mil-na-gallon-n"
 ,
     150: "porsche-rabotaet-nad-avtomaticheskoy-korobkoy-peredach-kotoraya-vydaet-sebya-za-"
+,
+    151: "zakazy-volkswagen-na-elektromobili-operezhayut-zakazy-na-benzinovye-avtomobili-v"
 
 };
 
