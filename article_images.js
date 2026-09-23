@@ -214,6 +214,8 @@ const IMAGES = {
     152: { url: "/images/auto/art-152.jpg", alt: "Lexus LX 2027 года получит новые цвета, красные тормоза и другие стандартные технологии", credit: "Фото: TTTNIS, CC0" }
 ,
     153: { url: "/images/art-01.jpg", alt: "Модернизация TurboMax от GM дает Колорадо и Каньону 350 л.с.", credit: "Фото: АвтоТема" }
+,
+    154: { url: "/images/auto/art-154.jpg", alt: "Bentley отказывается от экранов переднего пассажира: «Технологии должны повышать ценность»", credit: "Фото: M 93, CC BY-SA 3.0 de" }
 
 };
 
@@ -447,6 +449,8 @@ const SLUGS = {
     152: "lexus-lx-2027-goda-poluchit-novye-tsveta-krasnye-tormoza-i-drugie-standartnye-te"
 ,
     153: "modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s"
+,
+    154: "bentley-otkazyvaetsya-ot-ekranov-perednego-passazhira-tekhnologii-dolzhny-povysh"
 
 };
 
