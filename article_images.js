@@ -212,6 +212,8 @@ const IMAGES = {
     151: { url: "/images/auto/art-151.jpg", alt: "Заказы Volkswagen на электромобили опережают заказы на бензиновые автомобили в Германии, но это создает проблему", credit: "Фото: Palauenc05, CC BY-SA 4.0" }
 ,
     152: { url: "/images/auto/art-152.jpg", alt: "Lexus LX 2027 года получит новые цвета, красные тормоза и другие стандартные технологии", credit: "Фото: TTTNIS, CC0" }
+,
+    153: { url: "/images/art-01.jpg", alt: "Модернизация TurboMax от GM дает Колорадо и Каньону 350 л.с.", credit: "Фото: АвтоТема" }
 
 };
 
@@ -443,6 +445,8 @@ const SLUGS = {
     151: "zakazy-volkswagen-na-elektromobili-operezhayut-zakazy-na-benzinovye-avtomobili-v"
 ,
     152: "lexus-lx-2027-goda-poluchit-novye-tsveta-krasnye-tormoza-i-drugie-standartnye-te"
+,
+    153: "modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s"
 
 };
 
