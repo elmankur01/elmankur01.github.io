@@ -1110,6 +1110,9 @@ function generateTagPages() {
 }
 
 function sitemap() {
+    const entries = [];
+    entries.push({ loc: `${SITE}/`, freq: 'daily', priority: '1.0' });
+
     const legal = [
         { path: 'compare.html', freq: 'weekly', priority: '0.9' },
         { path: 'brands/index.html', freq: 'weekly', priority: '0.9' },
@@ -1117,27 +1120,26 @@ function sitemap() {
         { path: 'privacy.html', freq: 'yearly', priority: '0.3' },
         { path: 'terms.html', freq: 'yearly', priority: '0.3' }
     ];
-    let out = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${SITE}/</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
-    
-    // Legal and hub indices
     for (const p of legal) {
-        out += `  <url>\n    <loc>${SITE}/${p.path}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${p.freq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>\n`;
+        entries.push({ loc: `${SITE}/${p.path}`, freq: p.freq, priority: p.priority });
     }
-
-    // Brands
     for (const b of BRANDS) {
-        out += `  <url>\n    <loc>${SITE}/brands/${b.slug}.html</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.85</priority>\n  </url>\n`;
+        entries.push({ loc: `${SITE}/brands/${b.slug}.html`, freq: 'weekly', priority: '0.85' });
     }
-
-    // Tags
     for (const t of TAGS) {
-        out += `  <url>\n    <loc>${SITE}/tags/${t.slug}.html</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+        entries.push({ loc: `${SITE}/tags/${t.slug}.html`, freq: 'weekly', priority: '0.8' });
     }
-
-    // Articles
     for (let i = 0; i < bank.length; i++) {
         const slug = slugs[i + 1] || ('article-' + (i + 1));
-        out += `  <url>\n    <loc>${SITE}/articles/${slug}.html</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+        entries.push({ loc: `${SITE}/articles/${slug}.html`, freq: 'weekly', priority: '0.8' });
+    }
+
+    const seenLocs = new Set();
+    let out = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+    for (const e of entries) {
+        if (seenLocs.has(e.loc)) continue;
+        seenLocs.add(e.loc);
+        out += `  <url>\n    <loc>${e.loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${e.freq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>\n`;
     }
     return out + '</urlset>\n';
 }

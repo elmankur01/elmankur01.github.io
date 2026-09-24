@@ -144,7 +144,7 @@ const BRANDS = [
         logo: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=300&auto=format&fit=crop&q=80',
         heroImage: '/images/art-09.jpg',
         description: 'Mercedes-Benz — пионер мирового автомобилестроения и эталон премиального комфорта («The Best or Nothing»). От легендарных седанов S-Class до спортивных болидов Mercedes-AMG.',
-        keywords: ['mercedes', 'мерседес', 'daimler', 'amg', 'майбах', 'maybach', 's-class', 'e-class']
+        keywords: ['mercedes', 'мерседес', 'mercedes-benz', 'daimler', 'amg', 'майбах', 'maybach', 'gelandewagen', 'гелик', 's-class', 'e-class', '300 sls', 'stirling moss']
     },
     {
         slug: 'porsche',
@@ -155,7 +155,7 @@ const BRANDS = [
         logo: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&auto=format&fit=crop&q=80',
         heroImage: '/images/art-16.jpg',
         description: 'Porsche — вершина немецкой инженерной мысли и спортивного автопрома. Культовый Porsche 911, бестселлер Cayenne, фастбек Panamera и электрический Taycan.',
-        keywords: ['porsche', 'порше', '911', 'cayenne', 'кайен', 'panamera', 'панамера', 'taycan', 'тайкан']
+        keywords: ['porsche', 'порше', '911', 'carrera', 'каррера', 'cayenne', 'кайен', 'macan', 'макан', 'panamera', 'панамера', 'taycan', 'тайкан', 'gt3']
     },
     {
         slug: 'toyota',
@@ -233,28 +233,6 @@ const BRANDS = [
         heroImage: '/images/ferrari.jpg',
         description: 'Ferrari — легендарный итальянский производитель суперкаров и символ мирового автоспорта. От гоночных болидов Формулы-1 до эксклюзивных дорожных шедевров в Маранелло.',
         keywords: ['ferrari', 'феррари', 'luce', 'maranello', 'маранелло', 'enzo', 'sf90', 'f8', '296 gtb']
-    },
-    {
-        slug: 'porsche',
-        name: 'Porsche',
-        nameRu: 'Порше',
-        country: 'Германия 🇩🇪',
-        year: 1931,
-        logo: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=300&auto=format&fit=crop&q=80',
-        heroImage: '/images/porsche-911.jpg',
-        description: 'Porsche — эталон спортивного инжиниринга. Легендарное семейство 911, спорткары 718 Cayman/Boxster, премиум-кроссоверы Cayenne и Macan, а также электрокар Taycan.',
-        keywords: ['porsche', 'порше', '911', 'carrera', 'каррера', 'cayenne', 'кайен', 'panamera', 'панамера', 'taycan', 'тайкан', 'gt3']
-    },
-    {
-        slug: 'mercedes',
-        name: 'Mercedes-Benz',
-        nameRu: 'Мерседес-Бенц',
-        country: 'Германия 🇩🇪',
-        year: 1926,
-        logo: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=300&auto=format&fit=crop&q=80',
-        heroImage: '/images/art-38.jpg',
-        description: 'Mercedes-Benz — «The Best or Nothing». Изобретатель первого в мире автомобиля, создатель представительского S-Class, спортивного подразделения AMG и легендарного G-Class.',
-        keywords: ['mercedes', 'мерседес', 'mercedes-benz', 'amg', 'майбах', 'maybach', 'gelandewagen', 'гелик', 's-class', '300 sls', 'stirling moss']
     }
 ];
 
