@@ -216,6 +216,8 @@ const IMAGES = {
     153: { url: "/images/art-01.jpg", alt: "Модернизация TurboMax от GM дает Колорадо и Каньону 350 л.с.", credit: "Фото: АвтоТема" }
 ,
     154: { url: "/images/auto/art-154.jpg", alt: "Bentley отказывается от экранов переднего пассажира: «Технологии должны повышать ценность»", credit: "Фото: M 93, CC BY-SA 3.0 de" }
+,
+    155: { url: "/images/auto/art-155.jpg", alt: "Bentley отказывается от срока выпуска электромобилей к 2030 году, сохраняя газовые двигатели", credit: "Фото: M 93, CC BY-SA 3.0 de" }
 
 };
 
@@ -451,6 +453,8 @@ const SLUGS = {
     153: "modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s"
 ,
     154: "bentley-otkazyvaetsya-ot-ekranov-perednego-passazhira-tekhnologii-dolzhny-povysh"
+,
+    155: "bentley-otkazyvaetsya-ot-sroka-vypuska-elektromobiley-k-2030-godu-sokhranyaya-ga"
 
 };
 
