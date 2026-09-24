@@ -1,0 +1,1397 @@
+[
+  {
+    "id": 1,
+    "title": "Электромобили в 2026 году: гонка за запасом хода в 1000 км",
+    "tag": "Электромобили",
+    "text": "Новые батареи на твердотельных элементах обещают прорыв. Разбираемся, какие модели уже готовы к дальним поездкам.",
+    "readTime": 15,
+    "url": "/articles/elektromobili-v-2026-godu-gonka-za-zapasom-khoda-v-1000-km.html",
+    "image": "/images/art-01.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Премьеры года: главные авто, которые выйдут на рынок",
+    "tag": "Новые модели",
+    "text": "Собираем самые ожидаемые автомобили от мировых брендов — от бюджетных до флагманских.",
+    "readTime": 10,
+    "url": "/articles/premery-goda-glavnye-avto-kotorye-vyydut-na-rynok.html",
+    "image": "/images/art-02.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Toyota: путь от ткацкого станка до мирового лидера",
+    "tag": "История марок",
+    "text": "Как семейная компания из Японии изменила весь автопром и что такое «бережливое производство».",
+    "readTime": 12,
+    "url": "/articles/toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html",
+    "image": "/images/art-03.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Бензин, дизель, гибрид или электро: что выбрать в 2026?",
+    "tag": "Двигатели",
+    "text": "Считаем стоимость владения и сравниваем технологии — честный гид по выбору силовой установки.",
+    "readTime": 8,
+    "url": "/articles/benzin-dizel-gibrid-ili-elektro-chto-vybrat-v-2026.html",
+    "image": "/images/art-04.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Автопром будущего: беспилотники, каршеринг и новые рынки",
+    "tag": "Мировые новости",
+    "text": "Что ждёт автомобильную индустрию через 10 лет и как это изменит вашу повседневную жизнь.",
+    "readTime": 9,
+    "url": "/articles/avtoprom-budushchego-bespilotniki-karshering-i-novye-rynki.html",
+    "image": "/images/art-05.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Зарядные станции: где заряжаться в дороге и сколько это стоит",
+    "tag": "Электромобили",
+    "text": "Практическое руководство для владельцев электромобилей в России и за рубежом.",
+    "readTime": 7,
+    "url": "/articles/zaryadnye-stantsii-gde-zaryazhatsya-v-doroge-i-skolko-eto-stoit.html",
+    "image": "/images/art-06.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Кроссоверы 2026: что выбирают семьи",
+    "tag": "Новые модели",
+    "text": "Обзор самых интересных SUV года: вместительность, экономичность и технологии.",
+    "readTime": 11,
+    "url": "/articles/krossovery-2026-chto-vybirayut-semi.html",
+    "image": "/images/art-07.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Турбо или атмосферник: что надёжнее на самом деле",
+    "tag": "Двигатели",
+    "text": "Спор о двигателях не утихает. Смотрим факты, ресурс и стоимость обслуживания.",
+    "readTime": 9,
+    "url": "/articles/turbo-ili-atmosfernik-chto-nadezhnee-na-samom-dele.html",
+    "image": "/images/art-08.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Ferrari: как маленькая мастерская стала символом скорости",
+    "tag": "История марок",
+    "text": "История Энцо Феррари, гонок и машин, которые мечтает иметь каждый.",
+    "readTime": 13,
+    "url": "/articles/ferrari-kak-malenkaya-masterskaya-stala-simvolom-skorosti.html",
+    "image": "/images/ferrari.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Tesla vs китайские бренды: кто лидирует в электромобилях",
+    "tag": "Электромобили",
+    "text": "Сравниваем технологии, цены и зарядную инфраструктуру главных игроков рынка.",
+    "readTime": 12,
+    "url": "/articles/tesla-vs-kitayskie-brendy-kto-lidiruet-v-elektromobilyakh.html",
+    "image": "/images/art-10.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Экологические нормы: как автопром готовится к запрету ДВС",
+    "tag": "Мировые новости",
+    "text": "Какие страны уже объявили даты отказа от бензиновых двигателей и чем это грозит рынку.",
+    "readTime": 8,
+    "url": "/articles/ekologicheskie-normy-kak-avtoprom-gotovitsya-k-zapretu-dvs.html",
+    "image": "/images/art-11.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Volkswagen: «народный автомобиль» и его наследие",
+    "tag": "История марок",
+    "text": "История «Жука» и как одна машина для всех превратилась в крупнейший концерн Европы.",
+    "readTime": 11,
+    "url": "/articles/volkswagen-narodnyy-avtomobil-i-ego-nasledie.html",
+    "image": "/images/art-12.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Гибриды против электричества: считаем, что выгоднее",
+    "tag": "Новые модели",
+    "text": "Расход, зарядка, остаточная стоимость — объективное сравнение для реальных условий.",
+    "readTime": 10,
+    "url": "/articles/gibridy-protiv-elektrichestva-schitaem-chto-vygodnee.html",
+    "image": "/images/art-13.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Дизель жив? Что происходит с дизельными моторами",
+    "tag": "Двигатели",
+    "text": "Скандалы, экология и экономия — разбираем будущее дизельных двигателей.",
+    "readTime": 8,
+    "url": "/articles/dizel-zhiv-chto-proiskhodit-s-dizelnymi-motorami.html",
+    "image": "/images/art-14.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Батареи будущего: натрий, твёрдый электролит и LFP",
+    "tag": "Электромобили",
+    "text": "Новые технологии аккумуляторов, которые снизят цены и увеличат запас хода.",
+    "readTime": 10,
+    "url": "/articles/batarei-budushchego-natriy-tverdyy-elektrolit-i-lfp.html",
+    "image": "/images/art-15.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Porsche 911: 60 лет одной легенде",
+    "tag": "История марок",
+    "text": "Почему силуэт самого узнаваемого спорткара не меняется уже шесть десятилетий.",
+    "readTime": 12,
+    "url": "/articles/porsche-911-60-let-odnoy-legende.html",
+    "image": "/images/porsche-911.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах",
+    "tag": "Новые модели",
+    "text": "Спрос на новые китайские авто в России за год вырос на 26,7%. Разбираем, кто возглавил продажи и почему покупатели всё чаще выбирают именно их.",
+    "readTime": 9,
+    "url": "/articles/kitayskie-brendy-shturmuyut-rynok-haval-exeed-i-geely-v-liderakh.html",
+    "image": "/images/art-17.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Гибриды 2026: больше не «переходный этап», а самостоятельный класс",
+    "tag": "Двигатели",
+    "text": "PHEV и EREV превратились в отдельный сегмент со своими покупателями. Плюсы, минусы и почему они бьют чистые электромобили по продажам.",
+    "readTime": 8,
+    "url": "/articles/gibridy-2026-bolshe-ne-perekhodnyy-etap-a-samostoyatelnyy-klass.html",
+    "image": "/images/art-18.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Быстрая зарядка важнее запаса хода: эпоха 800V и 900V",
+    "tag": "Электромобили",
+    "text": "BYD Da Tang EV проезжает 950 км и заряжается за 9 минут. Разбираемся, как новые архитектуры и токи 5C меняют правила игры.",
+    "readTime": 10,
+    "url": "/articles/bystraya-zaryadka-vazhnee-zapasa-khoda-epokha-800v-i-900v.html",
+    "image": "/images/art-19.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Твёрдотельные батареи: прототип Mercedes проехал 1205 км",
+    "tag": "Электромобили",
+    "text": "Твёрдый электролит обещает конец «тревоги запаса хода». Что показывают первые прототипы и когда ждать серийные машины.",
+    "readTime": 9,
+    "url": "/articles/tverdotelnye-batarei-prototip-mercedes-proekhal-1205-km.html",
+    "image": "/images/art-20.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Li Auto: электронное шасси и запас хода до 1650 км",
+    "tag": "Электромобили",
+    "text": "Китайский бренд ушёл вперёд: руль и тормоза без механических связей, собственные чипы и гибрид, который не боится дальних трасс.",
+    "readTime": 8,
+    "url": "/articles/li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html",
+    "image": "/images/art-21.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Надёжность китайских машин: почему сервисы загружены на 51%",
+    "tag": "Мировые новости",
+    "text": "Обращений в автосервисы стало больше, но дело не в поломках. Считаем долю китайских авто на дорогах и разбираем реальную статистику.",
+    "readTime": 7,
+    "url": "/articles/nadezhnost-kitayskikh-mashin-pochemu-servisy-zagruzheny-na-51.html",
+    "image": "/images/art-22.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Рейтинг продаж в Китае: Geely EX2, Xiaomi SU7 и гонка BYD",
+    "tag": "Мировые новости",
+    "text": "Лидерство BYD, внезапный успех Xiaomi и народный кроссовер Geely. Какие машины выбирают на самом большом авторынке мира.",
+    "readTime": 9,
+    "url": "/articles/reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html",
+    "image": "/images/art-23.jpg"
+  },
+  {
+    "id": 24,
+    "title": "ESTEO V27: гибрид на 456 л.с. за 5,75 млн рублей",
+    "tag": "Новые модели",
+    "text": "Новый гибридный кроссовер вышел на российский рынок. Смотрим комплектации, технологии и за кого он составит конкуренцию.",
+    "readTime": 6,
+    "url": "/articles/esteo-v27-gibrid-na-456-l-s-za-5-75-mln-rubley.html",
+    "image": "/images/art-24.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Zeekr, BMW и гонка за 900-вольтовые платформы",
+    "tag": "Электромобили",
+    "text": "Новая электроархитектура Neue Klasse и китайские платформы 900V: быстрее зарядка, выше КПД, легче машина.",
+    "readTime": 9,
+    "url": "/articles/zeekr-bmw-i-gonka-za-900-voltovye-platformy.html",
+    "image": "/images/art-25.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Changan CS75 Plus AWD: локализация и полный привод",
+    "tag": "Новые модели",
+    "text": "Популярный кроссовер начали собирать в России. Что это значит для цены и что получил покупатель.",
+    "readTime": 6,
+    "url": "/articles/changan-cs75-plus-awd-lokalizatsiya-i-polnyy-privod.html",
+    "image": "/images/art-26.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Xiaomi SU7: как телефонный гигант ворвался в автопром",
+    "tag": "История марок",
+    "text": "Первый электромобиль Xiaomi собрал очередь на годы вперёд. История бренда, который за три года построил завод и обогнал старожилов.",
+    "readTime": 11,
+    "url": "/articles/xiaomi-su7-kak-telefonnyy-gigant-vorvalsya-v-avtoprom.html",
+    "image": "/images/art-27.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Электромобиль зимой: теряем ли мы запас хода в мороз",
+    "tag": "Электромобили",
+    "text": "Холод крадёт до 40% пробега. Рассказываем, как подготовить машину к зиме и почему предпрогрев решает проблему.",
+    "readTime": 8,
+    "url": "/articles/elektromobil-zimoy-teryaem-li-my-zapas-khoda-v-moroz.html",
+    "image": "/images/art-28.jpg"
+  },
+  {
+    "id": 29,
+    "title": "LFP против тройного лития: какая батарея живёт дольше",
+    "tag": "Электромобили",
+    "text": "Дешевле и безопаснее или легче и ёмче? Сравниваем два главных типа аккумуляторов и считаем ресурс.",
+    "readTime": 9,
+    "url": "/articles/lfp-protiv-troynogo-litiya-kakaya-batareya-zhivet-dolshe.html",
+    "image": "/images/art-29.jpg"
+  },
+  {
+    "id": 30,
+    "title": "Режим одной педали: что такое рекуперация и как ей пользоваться",
+    "tag": "Электромобили",
+    "text": "Торможение двигателем, экономия энергии и продление жизни колодок — объясняем технологию простыми словами.",
+    "readTime": 7,
+    "url": "/articles/rezhim-odnoy-pedali-chto-takoe-rekuperatsiya-i-kak-ey-polzovatsya.html",
+    "image": "/images/art-30.jpg"
+  },
+  {
+    "id": 31,
+    "title": "Б/у электромобиль: на что смотреть при покупке",
+    "tag": "Электромобили",
+    "text": "Проверка батареи, износ, зарядный порт и документы — чек-лист для тех, кто берёт электро на вторичке.",
+    "readTime": 10,
+    "url": "/articles/b-u-elektromobil-na-chto-smotret-pri-pokupke.html",
+    "image": "/images/art-31.jpg"
+  },
+  {
+    "id": 32,
+    "title": "Спорткары 2026: электрические и гибридные бестселлеры",
+    "tag": "Новые модели",
+    "text": "Феррари, Porsche и китайские новички — собрали самые горячие премьеры для любителей скорости.",
+    "readTime": 8,
+    "url": "/articles/sportkary-2026-elektricheskie-i-gibridnye-bestsellery.html",
+    "image": "/images/art-32.jpg"
+  },
+  {
+    "id": 33,
+    "title": "Минивэны и семейные кроссоверы: обзор для больших семей",
+    "tag": "Новые модели",
+    "text": "Куда сесть шестерым и куда сложить багаж — подборка просторных авто для путешествий.",
+    "readTime": 9,
+    "url": "/articles/miniveny-i-semeynye-krossovery-obzor-dlya-bolshikh-semey.html",
+    "image": "/images/art-33.jpg"
+  },
+  {
+    "id": 34,
+    "title": "Бюджетные авто 2026: что купить до 2 млн рублей",
+    "tag": "Новые модели",
+    "text": "Честный обзор доступных новинок: что реально даёт деньги, а что только маркетинг.",
+    "readTime": 7,
+    "url": "/articles/byudzhetnye-avto-2026-chto-kupit-do-2-mln-rubley.html",
+    "image": "/images/art-34.jpg"
+  },
+  {
+    "id": 35,
+    "title": "Пикапы наступают: почему грузовые машины становятся модными",
+    "tag": "Новые модели",
+    "text": "От стройки до выездов на природу — разбираем феномен пикапов и главные новинки года.",
+    "readTime": 8,
+    "url": "/articles/pikapy-nastupayut-pochemu-gruzovye-mashiny-stanovyatsya-modnymi.html",
+    "image": "/images/art-35.jpg"
+  },
+  {
+    "id": 36,
+    "title": "Ремень ГРМ против цепи: что надёжнее и что дешевле",
+    "tag": "Двигатели",
+    "text": "Цепь «на весь срок», ремень — по регламенту. Считаем, какой привод выгоднее и безопаснее в эксплуатации.",
+    "readTime": 8,
+    "url": "/articles/remen-grm-protiv-tsepi-chto-nadezhnee-i-chto-deshevle.html",
+    "image": "/images/art-36.jpg"
+  },
+  {
+    "id": 37,
+    "title": "Какое масло лить в двигатель и когда менять",
+    "tag": "Двигатели",
+    "text": "Вязкость, допуски и интервалы замены — просто о главном, чтобы мотор служил долго.",
+    "readTime": 7,
+    "url": "/articles/kakoe-maslo-lit-v-dvigatel-i-kogda-menyat.html",
+    "image": "/images/art-37.jpg"
+  },
+  {
+    "id": 38,
+    "title": "Вариатор или АКПП: сравниваем коробки передач",
+    "tag": "Двигатели",
+    "text": "Плавность против надёжности: разбираем, какой тип трансмиссии выбрать и как продлить им жизнь.",
+    "readTime": 9,
+    "url": "/articles/variator-ili-akpp-sravnivaem-korobki-peredach.html",
+    "image": "/images/art-38.jpg"
+  },
+  {
+    "id": 39,
+    "title": "Как экономить топливо: 10 привычек водителя",
+    "tag": "Двигатели",
+    "text": "Плавный разгон, давление в шинах и правильный маршрут — что реально снижает расход на 15–20%.",
+    "readTime": 6,
+    "url": "/articles/kak-ekonomit-toplivo-10-privychek-voditelya.html",
+    "image": "/images/art-39.jpg"
+  },
+  {
+    "id": 40,
+    "title": "Робот против автомата: где подвох в «роботах»",
+    "tag": "Двигатели",
+    "text": "DSG, роботы с одним сцеплением и автоматы: в чём разница и почему одни коробки лучше не покупать б/у.",
+    "readTime": 9,
+    "url": "/articles/robot-protiv-avtomata-gde-podvokh-v-robotakh.html",
+    "image": "/images/art-40.jpg"
+  },
+  {
+    "id": 41,
+    "title": "BMW: от авиационных двигателей до «тройки»",
+    "tag": "История марок",
+    "text": "Честная история бренда: небесные моторы, военные годы и спорткары, изменившие всё.",
+    "readTime": 12,
+    "url": "/articles/bmw-ot-aviatsionnykh-dvigateley-do-troyki.html",
+    "image": "/images/art-41.jpg"
+  },
+  {
+    "id": 42,
+    "title": "Mercedes-Benz: рождение трёхлучевой звезды",
+    "tag": "История марок",
+    "text": "Как Даймлер и Бенц изобрели автомобиль, а их наследники построили империю премиума.",
+    "readTime": 11,
+    "url": "/articles/mercedes-benz-rozhdenie-trekhluchevoy-zvezdy.html",
+    "image": "/images/art-42.jpg"
+  },
+  {
+    "id": 43,
+    "title": "Honda: от мопедов до легендарного NSX",
+    "tag": "История марок",
+    "text": "Компания, которая начинала с велосипедных моторчиков и встала в один ряд с гигантами Формулы-1.",
+    "readTime": 10,
+    "url": "/articles/honda-ot-mopedov-do-legendarnogo-nsx.html",
+    "image": "/images/art-43.jpg"
+  },
+  {
+    "id": 44,
+    "title": "Лада: как АвтоВАЗ пережил эпохи",
+    "tag": "История марок",
+    "text": "От «Копейки» до Vesta: история русского автопрома, который выстоял и снова набирает силу.",
+    "readTime": 9,
+    "url": "/articles/lada-kak-avtovaz-perezhil-epokhi.html",
+    "image": "/images/art-44.jpg"
+  },
+  {
+    "id": 45,
+    "title": "Audi: четыре кольца и легенда quattro",
+    "tag": "История марок",
+    "text": "История четырёх компаний, одного слогана Vorsprung durch Technik и полного привода, покорившего ралли.",
+    "readTime": 10,
+    "url": "/articles/audi-chetyre-koltsa-i-legenda-quattro.html",
+    "image": "/images/art-45.jpg"
+  },
+  {
+    "id": 46,
+    "title": "Утильсбор 2026: как меняются цены на новые авто",
+    "tag": "Мировые новости",
+    "text": "Новые ставки, параллельный импорт и реакция рынка — что происходит с ценами на машины в России.",
+    "readTime": 7,
+    "url": "/articles/utilsbor-2026-kak-menyayutsya-tseny-na-novye-avto.html",
+    "image": "/images/art-46.jpg"
+  },
+  {
+    "id": 47,
+    "title": "Китайские электрокары захватывают Европу",
+    "tag": "Мировые новости",
+    "text": "Бюджетные электромобили из КНР теснят европейские бренды на их же рынке. Цифры и прогнозы.",
+    "readTime": 8,
+    "url": "/articles/kitayskie-elektrokary-zakhvatyvayut-evropu.html",
+    "image": "/images/art-47.jpg"
+  },
+  {
+    "id": 48,
+    "title": "Беспилотные такси: где они уже возят пассажиров",
+    "tag": "Мировые новости",
+    "text": "Waymo, роботакси в Китае и первые шаги в России — как выглядит будущее транспорта сегодня.",
+    "readTime": 8,
+    "url": "/articles/bespilotnye-taksi-gde-oni-uzhe-vozyat-passazhirov.html",
+    "image": "/images/art-48.jpg"
+  },
+  {
+    "id": 49,
+    "title": "Водород против батареи: второй шанс H2-технологий",
+    "tag": "Мировые новости",
+    "text": "Топливные элементы возвращаются в повестку. Сравниваем водород и электричество для дальних перевозок.",
+    "readTime": 9,
+    "url": "/articles/vodorod-protiv-batarei-vtoroy-shans-h2-tekhnologiy.html",
+    "image": "/images/art-49.jpg"
+  },
+  {
+    "id": 50,
+    "title": "Куда уходит вторичный рынок: тренды Б/у автомобилей",
+    "tag": "Мировые новости",
+    "text": "Китайские бренды в лидерах перепродажи, дилеры онлайн и падение цен — что ждёт покупателей Б/у.",
+    "readTime": 7,
+    "url": "/articles/kuda-ukhodit-vtorichnyy-rynok-trendy-b-u-avtomobiley.html",
+    "image": "/images/art-50.jpg"
+  },
+  {
+    "id": 51,
+    "title": "Домашняя зарядка: ставим зарядную станцию без лишних трат",
+    "tag": "Электромобили",
+    "text": "Розетка, wallbox или станция под 16 кВт? Считаем стоимость установки и электричества дома.",
+    "readTime": 8,
+    "url": "/articles/domashnyaya-zaryadka-stavim-zaryadnuyu-stantsiyu-bez-lishnikh-trat.html",
+    "image": "/images/art-51.jpg"
+  },
+  {
+    "id": 52,
+    "title": "Chevrolet: как Америка строила свои легенды",
+    "tag": "История марок",
+    "text": "От Corvette до Silverado: история бренда, который стал символом американской мечты и покорил весь мир.",
+    "readTime": 11,
+    "url": "/articles/chevrolet-kak-amerika-stroila-svoi-legendy.html",
+    "image": "/images/art-52.jpg"
+  },
+  {
+    "id": 53,
+    "title": "Лада Vesta 2026: что изменилось в главной модели АвтоВАЗа",
+    "tag": "Мировые новости",
+    "text": "Бестселлер российского рынка получил обновления: новые комплектации, мультимедиа и системы помощи водителю. Разбираем, чем Vesta берёт покупателя.",
+    "readTime": 8,
+    "url": "/articles/lada-vesta-2026-chto-izmenilos-v-glavnoy-modeli-avtovaza.html",
+    "image": "/images/art-53.jpg"
+  },
+  {
+    "id": 54,
+    "title": "УАЗ «Патриот» и внедорожники: что нового в 2026",
+    "tag": "Мировые новости",
+    "text": "Рамная классика против комфорта: обновлённый «Патриот», «Хантер» и «Пикап» — какие внедорожники выбирают для бездорожья.",
+    "readTime": 8,
+    "url": "/articles/uaz-patriot-i-vnedorozhniki-chto-novogo-v-2026.html",
+    "image": "/images/art-54.jpg"
+  },
+  {
+    "id": 55,
+    "title": "АвтоВАЗ 2026: новые модели и планы концерна",
+    "tag": "Мировые новости",
+    "text": "Granta, Vesta, Niva и Largus: что делает крупнейший автозавод России и какие новинки готовит.",
+    "readTime": 9,
+    "url": "/articles/avtovaz-2026-novye-modeli-i-plany-kontserna.html",
+    "image": "/images/art-55.jpg"
+  },
+  {
+    "id": 56,
+    "title": "Москвич и возрождение российских автобрендов",
+    "tag": "Мировые новости",
+    "text": "Завод «Москвич» снова работает полным циклом. Как перезапуск легендарной марки меняет российский автопром.",
+    "readTime": 8,
+    "url": "/articles/moskvich-i-vozrozhdenie-rossiyskikh-avtobrendov.html",
+    "image": "/images/art-56.jpg"
+  },
+  {
+    "id": 57,
+    "title": "Локализация в России: что собирают на автозаводах",
+    "tag": "Мировые новости",
+    "text": "От крупноузловой сборки до полного цикла: как китайские и российские бренды наращивают производство в РФ.",
+    "readTime": 7,
+    "url": "/articles/lokalizatsiya-v-rossii-chto-sobirayut-na-avtozavodakh.html",
+    "image": "/images/art-57.jpg"
+  },
+  {
+    "id": 58,
+    "title": "Льготы и субсидии: как выгодно купить российский автомобиль",
+    "tag": "Мировые новости",
+    "text": "Госпрограммы, скидки на отечественные авто и условия получения — как сэкономить на покупке в 2026.",
+    "readTime": 7,
+    "url": "/articles/lgoty-i-subsidii-kak-vygodno-kupit-rossiyskiy-avtomobil.html",
+    "image": "/images/art-58.jpg"
+  },
+  {
+    "id": 59,
+    "title": "Рынок новых автомобилей в России: итоги полугодия 2026",
+    "tag": "Новости рынка",
+    "text": "Рост продаж, лидеры и средний чек: разбираем официальную статистику первой половины 2026 года.",
+    "readTime": 9,
+    "url": "/articles/rynok-novykh-avtomobiley-v-rossii-itogi-polugodiya-2026.html",
+    "image": "/images/art-59.jpg"
+  },
+  {
+    "id": 60,
+    "title": "Почему дорожают автомобили: факторы цен 2026",
+    "tag": "Новости рынка",
+    "text": "Утильсбор, курс, ставки и логистика: что реально двигает цены на новые машины и стоит ли ждать снижения.",
+    "readTime": 8,
+    "url": "/articles/pochemu-dorozhayut-avtomobili-faktory-tsen-2026.html",
+    "image": "/images/art-60.jpg"
+  },
+  {
+    "id": 61,
+    "title": "Параллельный импорт автомобилей: что осталось от серых схем",
+    "tag": "Новости рынка",
+    "text": "Как работает параллельный импорт в 2026 году, какие риски у покупателя и насколько это выгодно.",
+    "readTime": 8,
+    "url": "/articles/parallelnyy-import-avtomobiley-chto-ostalos-ot-serykh-skhem.html",
+    "image": "/images/art-61.jpg"
+  },
+  {
+    "id": 62,
+    "title": "Рейтинг марок по продажам в России 2026",
+    "tag": "Новости рынка",
+    "text": "Lada в лидерах, китайские бренды в топ-5: смотрим на реальную структуру рынка по официальным данным.",
+    "readTime": 8,
+    "url": "/articles/reyting-marok-po-prodazham-v-rossii-2026.html",
+    "image": "/images/art-62.jpg"
+  },
+  {
+    "id": 63,
+    "title": "Дилеры уходят в онлайн: как теперь покупают автомобили",
+    "tag": "Новости рынка",
+    "text": "Онлайн-площадки, выкуп и trade-in: как цифровизация меняет процесс покупки машины в 2026 году.",
+    "readTime": 7,
+    "url": "/articles/dilery-ukhodyat-v-onlayn-kak-teper-pokupayut-avtomobili.html",
+    "image": "/images/art-63.jpg"
+  },
+  {
+    "id": 64,
+    "title": "ОСАГО и каско для новых автомобилей: что изменилось",
+    "tag": "Новости рынка",
+    "text": "Тарифы, электронные полисы и франшиза: как правильно застраховать новую машину и сэкономить.",
+    "readTime": 7,
+    "url": "/articles/osago-i-kasko-dlya-novykh-avtomobiley-chto-izmenilos.html",
+    "image": "/images/art-64.jpg"
+  },
+  {
+    "id": 65,
+    "title": "«Атом»: российский электромобиль выходит на дороги",
+    "tag": "Мировые новости",
+    "text": "Проект КАМАЗа и «Татнефти» готовится к серийному производству в Москве. Разбираем платформу, запас хода и планы по продажам.",
+    "readTime": 8,
+    "url": "/articles/atom-rossiyskiy-elektromobil-vykhodit-na-dorogi.html",
+    "image": "/images/art-65.jpg"
+  },
+  {
+    "id": 66,
+    "title": "Российский авторынок в июле 2026: рост, лидеры и доля китайцев",
+    "tag": "Новости рынка",
+    "text": "Свежая статистика АЕБ и Автостата: сколько машин продали, кто в лидерах и почему китайские бренды продолжают наступать.",
+    "readTime": 8,
+    "url": "/articles/rossiyskiy-avtorynok-v-iyule-2026-rost-lidery-i-dolya-kitaytsev.html",
+    "image": "/images/art-66.jpg"
+  },
+  {
+    "id": 67,
+    "title": "Euro 7: новые экологические нормы для автомобилей",
+    "tag": "Мировые новости",
+    "text": "Что меняют новые стандарты выбросов, когда они вступают в силу и как автопром к ним готовится.",
+    "readTime": 7,
+    "url": "/articles/euro-7-novye-ekologicheskie-normy-dlya-avtomobiley.html",
+    "image": "/images/art-67.jpg"
+  },
+  {
+    "id": 68,
+    "title": "Nissan: от Datsun до мирового лидера и обратно",
+    "tag": "История марок",
+    "text": "Путь японской марки от маленьких грузовиков до GT-R и первого массового электромобиля Leaf.",
+    "readTime": 11,
+    "url": "/articles/nissan-ot-datsun-do-mirovogo-lidera-i-obratno.html",
+    "image": "/images/nissan-gtr.jpg"
+  },
+  {
+    "id": 69,
+    "title": "Подготовка к дальней поездке: чек-лист из 10 пунктов",
+    "tag": "Авто лайфхаки",
+    "text": "Перед долгой дорогой стоит проверить не только масло и шины. Собрали простой чек-лист, который спасёт от поломки в 500 км от дома и лишних трат.",
+    "readTime": 7,
+    "url": "/articles/podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov.html",
+    "image": "/images/art-69.jpg"
+  },
+  {
+    "id": 70,
+    "title": "Kia EV3: доступный электрокроссовер с запасом хода до 516 км",
+    "tag": "Мировые новости",
+    "text": "Корейский компактный электрокроссовер Kia EV3 официально поступил в продажу. Запас хода по строгой методике EPA составил до 516 км при цене менее 30 000 долларов.",
+    "readTime": 6,
+    "url": "/articles/kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km.html",
+    "image": "/images/art-70.jpg"
+  },
+  {
+    "id": 71,
+    "title": "Цены и комплектации Kia EV3: новый лидер в доступном сегменте",
+    "tag": "Мировые новости",
+    "text": "Объявлены официальные цены и комплектации нового Kia EV3: базовые версии, мощность двигателей и богатое оснащение салона для семейных поездок.",
+    "readTime": 5,
+    "url": "/articles/tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente.html",
+    "image": "/images/art-71.jpg"
+  },
+  {
+    "id": 72,
+    "title": "Avore EX2S: доступный электромотоцикл со скоростью до 115 км/ч",
+    "tag": "Мировые новости",
+    "text": "Новый доступный электрический байк Avore EX2S развивает скорость до 115 км/ч и предлагает отличную альтернативу бензиновым скутерам для города.",
+    "readTime": 5,
+    "url": "/articles/avore-ex2s-dostupnyy-elektromototsikl-so-skorostyu-do-115-km-h.html",
+    "image": "/images/art-72.jpg"
+  },
+  {
+    "id": 73,
+    "title": "«Тревога запаса хода»: почему страх перед батареями уходит в прошлое",
+    "tag": "Мировые новости",
+    "text": "Разбираем феномен range anxiety: как скоростные зарядные станции и батареи нового поколения избавляют водителей от страха разрядиться в пути.",
+    "readTime": 6,
+    "url": "/articles/trevoga-zapasa-khoda-pochemu-strakh-pered-batareyami-ukhodit-v-proshloe.html",
+    "image": "/images/art-73.jpg"
+  },
+  {
+    "id": 74,
+    "title": "Tesla и профсоюзы в Европе: завершение забастовки в Швеции",
+    "tag": "Мировые новости",
+    "text": "После длительного противостояния крупнейший шведский профсоюз IF Metall завершил забастовку против Tesla. Итоги конфликта и влияние на европейский автопром.",
+    "readTime": 7,
+    "url": "/articles/tesla-i-profsoyuzy-v-evrope-zavershenie-zabastovki-v-shvetsii.html",
+    "image": "/images/art-74.jpg"
+  },
+  {
+    "id": 75,
+    "title": "Тест-драйв обновленного Haval H3: что в нем стало лучше",
+    "tag": "Мировые новости",
+    "text": "Кроссовер Haval H3 обновился и внешне, и технически. Что поменяли в машине?",
+    "readTime": 2,
+    "url": "/articles/haval-h3.html",
+    "image": "/images/art-75.jpg"
+  },
+  {
+    "id": 76,
+    "title": "Новая черная серия Mercedes будет использовать дикий плоский V8",
+    "tag": "Двигатели",
+    "text": "Mercedes-AMG GT Black Series будет использовать новый двигатель V8 с плоским кривошипом и копировать следующий гоночный автомобиль GT3, сохраняя при этом GT 63 Pro в качестве флагмана.",
+    "readTime": 2,
+    "url": "/articles/novaya-chernaya-seriya-mercedes-budet-ispol-zovat-dikiy-ploskiy-v8.html",
+    "image": "/images/art-76.jpg"
+  },
+  {
+    "id": 77,
+    "title": "Хотите уникальный Cayenne или Panamera? Porsche сделает это возможным",
+    "tag": "Мировые новости",
+    "text": "Это не только 911: Porsche сообщил Motor1, что Sonderwunsch уже работает над заказными четырехдверными проектами.",
+    "readTime": 2,
+    "url": "/articles/khotite-unikal-nyy-cayenne-ili-panamera-porsche-sdelaet-eto-vozmozhnym.html",
+    "image": "/images/art-77.jpg"
+  },
+  {
+    "id": 78,
+    "title": "Spyker возвращается: дебют C8 Preliator XXV мощностью 789 л.с.",
+    "tag": "Новые модели",
+    "text": "C8 Preliator XXV знаменует собой возвращение Spyker к мощным машинам в злобном стиле, отдавая дань уважения авиационному наследию бренда.",
+    "readTime": 2,
+    "url": "/articles/spyker-vozvrashchaetsya-debyut-c8-preliator-xxv-moshchnost-yu-789-l-s.html",
+    "image": "/images/art-78.jpg"
+  },
+  {
+    "id": 79,
+    "title": "Gordon Murray S1 — современный McLaren F1, которого мы ждали",
+    "tag": "Двигатели",
+    "text": "Gordon Murray S1 превращает S1 LM в более легкий и чистый турер с двигателем V12, активной аэродинамикой, шестиступенчатой ​​​​механической коробкой передач, а объем производства ограничен 64 автомобилями.",
+    "readTime": 2,
+    "url": "/articles/gordon-murray-s1-sovremennyy-mclaren-f1-kotorogo-my-zhdali.html",
+    "image": "/images/art-79.jpg"
+  },
+  {
+    "id": 80,
+    "title": "Покупатели 911 GT3 помогли убедить Porsche дать Carrera S руководство",
+    "tag": "Новости рынка",
+    "text": "Porsche наблюдает растущий спрос на механическую коробку передач со стороны своих онлайн-поклонников, клиентов и дилеров.",
+    "readTime": 2,
+    "url": "/articles/pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo.html",
+    "image": "/images/art-80.jpg"
+  },
+  {
+    "id": 81,
+    "title": "Благотворительный суперкар Ferrari Luce продан за рекордные 40 миллионов долларов",
+    "tag": "Электромобили",
+    "text": "Уникальный концепт Ferrari Luce Chassis 0 продан на аукционе за рекордную сумму: все средства направлены в благотворительный фонд марки на развитие технологий.",
+    "readTime": 5,
+    "url": "/articles/ferrari-luce-prodan-za-40-millionov-dollarov.html",
+    "image": "/images/art-81.jpg"
+  },
+  {
+    "id": 82,
+    "title": "Две легенды Mercedes: сравнительный тест 300 SLS и SLR Stirling Moss",
+    "tag": "Мировые новости",
+    "text": "Уникальный тест-драйв двух редчайших спорткаров Mercedes-Benz: исторический 300 SLS и спидстер SLR Stirling Moss на гоночном треке.",
+    "readTime": 6,
+    "url": "/articles/mercedes-300-sls-protiv-slr-stirling-moss.html",
+    "image": "/images/art-82.jpg"
+  },
+  {
+    "id": 83,
+    "title": "Новый Mercedes C-Class не вернет AMG C63 V8",
+    "tag": "Двигатели",
+    "text": "У Mercedes есть убедительное объяснение, почему V8 не возвращается.",
+    "readTime": 2,
+    "url": "/articles/novyy-mercedes-c-class-ne-vernet-amg-c63-v8.html",
+    "image": "/images/auto/art-83.jpg"
+  },
+  {
+    "id": 84,
+    "title": "Jeep только что представил новый Cherokee. Но еще один уже в пути",
+    "tag": "Новые модели",
+    "text": "Новый Jeep Cherokee поступит в производство в конце 2029 года и будет базироваться на новой платформе STLA One от Stellantis.",
+    "readTime": 2,
+    "url": "/articles/jeep-tol-ko-chto-predstavil-novyy-cherokee-no-eshche-odin-uzhe-v-puti.html",
+    "image": "/images/auto/art-84.jpg"
+  },
+  {
+    "id": 85,
+    "title": "Сделано всего 2500 экземпляров: Toyota Corolla, посвященная 60-летию Toyota, является гибридом",
+    "tag": "Мировые новости",
+    "text": "Ограниченная серия в 2500 гибридных седанов SE для США, Toyota Corolla 60th Anniversary Special Edition 2027 года отличается эффективностью, стилем и наследием.",
+    "readTime": 2,
+    "url": "/articles/sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota.html",
+    "image": "/images/auto/art-85.jpg"
+  },
+  {
+    "id": 86,
+    "title": "Гибридное будущее Lamborghini обретает форму, и одна страна может сыграть более важную роль",
+    "tag": "Электромобили",
+    "text": "Канада становится ключевым испытательным полигоном для гибридной линейки Lamborghini Revuelto и Urus SE, поскольку бренд меняет свои планы в Северной Америке.",
+    "readTime": 2,
+    "url": "/articles/gibridnoe-budushchee-lamborghini-obretaet-formu-i-odna-strana-mozhet-sygrat-bole.html",
+    "image": "/images/auto/art-86.jpg"
+  },
+  {
+    "id": 87,
+    "title": "BMW еще не закончила с M2. Предположительно выйдет новая версия",
+    "tag": "Мировые новости",
+    "text": "У нас есть несколько идей, что это может быть.",
+    "readTime": 2,
+    "url": "/articles/bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya.html",
+    "image": "/images/auto/art-87.jpg"
+  },
+  {
+    "id": 88,
+    "title": "Калифорния утвердила новые правила эффективности замены шин. Вот что это значит",
+    "tag": "Мировые новости",
+    "text": "Запасные шины должны быть такими же эффективными, как шины нового автомобиля, но для энтузиастов есть несколько лазеек.",
+    "readTime": 2,
+    "url": "/articles/kaliforniya-utverdila-novye-pravila-effektivnosti-zameny-shin-vot-chto-eto-znach.html",
+    "image": "/images/auto/art-88.jpg"
+  },
+  {
+    "id": 89,
+    "title": "Lamborghini Temerario Tricolore зажёг краску на галечном пляже",
+    "tag": "Электромобили",
+    "text": "Temerario Tricolore выдвигает программу Lamborghini Ad Personam и гибридное оборудование V8 на центральное место рядом с Revuelto SV и Urus SE Performante.",
+    "readTime": 2,
+    "url": "/articles/lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html",
+    "image": "/images/auto/art-89.jpg"
+  },
+  {
+    "id": 90,
+    "title": "Почему главный дизайнер Tesla сохранил свой плед №001 Model S",
+    "tag": "Электромобили",
+    "text": "Франц фон Хольцхаузен отправляет свое шасси Model S Plaid Signature Edition 001 в компанию Unplugged Performance для консервации, отдавая приоритет краске и интерьеру над дополнительной мощностью.",
+    "readTime": 2,
+    "url": "/articles/pochemu-glavnyy-dizayner-tesla-sokhranil-svoy-pled-001-model-s.html",
+    "image": "/images/auto/art-90.jpg"
+  },
+  {
+    "id": 91,
+    "title": "Ford рассматривает возможность создания дешевого раллийного автомобиля? Конечно, звучит так",
+    "tag": "Мировые новости",
+    "text": "Генеральный директор Джим Фарли говорит, что Ford «в восторге от нашего раллийного направления» и считает, что бренд должен предложить доступный раллийный автомобиль.",
+    "readTime": 2,
+    "url": "/articles/ford-rassmatrivaet-vozmozhnost-sozdaniya-deshevogo-ralliynogo-avtomobilya-konech.html",
+    "image": "/images/auto/art-91.jpg"
+  },
+  {
+    "id": 92,
+    "title": "Федералы расширяют расследование проблемных двигателей V8 GM",
+    "tag": "Двигатели",
+    "text": "Национальная администрация безопасности дорожного движения получила жалобы на отказы двигателей, выходящие за рамки прошлогоднего отзыва.",
+    "readTime": 2,
+    "url": "/articles/federaly-rasshiryayut-rassledovanie-problemnykh-dvigateley-v8-gm.html",
+    "image": "/images/auto/art-92.jpg"
+  },
+  {
+    "id": 93,
+    "title": "Genesis G70 теряет свой лучший двигатель",
+    "tag": "Двигатели",
+    "text": "На правительственном веб-сайте указано, что спортивный седан с двигателем V6 прекратит свое существование в 2027 году.",
+    "readTime": 1,
+    "url": "/articles/genesis-g70-teryaet-svoy-luchshiy-dvigatel.html",
+    "image": "/images/auto/art-93.jpg"
+  },
+  {
+    "id": 94,
+    "title": "BMW убила все надежды на новую 8-ю серию: «невозможно»",
+    "tag": "Мировые новости",
+    "text": "По данным BMW, Vision Alpina займет место 8-й серии в линейке.",
+    "readTime": 1,
+    "url": "/articles/bmw-ubila-vse-nadezhdy-na-novuyu-8-yu-seriyu-nevozmozhno.html",
+    "image": "/images/auto/art-94.jpg"
+  },
+  {
+    "id": 95,
+    "title": "Volkswagen Tukan — новый небольшой пикап, которого в США не будет",
+    "tag": "Новые модели",
+    "text": "VW Tukan является преемником Saveiro и дебютирует в версиях с одинарной и двойной кабиной.",
+    "readTime": 1,
+    "url": "/articles/volkswagen-tukan-novyy-nebolshoy-pikap-kotorogo-v-ssa-ne-budet.html",
+    "image": "/images/auto/art-95.jpg"
+  },
+  {
+    "id": 96,
+    "title": "Киберкабина Tesla без руля появится в Остине 3 сентября",
+    "tag": "Электромобили",
+    "text": "Двухместный Cybercab Tesla без руля присоединяется к существующей модели Y Robotaxis в Остине, в то время как правила и более широкий общественный доступ все еще отстают.",
+    "readTime": 1,
+    "url": "/articles/kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya.html",
+    "image": "/images/auto/art-96.jpg"
+  },
+  {
+    "id": 97,
+    "title": "Volvo хочет, чтобы ее PHEV двигались как электромобили",
+    "tag": "Электромобили",
+    "text": "Volvo удваивает производство подключаемых гибридов, выпуская новые модели с запасом хода до 100 миль на электромобилях.",
+    "readTime": 1,
+    "url": "/articles/volvo-khochet-chtoby-ee-phev-dvigalis-kak-elektromobili.html",
+    "image": "/images/auto/art-97.jpg"
+  },
+  {
+    "id": 98,
+    "title": "Hyundai буквально поднимает крышу новым элитным Palisade",
+    "tag": "Мировые новости",
+    "text": "У самого модного на сегодняшний день Palisade звездный хедлайнер.",
+    "readTime": 1,
+    "url": "/articles/hyundai-bukval-no-podnimaet-kryshu-novym-elitnym-palisade.html",
+    "image": "/images/auto/art-98.jpg"
+  },
+  {
+    "id": 99,
+    "title": "Land Rover Дэниела Крейга 1959 года с рукописной запиской выставлен на аукцион",
+    "tag": "Мировые новости",
+    "text": "Этот пикап Land Rover 109 Series II 1959 года сочетает в себе рукописную заметку Дэниела Крейга, изящные механические обновления и неизвестный, но явно хорошо использованный пробег.",
+    "readTime": 1,
+    "url": "/articles/land-rover-deniela-kreyga-1959-goda-s-rukopisnoy-zapiskoy-vystavlen-na-auktsion.html",
+    "image": "/images/auto/art-99.jpg"
+  },
+  {
+    "id": 100,
+    "title": "Lotus теперь одна компания: что это значит для Emira и электромобилей",
+    "tag": "Электромобили",
+    "text": "Lotus Tech теперь контролирует британский завод Hethel и консалтинговую компанию Lotus, объединяя британский опыт в области спортивных автомобилей со своими глобальными программами электрических внедорожников и седанов.",
+    "readTime": 1,
+    "url": "/articles/lotus-teper-odna-kompaniya-chto-eto-znachit-dlya-emira-i-elektromobiley.html",
+    "image": "/images/art-15.jpg"
+  },
+  {
+    "id": 101,
+    "title": "Lincoln Corsair возвращается в 2027 году как гибрид китайского производства",
+    "tag": "Двигатели",
+    "text": "Corsair 2027 года стандартно поставляется с новой гибридной трансмиссией мощностью 305 лошадиных сил с полным приводом.",
+    "readTime": 1,
+    "url": "/articles/lincoln-corsair-vozvrashchaetsya-v-2027-godu-kak-gibrid-kitayskogo-proizvodstva.html",
+    "image": "/images/auto/art-101.jpg"
+  },
+  {
+    "id": 102,
+    "title": "Ford Ranger Super Duty уже стал огромным хитом в Австралии",
+    "tag": "Мировые новости",
+    "text": "Самый мощный Ranger от Ford доказывает, что Австралия испытывает большой интерес к грузовикам среднего размера с серьезными возможностями.",
+    "readTime": 1,
+    "url": "/articles/ford-ranger-super-duty-uzhe-stal-ogromnym-khitom-v-avstralii.html",
+    "image": "/images/art-05.jpg"
+  },
+  {
+    "id": 103,
+    "title": "Acura заявила, что не будет производить спортивные автомобили. Теперь дверь открыта",
+    "tag": "Мировые новости",
+    "text": "Президент и главный исполнительный директор американской компании Honda Эйдзи Фудзимара сказал о концепции Nexera: «Я хотел бы создать эту машину».",
+    "readTime": 1,
+    "url": "/articles/acura-zayavila-chto-ne-budet-proizvodit-sportivnye-avtomobili-teper-dver-otkryta.html",
+    "image": "/images/auto/art-103.jpg"
+  },
+  {
+    "id": 104,
+    "title": "У Mitsubishi скоро появится 7 новых моделей. Вот они все",
+    "tag": "Мировые новости",
+    "text": "Mitsubishi страдает, но у Nissan есть лекарство.",
+    "readTime": 1,
+    "url": "/articles/u-mitsubishi-skoro-poyavitsya-7-novykh-modeley-vot-oni-vse.html",
+    "image": "/images/auto/art-104.jpg"
+  },
+  {
+    "id": 105,
+    "title": "История происхождения Maserati получила голливудское освещение в новом фильме: смотрите трейлер",
+    "tag": "Мировые новости",
+    "text": "Maserati: в фильме «Братья» снимались Аль Пачино, Энтони Хопкинс, Энди Гарсия и Джессика Альба.",
+    "readTime": 1,
+    "url": "/articles/istoriya-proiskhozhdeniya-maserati-poluchila-gollivudskoe-osveshchenie-v-novom-f.html",
+    "image": "/images/art-05.jpg"
+  },
+  {
+    "id": 106,
+    "title": "Это Мустанг, который, как мы хотим, построил Форд",
+    "tag": "Мировые новости",
+    "text": "Футуристический взгляд цифрового художника Луки Серфани на Мустанг сохраняет корни маслкаров, но при этом добавляет больше экзотики.",
+    "readTime": 1,
+    "url": "/articles/eto-mustang-kotoryy-kak-my-khotim-postroil-ford.html",
+    "image": "/images/auto/art-106.jpg"
+  },
+  {
+    "id": 107,
+    "title": "Lotus возвращает топливо с новым гибридным суперкаром",
+    "tag": "Электромобили",
+    "text": "Lotus Type 135 Esprit рассчитан на снаряженную массу менее 1,5 тонны и мощность более 1000 л.с. как мост между производительностью Emira и Evija.",
+    "readTime": 1,
+    "url": "/articles/lotus-vozvrashchaet-toplivo-s-novym-gibridnym-superkarom.html",
+    "image": "/images/auto/art-107.jpg"
+  },
+  {
+    "id": 108,
+    "title": "Крупная сделка Honda и Nissan по программному обеспечению после их неудачного слияния",
+    "tag": "Электромобили",
+    "text": "Honda и Nissan поделятся программным обеспечением для моделей 2029 года: гибридов, электромобилей и бензиновых автомобилей.",
+    "readTime": 1,
+    "url": "/articles/krupnaya-sdelka-honda-i-nissan-po-programmnomu-obespecheniyu-posle-ikh-neudachno.html",
+    "image": "/images/auto/art-108.jpg"
+  },
+  {
+    "id": 109,
+    "title": "Ford Bronco Sport и Maverick получат снижение цен к 2027 году, но потеряют некоторые функции",
+    "tag": "Мировые новости",
+    "text": "Maverick Lobo и Tremor станут на тысячи дешевле в 2027 году, но Ford ограничивает доступность EcoBoost и сокращает функции в некоторых комплектациях Bronco Sport.",
+    "readTime": 1,
+    "url": "/articles/ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n.html",
+    "image": "/images/art-06.jpg"
+  },
+  {
+    "id": 110,
+    "title": "Ram придает своим рабочим лошадям мрачный новый вид к 2027 году",
+    "tag": "Мировые новости",
+    "text": "Chassis Cab Night Edition привносит затемненный стиль для коммерческих грузовиков.",
+    "readTime": 1,
+    "url": "/articles/ram-pridaet-svoim-rabochim-loshadyam-mrachnyy-novyy-vid-k-2027-godu.html",
+    "image": "/images/auto/art-110.jpg"
+  },
+  {
+    "id": 111,
+    "title": "Aston Martin пойман на тестировании своего конкурента Porsche 911 GT3: видео",
+    "tag": "Мировые новости",
+    "text": "Aston Martin разрабатывает еще более экстремальный Vantage, и похоже, что Porsche 911 GT3 твердо в его планах.",
+    "readTime": 1,
+    "url": "/articles/aston-martin-poyman-na-testirovanii-svoego-konkurenta-porsche-911-gt3-video.html",
+    "image": "/images/auto/art-111.jpg"
+  },
+  {
+    "id": 112,
+    "title": "Grok от Tesla теперь выполняет 116 голосовых команд, но многие владельцы заблокированы",
+    "tag": "Электромобили",
+    "text": "Грок в летнем обновлении 2026 года теперь выполняет большинство повседневных задач Tesla с помощью голоса, хотя в старых автомобилях Intel Atom это полностью отсутствует.",
+    "readTime": 1,
+    "url": "/articles/grok-ot-tesla-teper-vypolnyaet-116-golosovykh-komand-no-mnogie-vladel-tsy-zablok.html",
+    "image": "/images/art-15.jpg"
+  },
+  {
+    "id": 113,
+    "title": "Subaru WRX демонстрирует огромный рост продаж",
+    "tag": "Новости рынка",
+    "text": "Продажи седанов выросли на 191,0 процента в августе и на 37,7 процента за год.",
+    "readTime": 1,
+    "url": "/articles/subaru-wrx-demonstriruet-ogromnyy-rost-prodazh.html",
+    "image": "/images/auto/art-113.jpg"
+  },
+  {
+    "id": 114,
+    "title": "Новые автомобильные камеры GM теперь записывают пассажиров после OTA-обновления",
+    "tag": "Мировые новости",
+    "text": "Новые инструменты Cabin Glance, Surround Vision Recorder и Security Recording меняют подход к тому, как автомобили General Motors снимают пассажиров и хранят отснятый материал локально.",
+    "readTime": 1,
+    "url": "/articles/novye-avtomobil-nye-kamery-gm-teper-zapisyvayut-passazhirov-posle-ota-obnovleniy.html",
+    "image": "/images/art-05.jpg"
+  },
+  {
+    "id": 115,
+    "title": "Бренд Volkswagen Seat может оказаться на плахе: отчет",
+    "tag": "Мировые новости",
+    "text": "Volkswagen Group хочет вложить свои ресурсы в Cupra, которая продается довольно хорошо.",
+    "readTime": 1,
+    "url": "/articles/brend-volkswagen-seat-mozhet-okazat-sya-na-plakhe-otchet.html",
+    "image": "/images/auto/art-115.jpg"
+  },
+  {
+    "id": 116,
+    "title": "Tesla неправильно определила диапазон своей модели Y L, Агентство по охране окружающей среды дает ей больше миль",
+    "tag": "Электромобили",
+    "text": "Официальные рейтинги EPA для Tesla Model Y L Premium AWD превышают оценку конфигуратора и едва падают с учетом дополнительных 20-дюймовых колес.",
+    "readTime": 1,
+    "url": "/articles/tesla-nepravil-no-opredelila-diapazon-svoey-modeli-y-l-agentstvo-po-okhrane-okru.html",
+    "image": "/images/auto/art-116.jpg"
+  },
+  {
+    "id": 117,
+    "title": "Toyota Highlander EV сталкивается с новыми задержками",
+    "tag": "Электромобили",
+    "text": "Автопроизводитель заявляет, что задержки связаны с доработкой продукта и не связаны с рынком мягких электромобилей.",
+    "readTime": 1,
+    "url": "/articles/toyota-highlander-ev-stalkivaetsya-s-novymi-zaderzhkami.html",
+    "image": "/images/auto/art-117.jpg"
+  },
+  {
+    "id": 118,
+    "title": "Dodge Durango станет темнее в 2027 году с новой краской",
+    "tag": "Двигатели",
+    "text": "Dodge продолжает искать способы модернизировать свой древний трехрядный внедорожник с двигателем V8.",
+    "readTime": 1,
+    "url": "/articles/dodge-durango-stanet-temnee-v-2027-godu-s-novoy-kraskoy.html",
+    "image": "/images/auto/art-118.jpg"
+  },
+  {
+    "id": 119,
+    "title": "Раньше Bentley превосходил Rolls-Royce по продажам в соотношении 3 к 1. Больше нет",
+    "tag": "Новости рынка",
+    "text": "Rolls-Royce постепенно сокращает разрыв в продажах с Bentley, во многом благодаря продвижению на более высокий рынок и ошеломительному успеху Cullinan.",
+    "readTime": 1,
+    "url": "/articles/ran-she-bentley-prevoskhodil-rolls-royce-po-prodazham-v-sootnoshenii-3-k-1-bol-s.html",
+    "image": "/images/auto/art-119.jpg"
+  },
+  {
+    "id": 120,
+    "title": "За рубежом новый Pajero на удивление дорог. Это может быть плохой новостью для Америки",
+    "tag": "Мировые новости",
+    "text": "Новый Pajero в Австралии стоит дороже, чем когда-либо, что заставляет нас задуматься: что это может значить для США?",
+    "readTime": 1,
+    "url": "/articles/za-rubezhom-novyy-pajero-na-udivlenie-dorog-eto-mozhet-byt-plokhoy-novost-yu-dly.html",
+    "image": "/images/art-05.jpg"
+  },
+  {
+    "id": 121,
+    "title": "Ford не скажет, сможет ли Fathom за 29 945 долларов буксировать ваш прицеп",
+    "tag": "Мировые новости",
+    "text": "Ford Fathom стремится к доступному повседневному использованию, оставляя вопросы о буксировочной способности, запасе хода и полезной нагрузке без ответа до тех пор, пока не появятся официальные спецификации.",
+    "readTime": 1,
+    "url": "/articles/ford-ne-skazhet-smozhet-li-fathom-za-29-945-dollarov-buksirovat-vash-pritsep.html",
+    "image": "/images/auto/art-121.jpg"
+  },
+  {
+    "id": 122,
+    "title": "У Polestar новый облик, и это не напугает покупателей, говорит дизайнер",
+    "tag": "Мировые новости",
+    "text": "Формула 2030 показывает, как компания Polestar будет совершенствовать свои фары Dual Blade и чистое покрытие в следующих моделях Polestar 2 и Polestar 7.",
+    "readTime": 1,
+    "url": "/articles/u-polestar-novyy-oblik-i-eto-ne-napugaet-pokupateley-govorit-dizayner.html",
+    "image": "/images/auto/art-122.jpg"
+  },
+  {
+    "id": 123,
+    "title": "Mitsubishi показала концепт Ralliart Pajero, но заявила, что он не будет производиться",
+    "tag": "Мировые новости",
+    "text": "Концепт Pajero Rally опирается на ливрею в стиле Ralliart и аксессуары на болтах, в то время как Mitsubishi не может подтвердить выпуск какой-либо высокопроизводительной серийной модели.",
+    "readTime": 1,
+    "url": "/articles/mitsubishi-pokazala-kontsept-ralliart-pajero-no-zayavila-chto-on-ne-budet-proizv.html",
+    "image": "/images/auto/art-123.jpg"
+  },
+  {
+    "id": 124,
+    "title": "Только один Ferrari Enzo был построен в матово-черном цвете и теперь выставлен на частную продажу",
+    "tag": "Новости рынка",
+    "text": "Заводская матовая краска Nero Opaco, небольшой пробег и происхождение королевской семьи превращают этот Ferrari Enzo в один из самых востребованных предметов коллекционирования на рынке.",
+    "readTime": 1,
+    "url": "/articles/tol-ko-odin-ferrari-enzo-byl-postroen-v-matovo-chernom-tsvete-i-teper-vystavlen-.html",
+    "image": "/images/auto/art-124.jpg"
+  },
+  {
+    "id": 125,
+    "title": "GM готовит масштабную модернизацию трансмиссии для своих грузовиков HD: отчет",
+    "tag": "Двигатели",
+    "text": "Новый бензиновый и дизельный двигатель может привести в действие сверхмощные пикапы GM Silverado и Sierra 2027 года.",
+    "readTime": 1,
+    "url": "/articles/gm-gotovit-masshtabnuyu-modernizatsiyu-transmissii-dlya-svoikh-gruzovikov-hd-otc.html",
+    "image": "/images/art-14.jpg"
+  },
+  {
+    "id": 126,
+    "title": "Audi с мощностью более 987 л.с. дебютирует в Италии",
+    "tag": "Новые модели",
+    "text": "Audi Nuvolari впервые показан в Италии в Мантуе, на родине Тацио Нуволари.",
+    "readTime": 1,
+    "url": "/articles/audi-s-moshchnost-yu-bolee-987-l-s-debyutiruet-v-italii.html",
+    "image": "/images/auto/art-126.jpg"
+  },
+  {
+    "id": 127,
+    "title": "Honda Passport TrailSport 2027 года стала намного более функциональной",
+    "tag": "Мировые новости",
+    "text": "Passport TrailSport имеет модернизированную подвеску, которая увеличивает дорожный просвет и проходимость.",
+    "readTime": 1,
+    "url": "/articles/honda-passport-trailsport-2027-goda-stala-namnogo-bolee-funktsional-noy.html",
+    "image": "/images/auto/art-127.jpg"
+  },
+  {
+    "id": 128,
+    "title": "Арендаторы Audi EV получают до 10 000 долларов за сохранение своих автомобилей",
+    "tag": "Электромобили",
+    "text": "Арендодатели Audi BEV могут сэкономить до 10 000 долларов от цены выкупа E-Tron, с различной экономией для E-Tron GT, Q4 и Q8.",
+    "readTime": 1,
+    "url": "/articles/arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil.html",
+    "image": "/images/auto/art-128.jpg"
+  },
+  {
+    "id": 129,
+    "title": "Это автомобили, которые, скорее всего, пройдут 250 000 миль",
+    "tag": "Мировые новости",
+    "text": "Автомобили этой марки имеют почти 20-процентную вероятность преодолеть четверть миллиона миль.",
+    "readTime": 1,
+    "url": "/articles/eto-avtomobili-kotorye-skoree-vsego-proydut-250-000-mil.html",
+    "image": "/images/art-05.jpg"
+  },
+  {
+    "id": 130,
+    "title": "Stellantis задержался: Jeep EREV и Ram REV открывают новую хронологию",
+    "tag": "Электромобили",
+    "text": "Стеллантис корректирует сроки выпуска Jeep Grand Wagoneer EREV и Ram 1500 REV, одновременно настаивая на том, что обе программы расширенного пробега официально остаются в планах.",
+    "readTime": 1,
+    "url": "/articles/stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu.html",
+    "image": "/images/auto/art-130.jpg"
+  },
+  {
+    "id": 131,
+    "title": "Самый экстремальный Мустанг Форда встречается даже реже, чем вы думаете",
+    "tag": "Мировые новости",
+    "text": "Анализ производственных показателей Ford показывает, что на GTD приходится всего 1,0 процента производства Mustang.",
+    "readTime": 1,
+    "url": "/articles/samyy-ekstremal-nyy-mustang-forda-vstrechaetsya-dazhe-rezhe-chem-vy-dumaete.html",
+    "image": "/images/auto/art-131.jpg"
+  },
+  {
+    "id": 132,
+    "title": "Небольшой рабочий фургон Ram вернется в 2027 году по цене менее 40 000 долларов",
+    "tag": "Новости рынка",
+    "text": "ProMaster City 2027 поступит в продажу в начале следующего года в конфигурации грузового и пассажирского фургона.",
+    "readTime": 1,
+    "url": "/articles/nebol-shoy-rabochiy-furgon-ram-vernetsya-v-2027-godu-po-tsene-menee-40-000-dolla.html",
+    "image": "/images/auto/art-132.jpg"
+  },
+  {
+    "id": 133,
+    "title": "Видео: Genesis Magma GT звучит как настоящий суперкар",
+    "tag": "Двигатели",
+    "text": "Genesis утверждает, что концепт оснащен двигателем V8 с двойным турбонаддувом, который может развивать мощность до 800 лошадиных сил.",
+    "readTime": 1,
+    "url": "/articles/video-genesis-magma-gt-zvuchit-kak-nastoyashchiy-superkar.html",
+    "image": "/images/auto/art-133.jpg"
+  },
+  {
+    "id": 134,
+    "title": "Этот двигатель V8 с двойным турбонаддувом развивает мощность 1200 л.с. без гоночного топлива",
+    "tag": "Двигатели",
+    "text": "Новый двигатель V8 с двойным турбонаддувом объемом 427 кубических дюймов от Nelson Racing развивает мощность 1200 л.с. на бензине с октановым числом 91 или до 1500 л.с. на гоночном топливе.",
+    "readTime": 1,
+    "url": "/articles/etot-dvigatel-v8-s-dvoynym-turbonadduvom-razvivaet-moshchnost-1200-l-s-bez-gonoc.html",
+    "image": "/images/art-08.jpg"
+  },
+  {
+    "id": 135,
+    "title": "Позолоченный Cadillac 1953 года продан за 1 275 000 долларов, установив аукционный рекорд",
+    "tag": "Мировые новости",
+    "text": "Единственный Cadillac Elegante 1953 года выпуска с кузовом из 24-каратного золота и пробегом всего 4331 милю теперь определяет потолок индивидуальной американской роскоши.",
+    "readTime": 1,
+    "url": "/articles/pozolochennyy-cadillac-1953-goda-prodan-za-1-275-000-dollarov-ustanoviv-auktsion.html",
+    "image": "/images/auto/art-135.jpg"
+  },
+  {
+    "id": 136,
+    "title": "Этот массивный китайский внедорожник в буквальном смысле является танком",
+    "tag": "Мировые новости",
+    "text": "GWM Tank 700 LWB имеет компоновку 2+2+2, дополнительную длину и серьёзные возможности буксировки, преследуя Yangwang U8L в классе роскошных китайских внедорожников.",
+    "readTime": 1,
+    "url": "/articles/etot-massivnyy-kitayskiy-vnedorozhnik-v-bukval-nom-smysle-yavlyaetsya-tankom.html",
+    "image": "/images/auto/art-136.jpg"
+  },
+  {
+    "id": 137,
+    "title": "У покупателей Corvette Grand Sport явно есть любимый цвет",
+    "tag": "Мировые новости",
+    "text": "Почти 32 процента покупателей Grand Sport 2027 года выбрали Admiral Blue, но лучший цвет — наименее популярный.",
+    "readTime": 1,
+    "url": "/articles/u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet.html",
+    "image": "/images/ferrari.jpg"
+  },
+  {
+    "id": 138,
+    "title": "Источники сообщают, что Jaguar Land Rover планирует построить в США пикап Defender с использованием Stellantis",
+    "tag": "Мировые новости",
+    "text": "Jaguar Land Rover и Stellantis взвешивают пикап Defender, построенный в США, избегая пошлин, в то время как ключевые решения по платформе и срокам остаются открытыми.",
+    "readTime": 1,
+    "url": "/articles/istochniki-soobshchayut-chto-jaguar-land-rover-planiruet-postroit-v-ssha-pikap-d.html",
+    "image": "/images/auto/art-138.jpg"
+  },
+  {
+    "id": 139,
+    "title": "Porsche Cayenne Electric 2027 выходит на новый уровень благодаря автоматическим дверям и многому другому",
+    "tag": "Электромобили",
+    "text": "Европейская версия также получит дополнительную беспроводную зарядку.",
+    "readTime": 1,
+    "url": "/articles/porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski.html",
+    "image": "/images/auto/art-139.jpg"
+  },
+  {
+    "id": 140,
+    "title": "Новейшая шина Firestone обещает увеличить пробег и улучшить сцепление с дорогой для вашего внедорожника",
+    "tag": "Новые модели",
+    "text": "Firestone Destination LE4 выпускается в 65 размерах и подходит для кроссоверов, внедорожников и грузовиков.",
+    "readTime": 1,
+    "url": "/articles/noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-.html",
+    "image": "/images/auto/art-140.jpg"
+  },
+  {
+    "id": 141,
+    "title": "Вы можете купить шестиколесный Ford EcoSport 2019 года без резерва",
+    "tag": "Мировые новости",
+    "text": "Ford EcoSport Titanium получил дикую третью ось, удлиненный кузов и выставлен на аукцион без резервирования.",
+    "readTime": 1,
+    "url": "/articles/vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva.html",
+    "image": "/images/auto/art-141.jpg"
+  },
+  {
+    "id": 142,
+    "title": "Новые двигатели Chevy V8 отказались от щупа и стали цифровыми",
+    "tag": "Электромобили",
+    "text": "Новый пользовательский интерфейс GM имеет цифровой указатель уровня масла вместо традиционного щупа.",
+    "readTime": 1,
+    "url": "/articles/novye-dvigateli-chevy-v8-otkazalis-ot-shchupa-i-stali-tsifrovymi.html",
+    "image": "/images/art-15.jpg"
+  },
+  {
+    "id": 143,
+    "title": "Следующими электромобилями Maserati могут стать большой GT и внедорожник: отчет",
+    "tag": "Электромобили",
+    "text": "Maserati объединяет технологии Huawei и производство JAC с окончательной сборкой в ​​Италии, меняя свою стратегию по производству электромобилей GT и внедорожников и глобальное внедрение.",
+    "readTime": 1,
+    "url": "/articles/sleduyushchimi-elektromobilyami-maserati-mogut-stat-bol-shoy-gt-i-vnedorozhnik-o.html",
+    "image": "/images/auto/art-143.jpg"
+  },
+  {
+    "id": 144,
+    "title": "Цены на бензин выросли, как и продажи электромобилей",
+    "tag": "Электромобили",
+    "text": "Новые данные показывают, что продажи новых и подержанных электромобилей в августе выросли.",
+    "readTime": 1,
+    "url": "/articles/tseny-na-benzin-vyrosli-kak-i-prodazhi-elektromobiley.html",
+    "image": "/images/art-01.jpg"
+  },
+  {
+    "id": 145,
+    "title": "Следующий Audi A4 отложен до 2029 года, поскольку новая платформа электромобилей VW отстает",
+    "tag": "Электромобили",
+    "text": "Audi теперь планирует производство в марте 2029 года, что подчеркивает продолжающиеся задержки Volkswagen SSP.",
+    "readTime": 1,
+    "url": "/articles/sleduyushchiy-audi-a4-otlozhen-do-2029-goda-poskol-ku-novaya-platforma-elektromo.html",
+    "image": "/images/auto/art-145.jpg"
+  },
+  {
+    "id": 146,
+    "title": "Джереми Кларксон продает три своих самых знаменитых автомобиля Grand Tour",
+    "tag": "Мировые новости",
+    "text": "Джереми Кларксон продает три запоминающихся автомобиля из Гранд-тура, включая Lancia, на которой он ездил в своем последнем эпизоде ​​​​шоу.",
+    "readTime": 1,
+    "url": "/articles/dzheremi-klarkson-prodaet-tri-svoikh-samykh-znamenitykh-avtomobilya-grand-tour.html",
+    "image": "/images/ferrari.jpg"
+  },
+  {
+    "id": 147,
+    "title": "Впервые за шесть лет Ford не выиграет премию «Грузовик года в Северной Америке»",
+    "tag": "Мировые новости",
+    "text": "В шорт-листе грузовиков NACTOY на 2027 год отсутствует Ford F-150, вместо этого в центре внимания Slate, Ram и GM.",
+    "readTime": 1,
+    "url": "/articles/vpervye-za-shest-let-ford-ne-vyigraet-premiyu-gruzovik-goda-v-severnoy-amerike.html",
+    "image": "/images/auto/art-147.jpg"
+  },
+  {
+    "id": 148,
+    "title": "Новый генеральный директор Apple — автомобильный парень. Ему принадлежит один из самых редких Porsche, когда-либо построенных",
+    "tag": "Мировые новости",
+    "text": "Сообщается, что Джон Тернус едет на своем 700-сильном Porsche 935 в Лагуна Сека, где он показал время круга менее 1:40.",
+    "readTime": 1,
+    "url": "/articles/novyy-general-nyy-direktor-apple-avtomobil-nyy-paren-emu-prinadlezhit-odin-iz-sa.html",
+    "image": "/images/art-06.jpg"
+  },
+  {
+    "id": 149,
+    "title": "Nissan Rogue Hybrid 2027 года дебютирует с расходом топлива 38 миль на галлон. Но это не традиционный гибрид",
+    "tag": "Новые модели",
+    "text": "Nissan Rogue Hybrid 2027 года — первая модель автопроизводителя в США с гибридной системой серии e-Power.",
+    "readTime": 1,
+    "url": "/articles/nissan-rogue-hybrid-2027-goda-debyutiruet-s-raskhodom-topliva-38-mil-na-gallon-n.html",
+    "image": "/images/auto/art-149.jpg"
+  },
+  {
+    "id": 150,
+    "title": "Porsche работает над автоматической коробкой передач, которая выдает себя за механическую",
+    "tag": "Мировые новости",
+    "text": "Новая патентная заявка раскрывает идею Porsche превратить автоматическую коробку передач с двойным сцеплением в механическую коробку передач.",
+    "readTime": 1,
+    "url": "/articles/porsche-rabotaet-nad-avtomaticheskoy-korobkoy-peredach-kotoraya-vydaet-sebya-za-.html",
+    "image": "/images/auto/art-150.jpg"
+  },
+  {
+    "id": 151,
+    "title": "Заказы Volkswagen на электромобили опережают заказы на бензиновые автомобили в Германии, но это создает проблему",
+    "tag": "Электромобили",
+    "text": "Некоторые проблемы – это хорошо. Это не один из них.",
+    "readTime": 1,
+    "url": "/articles/zakazy-volkswagen-na-elektromobili-operezhayut-zakazy-na-benzinovye-avtomobili-v.html",
+    "image": "/images/auto/art-151.jpg"
+  },
+  {
+    "id": 152,
+    "title": "Lexus LX 2027 года получит новые цвета, красные тормоза и другие стандартные технологии",
+    "tag": "Мировые новости",
+    "text": "Флагманский внедорожник имеет новые варианты интерьера и экстерьера, а также больше стандартного оборудования, сохраняя при этом шестизначную стартовую цену.",
+    "readTime": 1,
+    "url": "/articles/lexus-lx-2027-goda-poluchit-novye-tsveta-krasnye-tormoza-i-drugie-standartnye-te.html",
+    "image": "/images/auto/art-152.jpg"
+  },
+  {
+    "id": 153,
+    "title": "Модернизация TurboMax от GM дает Колорадо и Каньону 350 л.с.",
+    "tag": "Электромобили",
+    "text": "L4B TurboMax от GM поднимает мощность Chevrolet Colorado и GMC Canyon 2027 года до 350 лошадиных сил, в то время как опубликованные данные о буксировке и полезной нагрузке остаются ограниченными.",
+    "readTime": 1,
+    "url": "/articles/modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s.html",
+    "image": "/images/art-01.jpg"
+  },
+  {
+    "id": 154,
+    "title": "Bentley отказывается от экранов переднего пассажира: «Технологии должны повышать ценность»",
+    "tag": "Электромобили",
+    "text": "В Bentley Torcal EV отсутствует дисплей на приборной панели, несмотря на то, что эта функция распространена по всей отрасли.",
+    "readTime": 1,
+    "url": "/articles/bentley-otkazyvaetsya-ot-ekranov-perednego-passazhira-tekhnologii-dolzhny-povysh.html",
+    "image": "/images/auto/art-154.jpg"
+  },
+  {
+    "id": 155,
+    "title": "Bentley отказывается от срока выпуска электромобилей к 2030 году, сохраняя газовые двигатели",
+    "tag": "Электромобили",
+    "text": "Bentley Torcal возглавляет новую стратегию, которая поддерживает производство моделей с двигателем внутреннего сгорания и гибридных моделей, в то время как бренд замедляет внедрение полностью электрических автомобилей.",
+    "readTime": 1,
+    "url": "/articles/bentley-otkazyvaetsya-ot-sroka-vypuska-elektromobiley-k-2030-godu-sokhranyaya-ga.html",
+    "image": "/images/auto/art-155.jpg"
+  }
+]

@@ -150,36 +150,59 @@ function initReadingProgress() {
     update();
 }
 
-// 4. Кнопка копирования ссылки
+// 4. Кнопка копирования ссылки и нативный шеринг
 function initCopyButton() {
     const copyBtn = document.getElementById('copyBtn');
-    if (!copyBtn) return;
+    if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+            const url = window.location.href;
+            try {
+                await navigator.clipboard.writeText(url);
+                copyBtn.textContent = '✓ Ссылка скопирована!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.textContent = 'Скопировать ссылку';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                const ta = document.createElement('textarea');
+                ta.value = url;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                copyBtn.textContent = '✓ Ссылка скопирована!';
+                copyBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyBtn.textContent = 'Скопировать ссылку';
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }
+        });
+    }
 
-    copyBtn.addEventListener('click', async () => {
-        const url = window.location.href;
-        try {
-            await navigator.clipboard.writeText(url);
-            copyBtn.textContent = 'Ссылка скопирована!';
-            copyBtn.classList.add('copied');
-            setTimeout(() => {
-                copyBtn.textContent = 'Скопировать ссылку';
-                copyBtn.classList.remove('copied');
-            }, 2000);
-        } catch (err) {
-            const ta = document.createElement('textarea');
-            ta.value = url;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-            copyBtn.textContent = 'Ссылка скопирована!';
-            copyBtn.classList.add('copied');
-            setTimeout(() => {
-                copyBtn.textContent = 'Скопировать ссылку';
-                copyBtn.classList.remove('copied');
-            }, 2000);
-        }
-    });
+    // Нативный шеринг (Web Share API)
+    const nativeShareBtn = document.getElementById('nativeShareBtn');
+    if (nativeShareBtn) {
+        nativeShareBtn.addEventListener('click', async () => {
+            const title = document.querySelector('h1')?.textContent || document.title;
+            const text = document.querySelector('.article-body p')?.textContent?.slice(0, 160) || '';
+            const url = window.location.href;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title, text, url });
+                } catch (e) {}
+            } else {
+                const shareBlock = document.querySelector('.share-block');
+                if (shareBlock) {
+                    shareBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    shareBlock.classList.add('highlight-pulse');
+                    setTimeout(() => shareBlock.classList.remove('highlight-pulse'), 1500);
+                }
+            }
+        });
+    }
 }
 
 // 5. PWA Service Worker

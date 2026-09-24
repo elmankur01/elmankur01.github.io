@@ -80,10 +80,42 @@ function readerToolbar(article, n) {
                             <span class="read-label">Слушать</span>
                             <span class="read-time-hint">~${article.readTime} мин</span>
                         </button>
+                        <button type="button" class="btn-share-native" id="nativeShareBtn" aria-label="Поделиться статьей" title="Поделиться статьей">
+                            <span class="share-icon">↗</span>
+                            <span class="share-label">Поделиться</span>
+                        </button>
                         <div class="reading-stats">
                             <span class="reading-stat-item">⏱️ ${article.readTime} мин чтения</span>
                             <span class="reading-stat-item" id="articleViewsWrap">👁️ <span id="articleViewsCount">1</span> <span id="articleViewsWord">просмотр</span></span>
                         </div>
+                    </div>`;
+}
+
+function summaryBox(article, n) {
+    const body = bodies[n - 1] || [article.text];
+    const firstP = body[0] || article.text;
+    const cleanSentences = firstP.replace(/([.?!])\s+/g, '$1|').split('|').filter(s => s.trim().length > 15);
+    const bullet1 = esc(cleanSentences[0] || article.text.slice(0, 120));
+
+    let bullet2 = '';
+    if (body.length > 1) {
+        const s2 = body[1].replace(/([.?!])\s+/g, '$1|').split('|').filter(s => s.trim().length > 15);
+        bullet2 = esc(s2[0] || body[1].slice(0, 120));
+    } else {
+        bullet2 = 'Технологические решения, особенности конструкции и перспективы на рынке.';
+    }
+    const bullet3 = `Рубрика: <b>${esc(article.tag)}</b> · Время чтения: ~${article.readTime} мин.`;
+
+    return `<div class="article-summary-box">
+                        <div class="summary-box-head">
+                            <span class="summary-box-icon">⚡</span>
+                            <strong>Главное за 30 секунд:</strong>
+                        </div>
+                        <ul class="summary-box-list">
+                            <li>${bullet1}</li>
+                            <li>${bullet2}</li>
+                            <li>${bullet3}</li>
+                        </ul>
                     </div>`;
 }
 
@@ -377,15 +409,19 @@ function page(article, n) {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
-                    <li><a href="/#calculator">Калькулятор</a></li>
-                    <li><a href="/#history">История</a></li>
+                    <li><a href="/#calculator">Расход</a></li>
                     <li><a href="/#tips">Лайфхаки</a></li>
-                    <li><a href="/#interactive">Тест</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по сайту" title="Поиск (Ctrl+K / /)">
+                    <span class="search-nav-icon">🔍</span>
+                    <span class="search-nav-label">Поиск</span>
+                    <kbd class="search-nav-kbd">⌘K</kbd>
+                </button>
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
                     <span class="theme-icon-dark">🌙</span>
                     <span class="theme-icon-light" hidden>☀️</span>
@@ -410,6 +446,7 @@ function page(article, n) {
                     <span class="article-meta">${article.readTime} мин · ${dateFor(n)}</span>
                     ${readerToolbar(article, n)}
                     ${heroImage(n)}
+                    ${summaryBox(article, n)}
                     <div class="article-body">
                         ${paragraphs(article, n)}
                     </div>
@@ -537,6 +574,7 @@ function page(article, n) {
                 </a>
             </div>
             <p class="footer-links">
+                <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/brands/">Каталог марок</a>
                 <a href="/tags/">Теги</a>
                 <a href="/compare.html">Сравнение авто</a>
@@ -595,6 +633,8 @@ function page(article, n) {
     <script src="/views.js?v=2" defer></script>
     <script src="/favorites.js?v=2" defer></script>
     <script src="/likes.js?v=2" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/lightbox.js?v=1" defer></script>
     <script src="/ugc_data.js?v=2" defer></script>
     <script src="/ugc.js?v=4" defer></script>
     <script src="/footer.js?v=2" defer></script>
@@ -663,7 +703,7 @@ function generateBrandPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=5">
+    <link rel="stylesheet" href="/styles.css?v=7">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
@@ -683,6 +723,7 @@ function generateBrandPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/" style="color:var(--accent);font-weight:700;">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
                     <li><a href="/#calculator">Калькулятор</a></li>
@@ -691,6 +732,7 @@ function generateBrandPages() {
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по статьям" title="Поиск (Cmd+K)"><span class="search-nav-btn-icon">🔍</span><span class="search-nav-btn-label">Поиск</span><span class="search-nav-kbd">⌘K</span></button>
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
                 <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
                     <span></span><span></span><span></span>
@@ -729,10 +771,19 @@ function generateBrandPages() {
     <footer class="footer">
         <div class="container footer-inner">
             <p class="footer-brand">&copy; 2026 АвтоТема — Новости и каталог автомобильного мира</p>
+            <p class="footer-links">
+                <a href="/brands/">Все марки</a>
+                <a href="/tags/">Теги</a>
+                <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tax.html">Калькулятор налога</a>
+                <a href="/">Главная</a>
+            </p>
         </div>
     </footer>
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/lightbox.js?v=1" defer></script>
 </body>
 </html>`;
 
@@ -766,7 +817,7 @@ function generateBrandPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=5">
+    <link rel="stylesheet" href="/styles.css?v=7">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
@@ -806,6 +857,7 @@ function generateBrandPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/" style="color:var(--accent);font-weight:700;">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
                     <li><a href="/#calculator">Калькулятор</a></li>
@@ -814,6 +866,7 @@ function generateBrandPages() {
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по статьям" title="Поиск (Cmd+K)"><span class="search-nav-btn-icon">🔍</span><span class="search-nav-btn-label">Поиск</span><span class="search-nav-kbd">⌘K</span></button>
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
                 <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
                     <span></span><span></span><span></span>
@@ -869,6 +922,7 @@ function generateBrandPages() {
                 <a href="/brands/">Все марки</a>
                 <a href="/tags/">Теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
             </p>
         </div>
@@ -877,6 +931,8 @@ function generateBrandPages() {
     <script src="/script.js?v=3" defer></script>
     <script src="/favorites.js" defer></script>
     <script src="/likes.js" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/lightbox.js?v=1" defer></script>
 </body>
 </html>`;
 
@@ -917,7 +973,7 @@ function generateTagPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=5">
+    <link rel="stylesheet" href="/styles.css?v=7">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
@@ -937,12 +993,14 @@ function generateTagPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
                     <li><a href="/tags/" style="color:var(--accent);font-weight:700;">Теги</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по статьям" title="Поиск (Cmd+K)"><span class="search-nav-btn-icon">🔍</span><span class="search-nav-btn-label">Поиск</span><span class="search-nav-kbd">⌘K</span></button>
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
                 <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
                     <span></span><span></span><span></span>
@@ -973,10 +1031,19 @@ function generateTagPages() {
     <footer class="footer">
         <div class="container footer-inner">
             <p class="footer-brand">&copy; 2026 АвтоТема — Тематические теги</p>
+            <p class="footer-links">
+                <a href="/brands/">Марки</a>
+                <a href="/tags/">Все теги</a>
+                <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tax.html">Калькулятор налога</a>
+                <a href="/">Главная</a>
+            </p>
         </div>
     </footer>
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/lightbox.js?v=1" defer></script>
 </body>
 </html>`;
 
@@ -1010,7 +1077,7 @@ function generateTagPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=5">
+    <link rel="stylesheet" href="/styles.css?v=7">
     <link rel="stylesheet" href="/brands_tags.css?v=1">
     <script>
     (function(){
@@ -1041,12 +1108,14 @@ function generateTagPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
                     <li><a href="/tags/" style="color:var(--accent);font-weight:700;">Теги</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по статьям" title="Поиск (Cmd+K)"><span class="search-nav-btn-icon">🔍</span><span class="search-nav-btn-label">Поиск</span><span class="search-nav-kbd">⌘K</span></button>
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему"><span class="theme-icon-dark">🌙</span><span class="theme-icon-light" hidden>☀️</span></button>
                 <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
                     <span></span><span></span><span></span>
@@ -1094,6 +1163,7 @@ function generateTagPages() {
                 <a href="/brands/">Марки</a>
                 <a href="/tags/">Все теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
             </p>
         </div>
@@ -1102,6 +1172,8 @@ function generateTagPages() {
     <script src="/script.js?v=3" defer></script>
     <script src="/favorites.js" defer></script>
     <script src="/likes.js" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/lightbox.js?v=1" defer></script>
 </body>
 </html>`;
 
@@ -1114,6 +1186,7 @@ function sitemap() {
     entries.push({ loc: `${SITE}/`, freq: 'daily', priority: '1.0' });
 
     const legal = [
+        { path: 'calc-tax.html', freq: 'weekly', priority: '0.9' },
         { path: 'compare.html', freq: 'weekly', priority: '0.9' },
         { path: 'brands/index.html', freq: 'weekly', priority: '0.9' },
         { path: 'tags/index.html', freq: 'weekly', priority: '0.85' },
@@ -1164,7 +1237,7 @@ function redirectStub(article, n) {
 </html>`;
 }
 
-// Генерация 80 статей
+// Генерация всех статей
 for (let n = 1; n <= bank.length; n++) {
     const slug = slugs[n] || ('article-' + n);
     fs.writeFileSync(path.join(outDir, `${slug}.html`), page(bank[n - 1], n));
@@ -1175,5 +1248,22 @@ for (let n = 1; n <= bank.length; n++) {
 generateBrandPages();
 generateTagPages();
 
+// Генерация поискового индекса search_index.json для мгновенного поиска
+const searchIndex = bank.map((a, idx) => {
+    const id = idx + 1;
+    const slug = slugs[id] || ('article-' + id);
+    const img = images[id];
+    return {
+        id,
+        title: a.title,
+        tag: a.tag || 'Автоновости',
+        text: a.text || '',
+        readTime: a.readTime || 5,
+        url: `/articles/${slug}.html`,
+        image: img && img.url ? img.url : null
+    };
+});
+fs.writeFileSync(path.join(__dirname, 'search_index.json'), JSON.stringify(searchIndex, null, 2));
+
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap());
-console.log(`Успешно сгенерировано: ${bank.length} статей, ${BRANDS.length + 1} страниц марок, ${TAGS.length + 1} страниц тегов, sitemap.xml обновлён.`);
+console.log(`Успешно сгенерировано: ${bank.length} статей, ${BRANDS.length + 1} страниц марок, ${TAGS.length + 1} страниц тегов, search_index.json и sitemap.xml обновлены.`);

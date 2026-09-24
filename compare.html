@@ -16,7 +16,7 @@
     <title>Сравнение автомобилей «бок о бок» | АвтоТема</title>
 
     <link rel="canonical" href="https://avtotema-news.online/compare.html">
-    <link rel="stylesheet" href="/styles.css?v=6">
+    <link rel="stylesheet" href="/styles.css?v=7">
     <link rel="stylesheet" href="/compare.css?v=1">
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -40,11 +40,14 @@
                 <ul class="nav-list">
                     <li><a href="/">← На главную</a></li>
                     <li><a href="/compare.html" class="active">Сравнение</a></li>
-                    <li><a href="/#calculator">Калькулятор</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
+                    <li><a href="/brands/">Марки</a></li>
+                    <li><a href="/#calculator">Кредит</a></li>
                     <li><a href="/#subscribe">Telegram</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по статьям" title="Поиск (Cmd+K)"><span class="search-nav-btn-icon">🔍</span><span class="search-nav-btn-label">Поиск</span><span class="search-nav-kbd">⌘K</span></button>
                 <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
                     <span class="theme-icon-dark">🌙</span>
                     <span class="theme-icon-light" hidden>☀️</span>
@@ -114,6 +117,8 @@
     <footer class="footer">
         <div class="container footer-bottom">
             <p>&copy; <span id="year"></span> АвтоТема. Все права защищены. ·
+                <a href="/brands/">Каталог марок</a> ·
+                <a href="/calc-tax.html">Калькулятор налога</a> ·
                 <a href="/privacy.html">Политика конфиденциальности</a> ·
                 <a href="/terms.html">Пользовательское соглашение</a> ·
                 <a href="/">Главная</a>
@@ -126,5 +131,7 @@
     <script src="/script.js?v=3" defer></script>
     <script src="/cars_data.js"></script>
     <script src="/compare.js"></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/lightbox.js?v=1" defer></script>
 </body>
 </html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Калькулятор транспортного налога 2026 года онлайн: точный расчёт налога на автомобиль по регионам России (Москва, СПб, МО и другие), ставки по л.с., налог на роскошь и льготы.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Калькулятор транспортного налога 2026 — онлайн расчёт по регионам РФ">
+    <meta property="og:description" content="Рассчитайте транспортный налог на автомобиль за 2026 год: актуальные ставки по л.с. для Москвы, СПб и всех регионов РФ, налог на роскошь и льготы.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:url" content="https://avtotema-news.online/calc-tax.html">
+    <meta property="og:image" content="https://avtotema-news.online/og-image.png">
+    <meta property="og:locale" content="ru_RU">
+
+    <link rel="canonical" href="https://avtotema-news.online/calc-tax.html">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>Калькулятор транспортного налога 2026 онлайн | АвтоТема</title>
+
+    <link rel="stylesheet" href="/styles.css?v=7">
+    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <script>
+    (function(){
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Калькулятор транспортного налога 2026",
+        "url": "https://avtotema-news.online/calc-tax.html",
+        "description": "Онлайн калькулятор транспортного налога по регионам РФ с актуальными ставками на 2026 год.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avtotema-news.online/" },
+            { "@type": "ListItem", "position": 2, "name": "Калькулятор транспортного налога", "item": "https://avtotema-news.online/calc-tax.html" }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>
+                Авто<span>Тема</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="/#news">Новости</a></li>
+                    <li><a href="/brands/">Марки</a></li>
+                    <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
+                    <li><a href="/calc-tax.html" class="active" style="color:var(--accent);font-weight:700;">🧮 Налог 2026</a></li>
+                    <li><a href="/tags/">Теги</a></li>
+                    <li><a href="/#calculator">Расход топлива</a></li>
+                    <li><a href="/#tips">Лайфхаки</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по сайту" title="Поиск (Ctrl+K / /)">
+                    <span class="search-nav-icon">🔍</span>
+                    <span class="search-nav-label">Поиск</span>
+                    <kbd class="search-nav-kbd">⌘K</kbd>
+                </button>
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+                    <span class="theme-icon-dark">🌙</span>
+                    <span class="theme-icon-light" hidden>☀️</span>
+                </button>
+                <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                    ⭐ <span class="fav-count" hidden>0</span>
+                </button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки" style="margin-bottom:1.5rem;">
+                    <a href="/">Главная</a>
+                    <span class="crumb-sep" aria-hidden="true">→</span>
+                    <span class="current" aria-current="page">Калькулятор транспортного налога 2026</span>
+                </nav>
+
+                <div class="section-head" style="text-align:left;margin-bottom:2rem;">
+                    <span class="section-eyebrow">🧮 Интерактивный сервис</span>
+                    <h1 class="section-title" style="margin-bottom:0.75rem;">Калькулятор транспортного налога 2026</h1>
+                    <p class="section-sub" style="margin:0;max-width:760px;">Рассчитайте точную сумму налога для вашего автомобиля с учётом региона РФ, мощности двигателя, периода владения и повышающего коэффициента Минпромторга.</p>
+                </div>
+
+                <div class="calc-tax-layout">
+                    <!-- ЛЕВАЯ КОЛОНКА: ПАРАМЕТРЫ РАСЧЁТА -->
+                    <div class="calc-tax-card">
+                        <h2 class="calc-tax-card-title">Параметры автомобиля</h2>
+
+                        <!-- 1. Регион -->
+                        <div class="calc-form-group">
+                            <label for="taxRegion">Регион регистрации автовладельца:</label>
+                            <select id="taxRegion" class="calc-tax-select">
+                                <option value="moscow" selected>г. Москва</option>
+                                <option value="spb">г. Санкт-Петербург</option>
+                                <option value="mo">Московская область</option>
+                                <option value="krasnodar">Краснодарский край</option>
+                                <option value="tatarstan">Республика Татарстан</option>
+                                <option value="sverdlovsk">Свердловская область (Екатеринбург)</option>
+                                <option value="nnov">Нижегородская область</option>
+                                <option value="novosibirsk">Новосибирская область</option>
+                                <option value="rostov">Ростовская область</option>
+                                <option value="bashkortostan">Республика Башкортостан</option>
+                                <option value="chelyabinsk">Челябинская область</option>
+                                <option value="samara">Самарская область</option>
+                                <option value="voronezh">Воронежская область</option>
+                                <option value="base">Другой регион (базовая ставка НК РФ)</option>
+                            </select>
+                        </div>
+
+                        <!-- 2. Тип ТС -->
+                        <div class="calc-form-group">
+                            <label>Тип транспортного средства:</label>
+                            <div class="calc-type-chips" id="taxTypeChips">
+                                <button type="button" class="calc-type-chip active" data-type="auto">🚗 Легковой авто</button>
+                                <button type="button" class="calc-type-chip" data-type="moto">🏍️ Мотоцикл</button>
+                                <button type="button" class="calc-type-chip" data-type="truck">🚚 Грузовой авто</button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Мощность в л.с. -->
+                        <div class="calc-form-group">
+                            <div class="calc-label-row">
+                                <label for="taxPowerInput">Мощность двигателя:</label>
+                                <span class="calc-val-highlight" id="taxPowerVal">150 л.с.</span>
+                            </div>
+                            <div class="calc-slider-wrap">
+                                <input type="range" id="taxPowerRange" min="50" max="650" step="1" value="150" class="calc-range-input">
+                                <div class="calc-input-addon">
+                                    <input type="number" id="taxPowerInput" min="1" max="1500" value="150" class="calc-num-input" style="width:110px;">
+                                    <span class="calc-addon-unit">л.с.</span>
+                                </div>
+                            </div>
+
+                            <!-- Быстрые пресеты популярных авто -->
+                            <div class="calc-quick-pills">
+                                <span class="quick-pill" data-hp="106">Lada Vesta (106 л.с.)</span>
+                                <span class="quick-pill" data-hp="143">Haval Jolion (143 л.с.)</span>
+                                <span class="quick-pill" data-hp="150">150 л.с. (граница)</span>
+                                <span class="quick-pill" data-hp="238">Geely Monjaro (238 л.с.)</span>
+                                <span class="quick-pill" data-hp="249">249 л.с. (налоговый оптимум)</span>
+                                <span class="quick-pill" data-hp="449">Li L9 (449 л.с.)</span>
+                            </div>
+                        </div>
+
+                        <!-- 4. Период владения -->
+                        <div class="calc-form-group">
+                            <div class="calc-label-row">
+                                <label for="taxMonthsRange">Период владения в году:</label>
+                                <span class="calc-val-highlight" id="taxMonthsVal">12 месяцев (полный год)</span>
+                            </div>
+                            <input type="range" id="taxMonthsRange" min="1" max="12" step="1" value="12" class="calc-range-input">
+                        </div>
+
+                        <!-- 5. Налог на роскошь -->
+                        <div class="calc-form-group calc-checkbox-group">
+                            <label class="custom-checkbox-label">
+                                <input type="checkbox" id="taxLuxuryCheck">
+                                <span class="custom-checkbox-box"></span>
+                                <span class="custom-checkbox-text">
+                                    <strong>Автомобиль входит в перечень роскошных машин Минпромторга</strong>
+                                    <small style="display:block;color:var(--muted);font-size:0.8rem;margin-top:2px;">Стоимость от 10 млн рублей (повышающий коэффициент 3.0)</small>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ПРАВАЯ КОЛОНКА: РЕЗУЛЬТАТ РАСЧЁТА -->
+                    <div class="calc-tax-result-card">
+                        <div class="result-badge">Итоговый расчёт за 2026 год</div>
+                        <div class="tax-sum-main" id="taxTotalSum">5 250 ₽</div>
+                        <div class="tax-sum-sub" id="taxSubInfo">Ставка: 35 ₽ / л.с. (до 150 л.с. в Москве)</div>
+
+                        <div class="tax-breakdown-list">
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">Мощность:</span>
+                                <strong id="resHp">150 л.с.</strong>
+                            </div>
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">Базовая ставка региона:</span>
+                                <strong id="resRate">35 ₽ за 1 л.с.</strong>
+                            </div>
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">Период владения:</span>
+                                <strong id="resMonths">12 / 12 мес.</strong>
+                            </div>
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">Коэффициент роскоши:</span>
+                                <strong id="resLuxury">1.0 (обычный)</strong>
+                            </div>
+                            <div class="tax-breakdown-row tax-breakdown-formula">
+                                <span class="breakdown-label">Формула:</span>
+                                <code id="resFormula">150 × 35 ₽ × (12/12) × 1.0 = 5 250 ₽</code>
+                            </div>
+                        </div>
+
+                        <!-- Сравнение с другими регионами -->
+                        <div class="tax-region-comparison">
+                            <div class="comparison-title">Сравнение налога на это авто в других регионах:</div>
+                            <div class="comparison-grid" id="regionComparisonGrid">
+                                <!-- Динамически заполняется -->
+                            </div>
+                        </div>
+
+                        <div class="tax-tip-box">
+                            <span class="tax-tip-icon">💡</span>
+                            <div>
+                                <strong>Важно знать в 2026 году:</strong>
+                                <p style="margin:4px 0 0;font-size:0.83rem;color:var(--muted);line-height:1.4;">Срок уплаты транспортного налога физическими лицами — не позднее <b>1 декабря</b> следующего года. Уведомление приходит в личный кабинет на Госуслугах.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СПРАВОЧНЫЙ БЛОК: СТАВКИ И ЛЬГОТЫ -->
+                <div class="tax-info-accordion" style="margin-top:3rem;">
+                    <h2 class="section-title" style="text-align:left;font-size:1.4rem;margin-bottom:1.5rem;">Частые вопросы и льготы по транспортному налогу</h2>
+
+                    <div class="faq-card">
+                        <h3>⚡ Есть ли льготы на электромобили в 2026 году?</h3>
+                        <p>В ряде субъектов РФ действует <b>нулевая ставка транспортного налога</b> для владельцев электромобилей (Москва, Санкт-Петербург, Московская область, Липецкая, Калужская, Иркутская и др.). Однако для последовательных гибридов (EREV, например, Li Auto L7/L9) налог начисляется на суммарную паспортную мощность ДВС и электромоторов.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3>🎯 Почему граница в 250 л.с. так популярна?</h3>
+                        <p>В большинстве регионов РФ (Москва, СПб, Краснодар и др.) для автомобилей мощностью свыше 250 л.с. действует максимальная ставка — <b>150 рублей за каждую лошадиную силу</b>. Поэтому производители (например, Geely с Monjaro 238 л.с. или Exeed) дефорсируют моторы до 249 л.с., чтобы ставка составляла 75 ₽ вместо 150 ₽ (экономия в 2 раза!).</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3>👨‍👩‍👧‍👦 Кто освобождается от уплаты налога?</h3>
+                        <p>В зависимости от законов субъекта РФ, полные или частичные льготы предоставляются: одному из родителей в многодетной семье (обычно на один автомобиль до 150–200 л.с.), ветеранам боевых действий, инвалидам I и II групп, а также владельцам автомобилей с мощностью до 70–100 л.с. (в отдельных регионах).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+                <p class="footer-tagline">Независимый автомобильный портал: новости, обзоры и интерактивные сервисы.</p>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 АвтоТема. Все права защищены.</p>
+                <p class="footer-links">
+                    <a href="/calc-tax.html">Калькулятор налога</a>
+                    <a href="/compare.html">Сравнение авто</a>
+                    <a href="/brands/">Марки</a>
+                    <a href="/tags/">Теги</a>
+                    <a href="/privacy.html">Конфиденциальность</a>
+                    <a href="/terms.html">Соглашение</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/theme.js"></script>
+    <script src="/script.js?v=3" defer></script>
+    <script src="/favorites.js?v=2" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/calc_tax.js?v=1" defer></script>
+    <script src="/footer.js?v=2" defer></script>
+</body>
+</html>
