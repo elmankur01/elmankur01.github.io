@@ -41,12 +41,14 @@ const FEEDS = [
 
 // Тематический запас фотографий сайта (если Commons ничего не нашёл / скачивание не удалось).
 const FALLBACK_POOLS = {
-    'Электромобили': ['/images/art-01.jpg', '/images/art-15.jpg', '/images/art-10.jpg'],
-    'Двигатели': ['/images/art-08.jpg', '/images/art-14.jpg'],
-    'Новые модели': ['/images/art-02.jpg', '/images/art-07.jpg'],
-    'Новости рынка': ['/images/art-17.jpg', '/images/art-13.jpg']
+    'Электромобили': ['/images/art-01.jpg', '/images/art-10.jpg', '/images/art-19.jpg', '/images/art-25.jpg'],
+    'Двигатели': ['/images/art-08.jpg', '/images/art-36.jpg', '/images/art-38.jpg'],
+    'Новые модели': ['/images/art-02.jpg', '/images/art-07.jpg', '/images/art-18.jpg', '/images/art-35.jpg'],
+    'Новости рынка': ['/images/art-17.jpg', '/images/art-13.jpg', '/images/art-59.jpg', '/images/art-62.jpg'],
+    'Мировые новости': ['/images/art-02.jpg', '/images/art-07.jpg', '/images/art-18.jpg', '/images/art-23.jpg'],
+    'История марок': ['/images/art-03.jpg', '/images/art-12.jpg', '/images/art-41.jpg', '/images/art-42.jpg']
 };
-const FALLBACK_DEFAULT = ['/images/art-05.jpg', '/images/art-06.jpg', '/images/ferrari.jpg'];
+const FALLBACK_DEFAULT = ['/images/art-02.jpg', '/images/art-07.jpg', '/images/art-18.jpg'];
 
 function stripHtml(s) {
     return String(s || '')
@@ -337,22 +339,29 @@ const SKIP_PHOTO_BRANDS = new Set(['esteo']);
 const CAR_TERMS = new Set(['suv','crossover','sedan','ev','truck','pickup','coupe','roadster','hatchback','wagon','convertible','hypercar','supercar']);
 
 function commonsQuery(enTitle) {
-    const words = String(enTitle || '').match(/[A-Za-z][A-Za-z0-9\-]{2,}/g) || [];
-    const brand = words.find(w => CAR_BRANDS.has(w.toLowerCase()));
-    if (brand) {
+    const rawWords = String(enTitle || '').match(/[A-Za-z0-9\-]{2,}/g) || [];
+    const lowerWords = rawWords.map(w => w.toLowerCase());
+    const brandIdx = lowerWords.findIndex(w => CAR_BRANDS.has(w));
+    if (brandIdx !== -1) {
+        const brand = rawWords[brandIdx];
         if (SKIP_PHOTO_BRANDS.has(brand.toLowerCase())) return '';
-        return brand + ' automobile';
+        // Если следом идет название модели (напр. Mustang, Bronco, Cayenne, 911, M3, Corolla), ищем "Brand Model automobile"
+        const nextWord = rawWords[brandIdx + 1];
+        if (nextWord && !['automobile', 'car', 'vehicle', 'ev', 'auto', 'cars', 'electric', 'hybrid', 'concept', 'new', 'super'].includes(nextWord.toLowerCase())) {
+            return `${brand} ${nextWord} automobile`;
+        }
+        return `${brand} automobile`;
     }
-    const term = words.find(w => CAR_TERMS.has(w.toLowerCase()));
-    if (term) return term + ' automobile';
+    const term = rawWords.find(w => CAR_TERMS.has(w.toLowerCase()));
+    if (term) return `${term} automobile`;
     return '';
 }
 
-async function fetchCommonsImage(query) {
+async function fetchCommonsImage(query, usedThumbs = new Set()) {
     if (!query) return null;
     const api = 'https://commons.wikimedia.org/w/api.php?action=query&format=json'
         + '&generator=search&gsrsearch=' + encodeURIComponent('filetype:bitmap ' + query)
-        + '&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url|mime|size|extmetadata&iiurlwidth=1280';
+        + '&gsrnamespace=6&gsrlimit=12&prop=imageinfo&iiprop=url|mime|size|extmetadata&iiurlwidth=1280';
     try {
         const res = await fetch(api, Object.assign({ signal: AbortSignal.timeout(20000) }, UA));
         if (!res.ok) return null;
@@ -364,10 +373,14 @@ async function fetchCommonsImage(query) {
             const ii = p.imageinfo && p.imageinfo[0];
             if (!ii || ii.mime !== 'image/jpeg') continue;
             if ((ii.width || 0) < 700) continue;
+            // Пропуск уже использованных URL фото
+            const thumbUrl = ii.thumburl || ii.url;
+            if (usedThumbs && usedThumbs.has(thumbUrl)) continue;
+
             const meta = ii.extmetadata || {};
             const artist = stripHtml((meta.Artist && meta.Artist.value) || '').slice(0, 60) || 'Wikimedia Commons';
             const lic = stripHtml((meta.LicenseShortName && meta.LicenseShortName.value) || '') || 'Wikimedia Commons';
-            return { thumb: ii.thumburl || ii.url, credit: ('Фото: ' + artist + ', ' + lic).slice(0, 140) };
+            return { thumb: thumbUrl, credit: ('Фото: ' + artist + ', ' + lic).slice(0, 140) };
         }
     } catch (e) {
         console.log('Поиск фото Commons не удался: ' + e.message);
@@ -521,6 +534,7 @@ async function main() {
     console.log('Добавляю статей: ' + articles.length);
 
     // Подбираем фото: сперва Wikimedia Commons (по бренду/типу), при неудаче — тематический fallback сайта.
+    const usedThumbs = new Set();
     for (const a of articles) {
         const query = commonsQuery(a.origTitle);
         if (DRY_RUN) {
@@ -528,9 +542,10 @@ async function main() {
             a.image = { url: FALLBACK_POOLS[a.tag] ? FALLBACK_POOLS[a.tag][a.num % FALLBACK_POOLS[a.tag].length] : FALLBACK_DEFAULT[a.num % FALLBACK_DEFAULT.length], alt: a.title, credit: 'Фото: АвтоТема' };
             continue;
         }
-        const found = query ? await fetchCommonsImage(query) : null;
+        const found = query ? await fetchCommonsImage(query, usedThumbs) : null;
         let image = null;
         if (found) {
+            usedThumbs.add(found.thumb);
             const localUrl = '/images/auto/art-' + a.num + '.jpg';
             try {
                 await downloadImage(localUrl, found.thumb);

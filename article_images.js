@@ -60,14 +60,14 @@ const IMAGES = {
     57: { url: "/images/art-57.jpg", alt: "Локализация в России: что собирают на автозаводах", credit: "Albert duce, CC BY-SA 3.0 (Wikimedia Commons)" },
     58: { url: "/images/art-58.jpg", alt: "Льготы и субсидии: как выгодно купить российский автомобиль", credit: "chen chin (ducktail964) from taipei, taiwan, CC BY 2.0 (Wikimedia Commons)" },
     59: { url: "/images/art-59.jpg", alt: "Рынок новых автомобилей в России: итоги полугодия 2026", credit: "Stacey Harris , CC BY-SA 2.0 (Wikimedia Commons)" },
-    60: { url: "/images/art-60.jpg", alt: "Почему дорожают автомобили: факторы цен 2026", credit: "Stacey Harris , CC BY-SA 2.0 (Wikimedia Commons)" },
+    60: { url: "/images/art-60.jpg", alt: "Автосалон и формирование цен на автомобили", credit: "Фото: Eirian Evans, CC BY-SA 2.0" },
     61: { url: "/images/art-61.jpg", alt: "Параллельный импорт автомобилей: что осталось от серых схем", credit: "DmitTrix, CC BY 4.0 (Wikimedia Commons)" },
     62: { url: "/images/art-62.jpg", alt: "Рейтинг марок по продажам в России 2026", credit: "Paul Harrop, CC BY-SA 2.0 (Wikimedia Commons)" },
     63: { url: "/images/art-63.jpg", alt: "Дилеры уходят в онлайн: как теперь покупают автомобили", credit: "Thomas Nugent, CC BY-SA 2.0 (Wikimedia Commons)" },
     64: { url: "/images/art-64.jpg", alt: "ОСАГО и каско для новых автомобилей: что изменилось", credit: "Jiří Sedláček, CC BY-SA 4.0 (Wikimedia Commons)" },
     65: { url: "/images/art-65.jpg", alt: "«Атом»: российский электромобиль выходит на дороги", credit: "Stolbovsky, CC BY-SA 4.0 (Wikimedia Commons)" },
     66: { url: "/images/art-66.jpg", alt: "Российский авторынок в июле 2026: рост, лидеры и доля китайцев", credit: "Eric Jones, CC BY-SA 2.0 (Wikimedia Commons)" },
-    67: { url: "/images/art-67.jpg", alt: "Euro 7: новые экологические нормы для автомобилей", credit: "Ruben de Rijcke, CC BY-SA 3.0 (Wikimedia Commons)" },
+    67: { url: "/images/art-67.jpg", alt: "Экологический стандарт Евро-7", credit: "Фото: Lyntha Scott Eiler, Public domain" },
     68: { url: "/images/nissan-gtr.jpg", alt: "Nissan GT-R (R35)", credit: "Фото: Dinkun Chen, CC BY-SA 4.0 (Wikimedia Commons)" },
     69: { url: "/images/art-69.jpg", alt: "Дорога в дальнюю поездку", credit: "Фото: Ludovic Gibert, CC BY-SA 3.0 (Wikimedia Commons)" },
     70: { url: "/images/art-70.jpg", alt: "Kia EV3 электрокроссовер", credit: "Пресс-служба Kia" },
@@ -80,9 +80,9 @@ const IMAGES = {
     77: { url: "/images/art-77.jpg", alt: "Porsche Cayenne и Panamera", credit: "Unsplash" },
     78: { url: "/images/art-78.jpg", alt: "Spyker C8 Preliator XXV", credit: "Unsplash" },
     79: { url: "/images/art-79.jpg", alt: "Gordon Murray S1", credit: "Unsplash" },
-    80: { url: "/images/art-80.jpg", alt: "Porsche 911 Carrera S", credit: "Unsplash" },
-    81: { url: "/images/art-81.jpg", alt: "Уникальный суперкар Ferrari Luce", credit: "Пресс-служба Ferrari / Motor1" },
-    82: { url: "/images/art-82.jpg", alt: "Mercedes-Benz 300 SLS и SLR Stirling Moss", credit: "Mercedes-Benz Classic" },
+    80: { url: "/images/art-80.jpg", alt: "Спорткар Porsche 911 Carrera S", credit: "Фото: Alexander-93, CC BY-SA 4.0" },
+    81: { url: "/images/art-81.jpg", alt: "Рекордный суперкар Ferrari", credit: "Фото: Prova MO, CC BY-SA 4.0" },
+    82: { url: "/images/art-82.jpg", alt: "Суперкар Mercedes-Benz SLR Stirling Moss", credit: "Фото: Matti Blume, CC BY-SA 4.0" },
     93: { url: "/images/auto/art-93.jpg", alt: "Genesis G70 теряет свой лучший двигатель", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     94: { url: "/images/auto/art-94.jpg", alt: "BMW убила все надежды на новую 8-ю серию: «невозможно»", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
@@ -107,117 +107,117 @@ const IMAGES = {
 ,
     99: { url: "/images/auto/art-99.jpg", alt: "Land Rover Дэниела Крейга 1959 года с рукописной запиской выставлен на аукцион", credit: "Фото: DeFacto, CC BY-SA 4.0" }
 ,
-    100: { url: "/images/art-15.jpg", alt: "Lotus теперь одна компания: что это значит для Emira и электромобилей", credit: "Фото: АвтоТема" }
+    100: { url: "/images/auto/art-100.jpg", alt: "Спорткар Lotus Emira", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     101: { url: "/images/auto/art-101.jpg", alt: "Lincoln Corsair возвращается в 2027 году как гибрид китайского производства", credit: "Фото: Andrew Jameson, CC BY-SA 3.0" }
 ,
-    102: { url: "/images/art-05.jpg", alt: "Ford Ranger Super Duty уже стал огромным хитом в Австралии", credit: "Фото: АвтоТема" }
+    102: { url: "/images/auto/art-102.jpg", alt: "Пикап Ford Ranger Super Duty", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     103: { url: "/images/auto/art-103.jpg", alt: "Acura заявила, что не будет производить спортивные автомобили. Теперь дверь открыта", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     104: { url: "/images/auto/art-104.jpg", alt: "У Mitsubishi скоро появится 7 новых моделей. Вот они все", credit: "Фото: Kuha455405, CC BY-SA 3.0" }
 ,
-    105: { url: "/images/art-05.jpg", alt: "История происхождения Maserati получила голливудское освещение в новом фильме: смотрите трейлер", credit: "Фото: АвтоТема" }
+    105: { url: "/images/auto/art-105.jpg", alt: "Суперкар Maserati MC20", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    106: { url: "/images/auto/art-106.jpg", alt: "Это Мустанг, который, как мы хотим, построил Форд", credit: "Фото: Richard Smith, CC BY 2.0" }
+    106: { url: "/images/auto/art-106.jpg", alt: "Спорткупе Ford Mustang Dark Horse", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     107: { url: "/images/auto/art-107.jpg", alt: "Lotus возвращает топливо с новым гибридным суперкаром", credit: "Фото: Yu Chu Chin, CC BY-SA 4.0" }
 ,
     108: { url: "/images/auto/art-108.jpg", alt: "Крупная сделка Honda и Nissan по программному обеспечению после их неудачного слияния", credit: "Фото: MattiPaavola, CC BY-SA 3.0" }
 ,
-    109: { url: "/images/art-06.jpg", alt: "Ford Bronco Sport и Maverick получат снижение цен к 2027 году, но потеряют некоторые функции", credit: "Фото: АвтоТема" }
+    109: { url: "/images/auto/art-109.jpg", alt: "Внедорожник Ford Bronco Sport", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
-    110: { url: "/images/auto/art-110.jpg", alt: "Ram придает своим рабочим лошадям мрачный новый вид к 2027 году", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
+    110: { url: "/images/auto/art-110.jpg", alt: "Пикап Ram 1500", credit: "Фото: Ermell, CC BY-SA 4.0" }
 ,
-    111: { url: "/images/auto/art-111.jpg", alt: "Aston Martin пойман на тестировании своего конкурента Porsche 911 GT3: видео", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
+    111: { url: "/images/auto/art-111.jpg", alt: "Спорткар Aston Martin Vantage", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    112: { url: "/images/art-15.jpg", alt: "Grok от Tesla теперь выполняет 116 голосовых команд, но многие владельцы заблокированы", credit: "Фото: АвтоТема" }
+    112: { url: "/images/auto/art-112.jpg", alt: "Мультимедийная система Tesla с голосовым ассистентом Grok", credit: "Фото: SirAsdof, CC BY-SA 4.0" }
 ,
     113: { url: "/images/auto/art-113.jpg", alt: "Subaru WRX демонстрирует огромный рост продаж", credit: "Фото: Jacek Halicki, CC BY-SA 3.0" }
 ,
-    114: { url: "/images/art-05.jpg", alt: "Новые автомобильные камеры GM теперь записывают пассажиров после OTA-обновления", credit: "Фото: АвтоТема" }
+    114: { url: "/images/auto/art-114.jpg", alt: "Цифровой салон автомобиля General Motors", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
 ,
     115: { url: "/images/auto/art-115.jpg", alt: "Бренд Volkswagen Seat может оказаться на плахе: отчет", credit: "Фото: Palauenc05, CC BY-SA 4.0" }
 ,
-    116: { url: "/images/auto/art-116.jpg", alt: "Tesla неправильно определила диапазон своей модели Y L, Агентство по охране окружающей среды дает ей больше миль", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
+    116: { url: "/images/auto/art-116.jpg", alt: "Электрокроссовер Tesla Model Y", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
-    117: { url: "/images/auto/art-117.jpg", alt: "Toyota Highlander EV сталкивается с новыми задержками", credit: "Фото: Petar Milošević, CC BY-SA 4.0" }
+    117: { url: "/images/auto/art-117.jpg", alt: "Кроссовер Toyota Highlander", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     118: { url: "/images/auto/art-118.jpg", alt: "Dodge Durango станет темнее в 2027 году с новой краской", credit: "Фото: Ermell, CC BY-SA 4.0" }
 ,
-    119: { url: "/images/auto/art-119.jpg", alt: "Раньше Bentley превосходил Rolls-Royce по продажам в соотношении 3 к 1. Больше нет", credit: "Фото: M 93, CC BY-SA 3.0 de" }
+    119: { url: "/images/auto/art-119.jpg", alt: "Купе Bentley Continental GT", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    120: { url: "/images/art-05.jpg", alt: "За рубежом новый Pajero на удивление дорог. Это может быть плохой новостью для Америки", credit: "Фото: АвтоТема" }
+    120: { url: "/images/auto/art-120.jpg", alt: "Внедорожник Mitsubishi Pajero", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
-    121: { url: "/images/auto/art-121.jpg", alt: "Ford не скажет, сможет ли Fathom за 29 945 долларов буксировать ваш прицеп", credit: "Фото: Richard Smith, CC BY 2.0" }
+    121: { url: "/images/auto/art-121.jpg", alt: "Тяжелый пикап Ford Super Duty с прицепом", credit: "Фото: Calreyn88, CC BY-SA 4.0" }
 ,
     122: { url: "/images/auto/art-122.jpg", alt: "У Polestar новый облик, и это не напугает покупателей, говорит дизайнер", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 ,
-    123: { url: "/images/auto/art-123.jpg", alt: "Mitsubishi показала концепт Ralliart Pajero, но заявила, что он не будет производиться", credit: "Фото: Kuha455405, CC BY-SA 3.0" }
+    123: { url: "/images/auto/art-123.jpg", alt: "Концепт Mitsubishi Ralliart Pajero", credit: "Фото: © Gianni Lora Lamia - info@gianniloralamia.com, CC BY-SA 4.0" }
 ,
     124: { url: "/images/auto/art-124.jpg", alt: "Только один Ferrari Enzo был построен в матово-черном цвете и теперь выставлен на частную продажу", credit: "Фото: ermell, CC BY-SA 4.0" }
 ,
-    125: { url: "/images/art-14.jpg", alt: "GM готовит масштабную модернизацию трансмиссии для своих грузовиков HD: отчет", credit: "Фото: АвтоТема" }
+    125: { url: "/images/auto/art-125.jpg", alt: "Пикап Chevrolet Silverado HD", credit: "Фото: JoachimKohler-HB, CC BY-SA 4.0" }
 ,
-    126: { url: "/images/auto/art-126.jpg", alt: "Audi с мощностью более 987 л.с. дебютирует в Италии", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
+    126: { url: "/images/auto/art-126.jpg", alt: "Спортивный электрокар Audi RS e-tron GT", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    127: { url: "/images/auto/art-127.jpg", alt: "Honda Passport TrailSport 2027 года стала намного более функциональной", credit: "Фото: MattiPaavola, CC BY-SA 3.0" }
+    127: { url: "/images/auto/art-127.jpg", alt: "Кроссовер Honda Passport TrailSport", credit: "Фото: HJUdall, CC0" }
 ,
-    128: { url: "/images/auto/art-128.jpg", alt: "Арендаторы Audi EV получают до 10 000 долларов за сохранение своих автомобилей", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
+    128: { url: "/images/auto/art-128.jpg", alt: "Электрический кроссовер Audi Q8 e-tron", credit: "Фото: Damian B Oh, CC BY-SA 4.0" }
 ,
-    129: { url: "/images/art-05.jpg", alt: "Это автомобили, которые, скорее всего, пройдут 250 000 миль", credit: "Фото: АвтоТема" }
+    129: { url: "/images/auto/art-129.jpg", alt: "Надёжный внедорожник Toyota Land Cruiser", credit: "Фото: Dinkun Chen, CC BY-SA 4.0" }
 ,
     130: { url: "/images/auto/art-130.jpg", alt: "Stellantis задержался: Jeep EREV и Ram REV открывают новую хронологию", credit: "Фото: Ryan Sharpe, CC BY-SA 4.0" }
 ,
-    131: { url: "/images/auto/art-131.jpg", alt: "Самый экстремальный Мустанг Форда встречается даже реже, чем вы думаете", credit: "Фото: Richard Smith, CC BY 2.0" }
+    131: { url: "/images/auto/art-131.jpg", alt: "Ford Mustang Shelby GT500", credit: "Фото: Dietmar Rabich, CC BY-SA 4.0" }
 ,
-    132: { url: "/images/auto/art-132.jpg", alt: "Небольшой рабочий фургон Ram вернется в 2027 году по цене менее 40 000 долларов", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
+    132: { url: "/images/auto/art-132.jpg", alt: "Фургон Ram ProMaster", credit: "Фото: Bull-Doser, Public domain" }
 ,
-    133: { url: "/images/auto/art-133.jpg", alt: "Видео: Genesis Magma GT звучит как настоящий суперкар", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+    133: { url: "/images/auto/art-133.jpg", alt: "Спортивное купе Genesis Magma Concept", credit: "Фото: Calreyn88, CC BY-SA 4.0" }
 ,
-    134: { url: "/images/art-08.jpg", alt: "Этот двигатель V8 с двойным турбонаддувом развивает мощность 1200 л.с. без гоночного топлива", credit: "Фото: АвтоТема" }
+    134: { url: "/images/auto/art-134.jpg", alt: "Двигатель V8 с двойным турбонаддувом", credit: "Фото: Thesupermat, CC BY-SA 3.0" }
 ,
     135: { url: "/images/auto/art-135.jpg", alt: "Позолоченный Cadillac 1953 года продан за 1 275 000 долларов, установив аукционный рекорд", credit: "Фото: Berthold Werner, CC BY-SA 3.0" }
 ,
-    136: { url: "/images/auto/art-136.jpg", alt: "Этот массивный китайский внедорожник в буквальном смысле является танком", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+    136: { url: "/images/auto/art-136.jpg", alt: "Китайский рамный внедорожник Yangwang U8", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    137: { url: "/images/ferrari.jpg", alt: "У покупателей Corvette Grand Sport явно есть любимый цвет", credit: "Фото: АвтоТема" }
+    137: { url: "/images/auto/art-137.jpg", alt: "Спорткар Chevrolet Corvette C7 Grand Sport", credit: "Фото: Calreyn88, CC BY-SA 4.0" }
 ,
     138: { url: "/images/auto/art-138.jpg", alt: "Источники сообщают, что Jaguar Land Rover планирует построить в США пикап Defender с использованием Stellantis", credit: "Фото: DeFacto, CC BY-SA 4.0" }
 ,
-    139: { url: "/images/auto/art-139.jpg", alt: "Porsche Cayenne Electric 2027 выходит на новый уровень благодаря автоматическим дверям и многому другому", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
+    139: { url: "/images/auto/art-139.jpg", alt: "Кроссовер Porsche Cayenne GTS", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    140: { url: "/images/auto/art-140.jpg", alt: "Новейшая шина Firestone обещает увеличить пробег и улучшить сцепление с дорогой для вашего внедорожника", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+    140: { url: "/images/auto/art-140.jpg", alt: "Внедорожная резина Firestone", credit: "Фото: TaurusEmerald, CC BY-SA 4.0" }
 ,
-    141: { url: "/images/auto/art-141.jpg", alt: "Вы можете купить шестиколесный Ford EcoSport 2019 года без резерва", credit: "Фото: Richard Smith, CC BY 2.0" }
+    141: { url: "/images/auto/art-141.jpg", alt: "Компактный кроссовер Ford EcoSport", credit: "Фото: Mark Hillary, CC BY 2.0" }
 ,
-    142: { url: "/images/art-15.jpg", alt: "Новые двигатели Chevy V8 отказались от щупа и стали цифровыми", credit: "Фото: АвтоТема" }
+    142: { url: "/images/auto/art-142.jpg", alt: "Двигатель Chevrolet Small Block V8", credit: "Фото: TruckMatt, CC0" }
 ,
-    143: { url: "/images/auto/art-143.jpg", alt: "Следующими электромобилями Maserati могут стать большой GT и внедорожник: отчет", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+    143: { url: "/images/auto/art-143.jpg", alt: "Кроссовер Maserati Grecale", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
-    144: { url: "/images/art-01.jpg", alt: "Цены на бензин выросли, как и продажи электромобилей", credit: "Фото: АвтоТема" }
+    144: { url: "/images/auto/art-144.jpg", alt: "Цены на бензин и зарядка электромобилей", credit: "Фото: Ed the Editor, CC BY-SA 2.0" }
 ,
-    145: { url: "/images/auto/art-145.jpg", alt: "Следующий Audi A4 отложен до 2029 года, поскольку новая платформа электромобилей VW отстает", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
+    145: { url: "/images/auto/art-145.jpg", alt: "Седан Audi A4", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    146: { url: "/images/ferrari.jpg", alt: "Джереми Кларксон продает три своих самых знаменитых автомобиля Grand Tour", credit: "Фото: АвтоТема" }
+    146: { url: "/images/auto/art-146.jpg", alt: "Классический спорткар Alfa Romeo", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    147: { url: "/images/auto/art-147.jpg", alt: "Впервые за шесть лет Ford не выиграет премию «Грузовик года в Северной Америке»", credit: "Фото: Richard Smith, CC BY 2.0" }
+    147: { url: "/images/auto/art-147.jpg", alt: "Электрический пикап Ford F-150 Lightning", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    148: { url: "/images/art-06.jpg", alt: "Новый генеральный директор Apple — автомобильный парень. Ему принадлежит один из самых редких Porsche, когда-либо построенных", credit: "Фото: АвтоТема" }
+    148: { url: "/images/auto/art-148.jpg", alt: "Легендарный суперкар Porsche 959", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     149: { url: "/images/auto/art-149.jpg", alt: "Nissan Rogue Hybrid 2027 года дебютирует с расходом топлива 38 миль на галлон. Но это не традиционный гибрид", credit: "Фото: EurovisionNim, CC BY-SA 4.0" }
 ,
-    150: { url: "/images/auto/art-150.jpg", alt: "Porsche работает над автоматической коробкой передач, которая выдает себя за механическую", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
+    150: { url: "/images/auto/art-150.jpg", alt: "Коробка передач Porsche PDK", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
 ,
-    151: { url: "/images/auto/art-151.jpg", alt: "Заказы Volkswagen на электромобили опережают заказы на бензиновые автомобили в Германии, но это создает проблему", credit: "Фото: Palauenc05, CC BY-SA 4.0" }
+    151: { url: "/images/auto/art-151.jpg", alt: "Электрокроссовер Volkswagen ID.4", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     152: { url: "/images/auto/art-152.jpg", alt: "Lexus LX 2027 года получит новые цвета, красные тормоза и другие стандартные технологии", credit: "Фото: TTTNIS, CC0" }
 ,
-    153: { url: "/images/art-01.jpg", alt: "Модернизация TurboMax от GM дает Колорадо и Каньону 350 л.с.", credit: "Фото: АвтоТема" }
+    153: { url: "/images/auto/art-153.jpg", alt: "Пикап Chevrolet Colorado с мотором TurboMax", credit: "Фото: MercurySable99, CC BY-SA 4.0" }
 ,
-    154: { url: "/images/auto/art-154.jpg", alt: "Bentley отказывается от экранов переднего пассажира: «Технологии должны повышать ценность»", credit: "Фото: M 93, CC BY-SA 3.0 de" }
+    154: { url: "/images/auto/art-154.jpg", alt: "Салон премиум-класса Bentley Flying Spur", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
-    155: { url: "/images/auto/art-155.jpg", alt: "Bentley отказывается от срока выпуска электромобилей к 2030 году, сохраняя газовые двигатели", credit: "Фото: M 93, CC BY-SA 3.0 de" }
+    155: { url: "/images/auto/art-155.jpg", alt: "Внедорожник Bentley Bentayga", credit: "Фото: DeFacto, CC BY-SA 4.0" }
 
 };
 
