@@ -101,8 +101,15 @@ const text = [
 
 const replyMarkup = {
     inline_keyboard: [
-        [{ text: '💡 Открыть все лайфхаки на сайте ↗', url: SITE_TIPS }],
-        [{ text: '🚗 На главную АвтоТемы', url: 'https://avtotema-news.online/' }]
+        [{ text: '💡 Все лайфхаки на сайте ↗', url: SITE_TIPS }],
+        [
+            { text: '🛃 Растаможка и утильсбор', url: 'https://avtotema-news.online/calc-customs.html' },
+            { text: '🧮 Налог 2026', url: 'https://avtotema-news.online/calc-tax.html' }
+        ],
+        [
+            { text: '⚔️ Сравнение авто', url: 'https://avtotema-news.online/compare.html' },
+            { text: '🌐 АвтоТема Главная', url: 'https://avtotema-news.online/' }
+        ]
     ]
 };
 

@@ -409,10 +409,11 @@ function page(article, n) {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
-                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
+                    <li><a href="/calc-customs.html" style="color:var(--accent);font-weight:700;">🛃 Растаможка 2026</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог 2026</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
-                    <li><a href="/#calculator">Расход</a></li>
+                    <li><a href="/#calculator">Расход топлива</a></li>
                     <li><a href="/#tips">Лайфхаки</a></li>
                 </ul>
             </nav>
@@ -454,16 +455,16 @@ function page(article, n) {
                     ${reactionsBlock(article, n)}
                     ${shareBlock(article, slug)}
 
-                    <!-- UGC COLLAPSIBLE 1: LIVE POLL -->
-                    <div class="ugc-collapsible-box" id="articlePollBox">
-                        <button type="button" class="ugc-collapsible-header" aria-expanded="false" aria-controls="pollCollapseBody">
+                    <!-- UGC COLLAPSIBLE 1: LIVE POLL (OPEN BY DEFAULT) -->
+                    <div class="ugc-collapsible-box open" id="articlePollBox">
+                        <button type="button" class="ugc-collapsible-header" aria-expanded="true" aria-controls="pollCollapseBody">
                             <span class="ugc-header-left">
                                 <span class="ugc-icon">📊</span>
                                 <span class="ugc-title">Опрос читателей</span>
                             </span>
                             <span class="ugc-toggle-arrow">▼</span>
                         </button>
-                        <div class="ugc-collapsible-body" id="pollCollapseBody" hidden>
+                        <div class="ugc-collapsible-body" id="pollCollapseBody">
                             <h3 class="poll-question" id="pollQuestion">Загрузка опроса…</h3>
                             <div class="poll-options-list" id="pollOptionsList"></div>
                             <div class="poll-footer-info">
@@ -574,6 +575,7 @@ function page(article, n) {
                 </a>
             </div>
             <p class="footer-links">
+                <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/brands/">Каталог марок</a>
                 <a href="/tags/">Теги</a>
@@ -723,10 +725,11 @@ function generateBrandPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/" style="color:var(--accent);font-weight:700;">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
-                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
+                    <li><a href="/calc-customs.html" style="color:var(--accent);font-weight:700;">🛃 Растаможка 2026</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог 2026</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
-                    <li><a href="/#calculator">Калькулятор</a></li>
+                    <li><a href="/#calculator">Расход топлива</a></li>
                     <li><a href="/#history">История</a></li>
                     <li><a href="/#tips">Лайфхаки</a></li>
                 </ul>
@@ -775,6 +778,7 @@ function generateBrandPages() {
                 <a href="/brands/">Все марки</a>
                 <a href="/tags/">Теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
             </p>
@@ -857,10 +861,11 @@ function generateBrandPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/" style="color:var(--accent);font-weight:700;">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
-                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
+                    <li><a href="/calc-customs.html" style="color:var(--accent);font-weight:700;">🛃 Растаможка 2026</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог 2026</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
-                    <li><a href="/#calculator">Калькулятор</a></li>
+                    <li><a href="/#calculator">Расход топлива</a></li>
                     <li><a href="/#history">История</a></li>
                     <li><a href="/#tips">Лайфхаки</a></li>
                 </ul>
@@ -922,6 +927,7 @@ function generateBrandPages() {
                 <a href="/brands/">Все марки</a>
                 <a href="/tags/">Теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
             </p>
@@ -993,7 +999,8 @@ function generateTagPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
-                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
+                    <li><a href="/calc-customs.html" style="color:var(--accent);font-weight:700;">🛃 Растаможка 2026</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог 2026</a></li>
                     <li><a href="/tags/" style="color:var(--accent);font-weight:700;">Теги</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
@@ -1035,6 +1042,7 @@ function generateTagPages() {
                 <a href="/brands/">Марки</a>
                 <a href="/tags/">Все теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
             </p>
@@ -1108,7 +1116,8 @@ function generateTagPages() {
                     <li><a href="/#news">Новости</a></li>
                     <li><a href="/brands/">Марки</a></li>
                     <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
-                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог</a></li>
+                    <li><a href="/calc-customs.html" style="color:var(--accent);font-weight:700;">🛃 Растаможка 2026</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог 2026</a></li>
                     <li><a href="/tags/" style="color:var(--accent);font-weight:700;">Теги</a></li>
                     <li><a href="/#world">Мир</a></li>
                     <li><a href="/#market">Рынок</a></li>
@@ -1163,6 +1172,7 @@ function generateTagPages() {
                 <a href="/brands/">Марки</a>
                 <a href="/tags/">Все теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
             </p>
@@ -1186,6 +1196,7 @@ function sitemap() {
     entries.push({ loc: `${SITE}/`, freq: 'daily', priority: '1.0' });
 
     const legal = [
+        { path: 'calc-customs.html', freq: 'weekly', priority: '0.9' },
         { path: 'calc-tax.html', freq: 'weekly', priority: '0.9' },
         { path: 'compare.html', freq: 'weekly', priority: '0.9' },
         { path: 'brands/index.html', freq: 'weekly', priority: '0.9' },

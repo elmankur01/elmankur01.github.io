@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Калькулятор утильсбора и растаможки автомобилей 2026 года онлайн: точный расчёт таможенной пошлины, нового утилизационного сбора Минпромторга (льготный vs коммерческий) и оформления.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Калькулятор утильсбора и растаможки авто 2026 — онлайн расчёт РФ">
+    <meta property="og:description" content="Рассчитайте стоимость растаможки автомобиля в 2026 году: единые ставки пошлин ЕАЭС, новая шкала утилизационного сбора Минпромторга для физлиц и юрлиц, правило 12 месяцев.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:url" content="https://avtotema-news.online/calc-customs.html">
+    <meta property="og:image" content="https://avtotema-news.online/og-image.png">
+    <meta property="og:locale" content="ru_RU">
+
+    <link rel="canonical" href="https://avtotema-news.online/calc-customs.html">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>Калькулятор утильсбора и растаможки 2026 онлайн | АвтоТема</title>
+
+    <link rel="stylesheet" href="/styles.css?v=7">
+    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <script>
+    (function(){
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Калькулятор утильсбора и растаможки 2026",
+        "url": "https://avtotema-news.online/calc-customs.html",
+        "description": "Онлайн калькулятор растаможки автомобилей в РФ с актуальными ставками утильсбора Минпромторга и пошлин ЕАЭС на 2026 год.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avtotema-news.online/" },
+            { "@type": "ListItem", "position": 2, "name": "Калькулятор растаможки и утильсбора 2026", "item": "https://avtotema-news.online/calc-customs.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Сколько составляет льготный утильсбор для физических лиц в 2026 году?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Для физических лиц при ввозе автомобиля для личного пользования с объёмом двигателя до 3000 см³ льготный тариф составляет: 3 400 рублей (для авто возрастом до 3 лет) и 5 200 рублей (для авто старше 3 лет). Главное условие — запрет продажи и отчуждения автомобиля в течение 12 месяцев со дня оформления."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Какой возраст автомобиля считается самым выгодным («проходным»)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Самым выгодным считается возраст от 3 до 5 лет. Для таких автомобилей действуют минимальные фиксированные ставки таможенной пошлины за 1 см³ объёма (например, 1.7 евро/см³ для моторов 1.0–1.5 л и 2.5 евро/см³ для моторов 1.5–1.8 л)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Что будет, если продать машину раньше 12 месяцев после ввоза?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Таможенная служба автоматически аннулирует льготу и доначислит полную сумму коммерческого утилизационного сбора (для мотора 1.0–2.0 л это 1 174 000 руб.), а также выставит пени за каждый день просрочки."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>
+                Авто<span>Тема</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="/#news">Новости</a></li>
+                    <li><a href="/brands/">Марки</a></li>
+                    <li><a href="/compare.html" style="color:var(--accent);font-weight:700;">⚔️ Сравнение</a></li>
+                    <li><a href="/calc-customs.html" class="active" style="color:var(--accent);font-weight:700;">🛃 Растаможка 2026</a></li>
+                    <li><a href="/calc-tax.html" style="color:var(--accent);font-weight:700;">🧮 Налог 2026</a></li>
+                    <li><a href="/tags/">Теги</a></li>
+                    <li><a href="/#calculator">Расход топлива</a></li>
+                    <li><a href="/#tips">Лайфхаки</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по сайту" title="Поиск (Ctrl+K / /)">
+                    <span class="search-nav-icon">🔍</span>
+                    <span class="search-nav-label">Поиск</span>
+                    <kbd class="search-nav-kbd">⌘K</kbd>
+                </button>
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+                    <span class="theme-icon-dark">🌙</span>
+                    <span class="theme-icon-light" hidden>☀️</span>
+                </button>
+                <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                    ⭐ <span class="fav-count" hidden>0</span>
+                </button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки" style="margin-bottom:1.5rem;">
+                    <a href="/">Главная</a>
+                    <span class="crumb-sep" aria-hidden="true">→</span>
+                    <span class="current" aria-current="page">Калькулятор утильсбора и растаможки 2026</span>
+                </nav>
+
+                <div class="section-head" style="text-align:left;margin-bottom:2rem;">
+                    <span class="section-eyebrow">🛃 Интерактивный сервис</span>
+                    <h1 class="section-title" style="margin-bottom:0.75rem;">Калькулятор утильсбора и растаможки автомобилей 2026</h1>
+                    <p class="section-sub" style="margin:0;max-width:820px;">Мгновенный и точный расчёт всех таможенных платежей в РФ: пошлина по сетке ЕАЭС, индексированный утилизационный сбор Минпромторга (Постановление № 1291) и сбор за оформление.</p>
+                </div>
+
+                <!-- Быстрые пресеты популярных авто -->
+                <div class="calc-presets-bar">
+                    <span class="presets-label">⚡ Популярные автомобили для ввоза:</span>
+                    <div class="presets-list">
+                        <button type="button" class="calc-car-preset-pill active" data-preset="monjaro">Geely Monjaro (2.0L, Китай)</button>
+                        <button type="button" class="calc-car-preset-pill" data-preset="zeekr001">Zeekr 001 (Электро, Китай)</button>
+                        <button type="button" class="calc-car-preset-pill" data-preset="bmw320d">BMW 320d (3–5 лет, Германия)</button>
+                        <button type="button" class="calc-car-preset-pill" data-preset="rav4">Toyota RAV4 2.0 (3–5 лет, ОАЭ/Япония)</button>
+                        <button type="button" class="calc-car-preset-pill" data-preset="li7">Li Auto L7 (EREV гибрид)</button>
+                        <button type="button" class="calc-car-preset-pill" data-preset="tucson">Hyundai Tucson 2.0D (Корея)</button>
+                    </div>
+                </div>
+
+                <div class="calc-tax-layout">
+                    <!-- ЛЕВАЯ КОЛОНКА: ПАРАМЕТРЫ РАСЧЁТА -->
+                    <div class="calc-tax-card">
+                        <h2 class="calc-tax-card-title">Параметры автомобиля и ввоза</h2>
+
+                        <!-- 1. Стоимость авто и валюта -->
+                        <div class="calc-form-group">
+                            <label for="customsPriceInput">Стоимость автомобиля за границей:</label>
+                            <div class="calc-currency-input-wrap">
+                                <input type="number" id="customsPriceInput" class="calc-num-input" style="flex:1;font-size:1.15rem;font-weight:700;" value="220000" min="100" step="500">
+                                <select id="customsCurrencySelect" class="calc-tax-select" style="width:130px;">
+                                    <option value="CNY" selected>¥ Юань (CNY)</option>
+                                    <option value="EUR">€ Евро (EUR)</option>
+                                    <option value="USD">$ Доллар (USD)</option>
+                                    <option value="RUB">₽ Рубли (RUB)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 2. Возраст авто -->
+                        <div class="calc-form-group">
+                            <label for="customsAgeSelect">Возраст автомобиля:</label>
+                            <select id="customsAgeSelect" class="calc-tax-select">
+                                <option value="under3" selected>До 3 лет (новый или свежий)</option>
+                                <option value="3to5">От 3 до 5 лет («проходной», минимальная пошлина)</option>
+                                <option value="over5">Старше 5 лет (повышенная пошлина)</option>
+                            </select>
+                        </div>
+
+                        <!-- 3. Тип двигателя -->
+                        <div class="calc-form-group">
+                            <label for="customsEngineType">Тип силовой установки:</label>
+                            <select id="customsEngineType" class="calc-tax-select">
+                                <option value="petrol" selected>⛽ Бензиновый двигатель</option>
+                                <option value="diesel">🛢️ Дизельный двигатель</option>
+                                <option value="hybrid">🔋 Гибридный (PHEV / EREV)</option>
+                                <option value="electro">⚡ Чистый электромобиль (EV)</option>
+                            </select>
+                        </div>
+
+                        <!-- 4. Объём двигателя (см³) -->
+                        <div class="calc-form-group" id="volumeFieldWrap">
+                            <div class="calc-label-row">
+                                <label for="customsVolumeInput">Рабочий объём двигателя:</label>
+                                <span class="calc-val-highlight" id="customsVolumeVal">2.0 л (1998 см³)</span>
+                            </div>
+                            <div class="calc-slider-wrap">
+                                <input type="range" id="customsVolumeRange" min="800" max="5000" step="50" value="1998" class="calc-range-input">
+                                <div class="calc-input-addon">
+                                    <input type="number" id="customsVolumeInput" min="500" max="8000" value="1998" class="calc-num-input" style="width:110px;">
+                                    <span class="calc-addon-unit">см³</span>
+                                </div>
+                            </div>
+                            <div class="calc-quick-pills">
+                                <span class="quick-pill volume-quick-pill" data-vol="1499">1.5 л (1499 см³)</span>
+                                <span class="quick-pill volume-quick-pill" data-vol="1998">2.0 л (1998 см³)</span>
+                                <span class="quick-pill volume-quick-pill" data-vol="2498">2.5 л (2498 см³)</span>
+                                <span class="quick-pill volume-quick-pill" data-vol="2998">3.0 л (граница льготы)</span>
+                                <span class="quick-pill volume-quick-pill" data-vol="3498">3.5 л (коммерческий)</span>
+                            </div>
+                        </div>
+
+                        <!-- 5. Мощность (л.с.) -->
+                        <div class="calc-form-group">
+                            <label for="customsPowerInput">Мощность двигателя:</label>
+                            <div class="calc-input-addon" style="max-width:200px;">
+                                <input type="number" id="customsPowerInput" min="50" max="1500" value="238" class="calc-num-input" style="width:120px;">
+                                <span class="calc-addon-unit">л.с.</span>
+                            </div>
+                        </div>
+
+                        <!-- 6. Статус ввоза и цель -->
+                        <div class="calc-form-group">
+                            <label>Статус ввоза и цель использования:</label>
+                            <div class="customs-radio-group">
+                                <label class="customs-radio-card">
+                                    <input type="radio" name="importStatus" value="personal" checked>
+                                    <span class="customs-radio-mark"></span>
+                                    <div class="customs-radio-content">
+                                        <div class="customs-radio-title">👤 Физическое лицо (для личного пользования)</div>
+                                        <div class="customs-radio-desc">Льготный утильсбор (3 400 ₽ / 5 200 ₽). Условие: владение автомобилем не менее 12 месяцев со дня ввоза, мотор до 3.0 л.</div>
+                                    </div>
+                                </label>
+
+                                <label class="customs-radio-card">
+                                    <input type="radio" name="importStatus" value="commercial">
+                                    <span class="customs-radio-mark"></span>
+                                    <div class="customs-radio-content">
+                                        <div class="customs-radio-title">💼 Юридическое лицо или перепродажа в течение 12 мес.</div>
+                                        <div class="customs-radio-desc">Коммерческий утильсбор по полной шкале Минпромторга 2026 года. Право продажи в любой момент.</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ПРАВАЯ КОЛОНКА: РЕЗУЛЬТАТ РАСЧЁТА -->
+                    <div class="calc-tax-result-card">
+                        <div class="result-badge">Таможенные платежи РФ 2026</div>
+                        <div class="tax-sum-main" id="customsTotalSum">— ₽</div>
+                        <div class="tax-sum-sub" id="customsSubInfo">Расчёт по актуальным курсам ЦБ РФ</div>
+
+                        <div class="tax-breakdown-list">
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">Таможенная пошлина:</span>
+                                <div>
+                                    <strong id="resCustomsDuty">— ₽</strong>
+                                    <small id="resCustomsDutyEur" style="color:var(--muted);display:block;text-align:right;font-size:0.75rem;"></small>
+                                </div>
+                            </div>
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">
+                                    Утилизационный сбор:
+                                    <span id="resUtilBadge" class="customs-badge badge-preferential">Льготный</span>
+                                </span>
+                                <strong id="resCustomsUtil">— ₽</strong>
+                            </div>
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">Таможенное оформление (сбор):</span>
+                                <strong id="resCustomsProc">— ₽</strong>
+                            </div>
+                            <div class="tax-breakdown-row">
+                                <span class="breakdown-label">Стоимость машины в рублях:</span>
+                                <strong id="resCustomsPriceRub">— ₽</strong>
+                            </div>
+                        </div>
+
+                        <!-- Итоговая стоимость автомобиля под ключ -->
+                        <div class="customs-turnkey-card">
+                            <div class="turnkey-label">Автомобиль + растаможка (без доставки):</div>
+                            <div class="turnkey-val" id="customsTotalTurnkey">— ₽</div>
+                        </div>
+
+                        <!-- Экономия на льготном тарифе -->
+                        <div class="customs-savings-box" id="resSavingsBox">
+                            <span class="savings-icon">🎉</span>
+                            <div>
+                                <div class="savings-text">Ваша экономия на льготном утильсборе:</div>
+                                <div class="savings-sum" id="resSavingsSum">— ₽</div>
+                            </div>
+                        </div>
+
+                        <!-- Предупреждение о правиле 12 месяцев -->
+                        <div id="resRule12Warning" style="margin-top:16px;"></div>
+
+                        <div class="tax-tip-box" style="margin-top:16px;">
+                            <span class="tax-tip-icon">ℹ️</span>
+                            <div>
+                                <strong>Оплата и получение ЭПТС:</strong>
+                                <p style="margin:4px 0 0;font-size:0.83rem;color:var(--muted);line-height:1.4;">После уплаты пошлины и утильсбора таможня вносит отметку в систему электронных паспортов. Статус ЭПТС меняется на «Действующий», после чего автомобиль ставится на учёт в ГИБДД.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- СПРАВОЧНЫЙ БЛОК: СТАВКИ И ПРАВИЛА 2026 -->
+                <div class="tax-info-accordion" style="margin-top:3rem;">
+                    <h2 class="section-title" style="text-align:left;font-size:1.4rem;margin-bottom:1.5rem;">Важные правила и частые вопросы по растаможке в 2026 году</h2>
+
+                    <div class="faq-card">
+                        <h3>📋 В чём разница между льготным и коммерческим утильсбором?</h3>
+                        <p><b>Льготный сбор</b> (3 400 ₽ за авто до 3 лет и 5 200 ₽ за авто старше 3 лет) предназначен исключительно для граждан РФ, которые ввозят <b>один легковой автомобиль в год</b> для личного пользования с мотором до 3.0 литра. Если машина оформляется на юрлицо, или мотор больше 3 литров, или автомобиль продаётся в течение 12 месяцев со дня ввоза, уплачивается <b>коммерческий сбор</b> — от 667 400 до 4 140 000 рублей в зависимости от объёма двигателя.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3>⚠️ Как работает правило 12 месяцев и чем опасна досрочная продажа?</h3>
+                        <p>При льготном оформлении таможня ведёт электронный реестр. Если в течение 365 дней вы продадите машину, подарите её или снимете с учёта, Федеральная таможенная служба автоматически выставит требование доплатить разницу между льготным и коммерческим тарифом (для мотора 2.0 л это свыше 1 170 000 рублей) плюс пени за весь срок с даты ввоза.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3>🎯 Какой возраст автомобиля считается «проходным»?</h3>
+                        <p>«Проходными» на таможне называют автомобили возрастом <b>от 3 до 5 лет</b> (по точной дате выпуска). На них установлены самые низкие фиксированные ставки пошлины в евро за кубический сантиметр объёма двигателя (например, всего 1.7 €/см³ для моторов до 1.5 л и 2.5 €/см³ для моторов до 1.8 л), в отличие от новых машин, где пошлина составляет 48–54% от всей стоимости машины.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3>⚡ Как растамаживаются электромобили и последовательные гибриды (EREV)?</h3>
+                        <p>Для электромобилей таможенная пошлина для физических лиц составляет <b>15%</b> от таможенной стоимости. Для последовательных гибридов (Li Auto L7/L9, Voyah Free) пошлина рассчитывается по объёму установленного ДВС-генератора (обычно 1.5 л), а льготный утильсбор сохраняется, так как объём ДВС не превышает 3.0 л.</p>
+                    </div>
+
+                    <div class="faq-card">
+                        <h3>🌐 В чём нюансы ввоза через Беларусь, Казахстан и Кыргызстан?</h3>
+                        <p>С 2024–2026 гг. в РФ действует механизм автоматической сверки таможенной стоимости внутри ЕАЭС. Если в стране ввоза была применена заниженная таможенная сетка («растаможка с дисконтом»), российская таможня при выдаче ЭПТС начисляет всю разницу недоплаченных пошлин в виде повышенного утилизационного сбора.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+                <p class="footer-tagline">Независимый автомобильный портал: новости, обзоры и интерактивные сервисы.</p>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 АвтоТема. Все права защищены.</p>
+                <p class="footer-links">
+                    <a href="/calc-customs.html">Растаможка и утильсбор</a>
+                    <a href="/calc-tax.html">Калькулятор налога</a>
+                    <a href="/compare.html">Сравнение авто</a>
+                    <a href="/brands/">Марки</a>
+                    <a href="/tags/">Теги</a>
+                    <a href="/privacy.html">Конфиденциальность</a>
+                    <a href="/terms.html">Соглашение</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/theme.js"></script>
+    <script src="/script.js?v=3" defer></script>
+    <script src="/favorites.js?v=2" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/calc_customs.js?v=1" defer></script>
+    <script src="/footer.js?v=2" defer></script>
+</body>
+</html>

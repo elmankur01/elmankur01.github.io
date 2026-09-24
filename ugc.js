@@ -49,6 +49,13 @@ function initInArticlePoll(articleKey, tag) {
     const pollBox = document.getElementById('articlePollBox');
     if (!pollBox) return;
 
+    // Опрос открыт по умолчанию для максимального вовлечения читателей
+    pollBox.classList.add('open');
+    const headerBtn = pollBox.querySelector('.ugc-collapsible-header');
+    if (headerBtn) headerBtn.setAttribute('aria-expanded', 'true');
+    const bodyEl = document.getElementById('pollCollapseBody');
+    if (bodyEl) bodyEl.removeAttribute('hidden');
+
     // Подбираем опрос под категорию статьи или берём дефолтный
     let pollData = (typeof UGC_POLLS !== 'undefined' && UGC_POLLS[tag])
         ? UGC_POLLS[tag]
@@ -70,19 +77,28 @@ function initInArticlePoll(articleKey, tag) {
     let totalVotes = pollData.options.reduce((sum, opt) => sum + opt.votes, 0);
     if (savedVoteIdx !== null) totalVotes += 1;
 
+    // Подсказка, если пользователь ещё не голосовал
+    if (savedVoteIdx === null) {
+        const hintEl = document.createElement('div');
+        hintEl.style.cssText = 'font-size:0.8rem;color:var(--muted);margin-bottom:8px;';
+        hintEl.textContent = '💡 Выберите вариант ответа, чтобы увидеть результаты опроса:';
+        optionsWrap.appendChild(hintEl);
+    }
+
     pollData.options.forEach((opt, idx) => {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'poll-option-btn';
-        if (savedVoteIdx !== null && parseInt(savedVoteIdx, 10) === idx) {
+        const isSelected = (savedVoteIdx !== null && parseInt(savedVoteIdx, 10) === idx);
+        if (isSelected) {
             btn.classList.add('selected');
         }
 
-        const count = opt.votes + (savedVoteIdx !== null && parseInt(savedVoteIdx, 10) === idx ? 1 : 0);
+        const count = opt.votes + (isSelected ? 1 : 0);
         const percent = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
 
         btn.innerHTML = `
-            <span class="poll-option-text">${opt.text}</span>
+            <span class="poll-option-text">${isSelected ? '✓ ' : ''}${opt.text}</span>
             <span class="poll-percent">${percent}%</span>
             <div class="poll-option-progress" style="width: ${savedVoteIdx !== null ? percent : 0}%"></div>
         `;

@@ -62,7 +62,54 @@ const icon = tagIcons[article.tag] || '🚗';
 const slug = slugs[nextN] || ('article-' + nextN);
 const url = 'https://avtotema-news.online/articles/' + slug + '.html';
 
+const BRAND_TAG_MAP = [
+    { re: /\b(lada|лада|веста|vesta|гранта|granta|автоваз)\b/i, tag: '#Lada' },
+    { re: /\b(geely|джили|monjaro|монжаро|coolray|кулрей)\b/i, tag: '#Geely' },
+    { re: /\b(haval|хавал|хавейл|jolion|джолион|dargo|дарго)\b/i, tag: '#Haval' },
+    { re: /\b(chery|чери|tiggo|тигго)\b/i, tag: '#Chery' },
+    { re: /\b(changan|чанган)\b/i, tag: '#Changan' },
+    { re: /\b(tank|танк)\b/i, tag: '#Tank' },
+    { re: /\b(zeekr|зикра|зикер)\b/i, tag: '#Zeekr' },
+    { re: /\b(xiaomi|сяоми)\b/i, tag: '#Xiaomi' },
+    { re: /\b(li auto|li xiang|ли авто)\b/i, tag: '#LiAuto' },
+    { re: /\b(omoda|омода)\b/i, tag: '#Omoda' },
+    { re: /\b(jaecoo|джейку)\b/i, tag: '#Jaecoo' },
+    { re: /\b(exeed|эксид)\b/i, tag: '#Exeed' },
+    { re: /\b(voyah|воя)\b/i, tag: '#Voyah' },
+    { re: /\b(belgee|белджи)\b/i, tag: '#Belgee' },
+    { re: /\b(jetour|джетур)\b/i, tag: '#Jetour' },
+    { re: /\b(solaris|солярис)\b/i, tag: '#Solaris' },
+    { re: /\b(москвич|moskvich)\b/i, tag: '#Москвич' },
+    { re: /\b(bmw|бмв)\b/i, tag: '#BMW' },
+    { re: /\b(mercedes|мерседес)\b/i, tag: '#Mercedes' },
+    { re: /\b(audi|ауди)\b/i, tag: '#Audi' },
+    { re: /\b(porsche|порше)\b/i, tag: '#Porsche' },
+    { re: /\b(toyota|тойота)\b/i, tag: '#Toyota' },
+    { re: /\b(lexus|лексус)\b/i, tag: '#Lexus' },
+    { re: /\b(hyundai|хендэ|хёндэ)\b/i, tag: '#Hyundai' },
+    { re: /\b(kia|киа)\b/i, tag: '#Kia' },
+    { re: /\b(volkswagen|фольксваген|vw)\b/i, tag: '#Volkswagen' },
+    { re: /\b(skoda|шкода)\b/i, tag: '#Skoda' },
+    { re: /\b(tesla|тесла)\b/i, tag: '#Tesla' }
+];
+
+function getBrandTags(title, text) {
+    const full = (title + ' ' + (text || '')).toLowerCase();
+    const found = [];
+    for (const b of BRAND_TAG_MAP) {
+        if (b.re.test(full) && !found.includes(b.tag)) {
+            found.push(b.tag);
+            if (found.length >= 3) break;
+        }
+    }
+    return found.join(' ');
+}
+
 function buildPostText(bodyContent) {
+    const brandTags = getBrandTags(article.title, bodyContent);
+    const categoryTag = '#' + ((article.tag || 'новости').replace(/\s+/g, '_').toLowerCase());
+    const tagsLine = [brandTags, categoryTag, '#авто #новости #АвтоТема'].filter(Boolean).join(' ');
+
     return [
         icon + ' <b>' + (article.tag || 'Автоновости').toUpperCase() + '</b> | <i>АвтоТема</i>',
         '━━━━━━━━━━━━━━━━━━━',
@@ -79,7 +126,7 @@ function buildPostText(bodyContent) {
         '',
         '📢 <b>Подписывайтесь:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
         '',
-        '#авто #новости #' + ((article.tag || 'новости').replace(/\s+/g, '_').toLowerCase())
+        tagsLine
     ].join('\n');
 }
 
@@ -101,7 +148,14 @@ if (photoUrl && text.length > 1000) {
 const replyMarkup = {
     inline_keyboard: [
         [{ text: '📖 Читать статью на сайте ↗', url: url }],
-        [{ text: '🚗 Все новости на АвтоТеме', url: 'https://avtotema-news.online/' }]
+        [
+            { text: '🛃 Растаможка и утильсбор', url: 'https://avtotema-news.online/calc-customs.html' },
+            { text: '🧮 Налог 2026', url: 'https://avtotema-news.online/calc-tax.html' }
+        ],
+        [
+            { text: '⚔️ Сравнение авто', url: 'https://avtotema-news.online/compare.html' },
+            { text: '🚗 Марки авто', url: 'https://avtotema-news.online/brands/' }
+        ]
     ]
 };
 

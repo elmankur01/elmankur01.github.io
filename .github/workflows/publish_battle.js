@@ -108,10 +108,12 @@ const keyboard = {
             }
         ],
         [
-            {
-                text: '🚗 Все новости на АвтоТеме',
-                url: 'https://avtotema-news.online/'
-            }
+            { text: '🛃 Растаможка и утильсбор', url: 'https://avtotema-news.online/calc-customs.html' },
+            { text: '🧮 Налог 2026', url: 'https://avtotema-news.online/calc-tax.html' }
+        ],
+        [
+            { text: '🚗 Каталог марок', url: 'https://avtotema-news.online/brands/' },
+            { text: '🌐 АвтоТема Главная', url: 'https://avtotema-news.online/' }
         ]
     ]
 };
