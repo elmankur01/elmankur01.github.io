@@ -218,6 +218,8 @@ const IMAGES = {
     154: { url: "/images/auto/art-154.jpg", alt: "Салон премиум-класса Bentley Flying Spur", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     155: { url: "/images/auto/art-155.jpg", alt: "Внедорожник Bentley Bentayga", credit: "Фото: DeFacto, CC BY-SA 4.0" }
+,
+    156: { url: "/images/auto/art-156.jpg", alt: "Subaru возрождает базовую Impreza и снижает стартовую цену на 2027 год", credit: "Фото: Corpse Reviver, CC BY-SA 3.0" }
 
 };
 
@@ -455,6 +457,8 @@ const SLUGS = {
     154: "bentley-otkazyvaetsya-ot-ekranov-perednego-passazhira-tekhnologii-dolzhny-povysh"
 ,
     155: "bentley-otkazyvaetsya-ot-sroka-vypuska-elektromobiley-k-2030-godu-sokhranyaya-ga"
+,
+    156: "subaru-vozrozhdaet-bazovuyu-impreza-i-snizhaet-startovuyu-tsenu-na-2027-god"
 
 };
 
