@@ -224,6 +224,8 @@ const IMAGES = {
     157: { url: "/images/auto/art-157.jpg", alt: "Mini отправляет земляка с палаткой на крыше на ралли Rebelle", credit: "Фото: Dietmar Rabich, CC BY-SA 4.0" }
 ,
     158: { url: "/images/art-38.jpg", alt: "Послушайте, как Jensen Interceptor мощностью 960 л.с. раскрывает свой V8 с наддувом", credit: "Фото: АвтоТема" }
+,
+    159: { url: "/images/art-23.jpg", alt: "Lamborghini продолжает намекать на временный Sterrato", credit: "Фото: АвтоТема" }
 
 };
 
@@ -467,6 +469,8 @@ const SLUGS = {
     157: "mini-otpravlyaet-zemlyaka-s-palatkoy-na-kryshe-na-ralli-rebelle"
 ,
     158: "poslushayte-kak-jensen-interceptor-moshchnost-yu-960-l-s-raskryvaet-svoy-v8-s-na"
+,
+    159: "lamborghini-prodolzhaet-namekat-na-vremennyy-sterrato"
 
 };
 
