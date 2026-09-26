@@ -226,6 +226,8 @@ const IMAGES = {
     158: { url: "/images/art-38.jpg", alt: "Послушайте, как Jensen Interceptor мощностью 960 л.с. раскрывает свой V8 с наддувом", credit: "Фото: АвтоТема" }
 ,
     159: { url: "/images/art-23.jpg", alt: "Lamborghini продолжает намекать на временный Sterrato", credit: "Фото: АвтоТема" }
+,
+    160: { url: "/images/art-01.jpg", alt: "Бэтмобиль 1992 года, использованный в экране, выставят на аукцион и могут продать за 7 миллионов долларов", credit: "Фото: АвтоТема" }
 
 };
 
@@ -471,6 +473,8 @@ const SLUGS = {
     158: "poslushayte-kak-jensen-interceptor-moshchnost-yu-960-l-s-raskryvaet-svoy-v8-s-na"
 ,
     159: "lamborghini-prodolzhaet-namekat-na-vremennyy-sterrato"
+,
+    160: "betmobil-1992-goda-ispol-zovannyy-v-ekrane-vystavyat-na-auktsion-i-mogut-prodat-"
 
 };
 
