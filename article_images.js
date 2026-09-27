@@ -228,6 +228,8 @@ const IMAGES = {
     159: { url: "/images/art-23.jpg", alt: "Lamborghini продолжает намекать на временный Sterrato", credit: "Фото: АвтоТема" }
 ,
     160: { url: "/images/art-01.jpg", alt: "Бэтмобиль 1992 года, использованный в экране, выставят на аукцион и могут продать за 7 миллионов долларов", credit: "Фото: АвтоТема" }
+,
+    161: { url: "/images/art-07.jpg", alt: "Honda возвращается к своему рекорду круга со скоростью 241,428 миль в час в новых документальных сериях", credit: "Фото: АвтоТема" }
 
 };
 
@@ -475,6 +477,8 @@ const SLUGS = {
     159: "lamborghini-prodolzhaet-namekat-na-vremennyy-sterrato"
 ,
     160: "betmobil-1992-goda-ispol-zovannyy-v-ekrane-vystavyat-na-auktsion-i-mogut-prodat-"
+,
+    161: "honda-vozvrashchaetsya-k-svoemu-rekordu-kruga-so-skorost-yu-241-428-mil-v-chas-v"
 
 };
 
