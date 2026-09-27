@@ -230,6 +230,8 @@ const IMAGES = {
     160: { url: "/images/art-01.jpg", alt: "Бэтмобиль 1992 года, использованный в экране, выставят на аукцион и могут продать за 7 миллионов долларов", credit: "Фото: АвтоТема" }
 ,
     161: { url: "/images/art-07.jpg", alt: "Honda возвращается к своему рекорду круга со скоростью 241,428 миль в час в новых документальных сериях", credit: "Фото: АвтоТема" }
+,
+    162: { url: "/images/auto/art-162.jpg", alt: "Китайский BYD близок к тому, чтобы превзойти Ford по продажам в Европе", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 
 };
 
@@ -479,6 +481,8 @@ const SLUGS = {
     160: "betmobil-1992-goda-ispol-zovannyy-v-ekrane-vystavyat-na-auktsion-i-mogut-prodat-"
 ,
     161: "honda-vozvrashchaetsya-k-svoemu-rekordu-kruga-so-skorost-yu-241-428-mil-v-chas-v"
+,
+    162: "kitayskiy-byd-blizok-k-tomu-chtoby-prevzoyti-ford-po-prodazham-v-evrope"
 
 };
 
