@@ -232,6 +232,8 @@ const IMAGES = {
     161: { url: "/images/art-07.jpg", alt: "Honda возвращается к своему рекорду круга со скоростью 241,428 миль в час в новых документальных сериях", credit: "Фото: АвтоТема" }
 ,
     162: { url: "/images/auto/art-162.jpg", alt: "Китайский BYD близок к тому, чтобы превзойти Ford по продажам в Европе", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+,
+    163: { url: "/images/auto/art-163.jpg", alt: "Патент Tesla Roadster показывает скрытое крыло, которое может создавать 1543 фунта прижимной силы", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
 
 };
 
@@ -483,6 +485,8 @@ const SLUGS = {
     161: "honda-vozvrashchaetsya-k-svoemu-rekordu-kruga-so-skorost-yu-241-428-mil-v-chas-v"
 ,
     162: "kitayskiy-byd-blizok-k-tomu-chtoby-prevzoyti-ford-po-prodazham-v-evrope"
+,
+    163: "patent-tesla-roadster-pokazyvaet-skrytoe-krylo-kotoroe-mozhet-sozdavat-1543-funt"
 
 };
 
