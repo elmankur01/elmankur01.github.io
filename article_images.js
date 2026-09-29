@@ -236,6 +236,8 @@ const IMAGES = {
     163: { url: "/images/auto/art-163.jpg", alt: "Патент Tesla Roadster показывает скрытое крыло, которое может создавать 1543 фунта прижимной силы", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
 ,
     164: { url: "/images/auto/art-164.jpg", alt: "Резвани сделал «ручной» комплект Ferrari за 25 000 долларов. Нет сцепления", credit: "Фото: Charles from Port Chester, New York, CC BY 2.0" }
+,
+    165: { url: "/images/auto/art-165.jpg", alt: "Nissan Rogue Hybrid 2027 появится в ноябре с совершенно другой трансмиссией", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 
 };
 
@@ -491,6 +493,8 @@ const SLUGS = {
     163: "patent-tesla-roadster-pokazyvaet-skrytoe-krylo-kotoroe-mozhet-sozdavat-1543-funt"
 ,
     164: "rezvani-sdelal-ruchnoy-komplekt-ferrari-za-25-000-dollarov-net-stsepleniya"
+,
+    165: "nissan-rogue-hybrid-2027-poyavitsya-v-noyabre-s-sovershenno-drugoy-transmissiey"
 
 };
 
