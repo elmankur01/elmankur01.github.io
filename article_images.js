@@ -238,6 +238,8 @@ const IMAGES = {
     164: { url: "/images/auto/art-164.jpg", alt: "Резвани сделал «ручной» комплект Ferrari за 25 000 долларов. Нет сцепления", credit: "Фото: Charles from Port Chester, New York, CC BY 2.0" }
 ,
     165: { url: "/images/auto/art-165.jpg", alt: "Nissan Rogue Hybrid 2027 появится в ноябре с совершенно другой трансмиссией", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+,
+    166: { url: "/images/auto/art-166.jpg", alt: "Тюнер BMW AC Schnitzer получает второй шанс после почти закрытия", credit: "Фото: Julien Bertrand, Public domain" }
 
 };
 
@@ -495,6 +497,8 @@ const SLUGS = {
     164: "rezvani-sdelal-ruchnoy-komplekt-ferrari-za-25-000-dollarov-net-stsepleniya"
 ,
     165: "nissan-rogue-hybrid-2027-poyavitsya-v-noyabre-s-sovershenno-drugoy-transmissiey"
+,
+    166: "tyuner-bmw-ac-schnitzer-poluchaet-vtoroy-shans-posle-pochti-zakrytiya"
 
 };
 
