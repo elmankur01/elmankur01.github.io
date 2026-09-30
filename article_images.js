@@ -242,6 +242,8 @@ const IMAGES = {
     166: { url: "/images/auto/art-166.jpg", alt: "Тюнер BMW AC Schnitzer получает второй шанс после почти закрытия", credit: "Фото: Julien Bertrand, Public domain" }
 ,
     167: { url: "/images/art-23.jpg", alt: "Белый дом рассматривает возможность 90-дневного запрета на экспорт дизельного топлива из-за роста цен", credit: "Фото: АвтоТема" }
+,
+    168: { url: "/images/auto/art-168.jpg", alt: "BMW сокращает свой модельный ряд, чтобы освободить место для более крупного внедорожника", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 
 };
 
@@ -503,6 +505,8 @@ const SLUGS = {
     166: "tyuner-bmw-ac-schnitzer-poluchaet-vtoroy-shans-posle-pochti-zakrytiya"
 ,
     167: "belyy-dom-rassmatrivaet-vozmozhnost-90-dnevnogo-zapreta-na-eksport-dizel-nogo-to"
+,
+    168: "bmw-sokrashchaet-svoy-model-nyy-ryad-chtoby-osvobodit-mesto-dlya-bolee-krupnogo-"
 
 };
 
