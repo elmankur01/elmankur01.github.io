@@ -240,6 +240,8 @@ const IMAGES = {
     165: { url: "/images/auto/art-165.jpg", alt: "Nissan Rogue Hybrid 2027 появится в ноябре с совершенно другой трансмиссией", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     166: { url: "/images/auto/art-166.jpg", alt: "Тюнер BMW AC Schnitzer получает второй шанс после почти закрытия", credit: "Фото: Julien Bertrand, Public domain" }
+,
+    167: { url: "/images/art-23.jpg", alt: "Белый дом рассматривает возможность 90-дневного запрета на экспорт дизельного топлива из-за роста цен", credit: "Фото: АвтоТема" }
 
 };
 
@@ -499,6 +501,8 @@ const SLUGS = {
     165: "nissan-rogue-hybrid-2027-poyavitsya-v-noyabre-s-sovershenno-drugoy-transmissiey"
 ,
     166: "tyuner-bmw-ac-schnitzer-poluchaet-vtoroy-shans-posle-pochti-zakrytiya"
+,
+    167: "belyy-dom-rassmatrivaet-vozmozhnost-90-dnevnogo-zapreta-na-eksport-dizel-nogo-to"
 
 };
 
