@@ -246,6 +246,8 @@ const IMAGES = {
     168: { url: "/images/auto/art-168.jpg", alt: "BMW сокращает свой модельный ряд, чтобы освободить место для более крупного внедорожника", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
     169: { url: "/images/art-07.jpg", alt: "Ваш новый автомобиль передает ваши личные данные. Без твоего ведома", credit: "Фото: АвтоТема" }
+,
+    170: { url: "/images/auto/art-170.jpg", alt: "Hyundai Tucson 2027 станет больше и объемнее: его мощность достигнет 288 л.с.", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 
 };
 
@@ -511,6 +513,8 @@ const SLUGS = {
     168: "bmw-sokrashchaet-svoy-model-nyy-ryad-chtoby-osvobodit-mesto-dlya-bolee-krupnogo-"
 ,
     169: "vash-novyy-avtomobil-peredaet-vashi-lichnye-dannye-bez-tvoego-vedoma"
+,
+    170: "hyundai-tucson-2027-stanet-bol-she-i-ob-emnee-ego-moshchnost-dostignet-288-l-s"
 
 };
 
