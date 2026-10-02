@@ -248,6 +248,8 @@ const IMAGES = {
     169: { url: "/images/art-07.jpg", alt: "Ваш новый автомобиль передает ваши личные данные. Без твоего ведома", credit: "Фото: АвтоТема" }
 ,
     170: { url: "/images/auto/art-170.jpg", alt: "Hyundai Tucson 2027 станет больше и объемнее: его мощность достигнет 288 л.с.", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+,
+    171: { url: "/images/auto/art-171.jpg", alt: "Ford заявляет, что его грузовик Fathom стоимостью 30 000 долларов потребует «чертовски усилий»", credit: "Фото: SAIC GM sucks, CC BY-SA 4.0" }
 
 };
 
@@ -515,6 +517,8 @@ const SLUGS = {
     169: "vash-novyy-avtomobil-peredaet-vashi-lichnye-dannye-bez-tvoego-vedoma"
 ,
     170: "hyundai-tucson-2027-stanet-bol-she-i-ob-emnee-ego-moshchnost-dostignet-288-l-s"
+,
+    171: "ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c"
 
 };
 
