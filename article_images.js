@@ -250,6 +250,8 @@ const IMAGES = {
     170: { url: "/images/auto/art-170.jpg", alt: "Hyundai Tucson 2027 станет больше и объемнее: его мощность достигнет 288 л.с.", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     171: { url: "/images/auto/art-171.jpg", alt: "Ford заявляет, что его грузовик Fathom стоимостью 30 000 долларов потребует «чертовски усилий»", credit: "Фото: SAIC GM sucks, CC BY-SA 4.0" }
+,
+    172: { url: "/images/auto/art-172.jpg", alt: "BMW отмечает миллион автомобилей M, анонсируя следующий M3", credit: "Фото: John Trautt, Public domain" }
 
 };
 
@@ -519,6 +521,8 @@ const SLUGS = {
     170: "hyundai-tucson-2027-stanet-bol-she-i-ob-emnee-ego-moshchnost-dostignet-288-l-s"
 ,
     171: "ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c"
+,
+    172: "bmw-otmechaet-million-avtomobiley-m-anonsiruya-sleduyushchiy-m3"
 
 };
 
