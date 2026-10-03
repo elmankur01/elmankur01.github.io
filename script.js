@@ -376,6 +376,8 @@ function initNavDropdowns() {
 
 // ===== Мобильное меню (Глобальное делегирование кликов) =====
 function initBurger() {
+    if (window.__burgerInitialized) return;
+    window.__burgerInitialized = true;
     document.addEventListener('click', function (e) {
         const burgerBtn = e.target.closest('#burger') || e.target.closest('.burger');
         if (burgerBtn) {
@@ -454,7 +456,7 @@ function escAttr(s) {
 
 function cardHTML(a, idx, featured, meta) {
     const id = idx + 1;
-    const img = IMAGES[id];
+    const img = (typeof IMAGES !== 'undefined' && IMAGES) ? IMAGES[id] : null;
     const slug = (typeof SLUGS !== 'undefined' && SLUGS[id]) ? SLUGS[id] : 'article-' + id;
     const media = img && img.url
         ? `<div class="card-media"><img src="${escAttr(img.url)}" alt="${escAttr(img.alt || a.title)}" loading="lazy" width="800" height="450"></div>`
@@ -549,55 +551,6 @@ function dateLabel(daysAgo) {
     return names[daysAgo] || daysAgo + ' дней назад';
 }
 
-// ===== Чтение статьи: индикатор прогресса и копирование ссылки =====
-(function () {
-    // Индикатор прогресса чтения
-    const progress = document.querySelector('.reading-progress');
-    if (!progress) return;
-
-    const updateProgress = () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = Math.max(0, Math.min(100, (scrollTop / docHeight) * 100));
-        progress.style.width = percent + '%';
-    };
-
-    // Кнопка копирования ссылки
-    const copyBtn = document.getElementById('copyBtn');
-    if (copyBtn) {
-        copyBtn.addEventListener('click', async () => {
-            const url = window.location.href;
-            try {
-                await navigator.clipboard.writeText(url);
-                copyBtn.textContent='Ссылка скопирована!';
-                copyBtn.classList.add('copied');
-                setTimeout(() => {
-                    copyBtn.textContent = 'Скопировать ссылку';
-                    copyBtn.classList.remove('copied');
-                }, 2000);
-            } catch (err) {
-                // Fallback for older browsers
-                const textarea = document.createElement('textarea');
-                textarea.value = url;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                copyBtn.textContent='Ссылка скопирована!';
-                copyBtn.classList.add('copied');
-                setTimeout(() => {
-                    copyBtn.textContent = 'Скопировать ссылку';
-                    copyBtn.classList.remove('copied');
-                }, 2000);
-            }
-        });
-    }
-
-    // Обновление прогресса при скролле
-    window.addEventListener('scroll', updateProgress);
-    // Инициализация при загрузке
-    updateProgress();
-})();
 
 // ===== Мгновенный поиск и фильтр по рубрикам =====
 function initSearchAndFilter() {

@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const copyCompareBtn = document.getElementById('copyCompareBtn');
     const presetChips = document.querySelectorAll('.preset-chip');
 
+    if (!tableWrap || typeof CARS_DATABASE === 'undefined') return;
+
     let showThirdCar = true;
 
     // 1. Заполнение выпадающих списков

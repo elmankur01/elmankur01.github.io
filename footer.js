@@ -13,10 +13,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 0. Мобильное бургер-меню
 function initBurger() {
-    const burger = document.getElementById('burger');
-    const nav = document.querySelector('.nav-list');
+    if (window.__burgerInitialized) return;
+    window.__burgerInitialized = true;
+    const burger = document.getElementById('burger') || document.querySelector('.burger');
+    const nav = document.querySelector('.nav-list') || document.getElementById('navList');
     if (!burger || !nav) return;
-    burger.addEventListener('click', () => {
+    burger.addEventListener('click', (e) => {
+        e.stopPropagation();
         const isActive = burger.classList.toggle('active');
         nav.classList.toggle('active');
         burger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
@@ -27,6 +30,13 @@ function initBurger() {
             nav.classList.remove('active');
             burger.setAttribute('aria-expanded', 'false');
         });
+    });
+    document.addEventListener('click', (e) => {
+        if (!burger.contains(e.target) && !nav.contains(e.target)) {
+            burger.classList.remove('active');
+            nav.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+        }
     });
 }
 

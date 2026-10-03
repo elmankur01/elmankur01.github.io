@@ -267,6 +267,10 @@ function escHtml(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function escAttr(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     initQuiz(document.getElementById('quizWidget'));
     initCarOfDay(document.getElementById('carOfDayWidget'));
