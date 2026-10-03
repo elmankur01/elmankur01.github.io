@@ -254,6 +254,8 @@ const IMAGES = {
     172: { url: "/images/auto/art-172.jpg", alt: "BMW отмечает миллион автомобилей M, анонсируя следующий M3", credit: "Фото: John Trautt, Public domain" }
 ,
     173: { url: "/images/auto/art-173.jpg", alt: "Range Rover Sport отозван из-за задних подрамников, которые могут треснуть", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+,
+    174: { url: "/images/art-18.jpg", alt: "Генеральный директор Stellantis видит «огромные возможности» для дешевых автомобилей", credit: "Фото: АвтоТема" }
 
 };
 
@@ -527,6 +529,8 @@ const SLUGS = {
     172: "bmw-otmechaet-million-avtomobiley-m-anonsiruya-sleduyushchiy-m3"
 ,
     173: "range-rover-sport-otozvan-iz-za-zadnikh-podramnikov-kotorye-mogut-tresnut"
+,
+    174: "general-nyy-direktor-stellantis-vidit-ogromnye-vozmozhnosti-dlya-deshevykh-avtom"
 
 };
 
