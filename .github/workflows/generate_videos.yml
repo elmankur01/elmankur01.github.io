@@ -30,7 +30,9 @@ jobs:
           sudo python3 -m pip install -q --break-system-packages edge-tts
 
       - name: Generate videos
-        run: node tools/generate_video.js ${{ inputs.articles }}
+        env:
+          ARTICLES_INPUT: ${{ inputs.articles }}
+        run: node tools/generate_video.js "$ARTICLES_INPUT"
 
       - name: Commit videos to repo
         run: |
