@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Интерактивное сравнение характеристик автомобилей «бок о бок» (габариты, клиренс, разгон, привод, багажник). АвтоТема.">
     <meta name="theme-color" content="#0b0f14">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://telegram.org; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
@@ -27,6 +27,28 @@
         if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
         if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
     })();
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Сравнение автомобилей онлайн",
+        "url": "https://avtotema-news.online/compare.html",
+        "description": "Интерактивное сравнение технических характеристик автомобилей бок о бок (клиренс, габариты, разгон, привод, багажник).",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avtotema-news.online/" },
+            { "@type": "ListItem", "position": 2, "name": "Сервисы", "item": "https://avtotema-news.online/#services" },
+            { "@type": "ListItem", "position": 3, "name": "Сравнение авто", "item": "https://avtotema-news.online/compare.html" }
+        ]
+    }
     </script>
 </head>
 <body class="compare-page">
