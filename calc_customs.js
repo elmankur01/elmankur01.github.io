@@ -289,6 +289,33 @@
         if (resProcEl) resProcEl.textContent = formatNumber(processingFeeRub) + ' ₽';
         if (resPriceRubEl) resPriceRubEl.textContent = formatNumber(priceRub) + ' ₽';
 
+        // Обновление сегментированной шкалы расходов
+        const barSegCar = document.getElementById('barSegCar');
+        const barSegDuty = document.getElementById('barSegDuty');
+        const barSegUtil = document.getElementById('barSegUtil');
+        const barSegProc = document.getElementById('barSegProc');
+        const barPctCar = document.getElementById('barPctCar');
+        const barPctDuty = document.getElementById('barPctDuty');
+        const barPctUtil = document.getElementById('barPctUtil');
+        const barPctProc = document.getElementById('barPctProc');
+
+        if (totalCarWithCustomsRub > 0 && barSegCar) {
+            const pCar = (priceRub / totalCarWithCustomsRub) * 100;
+            const pDuty = (dutyRub / totalCarWithCustomsRub) * 100;
+            const pUtil = (utilFeeRub / totalCarWithCustomsRub) * 100;
+            const pProc = (processingFeeRub / totalCarWithCustomsRub) * 100;
+
+            barSegCar.style.width = Math.max(1, pCar).toFixed(1) + '%';
+            barSegDuty.style.width = Math.max(0.5, pDuty).toFixed(1) + '%';
+            barSegUtil.style.width = Math.max(0.5, pUtil).toFixed(1) + '%';
+            barSegProc.style.width = Math.max(0.5, pProc).toFixed(1) + '%';
+
+            if (barPctCar) barPctCar.textContent = Math.round(pCar) + '%';
+            if (barPctDuty) barPctDuty.textContent = Math.round(pDuty) + '%';
+            if (barPctUtil) barPctUtil.textContent = Math.round(pUtil) + '%';
+            if (barPctProc) barPctProc.textContent = (pProc < 1 && pProc > 0 ? '<1%' : Math.round(pProc) + '%');
+        }
+
         if (volumeValEl && engineType !== 'electro') {
             volumeValEl.textContent = `${(volume / 1000).toFixed(1)} л (${volume} см³)`;
         }

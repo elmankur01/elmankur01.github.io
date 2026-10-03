@@ -326,6 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     initBurger();
+    initNavDropdowns();
     initScrollTop();
     initReveal();
     renderTopNews();
@@ -335,6 +336,43 @@ document.addEventListener('DOMContentLoaded', function () {
     renderTipOfDay();
     initSearchAndFilter();
 });
+
+// ===== Интерактивные выпадающие меню в шапке (Сервисы) =====
+function initNavDropdowns() {
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.nav-dropdown-btn');
+        if (btn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parent = btn.closest('.nav-item-dropdown');
+            if (parent) {
+                const isOpen = parent.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+            return;
+        }
+
+        // Клик вне выпадающего меню — закрыть все открытые
+        if (!e.target.closest('.nav-item-dropdown')) {
+            document.querySelectorAll('.nav-item-dropdown.open').forEach(el => {
+                el.classList.remove('open');
+                const b = el.querySelector('.nav-dropdown-btn');
+                if (b) b.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.nav-item-dropdown.open').forEach(el => {
+                el.classList.remove('open');
+                const b = el.querySelector('.nav-dropdown-btn');
+                if (b) b.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+}
 
 // ===== Мобильное меню (Глобальное делегирование кликов) =====
 function initBurger() {
