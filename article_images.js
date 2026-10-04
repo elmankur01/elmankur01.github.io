@@ -256,6 +256,8 @@ const IMAGES = {
     173: { url: "/images/auto/art-173.jpg", alt: "Range Rover Sport отозван из-за задних подрамников, которые могут треснуть", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     174: { url: "/images/art-18.jpg", alt: "Генеральный директор Stellantis видит «огромные возможности» для дешевых автомобилей", credit: "Фото: АвтоТема" }
+,
+    175: { url: "/images/art-25.jpg", alt: "Победители и проигравшие сентябрьских продаж автомобилей", credit: "Фото: АвтоТема" }
 
 };
 
@@ -531,6 +533,8 @@ const SLUGS = {
     173: "range-rover-sport-otozvan-iz-za-zadnikh-podramnikov-kotorye-mogut-tresnut"
 ,
     174: "general-nyy-direktor-stellantis-vidit-ogromnye-vozmozhnosti-dlya-deshevykh-avtom"
+,
+    175: "pobediteli-i-proigravshie-sentyabr-skikh-prodazh-avtomobiley"
 
 };
 
