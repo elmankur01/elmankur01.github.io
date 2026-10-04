@@ -258,6 +258,8 @@ const IMAGES = {
     174: { url: "/images/art-18.jpg", alt: "Генеральный директор Stellantis видит «огромные возможности» для дешевых автомобилей", credit: "Фото: АвтоТема" }
 ,
     175: { url: "/images/art-25.jpg", alt: "Победители и проигравшие сентябрьских продаж автомобилей", credit: "Фото: АвтоТема" }
+,
+    176: { url: "/images/auto/art-176.jpg", alt: "Mercedes отказывается от трех моделей к 2027 году", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 
 };
 
@@ -535,6 +537,8 @@ const SLUGS = {
     174: "general-nyy-direktor-stellantis-vidit-ogromnye-vozmozhnosti-dlya-deshevykh-avtom"
 ,
     175: "pobediteli-i-proigravshie-sentyabr-skikh-prodazh-avtomobiley"
+,
+    176: "mercedes-otkazyvaetsya-ot-trekh-modeley-k-2027-godu"
 
 };
 
