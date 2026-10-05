@@ -260,6 +260,8 @@ const IMAGES = {
     175: { url: "/images/art-25.jpg", alt: "Победители и проигравшие сентябрьских продаж автомобилей", credit: "Фото: АвтоТема" }
 ,
     176: { url: "/images/auto/art-176.jpg", alt: "Mercedes отказывается от трех моделей к 2027 году", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
+,
+    177: { url: "/images/auto/art-177.jpg", alt: "Продажи Nissan в США растут 19-й месяц подряд", credit: "Фото: Hi-s24, CC0" }
 
 };
 
@@ -539,6 +541,8 @@ const SLUGS = {
     175: "pobediteli-i-proigravshie-sentyabr-skikh-prodazh-avtomobiley"
 ,
     176: "mercedes-otkazyvaetsya-ot-trekh-modeley-k-2027-godu"
+,
+    177: "prodazhi-nissan-v-ssha-rastut-19-y-mesyats-podryad"
 
 };
 
