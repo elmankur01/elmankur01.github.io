@@ -1,14 +1,15 @@
 // Админ-панель АвтоТема: Telegram + состояние сайта.
 (function () {
-    var DEFAULT_CHAT = '-1004315542026';
     var CHANNEL_USERNAME = 'avtotema_news';
+    var DEFAULT_CHAT = '@' + CHANNEL_USERNAME;
     var TOKEN_KEY = 'at_admin_token';
+    var STATS_TOKEN_KEY = 'tg_stats_token';
 
     function getStored(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
     function setStored(k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
     function removeStored(k) { try { window.localStorage.removeItem(k); } catch (e) {} }
 
-    var token = getStored(TOKEN_KEY) || '';
+    var token = getStored(TOKEN_KEY) || getStored(STATS_TOKEN_KEY) || '';
 
     var tokenInput = document.getElementById('tokenInput');
     var saveTokenBtn = document.getElementById('saveTokenBtn');
@@ -55,6 +56,9 @@
             if (info.ok) {
                 chanTitle.textContent = info.result.title || '—';
                 chanLink.innerHTML = '<a href="https://t.me/' + CHANNEL_USERNAME + '" target="_blank" rel="noopener">t.me/' + CHANNEL_USERNAME + '</a>';
+                if (info.result && info.result.id) {
+                    DEFAULT_CHAT = String(info.result.id);
+                }
             }
         } catch (e) {}
 
@@ -85,12 +89,14 @@
             return;
         }
         setStored(TOKEN_KEY, token);
+        setStored(STATS_TOKEN_KEY, token);
         tokenStatus.textContent = 'Ключ сохранён в браузере (localStorage).';
         load();
     });
 
     clearTokenBtn.addEventListener('click', function () {
         removeStored(TOKEN_KEY);
+        removeStored(STATS_TOKEN_KEY);
         token = '';
         tokenInput.value = '';
         tokenStatus.textContent = 'Ключ удалён из браузера.';
@@ -532,9 +538,32 @@
 
         var photoPath = imageMap[idx + 1];
         var photoUrl = photoPath ? ('https://avtotema-news.online' + photoPath) : null;
+        var captionText = text;
+        if (photoUrl && captionText.length > 1024) {
+            var maxDesc = Math.max(80, 1024 - (text.length - escHtml(a.text).length) - 15);
+            var trimmedDesc = a.text.length > maxDesc ? (a.text.slice(0, maxDesc).trim() + '…') : a.text;
+            captionText = [
+                icon + ' <b>' + (a.tag || 'Автоновости').toUpperCase() + '</b> | <i>АвтоТема</i>',
+                '━━━━━━━━━━━━━━━━━━━',
+                '',
+                '🔥 <b>' + escHtml(a.title) + '</b>',
+                '',
+                escHtml(trimmedDesc),
+                '',
+                '⏱ <i>Время чтения: ~' + a.readTime + ' мин</i>',
+                '',
+                '━━━━━━━━━━━━━━━━━━━',
+                '👉 <b>Читать полную версию:</b> <a href="' + url + '">avtotema-news.online</a>',
+                '📢 <b>Канал:</b> <a href="https://t.me/avtotema_news">@avtotema_news</a>',
+                '#авто #новости #' + (a.tag.replace(/\s+/g, '_').toLowerCase())
+            ].join('\n');
+            if (captionText.length > 1024) {
+                captionText = captionText.slice(0, 1020) + '…';
+            }
+        }
         var apiMethod = photoUrl ? 'sendPhoto' : 'sendMessage';
         var apiPayload = photoUrl
-            ? { chat_id: destSelect.value, photo: photoUrl, caption: text, parse_mode: 'HTML', reply_markup: replyMarkup }
+            ? { chat_id: destSelect.value, photo: photoUrl, caption: captionText, parse_mode: 'HTML', reply_markup: replyMarkup }
             : { chat_id: destSelect.value, text: text, parse_mode: 'HTML', disable_web_page_preview: false, reply_markup: replyMarkup };
 
         sendBtn.disabled = true;
@@ -764,10 +793,13 @@
 
     if (triggerAutopilotBtn) {
         triggerAutopilotBtn.addEventListener('click', function () {
-            var token = (ghTokenInput && ghTokenInput.value || localStorage.getItem(TOKEN_KEY) || '').trim();
+            var token = ghToken || (ghTokenInput && ghTokenInput.value.trim()) || getStored(GH_TOKEN_KEY) || '';
             if (!token) {
                 if (autopilotStatus) autopilotStatus.innerHTML = '<span class="badge err">Для ручного запуска укажите GitHub-токен в блоке ниже (или дождитесь расписания 10:00 и 18:00 МСК)</span>';
                 return;
+            }
+            if (!ghToken) {
+                ghToken = token;
             }
             triggerAutopilotBtn.disabled = true;
             if (autopilotStatus) autopilotStatus.innerHTML = '<span class="badge ok">⏳ Запускаю сбор свежих новостей из сети…</span>';
@@ -1487,7 +1519,7 @@
     // Состояние сайта — счётчики из sitemap.xml
     var articleCount = document.getElementById('articleCount');
     var sitemapCount = document.getElementById('sitemapCount');
-    fetch('/sitemap.xml').then(function (r) { return r.text(); }).then(function (xml) {
+    fetch('/sitemap.xml?v=' + Date.now()).then(function (r) { return r.text(); }).then(function (xml) {
         var locs = xml.match(/<loc>([^<]+)<\/loc>/g) || [];
         sitemapCount.textContent = locs.length;
         var articles = 0;

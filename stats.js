@@ -1,14 +1,15 @@
 // Панель статистики Telegram-канала. Читает данные через Bot API.
 (function () {
-    const DEFAULT_CHAT = '-1004315542026';
     const CHANNEL_USERNAME = 'avtotema_news';
+    let DEFAULT_CHAT = '@' + CHANNEL_USERNAME;
     const TOKEN_KEY = 'tg_stats_token';
+    const ADMIN_TOKEN_KEY = 'at_admin_token';
 
     function getStored(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
     function setStored(k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
     function removeStored(k) { try { window.localStorage.removeItem(k); } catch (e) {} }
 
-    let token = getStored(TOKEN_KEY) || '';
+    let token = getStored(TOKEN_KEY) || getStored(ADMIN_TOKEN_KEY) || '';
 
     const tokenInput = document.getElementById('tokenInput');
     const saveTokenBtn = document.getElementById('saveTokenBtn');
@@ -55,6 +56,9 @@
             if (info.ok) {
                 chanTitle.textContent = info.result.title || '—';
                 chanLink.innerHTML = '<a href="https://t.me/' + CHANNEL_USERNAME + '" target="_blank" rel="noopener">t.me/' + CHANNEL_USERNAME + '</a>';
+                if (info.result && info.result.id) {
+                    DEFAULT_CHAT = String(info.result.id);
+                }
             }
         } catch (e) {}
 
@@ -85,12 +89,14 @@
             return;
         }
         setStored(TOKEN_KEY, token);
+        setStored(ADMIN_TOKEN_KEY, token);
         tokenStatus.textContent = 'Ключ сохранён в браузере (localStorage).';
         load();
     });
 
     clearTokenBtn.addEventListener('click', function () {
         removeStored(TOKEN_KEY);
+        removeStored(ADMIN_TOKEN_KEY);
         token = '';
         tokenInput.value = '';
         tokenStatus.textContent = 'Ключ удалён из браузера.';
