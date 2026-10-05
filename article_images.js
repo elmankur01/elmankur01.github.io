@@ -262,6 +262,8 @@ const IMAGES = {
     176: { url: "/images/auto/art-176.jpg", alt: "Mercedes отказывается от трех моделей к 2027 году", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
     177: { url: "/images/auto/art-177.jpg", alt: "Продажи Nissan в США растут 19-й месяц подряд", credit: "Фото: Hi-s24, CC0" }
+,
+    178: { url: "/images/auto/art-178.jpg", alt: "Электрический внедорожник Mazda позволяет выкрикивать ненормативную лексику через передний динамик", credit: "Фото: W.carter, CC0" }
 
 };
 
@@ -543,6 +545,8 @@ const SLUGS = {
     176: "mercedes-otkazyvaetsya-ot-trekh-modeley-k-2027-godu"
 ,
     177: "prodazhi-nissan-v-ssha-rastut-19-y-mesyats-podryad"
+,
+    178: "elektricheskiy-vnedorozhnik-mazda-pozvolyaet-vykrikivat-nenormativnuyu-leksiku-c"
 
 };
 
