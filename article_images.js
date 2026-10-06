@@ -266,6 +266,8 @@ const IMAGES = {
     178: { url: "/images/auto/art-178.jpg", alt: "Электрический внедорожник Mazda позволяет выкрикивать ненормативную лексику через передний динамик", credit: "Фото: W.carter, CC0" }
 ,
     179: { url: "/images/art-23.jpg", alt: "В этом году количество угонов автомобилей снизилось во всех 50 штатах", credit: "Фото: АвтоТема" }
+,
+    180: { url: "/images/art-01.jpg", alt: "Украденный Corvette C7 Grand Sport найден после пяти лет под водой", credit: "Фото: АвтоТема" }
 
 };
 
@@ -551,6 +553,8 @@ const SLUGS = {
     178: "elektricheskiy-vnedorozhnik-mazda-pozvolyaet-vykrikivat-nenormativnuyu-leksiku-c"
 ,
     179: "v-etom-godu-kolichestvo-ugonov-avtomobiley-snizilos-vo-vsekh-50-shtatakh"
+,
+    180: "ukradennyy-corvette-c7-grand-sport-nayden-posle-pyati-let-pod-vodoy"
 
 };
 
