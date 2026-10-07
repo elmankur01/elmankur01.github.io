@@ -268,6 +268,8 @@ const IMAGES = {
     179: { url: "/images/art-23.jpg", alt: "В этом году количество угонов автомобилей снизилось во всех 50 штатах", credit: "Фото: АвтоТема" }
 ,
     180: { url: "/images/art-01.jpg", alt: "Украденный Corvette C7 Grand Sport найден после пяти лет под водой", credit: "Фото: АвтоТема" }
+,
+    181: { url: "/images/art-07.jpg", alt: "Nismo открывает свой первый концертный центр за пределами Японии", credit: "Фото: АвтоТема" }
 
 };
 
@@ -555,6 +557,8 @@ const SLUGS = {
     179: "v-etom-godu-kolichestvo-ugonov-avtomobiley-snizilos-vo-vsekh-50-shtatakh"
 ,
     180: "ukradennyy-corvette-c7-grand-sport-nayden-posle-pyati-let-pod-vodoy"
+,
+    181: "nismo-otkryvaet-svoy-pervyy-kontsertnyy-tsentr-za-predelami-yaponii"
 
 };
 
