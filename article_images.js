@@ -270,6 +270,8 @@ const IMAGES = {
     180: { url: "/images/art-01.jpg", alt: "Украденный Corvette C7 Grand Sport найден после пяти лет под водой", credit: "Фото: АвтоТема" }
 ,
     181: { url: "/images/art-07.jpg", alt: "Nismo открывает свой первый концертный центр за пределами Японии", credit: "Фото: АвтоТема" }
+,
+    182: { url: "/images/auto/art-182.jpg", alt: "Это Ford GT Дуга ДеМуро, и вы можете его купить", credit: "Фото: Mannequin- from Basking Ridge, NJ, USA, CC BY 2.0" }
 
 };
 
@@ -559,6 +561,8 @@ const SLUGS = {
     180: "ukradennyy-corvette-c7-grand-sport-nayden-posle-pyati-let-pod-vodoy"
 ,
     181: "nismo-otkryvaet-svoy-pervyy-kontsertnyy-tsentr-za-predelami-yaponii"
+,
+    182: "eto-ford-gt-duga-demuro-i-vy-mozhete-ego-kupit"
 
 };
 
