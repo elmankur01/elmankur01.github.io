@@ -274,6 +274,8 @@ const IMAGES = {
     182: { url: "/images/auto/art-182.jpg", alt: "Это Ford GT Дуга ДеМуро, и вы можете его купить", credit: "Фото: Mannequin- from Basking Ridge, NJ, USA, CC BY 2.0" }
 ,
     183: { url: "/images/auto/art-183.jpg", alt: "Самые дешевые внедорожники Chevrolet претерпят большие изменения в 2027 году", credit: "Фото: Bernard Spragg. NZ from Christchurch, New Zealand, CC0" }
+,
+    184: { url: "/images/art-01.jpg", alt: "Chevy Silverado HD в 2027 году станет намного дороже", credit: "Фото: АвтоТема" }
 
 };
 
@@ -567,6 +569,8 @@ const SLUGS = {
     182: "eto-ford-gt-duga-demuro-i-vy-mozhete-ego-kupit"
 ,
     183: "samye-deshevye-vnedorozhniki-chevrolet-preterpyat-bol-shie-izmeneniya-v-2027-god"
+,
+    184: "chevy-silverado-hd-v-2027-godu-stanet-namnogo-dorozhe"
 
 };
 
