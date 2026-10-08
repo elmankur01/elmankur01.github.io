@@ -272,6 +272,8 @@ const IMAGES = {
     181: { url: "/images/art-07.jpg", alt: "Nismo открывает свой первый концертный центр за пределами Японии", credit: "Фото: АвтоТема" }
 ,
     182: { url: "/images/auto/art-182.jpg", alt: "Это Ford GT Дуга ДеМуро, и вы можете его купить", credit: "Фото: Mannequin- from Basking Ridge, NJ, USA, CC BY 2.0" }
+,
+    183: { url: "/images/auto/art-183.jpg", alt: "Самые дешевые внедорожники Chevrolet претерпят большие изменения в 2027 году", credit: "Фото: Bernard Spragg. NZ from Christchurch, New Zealand, CC0" }
 
 };
 
@@ -563,6 +565,8 @@ const SLUGS = {
     181: "nismo-otkryvaet-svoy-pervyy-kontsertnyy-tsentr-za-predelami-yaponii"
 ,
     182: "eto-ford-gt-duga-demuro-i-vy-mozhete-ego-kupit"
+,
+    183: "samye-deshevye-vnedorozhniki-chevrolet-preterpyat-bol-shie-izmeneniya-v-2027-god"
 
 };
 
