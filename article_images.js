@@ -223,13 +223,13 @@ const IMAGES = {
 ,
     157: { url: "/images/auto/art-157.jpg", alt: "Mini отправляет земляка с палаткой на крыше на ралли Rebelle", credit: "Фото: Dietmar Rabich, CC BY-SA 4.0" }
 ,
-    158: { url: "/images/art-38.jpg", alt: "Послушайте, как Jensen Interceptor мощностью 960 л.с. раскрывает свой V8 с наддувом", credit: "Фото: АвтоТема" }
+    158: { url: "/images/auto/art-158.jpg", alt: "Послушайте, как Jensen Interceptor мощностью 960 л.с. раскрывает свой V8 с наддувом", credit: "Фото: Mr.choppers, CC BY-SA 3.0" }
 ,
-    159: { url: "/images/art-23.jpg", alt: "Lamborghini продолжает намекать на временный Sterrato", credit: "Фото: АвтоТема" }
+    159: { url: "/images/auto/art-159.jpg", alt: "Lamborghini продолжает намекать на временный Sterrato", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 ,
-    160: { url: "/images/art-01.jpg", alt: "Бэтмобиль 1992 года, использованный в экране, выставят на аукцион и могут продать за 7 миллионов долларов", credit: "Фото: АвтоТема" }
+    160: { url: "/images/auto/art-160.jpg", alt: "Бэтмобиль 1992 года, использованный в экране, выставят на аукцион и могут продать за 7 миллионов долларов", credit: "Фото: Photo by Jennifer Graylock /Ford Motor Company https://www.f, CC BY 2.0" }
 ,
-    161: { url: "/images/art-07.jpg", alt: "Honda возвращается к своему рекорду круга со скоростью 241,428 миль в час в новых документальных сериях", credit: "Фото: АвтоТема" }
+    161: { url: "/images/auto/art-161.jpg", alt: "Honda возвращается к своему рекорду круга со скоростью 241,428 миль в час в новых документальных сериях", credit: "Фото: Morio, CC BY-SA 3.0" }
 ,
     162: { url: "/images/auto/art-162.jpg", alt: "Китайский BYD близок к тому, чтобы превзойти Ford по продажам в Европе", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
@@ -241,11 +241,11 @@ const IMAGES = {
 ,
     166: { url: "/images/auto/art-166.jpg", alt: "Тюнер BMW AC Schnitzer получает второй шанс после почти закрытия", credit: "Фото: Julien Bertrand, Public domain" }
 ,
-    167: { url: "/images/art-23.jpg", alt: "Белый дом рассматривает возможность 90-дневного запрета на экспорт дизельного топлива из-за роста цен", credit: "Фото: АвтоТема" }
+    167: { url: "/images/auto/art-167.jpg", alt: "Белый дом рассматривает возможность 90-дневного запрета на экспорт дизельного топлива из-за роста цен", credit: "Фото: Kiran Jonnalagadda from Bangalore, India, CC BY-SA 2.0" }
 ,
     168: { url: "/images/auto/art-168.jpg", alt: "BMW сокращает свой модельный ряд, чтобы освободить место для более крупного внедорожника", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
-    169: { url: "/images/art-07.jpg", alt: "Ваш новый автомобиль передает ваши личные данные. Без твоего ведома", credit: "Фото: АвтоТема" }
+    169: { url: "/images/auto/art-169.jpg", alt: "Ваш новый автомобиль передает ваши личные данные. Без твоего ведома", credit: "Фото: The Car Spy, CC BY 2.0" }
 ,
     170: { url: "/images/auto/art-170.jpg", alt: "Hyundai Tucson 2027 станет больше и объемнее: его мощность достигнет 288 л.с.", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
@@ -255,9 +255,9 @@ const IMAGES = {
 ,
     173: { url: "/images/auto/art-173.jpg", alt: "Range Rover Sport отозван из-за задних подрамников, которые могут треснуть", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    174: { url: "/images/art-18.jpg", alt: "Генеральный директор Stellantis видит «огромные возможности» для дешевых автомобилей", credit: "Фото: АвтоТема" }
+    174: { url: "/images/auto/art-174.jpg", alt: "Генеральный директор Stellantis видит «огромные возможности» для дешевых автомобилей", credit: "Фото: Navigator84, CC BY-SA 3.0" }
 ,
-    175: { url: "/images/art-25.jpg", alt: "Победители и проигравшие сентябрьских продаж автомобилей", credit: "Фото: АвтоТема" }
+    175: { url: "/images/auto/art-175.jpg", alt: "Победители и проигравшие сентябрьских продаж автомобилей", credit: "Фото: Humphrey Bolton, CC BY-SA 2.0" }
 ,
     176: { url: "/images/auto/art-176.jpg", alt: "Mercedes отказывается от трех моделей к 2027 году", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
@@ -265,19 +265,19 @@ const IMAGES = {
 ,
     178: { url: "/images/auto/art-178.jpg", alt: "Электрический внедорожник Mazda позволяет выкрикивать ненормативную лексику через передний динамик", credit: "Фото: W.carter, CC0" }
 ,
-    179: { url: "/images/art-23.jpg", alt: "В этом году количество угонов автомобилей снизилось во всех 50 штатах", credit: "Фото: АвтоТема" }
+    179: { url: "/images/auto/art-179.jpg", alt: "В этом году количество угонов автомобилей снизилось во всех 50 штатах", credit: "Фото: Rama, CC BY-SA 2.0 fr" }
 ,
-    180: { url: "/images/art-01.jpg", alt: "Украденный Corvette C7 Grand Sport найден после пяти лет под водой", credit: "Фото: АвтоТема" }
+    180: { url: "/images/auto/art-180.jpg", alt: "Украденный Corvette C7 Grand Sport найден после пяти лет под водой", credit: "Фото: M 93, CC BY-SA 3.0 de" }
 ,
-    181: { url: "/images/art-07.jpg", alt: "Nismo открывает свой первый концертный центр за пределами Японии", credit: "Фото: АвтоТема" }
+    181: { url: "/images/auto/art-181.jpg", alt: "Nismo открывает свой первый концертный центр за пределами Японии", credit: "Фото: Tokumeigakarinoaoshima, CC BY-SA 4.0" }
 ,
     182: { url: "/images/auto/art-182.jpg", alt: "Это Ford GT Дуга ДеМуро, и вы можете его купить", credit: "Фото: Mannequin- from Basking Ridge, NJ, USA, CC BY 2.0" }
 ,
     183: { url: "/images/auto/art-183.jpg", alt: "Самые дешевые внедорожники Chevrolet претерпят большие изменения в 2027 году", credit: "Фото: Bernard Spragg. NZ from Christchurch, New Zealand, CC0" }
 ,
-    184: { url: "/images/art-01.jpg", alt: "Chevy Silverado HD в 2027 году станет намного дороже", credit: "Фото: АвтоТема" }
+    184: { url: "/images/auto/art-184.jpg", alt: "Chevy Silverado HD в 2027 году станет намного дороже", credit: "Фото: Ermell, CC BY-SA 4.0" }
 ,
-    185: { url: "/images/art-10.jpg", alt: "Corvette 2027 года уже получает повышение цен", credit: "Фото: АвтоТема" }
+    185: { url: "/images/auto/art-185.jpg", alt: "Corvette 2027 года уже получает повышение цен", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 
 };
 

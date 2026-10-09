@@ -555,8 +555,26 @@ async function main() {
             }
         }
         if (!image) {
-            const pool = FALLBACK_POOLS[a.tag] || FALLBACK_DEFAULT;
-            image = { url: pool[a.num % pool.length], alt: a.title, credit: 'Фото: АвтоТема' };
+            // Расширенный поиск по рубрике в Wikimedia Commons, если поиск по марке не нашёл
+            const tagQuery = a.tag === 'Электромобили' ? 'electric car automobile' : (a.tag === 'Двигатели' ? 'car engine motor' : 'modern automobile car');
+            const tagFound = await fetchCommonsImage(tagQuery, usedThumbs);
+            if (tagFound) {
+                usedThumbs.add(tagFound.thumb);
+                const localUrl = '/images/auto/art-' + a.num + '.jpg';
+                try {
+                    await downloadImage(localUrl, tagFound.thumb);
+                    image = { url: localUrl, alt: a.title, credit: tagFound.credit };
+                } catch (e) {}
+            }
+        }
+        if (!image) {
+            // Если и поиск по рубрике не сработал, ищем неиспользованный URL из пула
+            const allUsed = new Set(Object.values(images).map(x => x.url));
+            articles.forEach(art => { if (art.image) allUsed.add(art.image.url); });
+            const pool = (FALLBACK_POOLS[a.tag] || []).concat(FALLBACK_DEFAULT);
+            const fresh = pool.find(u => !allUsed.has(u));
+            const chosen = fresh || pool[a.num % pool.length];
+            image = { url: chosen, alt: a.title, credit: 'Фото: АвтоТема' };
         }
         a.image = image;
         console.log('  #' + a.num + ' [' + a.sourceName + ' / ' + a.tag + '] ' + a.title + ' | фото: ' + a.image.url);

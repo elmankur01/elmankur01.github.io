@@ -416,6 +416,14 @@ function page(article, n) {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
+                            </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
                                 <span class="nav-drop-text">
@@ -611,6 +619,7 @@ function page(article, n) {
                 </a>
             </div>
             <p class="footer-links">
+                <a href="/calc-tco.html">Стоимость владения (TCO)</a> ·
                 <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/brands/">Каталог марок</a>
@@ -768,6 +777,14 @@ function generateBrandPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
+                            </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
                                 <span class="nav-drop-text">
@@ -849,6 +866,7 @@ function generateBrandPages() {
                 <a href="/brands/">Все марки</a>
                 <a href="/tags/">Теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tco.html">Стоимость владения (TCO)</a> ·
                 <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
@@ -939,6 +957,14 @@ function generateBrandPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
+                            </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
                                 <span class="nav-drop-text">
@@ -1033,6 +1059,7 @@ function generateBrandPages() {
                 <a href="/brands/">Все марки</a>
                 <a href="/tags/">Теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tco.html">Стоимость владения (TCO)</a> ·
                 <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
@@ -1112,6 +1139,14 @@ function generateTagPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
+                            </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
                                 <span class="nav-drop-text">
@@ -1185,6 +1220,7 @@ function generateTagPages() {
                 <a href="/brands/">Марки</a>
                 <a href="/tags/">Все теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tco.html">Стоимость владения (TCO)</a> ·
                 <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
@@ -1266,6 +1302,14 @@ function generateTagPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
+                            </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
                                 <span class="nav-drop-text">
@@ -1352,6 +1396,7 @@ function generateTagPages() {
                 <a href="/brands/">Марки</a>
                 <a href="/tags/">Все теги</a>
                 <a href="/compare.html">Сравнение авто</a>
+                <a href="/calc-tco.html">Стоимость владения (TCO)</a> ·
                 <a href="/calc-customs.html">Растаможка и утильсбор</a>
                 <a href="/calc-tax.html">Калькулятор налога</a>
                 <a href="/">Главная</a>
@@ -1376,6 +1421,7 @@ function sitemap() {
     entries.push({ loc: `${SITE}/`, freq: 'daily', priority: '1.0' });
 
     const legal = [
+        { path: 'calc-tco.html', freq: 'weekly', priority: '0.95' },
         { path: 'calc-customs.html', freq: 'weekly', priority: '0.9' },
         { path: 'calc-tax.html', freq: 'weekly', priority: '0.9' },
         { path: 'compare.html', freq: 'weekly', priority: '0.9' },
