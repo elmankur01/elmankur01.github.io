@@ -532,7 +532,10 @@
         var replyMarkup = {
             inline_keyboard: [
                 [{ text: '📖 Читать статью на сайте ↗', url: url }],
-                [{ text: '🚗 Все новости на АвтоТеме', url: 'https://avtotema-news.online/' }]
+                [
+                    { text: '📊 Стоимость 1 км пути', url: 'https://avtotema-news.online/calc-tco.html' },
+                    { text: '🚗 Все новости', url: 'https://avtotema-news.online/' }
+                ]
             ]
         };
 
@@ -1463,7 +1466,11 @@
                     ],
                     [
                         {
-                            text: '🚗 Все новости на АвтоТеме',
+                            text: '💰 Калькулятор владения (TCO)',
+                            url: 'https://avtotema-news.online/calc-tco.html'
+                        },
+                        {
+                            text: '🚗 Все новости',
                             url: 'https://avtotema-news.online/'
                         }
                     ]
@@ -1514,6 +1521,160 @@
                 sendBattleBtn.disabled = false;
             });
         });
+    }
+
+    // ── Викторины ПДД для Telegram (Quiz Poll) ──
+    var QUIZ_DATA = [
+        {
+            title: '🔄 Круговое движение: съезд из внутреннего кольца',
+            question: '🚦 Задача ПДД: Разрешено ли съехать с перекрёстка с круговым движением из внутреннего ряда?',
+            options: [
+                'Да, если не создаётся помех другим ТС',
+                'Нет, необходимо заранее занять крайний правый ряд',
+                'Да, если включен правый сигнал поворота'
+            ],
+            correctOptionId: 1,
+            explanation: 'Согласно п. 8.5 ПДД РФ, перед поворотом направо водитель обязан заблаговременно занять крайнее правое положение на проезжей части, в том числе при съезде с круга!'
+        },
+        {
+            title: '🟢 Стрелка направо при основном красном сигнале',
+            question: '🚦 Задача ПДД: Вам горит стрелка направо при основном красном. Обязаны ли вы уступить дорогу?',
+            options: [
+                'Да, обязан уступить дорогу ТС со всех направлений',
+                'Нет, так как горит разрешающий зелёный сигнал',
+                'Только пешеходам, машинам уступать не нужно'
+            ],
+            correctOptionId: 0,
+            explanation: 'По п. 13.5 ПДД РФ, при движении по стрелке, включенной с красным сигналом светофора, водитель обязан уступить дорогу ТС, движущимся с любых других направлений!'
+        },
+        {
+            title: '🚜 Обгон тихохода через сплошную линию',
+            question: '🚦 Задача ПДД: Впереди едет трактор 20 км/ч без знака «Тихоход». Разрешён ли обгон через сплошную 1.1?',
+            options: [
+                'Разрешён, если его скорость менее 30 км/ч',
+                'Запрещён! Без знака «Тихоходное ТС» пересекать сплошную нельзя',
+                'Разрешён, если подать звуковой сигнал'
+            ],
+            correctOptionId: 1,
+            explanation: 'Тихоходным считается только ТС с официальным знаком (красный треугольник). Если знака нет — пересечение сплошной наказывается лишением прав (ч. 4 ст. 12.15 КоАП РФ)!'
+        },
+        {
+            title: '👮 Регулировщик обращён боком с опущенными руками',
+            question: '🚦 Задача ПДД: Регулировщик стоит боком, руки опущены. В каких направлениях разрешено движение?',
+            options: [
+                'Только прямо',
+                'Прямо и направо',
+                'В любых направлениях'
+            ],
+            correctOptionId: 1,
+            explanation: 'По п. 6.10 ПДД РФ: если регулировщик обращен боком, безрельсовым ТС разрешено движение прямо и направо!'
+        },
+        {
+            title: '↔️ Одновременное перестроение двух автомобилей',
+            question: '🚦 Задача ПДД: Два автомобиля одновременно перестраиваются в средний ряд. У кого преимущество?',
+            options: [
+                'У автомобиля справа («помеха справа»)',
+                'У автомобиля слева',
+                'У того, кто раньше включил указатель поворота'
+            ],
+            correctOptionId: 0,
+            explanation: 'По п. 8.4 ПДД РФ: при одновременном перестроении попутных ТС дорогу обязан уступить водитель, к которому другое ТС приближается справа.'
+        },
+        {
+            title: '🚌 Посадка пассажира на полосе для маршрутных ТС',
+            question: '🚦 Задача ПДД: Разрешена ли посадка пассажира на полосе для автобусов через прерывистую линию?',
+            options: [
+                'Да, у правого края, если не создаётся помех автобусам',
+                'Категорически запрещена в любых случаях',
+                'Только в ночное время с 23:00 до 06:00'
+            ],
+            correctOptionId: 0,
+            explanation: 'Согласно п. 18.2 ПДД РФ, разрешено заезжать на полосу для маршрутных ТС (при прерывистой разметке) для посадки и высадки у правого края, если это не мешает маршрутным ТС.'
+        }
+    ];
+
+    var quizPresetSelect = document.getElementById('quizPresetSelect');
+    var quizQuestionText = document.getElementById('quizQuestionText');
+    var quizOptionsList = document.getElementById('quizOptionsList');
+    var quizExplanationBox = document.getElementById('quizExplanationBox');
+    var sendQuizBtn = document.getElementById('sendQuizBtn');
+    var quizStatus = document.getElementById('quizStatus');
+
+    if (quizPresetSelect) {
+        QUIZ_DATA.forEach(function (q, i) {
+            var opt = document.createElement('option');
+            opt.value = i;
+            opt.textContent = q.title;
+            quizPresetSelect.appendChild(opt);
+        });
+
+        function updateQuizPreview() {
+            var idx = parseInt(quizPresetSelect.value || '0', 10);
+            var item = QUIZ_DATA[idx] || QUIZ_DATA[0];
+            if (quizQuestionText) quizQuestionText.textContent = item.question;
+            if (quizOptionsList) {
+                quizOptionsList.innerHTML = item.options.map(function (opt, oidx) {
+                    var isCorrect = oidx === item.correctOptionId;
+                    return '<div style="background:#161f2c;padding:8px 12px;border-radius:6px;font-size:13px;color:#e2e8f0;border-left:3px solid ' + (isCorrect ? '#22c55e' : '#334155') + ';">' +
+                        (oidx + 1) + '. ' + esc(opt) + (isCorrect ? ' <span style="color:#22c55e;font-size:11px;font-weight:700;">(правильный ответ)</span>' : '') +
+                        '</div>';
+                }).join('');
+            }
+            if (quizExplanationBox) {
+                quizExplanationBox.innerHTML = '💡 <b>Разъяснение:</b> ' + esc(item.explanation);
+            }
+        }
+
+        quizPresetSelect.addEventListener('change', updateQuizPreview);
+        updateQuizPreview();
+
+        if (sendQuizBtn) {
+            sendQuizBtn.addEventListener('click', function () {
+                var currentToken = (tokenInput && tokenInput.value.trim()) || token || getStored(TOKEN_KEY) || '';
+                var chatId = (destSelect && destSelect.value.trim()) || ('@' + CHANNEL_USERNAME);
+
+                if (!currentToken) {
+                    quizStatus.className = 'updated error';
+                    quizStatus.textContent = '❌ Сохраните токен Telegram-бота в блоке настроек выше!';
+                    return;
+                }
+
+                var idx = parseInt(quizPresetSelect.value || '0', 10);
+                var item = QUIZ_DATA[idx] || QUIZ_DATA[0];
+
+                sendQuizBtn.disabled = true;
+                quizStatus.className = 'updated';
+                quizStatus.textContent = '⏳ Публикация ПДД-викторины в Telegram…';
+
+                fetch('https://api.telegram.org/bot' + currentToken + '/sendPoll', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        question: item.question,
+                        options: item.options,
+                        is_anonymous: false,
+                        type: 'quiz',
+                        correct_option_id: item.correctOptionId,
+                        explanation: item.explanation,
+                        explanation_parse_mode: 'HTML'
+                    })
+                }).then(function (r) { return r.json(); }).then(function (data) {
+                    if (data.ok) {
+                        quizStatus.className = 'updated success';
+                        quizStatus.textContent = '✅ ПДД-викторина успешно опубликована в Telegram! Подписчики могут голосовать в канале.';
+                    } else {
+                        quizStatus.className = 'updated error';
+                        quizStatus.textContent = '❌ Ошибка Telegram: ' + (data.description || JSON.stringify(data));
+                    }
+                }).catch(function (e) {
+                    quizStatus.className = 'updated error';
+                    quizStatus.textContent = '❌ Ошибка сети: ' + e.message;
+                }).finally(function () {
+                    sendQuizBtn.disabled = false;
+                });
+            });
+        }
     }
 
     // Состояние сайта — счётчики из sitemap.xml

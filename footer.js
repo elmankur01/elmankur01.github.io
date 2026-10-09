@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initReadingProgress();
     initCopyButton();
     registerServiceWorker();
+    initTgWebApp();
 });
 
 // 0. Мобильное бургер-меню
@@ -221,5 +222,66 @@ function registerServiceWorker() {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js').catch(() => {});
         });
+    }
+}
+
+// 6. Telegram Web App (Mini App)
+function initTgWebApp() {
+    if (window.__tgWebAppLoaded) return;
+    window.__tgWebAppLoaded = true;
+
+    // Глобальный хелпер виброотклика (Haptic Feedback)
+    window.tgHaptic = function (type) {
+        try {
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+                const style = type || 'light';
+                if (style === 'success' || style === 'warning' || style === 'error') {
+                    window.Telegram.WebApp.HapticFeedback.notificationOccurred(style);
+                } else {
+                    window.Telegram.WebApp.HapticFeedback.impactOccurred(style);
+                }
+            }
+        } catch (e) {}
+    };
+
+    function setupTG() {
+        if (!window.Telegram || !window.Telegram.WebApp) return;
+        const tg = window.Telegram.WebApp;
+        try {
+            tg.ready();
+            tg.expand();
+            if (tg.setHeaderColor) tg.setHeaderColor('#0b0f14');
+            if (tg.setBackgroundColor) tg.setBackgroundColor('#0b0f14');
+        } catch (e) {}
+
+        document.documentElement.classList.add('is-telegram-webapp');
+
+        if (tg.BackButton) {
+            const isRoot = window.location.pathname === '/' || window.location.pathname === '/index.html';
+            if (!isRoot && window.history.length > 1) {
+                tg.BackButton.show();
+                tg.BackButton.onClick(function () {
+                    window.tgHaptic('light');
+                    window.history.back();
+                });
+            } else {
+                tg.BackButton.hide();
+            }
+        }
+
+        document.addEventListener('click', function (e) {
+            const target = e.target.closest('button, .btn, .calc-car-preset-pill, .tco-preset-pill, .tag-btn, .like-btn, .bookmark-btn, .advisor-choice-btn');
+            if (target) window.tgHaptic('light');
+        }, { passive: true });
+    }
+
+    if (window.Telegram && window.Telegram.WebApp) {
+        setupTG();
+    } else {
+        const s = document.createElement('script');
+        s.src = 'https://telegram.org/js/telegram-web-app.js';
+        s.async = true;
+        s.onload = setupTG;
+        document.head.appendChild(s);
     }
 }

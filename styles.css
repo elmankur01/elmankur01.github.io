@@ -3813,5 +3813,218 @@ body.font-large .article-body p { font-size: 1.2rem; line-height: 1.8; }
     line-height: 1.35;
 }
 
+/* ===== TCO & Comparison styles ===== */
+.tco-diff-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+}
+.diff-cheaper {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.diff-costlier {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+.tco-diff-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+.tco-diff-badge {
+    background: var(--bg);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+.tco-diff-body p {
+    margin: 6px 0 8px 0;
+    font-size: 0.88rem;
+    color: var(--text);
+}
+.tco-diff-details {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
 
+/* ===== АвтоСоветник (Car Advisor) ===== */
+.advisor-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    max-width: 900px;
+    margin: 0 auto;
+}
+.advisor-progress {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.advisor-step-indicator {
+    flex: 1;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+.advisor-step-indicator.active {
+    background: var(--accent);
+}
+.advisor-step-header {
+    margin-bottom: 24px;
+    text-align: center;
+}
+.advisor-step-number {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+.advisor-step-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--text);
+}
+.advisor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+.advisor-choice-btn {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.advisor-choice-btn:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+.advisor-choice-icon {
+    font-size: 2rem;
+    margin-bottom: 4px;
+}
+.advisor-choice-label {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text);
+}
+.advisor-choice-sub {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.4;
+}
 
+/* Результаты подбора */
+.advisor-results-wrap {
+    margin-top: 10px;
+}
+.advisor-results-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.advisor-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+.advisor-car-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.advisor-car-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(232, 67, 60, 0.5);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+.advisor-car-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: #111;
+}
+.advisor-car-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.advisor-car-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+.advisor-car-price {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.advisor-car-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+.advisor-spec-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    color: var(--text);
+    font-weight: 600;
+}
+.advisor-car-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 8px;
+}
+.advisor-car-actions a {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+}
+.advisor-restart-btn {
+    display: block;
+    margin: 28px auto 0 auto;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.advisor-restart-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+}

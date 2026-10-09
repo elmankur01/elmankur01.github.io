@@ -91,6 +91,14 @@
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
+                            </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
                                 <span class="nav-drop-text">
@@ -123,6 +131,7 @@
                             </a>
                         </div>
                     </li>
+                    <li><a href="#advisor">АвтоСоветник</a></li>
                     <li><a href="#tips">Лайфхаки</a></li>
                     <li><a href="#market">Рынок</a></li>
                     <li><a href="/tags/">Теги</a></li>
@@ -303,6 +312,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- АВТОСОВЕТНИК: ИНТЕЛЛЕКТУАЛЬНЫЙ ПОДБОР АВТО -->
+        <section class="section" id="advisor" style="background:linear-gradient(180deg, var(--bg) 0%, rgba(232,67,60,0.03) 50%, var(--bg) 100%);padding:4rem 0;">
+            <div class="container">
+                <div style="text-align:center;max-width:720px;margin:0 auto 2.5rem auto;">
+                    <span class="section-eyebrow">🎯 Интерактивный гид</span>
+                    <h2 class="section-title">АвтоСоветник: подберите идеальную машину</h2>
+                    <p class="section-sub" style="margin:0;">Ответьте на 3 простых вопроса о бюджете, типе кузова и задачах — алгоритм мгновенно порекомендует лучшие автомобили из нашей базы со сравнением характеристик.</p>
+                </div>
+                <div id="advisorWidget"></div>
             </div>
         </section>
 
@@ -518,6 +539,7 @@
             <p>&copy; <span id="year"></span> АвтоТема. Все права защищены. ·
                 <a href="/brands/">Каталог марок</a> ·
                 <a href="/tags/">Теги</a> ·
+                <a href="/calc-tco.html">Стоимость владения (TCO)</a> ·
                 <a href="/compare.html">Сравнение авто</a> ·
                 <a href="/calc-customs.html">Растаможка и утильсбор</a> ·
                 <a href="/calc-tax.html">Калькулятор налога</a> ·
@@ -546,10 +568,12 @@
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
     <script src="theme.js"></script>
+    <script src="cars_data.js"></script>
     <script src="article_images.js?v=2" defer></script>
     <script src="script.js?v=3" defer></script>
     <script src="hero_slider.js?v=2" defer></script>
     <script src="interactive.js?v=2" defer></script>
+    <script src="advisor.js?v=1" defer></script>
     <script src="favorites.js?v=2" defer></script>
     <script src="likes.js?v=2" defer></script>
     <script src="footer.js?v=2" defer></script>

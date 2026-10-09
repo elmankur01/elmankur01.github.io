@@ -150,6 +150,27 @@
                 <div class="updated" id="battleStatus" style="margin-top:12px;"></div>
             </div>
 
+            <!-- TELEGRAM QUIZ / TRAFFIC RULES (ПДД) -->
+            <div class="admin-card">
+                <h2>🚦 Интерактив и Викторины ПДД для Telegram</h2>
+                <p class="note">Публикуйте в канал @avtotema_news нативные опросы-викторины Telegram (Quiz). Подписчики голосуют в 1 клик, получают анимацию конфетти при правильном ответе и официальное разъяснение ПДД РФ!</p>
+
+                <label class="token-label" for="quizPresetSelect">Выберите задачу ПДД для публикации</label>
+                <select class="token-input" id="quizPresetSelect"></select>
+
+                <div id="quizPreviewBox" style="margin-top:14px;background:#0d1218;border:1px solid #1f2732;border-radius:10px;padding:14px;">
+                    <div style="font-size:11px;color:#8b95a3;font-weight:700;text-transform:uppercase;margin-bottom:8px;">📱 Предпросмотр нативной викторины Telegram (Quiz)</div>
+                    <div id="quizQuestionText" style="color:#f1f5f9;font-weight:700;font-size:14px;margin-bottom:10px;line-height:1.4;"></div>
+                    <div id="quizOptionsList" style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px;"></div>
+                    <div id="quizExplanationBox" style="background:rgba(56,189,248,0.08);border-left:3px solid #38bdf8;padding:8px 12px;border-radius:4px;font-size:12px;color:#cbd5e1;line-height:1.4;"></div>
+                </div>
+
+                <div style="margin-top:16px;">
+                    <button class="btn btn-red" id="sendQuizBtn">🚦 Опубликовать ПДД-викторину в Telegram</button>
+                </div>
+                <div class="updated" id="quizStatus" style="margin-top:12px;"></div>
+            </div>
+
             <!-- IN-BROWSER VIDEO RENDERER -->
             <div class="admin-card">
                 <h2>⚡ Мгновенный рендеринг видео в браузере (Shorts / Reels 9:16)</h2>

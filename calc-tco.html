@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Калькулятор реальной стоимости владения автомобилем (TCO) 2026 года онлайн: точный расчёт стоимости 1 км пути, бензина, ТО, налога, ОСАГО/КАСКО и потери стоимости (амортизации). Сравнение двух машин.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://telegram.org; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Калькулятор стоимости владения авто (TCO) 2026 — сколько стоит 1 км пути">
+    <meta property="og:description" content="Узнайте честные расходы на содержание автомобиля: топливо, ТО, налоги, страховки, амортизация за год и месяц. Интерактивное сравнение машин на АвтоТеме.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:url" content="https://avtotema-news.online/calc-tco.html">
+    <meta property="og:image" content="https://avtotema-news.online/og-image.png">
+    <meta property="og:locale" content="ru_RU">
+
+    <link rel="canonical" href="https://avtotema-news.online/calc-tco.html">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>Калькулятор стоимости владения автомобилем (TCO) 2026 онлайн | АвтоТема</title>
+
+    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <script>
+    (function(){
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Калькулятор стоимости владения автомобилем (TCO) 2026",
+        "url": "https://avtotema-news.online/calc-tco.html",
+        "description": "Онлайн калькулятор полной стоимости содержания автомобиля: топливо, ТО, налоги, страховки, амортизация, расчёт стоимости 1 км.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://avtotema-news.online/" },
+            { "@type": "ListItem", "position": 2, "name": "Калькулятор стоимости владения авто (TCO)", "item": "https://avtotema-news.online/calc-tco.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Что такое TCO (Total Cost of Ownership) автомобиля?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "TCO — это совокупная стоимость владения автомобилем, включающая не только заправку топливом, но и амортизацию (потерю рыночной стоимости за год), регламентные ТО, шины и шиномонтаж, полисы ОСАГО и КАСКО, транспортный налог, парковки и мойки."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Какая статья расходов на автомобиль самая большая?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Для новых автомобилей из автосалона крупнейшей статьёй расходов обычно является амортизация (потеря рыночной стоимости от 7% до 12% в год). На втором месте — топливо (до 30–40% от регулярных расходов). Для автомобилей старше 7 лет на первое место выходят регулярные расходы на обслуживание и ремонты."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Сколько в среднем стоит 1 км пробега на современном авто в России?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Для бюджетных авто (Lada Vesta) стоимость 1 км составляет около 11–14 ₽/км. Для популярных компактных кроссоверов (Haval Jolion, Geely Coolray) — 15–19 ₽/км. Для премиальных авто — от 25 до 45 ₽/км."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>
+                Авто<span>Тема</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="/#news">Новости</a></li>
+                    <li><a href="/brands/">Марки</a></li>
+                    <li class="nav-item-dropdown active">
+                        <button type="button" class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                            <span>Сервисы</span>
+                            <svg class="nav-dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-tco.html" class="nav-dropdown-item active" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
+                            </a>
+                            <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🛃</span>
+                                <span class="nav-drop-text">
+                                    <strong>Растаможка и утильсбор</strong>
+                                    <small>Ставки Минпромторга 2026</small>
+                                </span>
+                                <span class="nav-drop-badge">2026</span>
+                            </a>
+                            <a href="/calc-tax.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🧮</span>
+                                <span class="nav-drop-text">
+                                    <strong>Транспортный налог</strong>
+                                    <small>По регионам РФ и л.с.</small>
+                                </span>
+                                <span class="nav-drop-badge">2026</span>
+                            </a>
+                            <a href="/compare.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">⚔️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Сравнение авто</strong>
+                                    <small>Баттл характеристик</small>
+                                </span>
+                            </a>
+                            <a href="/#calculator" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">⛽</span>
+                                <span class="nav-drop-text">
+                                    <strong>Расход топлива</strong>
+                                    <small>Калькулятор поездок</small>
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="/#advisor">АвтоСоветник</a></li>
+                    <li><a href="/#tips">Лайфхаки</a></li>
+                    <li><a href="/tags/">Теги</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по сайту" title="Поиск (Ctrl+K / /)">
+                    <span class="search-nav-icon">🔍</span>
+                    <span class="search-nav-label">Поиск</span>
+                    <kbd class="search-nav-kbd">⌘K</kbd>
+                </button>
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+                    <span class="theme-icon-dark">🌙</span>
+                    <span class="theme-icon-light" hidden>☀️</span>
+                </button>
+                <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                    ⭐ <span class="fav-count" hidden>0</span>
+                </button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки" style="margin-bottom:1.5rem;">
+                    <a href="/">Главная</a>
+                    <span class="crumb-sep" aria-hidden="true">→</span>
+                    <span class="current" aria-current="page">Калькулятор стоимости владения (TCO)</span>
+                </nav>
+
+                <div class="section-head" style="text-align:left;margin-bottom:2rem;">
+                    <span class="section-eyebrow">💰 Финансовый анализ авто</span>
+                    <h1 class="section-title" style="margin-bottom:0.75rem;">Калькулятор реальной стоимости владения автомобилем (TCO) 2026</h1>
+                    <p class="section-sub" style="margin:0;max-width:860px;">Сколько на самом деле стоит содержать машину в год, в месяц и во сколько обходится каждый 1 километр пути с учётом топлива, налогов, страховок, ТО и потери рыночной стоимости.</p>
+                </div>
+
+                <!-- Быстрые пресеты популярных авто -->
+                <div class="calc-presets-bar">
+                    <span class="presets-label">⚡ Выберите модель для мгновенного расчёта:</span>
+                    <div class="presets-list">
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill active" data-preset="vesta">Лада Vesta NG</button>
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill" data-preset="jolion">Haval Jolion 4WD</button>
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill" data-preset="coolray">Geely Coolray New</button>
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill" data-preset="chery7">Chery Tiggo 7 Pro Max</button>
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill" data-preset="tank300">Tank 300 4WD</button>
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill" data-preset="zeekr001">Zeekr 001 (Электро)</button>
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill" data-preset="camry">Toyota Camry XV80</button>
+                        <button type="button" class="calc-car-preset-pill tco-preset-pill" data-preset="moskvich3">Москвич 3</button>
+                    </div>
+                </div>
+
+                <form id="tcoForm" onsubmit="return false;">
+                    <div class="calc-tax-layout">
+                        <!-- ЛЕВАЯ КОЛОНКА: ПАРАМЕТРЫ РАСЧЁТА -->
+                        <div class="calc-tax-card">
+                            <h2 class="calc-tax-card-title">Параметры эксплуатации и автомобиля</h2>
+
+                            <!-- Годовой пробег -->
+                            <div class="calc-form-group">
+                                <div class="calc-label-row">
+                                    <label for="tcoAnnualKm">Годовой пробег:</label>
+                                    <span class="calc-val-highlight" id="tcoKmVal">15 000 км/год</span>
+                                </div>
+                                <input type="range" id="tcoAnnualKm" min="5000" max="60000" step="1000" value="15000" class="calc-range-input">
+                                <div class="calc-quick-pills">
+                                    <span class="quick-pill" onclick="document.getElementById('tcoAnnualKm').value=10000;document.getElementById('tcoAnnualKm').dispatchEvent(new Event('input'))">10 000 км (город)</span>
+                                    <span class="quick-pill" onclick="document.getElementById('tcoAnnualKm').value=15000;document.getElementById('tcoAnnualKm').dispatchEvent(new Event('input'))">15 000 км (средний)</span>
+                                    <span class="quick-pill" onclick="document.getElementById('tcoAnnualKm').value=25000;document.getElementById('tcoAnnualKm').dispatchEvent(new Event('input'))">25 000 км (активный)</span>
+                                    <span class="quick-pill" onclick="document.getElementById('tcoAnnualKm').value=40000;document.getElementById('tcoAnnualKm').dispatchEvent(new Event('input'))">40 000 км (трасса/работа)</span>
+                                </div>
+                            </div>
+
+                            <!-- Стоимость авто -->
+                            <div class="calc-form-group">
+                                <label for="tcoPrice">Текущая рыночная стоимость авто (₽):</label>
+                                <input type="number" id="tcoPrice" class="calc-num-input" value="1700000" min="200000" step="50000">
+                            </div>
+
+                            <!-- Топливо и расход -->
+                            <div class="calc-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                                <div class="calc-form-group">
+                                    <label for="tcoFuelType">Тип топлива / энергии:</label>
+                                    <select id="tcoFuelType" class="calc-tax-select">
+                                        <option value="ai92" selected>⛽ Бензин АИ-92 (~56.5 ₽)</option>
+                                        <option value="ai95">⛽ Бензин АИ-95 (~65.0 ₽)</option>
+                                        <option value="ai98">⛽ Бензин АИ-98/100 (~82.0 ₽)</option>
+                                        <option value="dt">🛢️ Дизель ДТ (~68.5 ₽)</option>
+                                        <option value="electro_home">⚡ Электро (домашняя зарядка, ~7.5 ₽/кВт⋅ч)</option>
+                                        <option value="electro_fast">⚡ Электро (быстрые ЭЗС, ~22.0 ₽/кВт⋅ч)</option>
+                                    </select>
+                                </div>
+                                <div class="calc-form-group">
+                                    <label for="tcoConsumption" id="tcoConsLabel">Расход топлива (л на 100 км):</label>
+                                    <input type="number" id="tcoConsumption" class="calc-num-input" value="7.3" min="1" max="40" step="0.1">
+                                </div>
+                            </div>
+
+                            <!-- Мощность и Регион для налога -->
+                            <div class="calc-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                                <div class="calc-form-group">
+                                    <label for="tcoPower">Мощность двигателя (л.с.):</label>
+                                    <input type="number" id="tcoPower" class="calc-num-input" value="122" min="50" max="1200">
+                                </div>
+                                <div class="calc-form-group">
+                                    <label for="tcoRegion">Регион регистрации:</label>
+                                    <select id="tcoRegion" class="calc-tax-select">
+                                        <option value="moscow" selected>Москва (электро: 0 ₽)</option>
+                                        <option value="spb">Санкт-Петербург</option>
+                                        <option value="mo">Московская область</option>
+                                        <option value="regions">Другие регионы РФ (средние ставки)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Страховка и опции -->
+                            <div class="calc-form-group">
+                                <label for="tcoOsago">ОСАГО в год (₽):</label>
+                                <div style="display:flex;align-items:center;gap:12px;">
+                                    <input type="number" id="tcoOsago" class="calc-num-input" value="9500" min="2000" max="50000" step="500" style="max-width:180px;">
+                                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem;color:var(--text);font-weight:600;margin:0;">
+                                        <input type="checkbox" id="tcoKasko" style="width:18px;height:18px;accent-color:var(--accent);">
+                                        Включить полное КАСКО (~3.5% от цены авто)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- ТО, Резина, Амортизация -->
+                            <div class="calc-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                                <div class="calc-form-group">
+                                    <label for="tcoService">Базовое ТО и масло в год (₽):</label>
+                                    <input type="number" id="tcoService" class="calc-num-input" value="15000" min="3000" step="1000">
+                                </div>
+                                <div class="calc-form-group">
+                                    <label for="tcoTires">Шины и шиномонтаж в год (₽):</label>
+                                    <input type="number" id="tcoTires" class="calc-num-input" value="6000" min="0" step="1000">
+                                </div>
+                            </div>
+
+                            <div class="calc-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                                <div class="calc-form-group">
+                                    <label for="tcoDepRate">Потеря стоимости (амортизация, % в год):</label>
+                                    <input type="number" id="tcoDepRate" class="calc-num-input" value="9" min="0" max="30" step="0.5">
+                                </div>
+                                <div class="calc-form-group">
+                                    <label for="tcoExtra">Мойки, парковки, омывайка (₽/год):</label>
+                                    <input type="number" id="tcoExtra" class="calc-num-input" value="12000" min="0" step="1000">
+                                </div>
+                            </div>
+
+                            <!-- Кнопка сравнения со вторым авто -->
+                            <div style="margin-top:10px;">
+                                <button type="button" class="btn btn-secondary" id="tcoCompareToggle" style="width:100%;">
+                                    ⚖️ Сравнить со вторым автомобилем
+                                </button>
+                            </div>
+
+                            <!-- Блок второго авто для сравнения -->
+                            <div id="tcoCompareBlock" style="display:none;margin-top:16px;background:rgba(255,255,255,0.03);border:1px dashed var(--border);border-radius:12px;padding:16px;">
+                                <label for="tcoComparePreset" style="font-weight:700;display:block;margin-bottom:8px;">Выберите модель для сравнения:</label>
+                                <select id="tcoComparePreset" class="calc-tax-select" style="margin-bottom:12px;">
+                                    <option value="jolion" selected>Haval Jolion 4WD (1.5T)</option>
+                                    <option value="vesta">Лада Vesta NG (1.8 EVO)</option>
+                                    <option value="coolray">Geely Coolray New (1.5T)</option>
+                                    <option value="chery7">Chery Tiggo 7 Pro Max AWD</option>
+                                    <option value="tank300">Tank 300 4WD (2.0T)</option>
+                                    <option value="zeekr001">Zeekr 001 4WD (Электро)</option>
+                                    <option value="camry">Toyota Camry XV80</option>
+                                    <option value="moskvich3">Москвич 3</option>
+                                </select>
+                                <div id="tcoCompareDiffBox"></div>
+                            </div>
+                        </div>
+
+                        <!-- ПРАВАЯ КОЛОНКА: РЕЗУЛЬТАТ РАСЧЁТА -->
+                        <div class="calc-tax-result-card">
+                            <div class="result-badge">Полная стоимость владения (TCO)</div>
+                            <div class="tax-sum-main" id="tcoResCostPerKm">— ₽</div>
+                            <div class="tax-sum-sub">стоимость одного километра пробега</div>
+
+                            <!-- Месячные и годовые расходы -->
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0;text-align:center;">
+                                <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:12px;">
+                                    <div style="font-size:0.8rem;color:var(--muted);margin-bottom:4px;">Расходы в месяц:</div>
+                                    <strong id="tcoResMonth" style="font-size:1.25rem;color:var(--text);font-weight:800;">— ₽</strong>
+                                </div>
+                                <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:12px;">
+                                    <div style="font-size:0.8rem;color:var(--muted);margin-bottom:4px;">Расходы в год:</div>
+                                    <strong id="tcoResYear" style="font-size:1.25rem;color:var(--accent);font-weight:800;">— ₽</strong>
+                                </div>
+                            </div>
+
+                            <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:10px;padding:12px;margin-bottom:18px;">
+                                <div style="font-size:0.8rem;color:#10b981;font-weight:700;margin-bottom:2px;">Реальные расходы «из кармана» (без потери цены):</div>
+                                <div id="tcoResPocketPerKm" style="font-size:1rem;font-weight:800;color:var(--text);">— ₽/км</div>
+                            </div>
+
+                            <!-- Графическая диаграмма долей расходов -->
+                            <div class="customs-share-wrap" style="margin-top:0;">
+                                <div class="customs-share-title">
+                                    <span>Структура годовых расходов</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="customs-share-bar" style="height:12px;border-radius:6px;overflow:hidden;display:flex;background:#1e293b;">
+                                    <div id="tcoBarFuel" style="width:30%;background:#ef4444;transition:width 0.3s;" title="Топливо"></div>
+                                    <div id="tcoBarDep" style="width:35%;background:#f59e0b;transition:width 0.3s;" title="Амортизация"></div>
+                                    <div id="tcoBarIns" style="width:12%;background:#38bdf8;transition:width 0.3s;" title="Страховка"></div>
+                                    <div id="tcoBarService" style="width:15%;background:#10b981;transition:width 0.3s;" title="ТО и шины"></div>
+                                    <div id="tcoBarTax" style="width:8%;background:#a855f7;transition:width 0.3s;" title="Налог"></div>
+                                </div>
+                                <div class="customs-share-legend" style="grid-template-columns:1fr 1fr;gap:8px 12px;margin-top:12px;">
+                                    <div class="share-legend-item"><span class="share-legend-dot" style="background:#ef4444;"></span>Топливо: <strong id="tcoPctFuel">30%</strong></div>
+                                    <div class="share-legend-item"><span class="share-legend-dot" style="background:#f59e0b;"></span>Амортизация: <strong id="tcoPctDep">35%</strong></div>
+                                    <div class="share-legend-item"><span class="share-legend-dot" style="background:#38bdf8;"></span>Страховка: <strong id="tcoPctIns">12%</strong></div>
+                                    <div class="share-legend-item"><span class="share-legend-dot" style="background:#10b981;"></span>ТО и шины: <strong id="tcoPctService">15%</strong></div>
+                                    <div class="share-legend-item"><span class="share-legend-dot" style="background:#a855f7;"></span>Транспортный налог: <strong id="tcoPctTax">8%</strong></div>
+                                </div>
+                            </div>
+
+                            <!-- Детализированный список в рублях -->
+                            <div class="tax-breakdown-list" style="margin-top:20px;">
+                                <div class="tax-breakdown-row">
+                                    <span class="breakdown-label">⛽ Топливо / зарядка:</span>
+                                    <strong id="tcoDetFuel">— ₽</strong>
+                                </div>
+                                <div class="tax-breakdown-row">
+                                    <span class="breakdown-label">📉 Потеря стоимости (амортизация):</span>
+                                    <strong id="tcoDetDep">— ₽</strong>
+                                </div>
+                                <div class="tax-breakdown-row">
+                                    <span class="breakdown-label">🛡️ Страхование (ОСАГО + КАСКО):</span>
+                                    <strong id="tcoDetIns">— ₽</strong>
+                                </div>
+                                <div class="tax-breakdown-row">
+                                    <span class="breakdown-label">🔧 ТО, расходники и шины:</span>
+                                    <strong id="tcoDetService">— ₽</strong>
+                                </div>
+                                <div class="tax-breakdown-row">
+                                    <span class="breakdown-label">🏛️ Транспортный налог:</span>
+                                    <strong id="tcoDetTax">— ₽</strong>
+                                </div>
+                                <div class="tax-breakdown-row">
+                                    <span class="breakdown-label">🧼 Мойки, парковки, жидкости:</span>
+                                    <strong id="tcoDetExtra">— ₽</strong>
+                                </div>
+                            </div>
+
+                            <!-- Быстрые действия -->
+                            <div style="margin-top:24px;display:flex;gap:10px;">
+                                <a href="/compare.html" class="btn btn-primary" style="flex:1;text-align:center;">
+                                    ⚔️ Сравнить характеристики авто
+                                </a>
+                                <a href="/calc-tax.html" class="btn btn-secondary" style="flex:1;text-align:center;">
+                                    🧮 Налог по регионам
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- БЛОК FAQ ПО СТОИМОСТИ ВЛАДЕНИЯ -->
+                <div class="calc-tax-faq" style="margin-top:3.5rem;">
+                    <h2 class="section-title" style="text-align:left;font-size:1.6rem;margin-bottom:1.5rem;">Часто задаваемые вопросы о стоимости владения авто</h2>
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">Что такое TCO автомобиля и зачем его считать?</summary>
+                            <div class="faq-answer">
+                                <p><strong>TCO (Total Cost of Ownership)</strong> — это полная реальная сумма, которую владелец тратит на автомобиль за период владения. Большинство водителей обращают внимание лишь на цену бензина и периодическую замену масла, забывая, что потеря рыночной цены машины за 3 года может превысить расходы на топливо.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-question">Как считается амортизация автомобиля?</summary>
+                            <div class="faq-answer">
+                                <p>Новый автомобиль в среднем теряет около 10–15% стоимости за первый год и по 7–10% за каждый последующий год. Популярные ликвидные кроссоверы и седаны дешевеют медленнее, в то время как редкие или премиальные машины могут терять в цене быстрее.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-question">Действительно ли электромобиль выгоднее бензинового авто?</summary>
+                            <div class="faq-answer">
+                                <p>При домашней ночной зарядке 1 километр на электромобиле обходится в <strong>1.5–2 ₽</strong> против <strong>5.5–7 ₽</strong> на бензине. Кроме того, в Москве, МО и Санкт-Петербурге электромобили освобождены от транспортного налога и имеют право бесплатной парковки. Однако из-за высокой первоначальной цены и батареи амортизация электрокара в рублях может быть выше.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <a href="/" class="logo">Авто<span>Тема</span></a>
+                <p class="footer-desc">Независимый автомобильный портал: актуальные новости, честные тест-драйвы, финансовые калькуляторы и полезные советы для водителей.</p>
+                <div class="footer-socials">
+                    <a href="https://t.me/avtotema_news" target="_blank" rel="noopener" aria-label="Telegram-канал @avtotema_news">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Сервисы и инструменты</div>
+                <ul class="footer-links">
+                    <li><a href="/calc-tco.html">Калькулятор стоимости владения (TCO)</a></li>
+                    <li><a href="/calc-customs.html">Калькулятор растаможки и утильсбора 2026</a></li>
+                    <li><a href="/calc-tax.html">Калькулятор транспортного налога 2026</a></li>
+                    <li><a href="/compare.html">Сравнение характеристик авто</a></li>
+                    <li><a href="/#advisor">АвтоСоветник (Подбор авто)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Разделы портала</div>
+                <ul class="footer-links">
+                    <li><a href="/#news">Новости автомира</a></li>
+                    <li><a href="/brands/">Каталог марок</a></li>
+                    <li><a href="/#market">Аналитика рынка</a></li>
+                    <li><a href="/#tips">Лайфхаки водителям</a></li>
+                    <li><a href="/tags/">Популярные теги</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-heading">Информация</div>
+                <ul class="footer-links">
+                    <li><a href="/privacy.html">Политика конфиденциальности</a></li>
+                    <li><a href="/terms.html">Пользовательское соглашение</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; <span id="year">2026</span> АвтоТема. Все права защищены. Информация не является публичной офертой.</div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="/footer.js?v=2" defer></script>
+    <script src="/theme.js?v=1" defer></script>
+    <script src="/calc_tco.js?v=1" defer></script>
+</body>
+</html>
