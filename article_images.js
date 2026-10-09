@@ -278,6 +278,8 @@ const IMAGES = {
     184: { url: "/images/auto/art-184.jpg", alt: "Chevy Silverado HD в 2027 году станет намного дороже", credit: "Фото: Ermell, CC BY-SA 4.0" }
 ,
     185: { url: "/images/auto/art-185.jpg", alt: "Corvette 2027 года уже получает повышение цен", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    186: { url: "/images/auto/art-186.jpg", alt: "Новый спортивный автомобиль Alfa Romeo имеет четырехместную компоновку: видео", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 
 };
 
@@ -575,6 +577,8 @@ const SLUGS = {
     184: "chevy-silverado-hd-v-2027-godu-stanet-namnogo-dorozhe"
 ,
     185: "corvette-2027-goda-uzhe-poluchaet-povyshenie-tsen"
+,
+    186: "novyy-sportivnyy-avtomobil-alfa-romeo-imeet-chetyrekhmestnuyu-komponovku-video"
 
 };
 
