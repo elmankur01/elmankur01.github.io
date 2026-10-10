@@ -280,6 +280,8 @@ const IMAGES = {
     185: { url: "/images/auto/art-185.jpg", alt: "Corvette 2027 года уже получает повышение цен", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     186: { url: "/images/auto/art-186.jpg", alt: "Новый спортивный автомобиль Alfa Romeo имеет четырехместную компоновку: видео", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+,
+    187: { url: "/images/auto/art-187.jpg", alt: "Покупатели электромобилей по-прежнему хотят большего запаса хода, чем им нужно, показало исследование BMW", credit: "Фото: Motacilla, CC BY-SA 4.0" }
 
 };
 
@@ -579,6 +581,8 @@ const SLUGS = {
     185: "corvette-2027-goda-uzhe-poluchaet-povyshenie-tsen"
 ,
     186: "novyy-sportivnyy-avtomobil-alfa-romeo-imeet-chetyrekhmestnuyu-komponovku-video"
+,
+    187: "pokupateli-elektromobiley-po-prezhnemu-khotyat-bol-shego-zapasa-khoda-chem-im-nu"
 
 };
 
