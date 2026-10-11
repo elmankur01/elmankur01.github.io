@@ -282,6 +282,8 @@ const IMAGES = {
     186: { url: "/images/auto/art-186.jpg", alt: "Новый спортивный автомобиль Alfa Romeo имеет четырехместную компоновку: видео", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 ,
     187: { url: "/images/auto/art-187.jpg", alt: "Покупатели электромобилей по-прежнему хотят большего запаса хода, чем им нужно, показало исследование BMW", credit: "Фото: Motacilla, CC BY-SA 4.0" }
+,
+    188: { url: "/images/auto/art-188.jpg", alt: "Новый гиперкар Porsche демонстрирует красную черту на 8000 об/мин: видео", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
 
 };
 
@@ -583,6 +585,8 @@ const SLUGS = {
     186: "novyy-sportivnyy-avtomobil-alfa-romeo-imeet-chetyrekhmestnuyu-komponovku-video"
 ,
     187: "pokupateli-elektromobiley-po-prezhnemu-khotyat-bol-shego-zapasa-khoda-chem-im-nu"
+,
+    188: "novyy-giperkar-porsche-demonstriruet-krasnuyu-chertu-na-8000-ob-min-video"
 
 };
 
