@@ -288,6 +288,8 @@ const IMAGES = {
     189: { url: "/images/auto/art-189.jpg", alt: "Бренд Stellantis DS Automobiles подает признаки жизни с новым концепт-каром", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 ,
     190: { url: "/images/auto/art-190.jpg", alt: "Hyundai Tucson N Line 2027 добавляет спортивный вид без большей мощности", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+,
+    191: { url: "/images/auto/art-191.jpg", alt: "BYD Atto 8 дебютирует с девятиминутной быстрой зарядкой", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 
 };
 
@@ -595,6 +597,8 @@ const SLUGS = {
     189: "brend-stellantis-ds-automobiles-podaet-priznaki-zhizni-s-novym-kontsept-karom"
 ,
     190: "hyundai-tucson-n-line-2027-dobavlyaet-sportivnyy-vid-bez-bol-shey-moshchnosti"
+,
+    191: "byd-atto-8-debyutiruet-s-devyatiminutnoy-bystroy-zaryadkoy"
 
 };
 
