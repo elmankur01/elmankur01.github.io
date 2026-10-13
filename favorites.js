@@ -93,63 +93,88 @@ function renderFavoritesModalContent() {
     }).join('');
 }
 
+function ensureFavoritesModal() {
+    let modal = document.getElementById('favoritesModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.className = 'favorites-modal';
+        modal.id = 'favoritesModal';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-labelledby', 'favModalTitle');
+        modal.innerHTML = `
+            <div class="fav-modal-dialog">
+                <div class="fav-modal-header">
+                    <h3 id="favModalTitle">⭐ Избранные статьи</h3>
+                    <button type="button" class="fav-modal-close" aria-label="Закрыть">&times;</button>
+                </div>
+                <div class="fav-modal-body" id="favModalList"></div>
+                <div class="fav-modal-footer">
+                    <button type="button" class="btn btn-ghost" id="clearAllFavsBtn">Очистить всё</button>
+                    <button type="button" class="btn btn-primary fav-modal-close">Готово</button>
+                </div>
+            </div>`;
+        document.body.appendChild(modal);
+    }
+    return modal;
+}
+
 function initFavorites() {
-    // Открытие/закрытие модального окна
-    const modal = document.getElementById('favoritesModal');
-    const openBtns = document.querySelectorAll('.fav-modal-open');
-    const closeBtns = document.querySelectorAll('.fav-modal-close');
-    const clearBtn = document.getElementById('clearAllFavsBtn');
-    const listEl = document.getElementById('favModalList');
+    if (window.__favoritesInitialized) return;
+    window.__favoritesInitialized = true;
 
-    if (listEl) {
-        listEl.addEventListener('click', (e) => {
-            const btn = e.target.closest('[data-remove-id]');
-            if (btn) {
-                const id = parseInt(btn.dataset.removeId, 10);
-                if (id) toggleFavorite(id);
-            }
-        });
-    }
-
-    openBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // Глобальное делегирование кликов для модального окна и кнопок избранного
+    document.addEventListener('click', (e) => {
+        // Открытие модалки избранного
+        const openBtn = e.target.closest('.fav-modal-open');
+        if (openBtn) {
             e.preventDefault();
-            if (modal) {
-                renderFavoritesModalContent();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
+            const modal = ensureFavoritesModal();
+            renderFavoritesModalContent();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            return;
+        }
 
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+        // Закрытие модалки
+        const closeBtn = e.target.closest('.fav-modal-close');
+        if (closeBtn) {
+            e.preventDefault();
+            const modal = document.getElementById('favoritesModal');
             if (modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
             }
-        });
-    });
+            return;
+        }
 
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
+        // Клик по оверлею (вне диалога)
+        const modal = document.getElementById('favoritesModal');
+        if (modal && e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            return;
+        }
 
-    if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
+        // Очистить все закладки
+        if (e.target.closest('#clearAllFavsBtn')) {
+            e.preventDefault();
             if (confirm('Очистить все сохранённые статьи?')) {
                 saveFavorites([]);
             }
-        });
-    }
+            return;
+        }
 
-    // Делегирование кликов по кнопкам закладок
-    document.addEventListener('click', (e) => {
+        // Удаление одной статьи из списка
+        const removeBtn = e.target.closest('[data-remove-id]');
+        if (removeBtn) {
+            e.preventDefault();
+            const id = parseInt(removeBtn.dataset.removeId, 10);
+            if (id) toggleFavorite(id);
+            return;
+        }
+
+        // Клик по кнопке закладки на карточке или странице статьи
         const btn = e.target.closest('.bookmark-btn');
         if (btn) {
             e.preventDefault();
@@ -158,10 +183,26 @@ function initFavorites() {
             if (id) {
                 toggleFavorite(id);
             }
+            return;
+        }
+    });
+
+    // Закрытие модалки по клавише Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('favoritesModal');
+            if (modal && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         }
     });
 
     updateFavUI();
 }
 
-document.addEventListener('DOMContentLoaded', initFavorites);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFavorites);
+} else {
+    initFavorites();
+}
