@@ -292,6 +292,8 @@ const IMAGES = {
     191: { url: "/images/auto/art-191.jpg", alt: "BYD Atto 8 дебютирует с девятиминутной быстрой зарядкой", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     192: { url: "/images/auto/art-192.jpg", alt: "Следующий маленький внедорожник Jeep может возродить свои корни Willys", credit: "Фото: CZmarlin — Christopher Ziemnowicz, releases all rights but a, Public domain" }
+,
+    193: { url: "/images/auto/art-193.jpg", alt: "Босс BMW M: Гибридная технология делает предоставление руководств «действительно трудным»", credit: "Фото: Kim Bach, CC BY-SA 2.0" }
 
 };
 
@@ -603,6 +605,8 @@ const SLUGS = {
     191: "byd-atto-8-debyutiruet-s-devyatiminutnoy-bystroy-zaryadkoy"
 ,
     192: "sleduyushchiy-malen-kiy-vnedorozhnik-jeep-mozhet-vozrodit-svoi-korni-willys"
+,
+    193: "boss-bmw-m-gibridnaya-tekhnologiya-delaet-predostavlenie-rukovodstv-deystvitel-n"
 
 };
 
