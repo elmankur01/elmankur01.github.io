@@ -123,6 +123,12 @@ async function publish() {
         ? selectedCars[0].image
         : `https://avtotema-news.online${selectedCars[0].image}`;
 
+    // Telegram caption строго ограничен 1024 символами
+    let safeCaption = text;
+    if (safeCaption.length > 1000) {
+        safeCaption = safeCaption.slice(0, 950).replace(/\n[^\n]*$/, '') + '\n\n👇 <i>Полное сравнение с графиками доступно на сайте!</i>';
+    }
+
     const tgUrl = `https://api.telegram.org/bot${token}/sendPhoto`;
     const res = await fetch(tgUrl, {
         method: 'POST',
@@ -130,7 +136,7 @@ async function publish() {
         body: JSON.stringify({
             chat_id: chatId,
             photo: photo,
-            caption: text,
+            caption: safeCaption,
             parse_mode: 'HTML',
             reply_markup: keyboard
         })
