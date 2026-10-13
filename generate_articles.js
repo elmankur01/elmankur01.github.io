@@ -677,7 +677,7 @@ function page(article, n) {
     <script src="/script.js?v=3" defer></script>
     <script src="/article_images.js?v=2" defer></script>
     <script src="/speech.js?v=1" defer></script>
-    <script src="/views.js?v=2" defer></script>
+    <script src="/views.js?v=3" defer></script>
     <script src="/favorites.js?v=2" defer></script>
     <script src="/likes.js?v=2" defer></script>
     <script src="/search.js?v=1" defer></script>
