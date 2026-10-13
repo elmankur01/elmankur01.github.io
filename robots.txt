@@ -6,4 +6,3 @@ User-agent: YandexRenderResourcesBot
 Disallow: /
 
 Sitemap: https://avtotema-news.online/sitemap.xml
-Host: https://avtotema-news.online
