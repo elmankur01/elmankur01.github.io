@@ -377,8 +377,15 @@ async function fetchCommonsImage(query, usedThumbs = new Set()) {
             const thumbUrl = ii.thumburl || ii.url;
             if (usedThumbs && usedThumbs.has(thumbUrl)) continue;
 
+            // Фильтр: отсекаем старые олдтаймеры и ретро-музеи, если запрос не про классику
+            const fileTitle = (p.title || '').toLowerCase();
+            if (/oldtimer|vintage|museum|retro|19[2-8][0-9]/i.test(fileTitle) && !/classic|history|ретро|vintage/i.test(query)) {
+                continue;
+            }
+
             const meta = ii.extmetadata || {};
-            const artist = stripHtml((meta.Artist && meta.Artist.value) || '').slice(0, 60) || 'Wikimedia Commons';
+            let artist = stripHtml((meta.Artist && meta.Artist.value) || '').slice(0, 60) || 'Wikimedia Commons';
+            if (/sucks|troll/i.test(artist)) artist = 'Wikimedia Commons';
             const lic = stripHtml((meta.LicenseShortName && meta.LicenseShortName.value) || '') || 'Wikimedia Commons';
             return { thumb: thumbUrl, credit: ('Фото: ' + artist + ', ' + lic).slice(0, 140) };
         }

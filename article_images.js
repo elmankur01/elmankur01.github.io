@@ -8,7 +8,7 @@ const IMAGES = {
     5: { url: "/images/art-05.jpg", alt: "Автопром будущего: беспилотники, каршеринг и новые рынки", credit: "Alexander Migl, CC BY-SA 4.0 (Wikimedia Commons)" },
     6: { url: "/images/art-06.jpg", alt: "Зарядные станции: где заряжаться в дороге и сколько это стоит", credit: "Julian Herzog (Website), CC BY 4.0 (Wikimedia Commons)" },
     7: { url: "/images/art-07.jpg", alt: "Кроссоверы 2026: что выбирают семьи", credit: "Corvettec6r, CC0 (Wikimedia Commons)" },
-    8: { url: "/images/art-08.jpg", alt: "Турбо или атмосферник: что надёжнее на самом деле", credit: "Quentin Schwinn (NASA), Public domain (Wikimedia Commons)" },
+    8: { url: "/images/art-08.jpg", alt: "Двигатель V8 4.0 TFSI с двойным турбонаддувом", credit: "Фото: Mario von Berg, CC BY-SA 4.0 (Wikimedia Commons)" },
     9: { url: "/images/ferrari.jpg", alt: "Ferrari 250 GTO — легендарная модель марки", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 (Wikimedia Commons)" },
     10: { url: "/images/art-10.jpg", alt: "Tesla vs китайские бренды: кто лидирует в электромобилях", credit: "Alexander-93, CC BY-SA 4.0 (Wikimedia Commons)" },
     11: { url: "/images/art-11.jpg", alt: "Экологические нормы: как автопром готовится к запрету ДВС", credit: "Ruben de Rijcke, CC BY-SA 3.0 (Wikimedia Commons)" },
@@ -87,12 +87,12 @@ const IMAGES = {
 ,
     94: { url: "/images/auto/art-94.jpg", alt: "BMW убила все надежды на новую 8-ю серию: «невозможно»", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
-    95: { url: "/images/auto/art-95.jpg", alt: "Volkswagen Tukan — новый небольшой пикап, которого в США не будет", credit: "Фото: c5karl, CC BY 2.0" }
+    95: { url: "/images/auto/art-95.jpg", alt: "Новый рамный пикап Volkswagen Amarok", credit: "Фото: Alexander-93, CC BY-SA 4.0 (Wikimedia Commons)" }
 ,
-    96: { url: "/images/auto/art-96.jpg", alt: "Киберкабина Tesla без руля появится в Остине 3 сентября", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
+    96: { url: "/images/auto/art-96.jpg", alt: "Беспилотная киберкабина Tesla Cybercab без руля и педалей", credit: "Фото: Steve Jurvetson, CC BY 2.0 (Wikimedia Commons)" }
 ,
     83: { url: "/images/auto/art-83.jpg", alt: "Новый Mercedes C-Class не вернет AMG C63 V8", credit: "Фото: user:AngMoKio, CC BY-SA 2.5 (Wikimedia Commons)" },
-    84: { url: "/images/auto/art-84.jpg", alt: "Jeep только что представил новый Cherokee. Но еще один уже в пути", credit: "Фото: Rudolf Stricker, CC BY-SA 3.0 (Wikimedia Commons)" },
+    84: { url: "/images/auto/art-84.jpg", alt: "Внедорожник Jeep Grand Cherokee нового поколения", credit: "Фото: MercurySable99, CC BY-SA 4.0 (Wikimedia Commons)" },
     85: { url: "/images/auto/art-85.jpg", alt: "Сделано всего 2500 экземпляров: Toyota Corolla, посвященная 60-летию Toyota, является гибридом", credit: "Фото: Petar Milošević, CC BY-SA 4.0 (Wikimedia Commons)" },
     86: { url: "/images/auto/art-86.jpg", alt: "Гибридное будущее Lamborghini обретает форму, и одна страна может сыграть более важную роль", credit: "Фото: Matti Blume, CC BY 2.0 de (Wikimedia Commons)" },
     87: { url: "/images/auto/art-87.jpg", alt: "BMW еще не закончила с M2. Предположительно выйдет новая версия", credit: "Фото: Matti Blume, CC BY-SA 4.0 (Wikimedia Commons)" },
@@ -227,9 +227,9 @@ const IMAGES = {
 ,
     159: { url: "/images/auto/art-159.jpg", alt: "Lamborghini продолжает намекать на временный Sterrato", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 ,
-    160: { url: "/images/auto/art-160.jpg", alt: "Бэтмобиль 1992 года, использованный в экране, выставят на аукцион и могут продать за 7 миллионов долларов", credit: "Фото: Photo by Jennifer Graylock /Ford Motor Company https://www.f, CC BY 2.0" }
+    160: { url: "/images/auto/art-160.jpg", alt: "Оригинальный Бэтмобиль Тима Бёртона (Batman Returns)", credit: "Фото: Ank Kumar, CC BY-SA 4.0 (Wikimedia Commons)" }
 ,
-    161: { url: "/images/auto/art-161.jpg", alt: "Honda возвращается к своему рекорду круга со скоростью 241,428 миль в час в новых документальных сериях", credit: "Фото: Morio, CC BY-SA 3.0" }
+    161: { url: "/images/auto/art-161.jpg", alt: "Скоростной гоночный болид Honda Racing", credit: "Фото: Mike Roberts, CC BY-SA 2.0 (Wikimedia Commons)" }
 ,
     162: { url: "/images/auto/art-162.jpg", alt: "Китайский BYD близок к тому, чтобы превзойти Ford по продажам в Европе", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
@@ -241,23 +241,23 @@ const IMAGES = {
 ,
     166: { url: "/images/auto/art-166.jpg", alt: "Тюнер BMW AC Schnitzer получает второй шанс после почти закрытия", credit: "Фото: Julien Bertrand, Public domain" }
 ,
-    167: { url: "/images/auto/art-167.jpg", alt: "Белый дом рассматривает возможность 90-дневного запрета на экспорт дизельного топлива из-за роста цен", credit: "Фото: Kiran Jonnalagadda from Bangalore, India, CC BY-SA 2.0" }
+    167: { url: "/images/auto/art-167.jpg", alt: "Американский бензовоз-цистерна для перевозки топлива Kenworth", credit: "Фото: Mark Holloway, CC BY 2.0 (Wikimedia Commons)" }
 ,
     168: { url: "/images/auto/art-168.jpg", alt: "BMW сокращает свой модельный ряд, чтобы освободить место для более крупного внедорожника", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
-    169: { url: "/images/auto/art-169.jpg", alt: "Ваш новый автомобиль передает ваши личные данные. Без твоего ведома", credit: "Фото: The Car Spy, CC BY 2.0" }
+    169: { url: "/images/auto/art-169.jpg", alt: "Цифровой сенсорный салон современного подключенного автомобиля", credit: "Фото: S5A-0043, CC BY-SA 4.0 (Wikimedia Commons)" }
 ,
     170: { url: "/images/auto/art-170.jpg", alt: "Hyundai Tucson 2027 станет больше и объемнее: его мощность достигнет 288 л.с.", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    171: { url: "/images/auto/art-171.jpg", alt: "Ford заявляет, что его грузовик Fathom стоимостью 30 000 долларов потребует «чертовски усилий»", credit: "Фото: SAIC GM sucks, CC BY-SA 4.0" }
+    171: { url: "/images/auto/art-171.jpg", alt: "Современный электрический пикап Ford F-150 Lightning", credit: "Фото: WMrapids, CC0 (Wikimedia Commons)" }
 ,
     172: { url: "/images/auto/art-172.jpg", alt: "BMW отмечает миллион автомобилей M, анонсируя следующий M3", credit: "Фото: John Trautt, Public domain" }
 ,
     173: { url: "/images/auto/art-173.jpg", alt: "Range Rover Sport отозван из-за задних подрамников, которые могут треснуть", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
-    174: { url: "/images/auto/art-174.jpg", alt: "Генеральный директор Stellantis видит «огромные возможности» для дешевых автомобилей", credit: "Фото: Navigator84, CC BY-SA 3.0" }
+    174: { url: "/images/auto/art-174.jpg", alt: "Доступный компактный электромобиль Fiat 500e от концерна Stellantis", credit: "Фото: Mariordo, CC BY-SA 4.0 (Wikimedia Commons)" }
 ,
-    175: { url: "/images/auto/art-175.jpg", alt: "Победители и проигравшие сентябрьских продаж автомобилей", credit: "Фото: Humphrey Bolton, CC BY-SA 2.0" }
+    175: { url: "/images/auto/art-175.jpg", alt: "Автосалон с рядами новых автомобилей в продаже", credit: "Фото: Coolcaesar, CC BY-SA 3.0 (Wikimedia Commons)" }
 ,
     176: { url: "/images/auto/art-176.jpg", alt: "Mercedes отказывается от трех моделей к 2027 году", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
 ,
@@ -265,17 +265,17 @@ const IMAGES = {
 ,
     178: { url: "/images/auto/art-178.jpg", alt: "Электрический внедорожник Mazda позволяет выкрикивать ненормативную лексику через передний динамик", credit: "Фото: W.carter, CC0" }
 ,
-    179: { url: "/images/auto/art-179.jpg", alt: "В этом году количество угонов автомобилей снизилось во всех 50 штатах", credit: "Фото: Rama, CC BY-SA 2.0 fr" }
+    179: { url: "/images/auto/art-179.jpg", alt: "Полицейский патрульный автомобиль Ford Police Interceptor Utility", credit: "Фото: Raymond Wambsgans, CC BY-SA 2.0 (Wikimedia Commons)" }
 ,
     180: { url: "/images/auto/art-180.jpg", alt: "Украденный Corvette C7 Grand Sport найден после пяти лет под водой", credit: "Фото: M 93, CC BY-SA 3.0 de" }
 ,
-    181: { url: "/images/auto/art-181.jpg", alt: "Nismo открывает свой первый концертный центр за пределами Японии", credit: "Фото: Tokumeigakarinoaoshima, CC BY-SA 4.0" }
+    181: { url: "/images/auto/art-181.jpg", alt: "Суперкар Nissan GT-R Nismo на международной выставке", credit: "Фото: Ank Kumar, CC BY-SA 4.0 (Wikimedia Commons)" }
 ,
     182: { url: "/images/auto/art-182.jpg", alt: "Это Ford GT Дуга ДеМуро, и вы можете его купить", credit: "Фото: Mannequin- from Basking Ridge, NJ, USA, CC BY 2.0" }
 ,
     183: { url: "/images/auto/art-183.jpg", alt: "Самые дешевые внедорожники Chevrolet претерпят большие изменения в 2027 году", credit: "Фото: Bernard Spragg. NZ from Christchurch, New Zealand, CC0" }
 ,
-    184: { url: "/images/auto/art-184.jpg", alt: "Chevy Silverado HD в 2027 году станет намного дороже", credit: "Фото: Ermell, CC BY-SA 4.0" }
+    184: { url: "/images/auto/art-184.jpg", alt: "Современный тяжелый пикап Chevrolet Silverado 2500 HD", credit: "Фото: The Wikipeadian guy, CC BY-SA 4.0 (Wikimedia Commons)" }
 ,
     185: { url: "/images/auto/art-185.jpg", alt: "Corvette 2027 года уже получает повышение цен", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
