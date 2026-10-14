@@ -156,6 +156,15 @@ function paragraphs(article, n) {
     return body.map(p => `<p>${esc(p)}</p>`).join('\n                        ');
 }
 
+function keywordMatches(text, kw) {
+    if (kw.length <= 4) {
+        const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const re = new RegExp('(?:^|[^a-zа-я0-9])' + escaped + '(?:$|[^a-zа-я0-9])', 'i');
+        return re.test(text);
+    }
+    return text.includes(kw);
+}
+
 // ── Интеллектуальное извлечение тегов и брендов для статьи ──
 function getArticlePills(article, n) {
     const fullText = (article.title + ' ' + article.text + ' ' + (bodies[n - 1] || []).join(' ')).toLowerCase();
@@ -163,7 +172,7 @@ function getArticlePills(article, n) {
 
     // Поиск по брендам
     BRANDS.forEach(brand => {
-        const matches = brand.keywords.some(kw => fullText.includes(kw));
+        const matches = brand.keywords.some(kw => keywordMatches(fullText, kw));
         if (matches) {
             pills.push({
                 href: `/brands/${brand.slug}.html`,
@@ -174,7 +183,7 @@ function getArticlePills(article, n) {
 
     // Поиск по тематическим тегам
     TAGS.forEach(tag => {
-        const matches = tag.keywords.some(kw => fullText.includes(kw));
+        const matches = tag.keywords.some(kw => keywordMatches(fullText, kw));
         if (matches) {
             pills.push({
                 href: `/tags/${tag.slug}.html`,

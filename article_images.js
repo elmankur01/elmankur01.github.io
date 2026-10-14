@@ -279,7 +279,7 @@ const IMAGES = {
 ,
     185: { url: "/images/auto/art-185.jpg", alt: "Corvette 2027 года уже получает повышение цен", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
-    186: { url: "/images/auto/art-186.jpg", alt: "Спортивный седан Alfa Romeo Giulia Quadrifoglio", credit: "Фото: TTTNIS, Public domain" }
+    186: { url: "/images/auto/art-186.jpg", alt: "Интерьер концепт-кара Alfa Romeo Cuorerosso", credit: "Фото: Alfa Romeo / Stellantis" }
 ,
     187: { url: "/images/auto/art-187.jpg", alt: "Покупатели электромобилей по-прежнему хотят большего запаса хода, чем им нужно, показало исследование BMW", credit: "Фото: Motacilla, CC BY-SA 4.0" }
 ,
@@ -292,8 +292,6 @@ const IMAGES = {
     191: { url: "/images/auto/art-191.jpg", alt: "BYD Atto 8 дебютирует с девятиминутной быстрой зарядкой", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     192: { url: "/images/auto/art-192.jpg", alt: "Следующий маленький внедорожник Jeep может возродить свои корни Willys", credit: "Фото: CZmarlin — Christopher Ziemnowicz, releases all rights but a, Public domain" }
-,
-    193: { url: "/images/auto/art-193.jpg", alt: "Босс BMW M: Гибридная технология делает предоставление руководств «действительно трудным»", credit: "Фото: Kim Bach, CC BY-SA 2.0" }
 
 };
 
@@ -605,8 +603,6 @@ const SLUGS = {
     191: "byd-atto-8-debyutiruet-s-devyatiminutnoy-bystroy-zaryadkoy"
 ,
     192: "sleduyushchiy-malen-kiy-vnedorozhnik-jeep-mozhet-vozrodit-svoi-korni-willys"
-,
-    193: "boss-bmw-m-gibridnaya-tekhnologiya-delaet-predostavlenie-rukovodstv-deystvitel-n"
 
 };
 
