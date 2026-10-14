@@ -75,9 +75,13 @@ function scanFile(filePath) {
     // Ignore self-references inside this scanner or test scripts
     if (relPath.includes('security-scan.js') || relPath.includes('SKILL.md')) continue;
 
-    const match = content.match(regex);
-    if (match) {
-      issues.push(`POTENTIAL LEAK [${name}]: "${match[0].slice(0, 10)}..." detected.`);
+    const gRegex = new RegExp(regex.source, (regex.flags || '') + (regex.flags && regex.flags.includes('g') ? '' : 'g'));
+    const matches = content.matchAll(gRegex);
+    for (const match of matches) {
+      const matchStr = match[0];
+      // Ignore known localStorage key identifiers like 'at_yt_secret' or 'at_admin_token'
+      if (/["'](?:at_|tg_)[a-z0-9_]+["']/i.test(matchStr)) continue;
+      issues.push(`POTENTIAL LEAK [${name}]: "${matchStr.slice(0, 15)}..." detected.`);
     }
   }
 

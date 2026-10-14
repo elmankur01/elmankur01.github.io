@@ -26,6 +26,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Security, SEO & QA Audit
+        run: |
+          node .agents/skills/security-and-qa/scripts/security-scan.js
+          node .agents/skills/seo-auditor/scripts/audit-seo.js index.html
+          node .agents/skills/performance-pwa/scripts/audit-performance.js index.html
+
       - name: Generate article pages and sitemap
         run: node generate_articles.js
 
