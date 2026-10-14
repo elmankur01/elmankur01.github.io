@@ -294,6 +294,8 @@ const IMAGES = {
     192: { url: "/images/auto/art-192.jpg", alt: "Следующий маленький внедорожник Jeep может возродить свои корни Willys", credit: "Фото: CZmarlin — Christopher Ziemnowicz, releases all rights but a, Public domain" }
 ,
     193: { url: "/images/auto/art-193.jpg", alt: "Acura обещает три новых внедорожника, включая модель, готовую к приключениям", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+,
+    194: { url: "/images/auto/art-194.jpg", alt: "Помните спортивный автомобиль Zenos E10? оно вернулось", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 
 };
 
@@ -607,6 +609,8 @@ const SLUGS = {
     192: "sleduyushchiy-malen-kiy-vnedorozhnik-jeep-mozhet-vozrodit-svoi-korni-willys"
 ,
     193: "acura-obeshchaet-tri-novykh-vnedorozhnika-vklyuchaya-model-gotovuyu-k-priklyuche"
+,
+    194: "pomnite-sportivnyy-avtomobil-zenos-e10-ono-vernulos"
 
 };
 
