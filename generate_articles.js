@@ -193,14 +193,15 @@ function getArticlePills(article, n) {
     });
 
     if (pills.length === 0) {
-        pills.push({
-            href: `/tags/kitayskie-avto.html`,
-            label: '#китайские_авто'
-        });
-        pills.push({
-            href: `/tags/krossovery.html`,
-            label: '#кроссоверы'
-        });
+        if (article.tag === 'Электромобили') {
+            pills.push({ href: `/tags/elektromobili.html`, label: '#электромобили' });
+        } else if (article.tag === 'Двигатели') {
+            pills.push({ href: `/tags/turbomotory.html`, label: '#турбомоторы' });
+        } else if (article.tag === 'Мировые новости' || article.tag === 'Новости рынка') {
+            pills.push({ href: `/tags/avtorynok.html`, label: '#авторынок' });
+        } else {
+            pills.push({ href: `/tags/avtotekhnologii.html`, label: '#автотехнологии' });
+        }
     }
 
     return pills.slice(0, 5);
@@ -730,7 +731,7 @@ function generateBrandPages() {
     const catalogCards = BRANDS.map(b => {
         const matchingCount = bank.filter((a, i) => {
             const fullText = (a.title + ' ' + a.text + ' ' + (bodies[i] || []).join(' ')).toLowerCase();
-            return b.keywords.some(kw => fullText.includes(kw));
+            return b.keywords.some(kw => keywordMatches(fullText, kw));
         }).length;
 
         return `<a href="/brands/${b.slug}.html" class="brand-catalog-card">
@@ -895,7 +896,7 @@ function generateBrandPages() {
     BRANDS.forEach(b => {
         const matches = bank.map((a, i) => ({ a, i })).filter(({ a, i }) => {
             const fullText = (a.title + ' ' + a.text + ' ' + (bodies[i] || []).join(' ')).toLowerCase();
-            return b.keywords.some(kw => fullText.includes(kw));
+            return b.keywords.some(kw => keywordMatches(fullText, kw));
         });
 
         const articlesGridHtml = matches.length > 0
@@ -1094,7 +1095,7 @@ function generateTagPages() {
     const tagCards = TAGS.map(t => {
         const matchingCount = bank.filter((a, i) => {
             const fullText = (a.title + ' ' + a.text + ' ' + (bodies[i] || []).join(' ')).toLowerCase();
-            return t.keywords.some(kw => fullText.includes(kw));
+            return t.keywords.some(kw => keywordMatches(fullText, kw));
         }).length;
 
         return `<a href="/tags/${t.slug}.html" class="tag-cloud-card">
@@ -1249,7 +1250,7 @@ function generateTagPages() {
     TAGS.forEach(t => {
         const matches = bank.map((a, i) => ({ a, i })).filter(({ a, i }) => {
             const fullText = (a.title + ' ' + a.text + ' ' + (bodies[i] || []).join(' ')).toLowerCase();
-            return t.keywords.some(kw => fullText.includes(kw));
+            return t.keywords.some(kw => keywordMatches(fullText, kw));
         });
 
         const articlesGridHtml = matches.length > 0

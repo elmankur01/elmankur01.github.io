@@ -285,7 +285,7 @@ const IMAGES = {
 ,
     188: { url: "/images/auto/art-188.jpg", alt: "Новый гиперкар Porsche демонстрирует красную черту на 8000 об/мин: видео", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
 ,
-    189: { url: "/images/auto/art-189.jpg", alt: "Бренд Stellantis DS Automobiles подает признаки жизни с новым концепт-каром", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+    189: { url: "/images/auto/art-189.jpg", alt: "Концепт-кар DS SM Tribute от бренда DS Automobiles", credit: "Фото: Y.Leclercq, CC BY-SA 4.0" }
 ,
     190: { url: "/images/auto/art-190.jpg", alt: "Hyundai Tucson N Line 2027 добавляет спортивный вид без большей мощности", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,

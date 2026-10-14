@@ -233,6 +233,204 @@ const BRANDS = [
         heroImage: '/images/ferrari.jpg',
         description: 'Ferrari — легендарный итальянский производитель суперкаров и символ мирового автоспорта. От гоночных болидов Формулы-1 до эксклюзивных дорожных шедевров в Маранелло.',
         keywords: ['ferrari', 'феррари', 'luce', 'maranello', 'маранелло', 'enzo', 'sf90', 'f8', '296 gtb']
+    },
+    {
+        slug: 'ford',
+        name: 'Ford',
+        nameRu: 'Форд',
+        country: 'США 🇺🇸',
+        year: 1903,
+        logo: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-91.jpg',
+        description: 'Ford — легендарный американский автоконцерн, создатель культового спорткара Mustang, пикапов F-Series и внедорожников Bronco.',
+        keywords: ['ford', 'форд', 'ranger', 'мустанг', 'mustang', 'ecosport', 'fathom', 'f-150', 'f-series', 'bronco']
+    },
+    {
+        slug: 'hyundai',
+        name: 'Hyundai',
+        nameRu: 'Хёндэ',
+        country: 'Южная Корея 🇰🇷',
+        year: 1967,
+        logo: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-98.jpg',
+        description: 'Hyundai — южнокорейский автогигант, мировой лидер инноваций. Популярные кроссоверы Tucson, флагманский Palisade, Santa Fe и электрокары Ioniq.',
+        keywords: ['hyundai', 'хёндэ', 'хендай', 'tucson', 'туссан', 'palisade', 'палисад', 'santa fe', 'солярис', 'solaris', 'creta', 'крета', 'ioniq']
+    },
+    {
+        slug: 'genesis',
+        name: 'Genesis',
+        nameRu: 'Дженезис',
+        country: 'Южная Корея 🇰🇷',
+        year: 2015,
+        logo: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-93.jpg',
+        description: 'Genesis — премиальное подразделение Hyundai Motor Group. Спортивные седаны G70, люксовые седаны G80/G90, кроссоверы GV70/GV80 и спорт-концепты Magma.',
+        keywords: ['genesis', 'дженезис', 'g70', 'g80', 'g90', 'gv70', 'gv80', 'magma']
+    },
+    {
+        slug: 'chevrolet',
+        name: 'Chevrolet',
+        nameRu: 'Шевроле',
+        country: 'США 🇺🇸',
+        year: 1911,
+        logo: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-92.jpg',
+        description: 'Chevrolet — флагман корпорации General Motors. Культовые спорткары Corvette и Camaro, рамные пикапы Silverado и полноразмерные внедорожники Tahoe.',
+        keywords: ['chevrolet', 'шевроле', 'шеви', 'corvette', 'корвет', 'silverado', 'сильверадо', 'tahoe', 'тахо', 'trax', 'trailblazer', 'turbomax', 'camaro']
+    },
+    {
+        slug: 'jeep',
+        name: 'Jeep',
+        nameRu: 'Джип',
+        country: 'США 🇺🇸',
+        year: 1941,
+        logo: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-84.jpg',
+        description: 'Jeep — имя нарицательное для внедорожников. Легендарные рамные Wrangler, комфортные Grand Cherokee и Cherokee с непревзойденной проходимостью Trail Rated.',
+        keywords: ['jeep', 'джип', 'cherokee', 'чероки', 'grand cherokee', 'wrangler', 'вранглер', 'willys', 'виллис', 'gladiator']
+    },
+    {
+        slug: 'subaru',
+        name: 'Subaru',
+        nameRu: 'Субару',
+        country: 'Япония 🇯🇵',
+        year: 1953,
+        logo: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-113.jpg',
+        description: 'Subaru — японский бренд с раллийным ДНК. Фирменный симметричный полный привод Symmetrical AWD, оппозитные моторы Boxer и безопасность EyeSight.',
+        keywords: ['subaru', 'субару', 'impreza', 'импреза', 'wrx', 'outback', 'аутбек', 'forester', 'форестер']
+    },
+    {
+        slug: 'nissan',
+        name: 'Nissan',
+        nameRu: 'Ниссан',
+        country: 'Япония 🇯🇵',
+        year: 1933,
+        logo: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-108.jpg',
+        description: 'Nissan — инновации, которые восхищают. Популярные кроссоверы Qashqai, X-Trail, Rogue Hybrid, легендарные спорткары GT-R и гоночное ателье Nismo.',
+        keywords: ['nissan', 'ниссан', 'rogue', 'роуг', 'qashqai', 'кашкай', 'x-trail', 'икстрейл', 'patrol', 'патрол', 'skyline', 'gt-r', 'nismo']
+    },
+    {
+        slug: 'mitsubishi',
+        name: 'Mitsubishi',
+        nameRu: 'Митсубиси',
+        country: 'Япония 🇯🇵',
+        year: 1870,
+        logo: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-104.jpg',
+        description: 'Mitsubishi Motors — проверенная годами японская надежность. Легендарный внедорожник Pajero, кроссовер Outlander и раллийное наследие Ralliart.',
+        keywords: ['mitsubishi', 'митсубиси', 'митсубиши', 'pajero', 'паджеро', 'outlander', 'аутлендер', 'l200', 'ralliart']
+    },
+    {
+        slug: 'lamborghini',
+        name: 'Lamborghini',
+        nameRu: 'Ламборгини',
+        country: 'Италия 🇮🇹',
+        year: 1963,
+        logo: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-89.jpg',
+        description: 'Automobili Lamborghini — экстремальные итальянские суперкары из Сант-Агата-Болоньезе. Флагман Revuelto, супер-кроссовер Urus и новый битурбо-V8 гибрид Temerario.',
+        keywords: ['lamborghini', 'ламборгини', 'ламборджини', 'temerario', 'темерарио', 'sterrato', 'стеррато', 'revuelto', 'урус', 'urus', 'huracan']
+    },
+    {
+        slug: 'bentley',
+        name: 'Bentley',
+        nameRu: 'Бентли',
+        country: 'Великобритания 🇬🇧',
+        year: 1919,
+        logo: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-119.jpg',
+        description: 'Bentley Motors — британская роскошь ручной сборки из Крю. Легендарные гран-туреры Continental GT, седаны Flying Spur и роскошный внедорожник Bentayga.',
+        keywords: ['bentley', 'бентли', 'continental', 'континенталь', 'flying spur', 'bentayga', 'бентайга', 'torcal']
+    },
+    {
+        slug: 'aston-martin',
+        name: 'Aston Martin',
+        nameRu: 'Астон Мартин',
+        country: 'Великобритания 🇬🇧',
+        year: 1913,
+        logo: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-111.jpg',
+        description: 'Aston Martin — квинтэссенция британской мощи, красоты и автоспорта. Спорткары Vantage, DB12, кроссовер DBX707 и гиперкар Valkyrie.',
+        keywords: ['aston martin', 'астон мартин', 'vantage', 'валанс', 'db12', 'valkyrie']
+    },
+    {
+        slug: 'cadillac',
+        name: 'Cadillac',
+        nameRu: 'Кадиллак',
+        country: 'США 🇺🇸',
+        year: 1902,
+        logo: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-135.jpg',
+        description: 'Cadillac — высший класс американского автомобилестроения. Монументальный внедорожник Escalade, спортивные седаны CT5-V Blackwing и электрокроссовер Lyriq.',
+        keywords: ['cadillac', 'кадиллак', 'escalade', 'эскалейд', 'lyriq', 'ct5']
+    },
+    {
+        slug: 'land-rover',
+        name: 'Land Rover',
+        nameRu: 'Ленд Ровер',
+        country: 'Великобритания 🇬🇧',
+        year: 1948,
+        logo: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-99.jpg',
+        description: 'Land Rover — покоритель любых направлений. Флагманский Range Rover, динамичный Range Rover Sport и бескомпромиссный экспедиционный Defender.',
+        keywords: ['land rover', 'ленд ровер', 'defender', 'дефендер', 'range rover', 'рейндж ровер', 'discovery', 'дискавери']
+    },
+    {
+        slug: 'ram',
+        name: 'Ram Trucks',
+        nameRu: 'Рам',
+        country: 'США 🇺🇸',
+        year: 2009,
+        logo: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-110.jpg',
+        description: 'Ram Trucks — мощные американские полноразмерные пикапы концерна Stellantis. Бестселлеры Ram 1500, тяжеловозы 2500 Heavy Duty и электрический Ram REV.',
+        keywords: ['ram', 'рам', 'ram 1500', '1500', '2500', 'trx', 'rev']
+    },
+    {
+        slug: 'alfa-romeo',
+        name: 'Alfa Romeo',
+        nameRu: 'Альфа Ромео',
+        country: 'Италия 🇮🇹',
+        year: 1910,
+        logo: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-186.jpg',
+        description: 'Alfa Romeo — итальянская страсть и гоночная эстетика Cuore Sportivo. Спортивный седан Giulia, кроссовер Stelvio, Tonale и новый концепт Cuorerosso GT.',
+        keywords: ['alfa romeo', 'альфа ромео', 'giulia', 'джулия', 'stelvio', 'стельвио', 'cuorerosso', 'tonale']
+    },
+    {
+        slug: 'maserati',
+        name: 'Maserati',
+        nameRu: 'Мазерати',
+        country: 'Италия 🇮🇹',
+        year: 1914,
+        logo: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-105.jpg',
+        description: 'Maserati — итальянский трезубец роскоши и автоспорта из Модены. Суперкар MC20 с битурбо V6 Nettuno, кроссовер Grecale и гран-турер GranTurismo.',
+        keywords: ['maserati', 'мазерати', 'mc20', 'grecale', 'ghibli', 'levante', 'granturismo']
+    },
+    {
+        slug: 'lexus',
+        name: 'Lexus',
+        nameRu: 'Лексус',
+        country: 'Япония 🇯🇵',
+        year: 1989,
+        logo: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-152.jpg',
+        description: 'Lexus — премиальное подразделение Toyota Motor. Флагманский внедорожник LX 600 / LX 700h, кроссовер RX, седаны ES и легендарная надёжность.',
+        keywords: ['lexus', 'лексус', 'lx 600', 'lx 700h', 'lx', 'rx', 'gx', 'nx', 'es']
+    },
+    {
+        slug: 'volvo',
+        name: 'Volvo',
+        nameRu: 'Вольво',
+        country: 'Швеция 🇸🇪',
+        year: 1927,
+        logo: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=300&auto=format&fit=crop&q=80',
+        heroImage: '/images/auto/art-97.jpg',
+        description: 'Volvo Cars — мировой эталон безопасности, скандинавского дизайна и гибридных технологий PHEV. Кроссоверы XC90, XC60 и электрокары Polestar.',
+        keywords: ['volvo', 'вольво', 'xc90', 'xc60', 'ex90', 'polestar', 'полестар']
     }
 ];
 
@@ -316,6 +514,22 @@ const TAGS = [
         icon: '🚙',
         description: 'Городские и семейные SUV: сравнение клиренса, объёма багажника, простора салона и управляемости.',
         keywords: ['кроссовер', 'suv', 'паркетник', 'семь', 'багажник', 'клиренс']
+    },
+    {
+        slug: 'avtotekhnologii',
+        name: 'Автотехнологии и софт',
+        hashtag: '#автотехнологии',
+        icon: '🤖',
+        description: 'Автопилоты, мультимедиа с ИИ, безопасность, камеры, OTA-обновления и будущее автомобильного софта.',
+        keywords: ['технолог', 'камер', 'автопилот', 'беспилот', 'ota', 'софт', 'инноваци', 'патент', 'шин', 'экран', 'грок', 'grok']
+    },
+    {
+        slug: 'avtorynok',
+        name: 'Авторынок и цены',
+        hashtag: '#авторынок',
+        icon: '📈',
+        description: 'Статистика продаж, динамика цен, утильсбор, пошлины, страхование, аукционы и мировые тренды авторынка.',
+        keywords: ['рынок', 'рынк', 'продаж', 'цен', 'доллар', 'дилер', 'статистик', 'закон', 'сбор', 'пошлин', 'аукцион', 'страховк', 'угон', 'спрос']
     }
 ];
 
