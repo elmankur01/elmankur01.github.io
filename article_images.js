@@ -292,6 +292,8 @@ const IMAGES = {
     191: { url: "/images/auto/art-191.jpg", alt: "BYD Atto 8 дебютирует с девятиминутной быстрой зарядкой", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     192: { url: "/images/auto/art-192.jpg", alt: "Следующий маленький внедорожник Jeep может возродить свои корни Willys", credit: "Фото: CZmarlin — Christopher Ziemnowicz, releases all rights but a, Public domain" }
+,
+    193: { url: "/images/auto/art-193.jpg", alt: "Acura обещает три новых внедорожника, включая модель, готовую к приключениям", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 
 };
 
@@ -603,6 +605,8 @@ const SLUGS = {
     191: "byd-atto-8-debyutiruet-s-devyatiminutnoy-bystroy-zaryadkoy"
 ,
     192: "sleduyushchiy-malen-kiy-vnedorozhnik-jeep-mozhet-vozrodit-svoi-korni-willys"
+,
+    193: "acura-obeshchaet-tri-novykh-vnedorozhnika-vklyuchaya-model-gotovuyu-k-priklyuche"
 
 };
 
