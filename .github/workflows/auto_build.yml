@@ -47,3 +47,6 @@ jobs:
             git pull --rebase origin main
             git push origin main
           fi
+
+      - name: Ping Search Engines (Google & Yandex)
+        run: node tools/ping_search_engines.js
