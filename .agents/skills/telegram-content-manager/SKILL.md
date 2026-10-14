@@ -55,3 +55,22 @@ This tests RSS fetching, translation quality, deduplication, and database insert
 ## Admin Panel Integration (Shorts / Reels)
 - The admin panel (`4cc55b6066d79bfb2a80.html`) provides client-side HTML5 Canvas 9:16 vertical video rendering for YouTube Shorts & Telegram Video posts.
 - Features Ken Burns zoom on article images, animated title overlays, category badges, and instant WebM/MP4 recording without server-side processing.
+
+## Production Templates & CLI Validator
+
+### Ready-to-Use Templates
+- `templates/breaking-news.md` — молнии и срочные мировые новости.
+- `templates/car-review.md` — детальные обзоры новинок с плюсами, минусами и ТТХ.
+- `templates/market-analysis.md` — разбор параллельного импорта, расчет утильсбора и цен под ключ.
+- `templates/shorts-reel-script.md` — готовый сценарий для 35–45 сек вертикального ролика (YouTube Shorts, VK Клипы, Reels).
+
+### CLI Validator & Preview Tool
+Validate any drafted post before posting:
+```bash
+# Validate drafted file:
+node .agents/skills/telegram-content-manager/scripts/format-post.js path/to/draft.txt
+
+# Preview template:
+node .agents/skills/telegram-content-manager/scripts/format-post.js .agents/skills/telegram-content-manager/templates/breaking-news.md
+```
+

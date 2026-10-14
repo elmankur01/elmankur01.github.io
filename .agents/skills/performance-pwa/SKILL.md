@@ -109,3 +109,18 @@ self.addEventListener('activate', (event) => {
 - [ ] В `sw.js` обновлен идентификатор версии кэша `CACHE_NAME`, если правились стили или скрипты.
 - [ ] Манифест `manifest.json` валиден, содержит актуальные иконки и цвета темы.
 - [ ] В консоли нет предупреждений `[Violation] 'scroll' handler took <N>ms`.
+
+---
+
+## 7. Консольный аудит производительности
+
+Запуск автоматического аудитора картинок (CLS/LCP), `sw.js` и `manifest.json`:
+
+```bash
+# Аудит главной страницы:
+node .agents/skills/performance-pwa/scripts/audit-performance.js index.html
+
+# Аудит конкретной статьи:
+node .agents/skills/performance-pwa/scripts/audit-performance.js articles/some-article.html
+```
+

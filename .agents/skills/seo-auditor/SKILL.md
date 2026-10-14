@@ -49,3 +49,19 @@ Validate that all pages contain valid JSON-LD:
 - Breadcrumbs with back navigation (`← Назад`).
 - Proper heading hierarchy (`<h1>` unique, followed by `<h2>`, `<h3>`).
 - All images must have informative `alt="..."` descriptions and licensing attribution.
+
+## Automated Audit Script
+
+Run the automated SEO scanner directly via Node.js:
+
+```bash
+# Audit specific article:
+node .agents/skills/seo-auditor/scripts/audit-seo.js articles/some-article.html
+
+# Audit index.html:
+node .agents/skills/seo-auditor/scripts/audit-seo.js index.html
+
+# Audit all pages site-wide:
+node .agents/skills/seo-auditor/scripts/audit-seo.js
+```
+

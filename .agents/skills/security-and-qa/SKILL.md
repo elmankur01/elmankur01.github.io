@@ -49,3 +49,16 @@ node -c script.js && node -c footer.js && node -c ugc.js && node -c generate_art
 node generate_articles.js
 ```
 Ensure zero syntax errors, zero broken script tags, and 100% build success.
+
+## Automated Security Scanner
+
+Run the standalone automated security scanner:
+
+```bash
+# Scan whole project for secrets, XSS sinks, and insecure protocols:
+node .agents/skills/security-and-qa/scripts/security-scan.js
+
+# Scan a single modified file:
+node .agents/skills/security-and-qa/scripts/security-scan.js path/to/script.js
+```
+

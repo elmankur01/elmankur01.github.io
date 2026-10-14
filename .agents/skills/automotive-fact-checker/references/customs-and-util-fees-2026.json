@@ -1,0 +1,57 @@
+{
+  "year": 2026,
+  "currency_default_rates": {
+    "EUR": 105.0,
+    "USD": 95.0,
+    "CNY": 13.2
+  },
+  "utilization_fee_rubles": {
+    "personal_use_under_3L_no_resale_12m": {
+      "under_3_years": 3400,
+      "over_3_years": 5200
+    },
+    "commercial_or_resale_scale": {
+      "under_1000cc": { "under_3_years": 180200, "over_3_years": 444000 },
+      "1000cc_to_2000cc": { "under_3_years": 667400, "over_3_years": 1174000 },
+      "2000cc_to_3000cc": { "under_3_years": 1875400, "over_3_years": 2366800 },
+      "3000cc_to_3500cc": { "under_3_years": 2153400, "over_3_years": 3296800 },
+      "over_3500cc": { "under_3_years": 2742400, "over_3_years": 4005000 },
+      "electric_ev": { "under_3_years": 667400, "over_3_years": 1174000 }
+    }
+  },
+  "customs_duty_rates_individuals": {
+    "under_3_years": {
+      "rate_description": "48% to 54% of customs value with minimum EUR per cc",
+      "brackets_eur": [
+        { "max_price": 8500, "rate_percent": 54, "min_eur_per_cc": 2.5 },
+        { "max_price": 16700, "rate_percent": 48, "min_eur_per_cc": 3.5 },
+        { "max_price": 42300, "rate_percent": 48, "min_eur_per_cc": 5.5 },
+        { "max_price": 84500, "rate_percent": 48, "min_eur_per_cc": 7.5 },
+        { "max_price": 169000, "rate_percent": 48, "min_eur_per_cc": 15.0 },
+        { "max_price": null, "rate_percent": 48, "min_eur_per_cc": 20.0 }
+      ]
+    },
+    "3_to_5_years": {
+      "rate_description": "Specific rate per cc depending on engine displacement",
+      "brackets_cc": [
+        { "max_cc": 1000, "eur_per_cc": 1.5 },
+        { "max_cc": 1500, "eur_per_cc": 1.7 },
+        { "max_cc": 1800, "eur_per_cc": 2.5 },
+        { "max_cc": 2300, "eur_per_cc": 2.7 },
+        { "max_cc": 3000, "eur_per_cc": 3.0 },
+        { "max_cc": null, "eur_per_cc": 3.6 }
+      ]
+    },
+    "over_5_years": {
+      "rate_description": "Prohibitive specific rate per cc",
+      "brackets_cc": [
+        { "max_cc": 1000, "eur_per_cc": 3.0 },
+        { "max_cc": 1500, "eur_per_cc": 3.2 },
+        { "max_cc": 1800, "eur_per_cc": 3.5 },
+        { "max_cc": 2300, "eur_per_cc": 4.8 },
+        { "max_cc": 3000, "eur_per_cc": 5.0 },
+        { "max_cc": null, "eur_per_cc": 5.7 }
+      ]
+    }
+  }
+}

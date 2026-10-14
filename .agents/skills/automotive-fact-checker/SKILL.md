@@ -99,3 +99,25 @@ metadata:
 - [ ] **Запас хода:** Указан стандарт (WLTP, CLTC, EPA).
 - [ ] **Привод:** RWD (задний), FWD (передний), AWD/4WD (полный с уточнением муфты или отдельных электромоторов на осях).
 - [ ] **Цены:** Переведены по актуальному курсу ЦБ РФ в рубли с ремаркой «без учета доставки и утильсбора» либо «под ключ».
+
+---
+
+## 6. Базы данных и калькулятор пошлин
+
+### Справочные матрицы:
+- `references/customs-and-util-fees-2026.json` — шкала утильсбора РФ, сетка ставок пошлин для авто до 3 лет, 3–5 лет и старше 5 лет.
+- `references/powertrain-matrix.json` — точные коэффициенты перевода (кВт $\rightarrow$ л.с., lb-ft $\rightarrow$ Н·м, конвертер запаса хода CLTC $\rightarrow$ WLTP $\rightarrow$ EPA).
+
+### Консольный калькулятор растаможки:
+Быстрый расчет полной стоимости ввоза в РФ:
+```bash
+# Расчет для бензинового авто 2.0L (3-5 лет, личный ввоз):
+node .agents/skills/automotive-fact-checker/scripts/calc-customs.js --volume 1998 --age 3-5 --price 20000 --personal
+
+# Расчет для нового 3.0L авто при коммерческом ввозе:
+node .agents/skills/automotive-fact-checker/scripts/calc-customs.js --volume 2995 --age 0-3 --price 45000 --commercial
+
+# Расчет для электромобиля (EV):
+node .agents/skills/automotive-fact-checker/scripts/calc-customs.js --ev --age 0-3 --price 35000
+```
+
