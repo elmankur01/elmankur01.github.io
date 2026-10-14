@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Подготовка к дальней поездке: чек-лист из 10 пунктов</span>
         </a>
-        <a href="tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente.html" class="art-nav-item art-nav-next">
+        <a href="/articles/tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Цены и комплектации Kia EV3: новый лидер в доступном сегменте</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet.html" class="card-link"></a>
+                                <a href="/articles/u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-137.jpg" alt="Спорткар Chevrolet Corvette C7 Grand Sport" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="137" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva.html" class="card-link"></a>
+                                <a href="/articles/vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-141.jpg" alt="Компактный кроссовер Ford EcoSport" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="141" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="tverdotelnye-batarei-prototip-mercedes-proekhal-1205-km.html" class="card-link"></a>
+                                <a href="/articles/tverdotelnye-batarei-prototip-mercedes-proekhal-1205-km.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-20.jpg" alt="Твёрдотельные батареи: прототип Mercedes проехал 1205 км" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="20" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

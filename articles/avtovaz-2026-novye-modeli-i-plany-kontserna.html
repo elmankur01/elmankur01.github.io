@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="uaz-patriot-i-vnedorozhniki-chto-novogo-v-2026.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/uaz-patriot-i-vnedorozhniki-chto-novogo-v-2026.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">УАЗ «Патриот» и внедорожники: что нового в 2026</span>
         </a>
-        <a href="moskvich-i-vozrozhdenie-rossiyskikh-avtobrendov.html" class="art-nav-item art-nav-next">
+        <a href="/articles/moskvich-i-vozrozhdenie-rossiyskikh-avtobrendov.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Москвич и возрождение российских автобрендов</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente.html" class="card-link"></a>
+                                <a href="/articles/tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-71.jpg" alt="Комплектации Kia EV3" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="71" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="avore-ex2s-dostupnyy-elektromototsikl-so-skorostyu-do-115-km-h.html" class="card-link"></a>
+                                <a href="/articles/avore-ex2s-dostupnyy-elektromototsikl-so-skorostyu-do-115-km-h.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-72.jpg" alt="Avore EX2S электромотоцикл" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="72" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ferrari-luce-prodan-za-40-millionov-dollarov.html" class="card-link"></a>
+                                <a href="/articles/ferrari-luce-prodan-za-40-millionov-dollarov.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-81.jpg" alt="Рекордный суперкар Ferrari" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="81" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

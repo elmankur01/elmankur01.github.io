@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="audi-s-moshchnost-yu-bolee-987-l-s-debyutiruet-v-italii.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/audi-s-moshchnost-yu-bolee-987-l-s-debyutiruet-v-italii.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Audi с мощностью более 987 л.с. дебютирует в Италии</span>
         </a>
-        <a href="arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil.html" class="art-nav-item art-nav-next">
+        <a href="/articles/arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Арендаторы Audi EV получают до 10 000 долларов за сохранение своих автомобилей</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="honda-vozvrashchaetsya-k-svoemu-rekordu-kruga-so-skorost-yu-241-428-mil-v-chas-v.html" class="card-link"></a>
+                                <a href="/articles/honda-vozvrashchaetsya-k-svoemu-rekordu-kruga-so-skorost-yu-241-428-mil-v-chas-v.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-161.jpg" alt="Скоростной гоночный болид Honda Racing" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="161" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="rezvani-sdelal-ruchnoy-komplekt-ferrari-za-25-000-dollarov-net-stsepleniya.html" class="card-link"></a>
+                                <a href="/articles/rezvani-sdelal-ruchnoy-komplekt-ferrari-za-25-000-dollarov-net-stsepleniya.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-164.jpg" alt="Резвани сделал «ручной» комплект Ferrari за 25 000 долларов. Нет сцепления" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="164" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil.html" class="card-link"></a>
+                                <a href="/articles/arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-128.jpg" alt="Электрический кроссовер Audi Q8 e-tron" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="128" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

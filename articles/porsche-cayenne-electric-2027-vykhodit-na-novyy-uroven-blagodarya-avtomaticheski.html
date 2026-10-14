@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="istochniki-soobshchayut-chto-jaguar-land-rover-planiruet-postroit-v-ssha-pikap-d.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/istochniki-soobshchayut-chto-jaguar-land-rover-planiruet-postroit-v-ssha-pikap-d.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Источники сообщают, что Jaguar Land Rover планирует построить в США пикап Defender с использованием Stellantis</span>
         </a>
-        <a href="noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-.html" class="art-nav-item art-nav-next">
+        <a href="/articles/noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Новейшая шина Firestone обещает увеличить пробег и улучшить сцепление с дорогой для вашего внедорожника</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="bentley-otkazyvaetsya-ot-sroka-vypuska-elektromobiley-k-2030-godu-sokhranyaya-ga.html" class="card-link"></a>
+                                <a href="/articles/bentley-otkazyvaetsya-ot-sroka-vypuska-elektromobiley-k-2030-godu-sokhranyaya-ga.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-155.jpg" alt="Внедорожник Bentley Bentayga" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="155" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="patent-tesla-roadster-pokazyvaet-skrytoe-krylo-kotoroe-mozhet-sozdavat-1543-funt.html" class="card-link"></a>
+                                <a href="/articles/patent-tesla-roadster-pokazyvaet-skrytoe-krylo-kotoroe-mozhet-sozdavat-1543-funt.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-163.jpg" alt="Патент Tesla Roadster показывает скрытое крыло, которое может создавать 1543 фунта прижимной силы" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="163" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya.html" class="card-link"></a>
+                                <a href="/articles/bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-87.jpg" alt="BMW еще не закончила с M2. Предположительно выйдет новая версия" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="87" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

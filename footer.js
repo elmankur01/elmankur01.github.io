@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initCopyButton();
     registerServiceWorker();
     initTgWebApp();
+    initScrollTop();
 });
 
 // 0. Мобильное бургер-меню
@@ -203,14 +204,28 @@ function initCopyButton() {
             if (navigator.share) {
                 try {
                     await navigator.share({ title, text, url });
-                } catch (e) {}
-            } else {
-                const shareBlock = document.querySelector('.share-block');
-                if (shareBlock) {
-                    shareBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    shareBlock.classList.add('highlight-pulse');
-                    setTimeout(() => shareBlock.classList.remove('highlight-pulse'), 1500);
+                    return;
+                } catch (e) {
+                    if (e.name === 'AbortError') return;
                 }
+            }
+
+            // Фоллбек для десктопа: копирование ссылки в буфер и подсветка кнопок
+            try {
+                await navigator.clipboard.writeText(url);
+                const shareLabel = nativeShareBtn.querySelector('.share-label');
+                if (shareLabel) {
+                    const originalText = shareLabel.textContent;
+                    shareLabel.textContent = '✓ Скопировано!';
+                    setTimeout(() => { shareLabel.textContent = originalText; }, 2000);
+                }
+            } catch (err) {}
+
+            const shareBlock = document.querySelector('.share-block');
+            if (shareBlock) {
+                shareBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                shareBlock.classList.add('highlight-pulse');
+                setTimeout(() => shareBlock.classList.remove('highlight-pulse'), 1500);
             }
         });
     }
@@ -284,4 +299,39 @@ function initTgWebApp() {
         s.onload = setupTG;
         document.head.appendChild(s);
     }
+}
+
+// 7. Кнопка «наверх» (плавная прокрутка)
+function initScrollTop() {
+    if (window.__scrollTopInitialized) return;
+    window.__scrollTopInitialized = true;
+
+    let btn = document.getElementById('scrollTop');
+    if (!btn) {
+        btn = document.createElement('button');
+        btn.className = 'scroll-top';
+        btn.id = 'scrollTop';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Наверх');
+        btn.setAttribute('title', 'Наверх');
+        btn.innerHTML = '↑';
+        document.body.appendChild(btn);
+    }
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        try {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (err) {
+            window.scrollTo(0, 0);
+        }
+    });
+
+    const checkScroll = () => {
+        const y = window.scrollY || window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0;
+        btn.classList.toggle('visible', y > 300);
+    };
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
 }

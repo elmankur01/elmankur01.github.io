@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/arendatory-audi-ev-poluchayut-do-10-000-dollarov-za-sokhranenie-svoikh-avtomobil.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Арендаторы Audi EV получают до 10 000 долларов за сохранение своих автомобилей</span>
         </a>
-        <a href="stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu.html" class="art-nav-item art-nav-next">
+        <a href="/articles/stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Stellantis задержался: Jeep EREV и Ram REV открывают новую хронологию</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c.html" class="card-link"></a>
+                                <a href="/articles/ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-171.jpg" alt="Современный электрический пикап Ford F-150 Lightning" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="171" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="bmw-otmechaet-million-avtomobiley-m-anonsiruya-sleduyushchiy-m3.html" class="card-link"></a>
+                                <a href="/articles/bmw-otmechaet-million-avtomobiley-m-anonsiruya-sleduyushchiy-m3.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-172.jpg" alt="BMW отмечает миллион автомобилей M, анонсируя следующий M3" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="172" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="sleduyushchiy-audi-a4-otlozhen-do-2029-goda-poskol-ku-novaya-platforma-elektromo.html" class="card-link"></a>
+                                <a href="/articles/sleduyushchiy-audi-a4-otlozhen-do-2029-goda-poskol-ku-novaya-platforma-elektromo.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-145.jpg" alt="Седан Audi A4" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="145" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

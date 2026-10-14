@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="poslushayte-kak-jensen-interceptor-moshchnost-yu-960-l-s-raskryvaet-svoy-v8-s-na.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/poslushayte-kak-jensen-interceptor-moshchnost-yu-960-l-s-raskryvaet-svoy-v8-s-na.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Послушайте, как Jensen Interceptor мощностью 960 л.с. раскрывает свой V8 с наддувом</span>
         </a>
-        <a href="betmobil-1992-goda-ispol-zovannyy-v-ekrane-vystavyat-na-auktsion-i-mogut-prodat-.html" class="art-nav-item art-nav-next">
+        <a href="/articles/betmobil-1992-goda-ispol-zovannyy-v-ekrane-vystavyat-na-auktsion-i-mogut-prodat-.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Оригинальный Бэтмобиль 1992 года со съемок фильма выставят на аукцион за $7 млн</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="novyy-giperkar-porsche-demonstriruet-krasnuyu-chertu-na-8000-ob-min-video.html" class="card-link"></a>
+                                <a href="/articles/novyy-giperkar-porsche-demonstriruet-krasnuyu-chertu-na-8000-ob-min-video.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-188.jpg" alt="Новый гиперкар Porsche демонстрирует красную черту на 8000 об/мин: видео" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="188" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="brend-stellantis-ds-automobiles-podaet-priznaki-zhizni-s-novym-kontsept-karom.html" class="card-link"></a>
+                                <a href="/articles/brend-stellantis-ds-automobiles-podaet-priznaki-zhizni-s-novym-kontsept-karom.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-189.jpg" alt="Концепт-кар DS SM Tribute от бренда DS Automobiles" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="189" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="card-link"></a>
+                                <a href="/articles/li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-21.jpg" alt="Li Auto: электронное шасси и запас хода до 1650 км" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="21" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

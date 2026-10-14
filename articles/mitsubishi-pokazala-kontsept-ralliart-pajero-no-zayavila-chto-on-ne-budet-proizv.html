@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -337,11 +342,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="u-polestar-novyy-oblik-i-eto-ne-napugaet-pokupateley-govorit-dizayner.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/u-polestar-novyy-oblik-i-eto-ne-napugaet-pokupateley-govorit-dizayner.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">У Polestar новый облик, и это не напугает покупателей, говорит дизайнер</span>
         </a>
-        <a href="tol-ko-odin-ferrari-enzo-byl-postroen-v-matovo-chernom-tsvete-i-teper-vystavlen-.html" class="art-nav-item art-nav-next">
+        <a href="/articles/tol-ko-odin-ferrari-enzo-byl-postroen-v-matovo-chernom-tsvete-i-teper-vystavlen-.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Только один Ferrari Enzo был построен в матово-черном цвете и теперь выставлен на частную продажу</span>
         </a>
@@ -352,7 +357,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="etot-massivnyy-kitayskiy-vnedorozhnik-v-bukval-nom-smysle-yavlyaetsya-tankom.html" class="card-link"></a>
+                                <a href="/articles/etot-massivnyy-kitayskiy-vnedorozhnik-v-bukval-nom-smysle-yavlyaetsya-tankom.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-136.jpg" alt="Китайский рамный внедорожник Yangwang U8" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="136" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -368,7 +373,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet.html" class="card-link"></a>
+                                <a href="/articles/u-pokupateley-corvette-grand-sport-yavno-est-lyubimyy-tsvet.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-137.jpg" alt="Спорткар Chevrolet Corvette C7 Grand Sport" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="137" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -384,7 +389,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="card-link"></a>
+                                <a href="/articles/lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-89.jpg" alt="Lamborghini Temerario Tricolore зажёг краску на галечном пляже" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="89" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -480,6 +485,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

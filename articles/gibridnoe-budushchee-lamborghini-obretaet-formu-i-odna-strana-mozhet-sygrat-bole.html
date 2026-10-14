@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Сделано всего 2500 экземпляров: Toyota Corolla, посвященная 60-летию Toyota, является гибридом</span>
         </a>
-        <a href="bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya.html" class="art-nav-item art-nav-next">
+        <a href="/articles/bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">BMW еще не закончила с M2. Предположительно выйдет новая версия</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="ferrari-luce-prodan-za-40-millionov-dollarov.html" class="card-link"></a>
+                                <a href="/articles/ferrari-luce-prodan-za-40-millionov-dollarov.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-81.jpg" alt="Рекордный суперкар Ferrari" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="81" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="card-link"></a>
+                                <a href="/articles/lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-89.jpg" alt="Lamborghini Temerario Tricolore зажёг краску на галечном пляже" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="89" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="lexus-lx-2027-goda-poluchit-novye-tsveta-krasnye-tormoza-i-drugie-standartnye-te.html" class="card-link"></a>
+                                <a href="/articles/lexus-lx-2027-goda-poluchit-novye-tsveta-krasnye-tormoza-i-drugie-standartnye-te.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-152.jpg" alt="Lexus LX 2027 года получит новые цвета, красные тормоза и другие стандартные технологии" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="152" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -111,6 +111,11 @@
     <main>
         <div class="container" style="padding-top:24px;">
             <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="javascript:history.length>1?history.back():location.href='/tags/'" class="crumb-back-btn" aria-label="Назад">
+                    <span class="crumb-back-arrow">←</span>
+                    <span class="crumb-back-text">Назад</span>
+                </a>
+                <span class="crumb-divider">|</span>
                 <a href="/">Главная</a>
                 <span class="crumb-sep" aria-hidden="true">→</span>
                 <a href="/tags/">Теги</a>
@@ -441,6 +446,7 @@
             </p>
         </div>
     </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
     <script src="/favorites.js" defer></script>

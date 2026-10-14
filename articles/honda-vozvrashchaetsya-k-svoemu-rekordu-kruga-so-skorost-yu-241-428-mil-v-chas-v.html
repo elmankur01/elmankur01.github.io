@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -336,11 +341,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="betmobil-1992-goda-ispol-zovannyy-v-ekrane-vystavyat-na-auktsion-i-mogut-prodat-.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/betmobil-1992-goda-ispol-zovannyy-v-ekrane-vystavyat-na-auktsion-i-mogut-prodat-.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Оригинальный Бэтмобиль 1992 года со съемок фильма выставят на аукцион за $7 млн</span>
         </a>
-        <a href="kitayskiy-byd-blizok-k-tomu-chtoby-prevzoyti-ford-po-prodazham-v-evrope.html" class="art-nav-item art-nav-next">
+        <a href="/articles/kitayskiy-byd-blizok-k-tomu-chtoby-prevzoyti-ford-po-prodazham-v-evrope.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Китайский BYD близок к тому, чтобы превзойти Ford по продажам в Европе</span>
         </a>
@@ -351,7 +356,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="card-link"></a>
+                                <a href="/articles/reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-23.jpg" alt="Рейтинг продаж в Китае: Geely EX2, Xiaomi SU7 и гонка BYD" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="23" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -367,7 +372,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="utilsbor-2026-kak-menyayutsya-tseny-na-novye-avto.html" class="card-link"></a>
+                                <a href="/articles/utilsbor-2026-kak-menyayutsya-tseny-na-novye-avto.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-46.jpg" alt="Утильсбор 2026: как меняются цены на новые авто" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="46" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -383,7 +388,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="miniveny-i-semeynye-krossovery-obzor-dlya-bolshikh-semey.html" class="card-link"></a>
+                                <a href="/articles/miniveny-i-semeynye-krossovery-obzor-dlya-bolshikh-semey.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-33.jpg" alt="Минивэны и семейные кроссоверы: обзор для больших семей" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="33" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -479,6 +484,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

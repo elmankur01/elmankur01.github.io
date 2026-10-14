@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Новые модели</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Рейтинг продаж в Китае: Geely EX2, Xiaomi SU7 и гонка BYD</span>
         </a>
-        <a href="zeekr-bmw-i-gonka-za-900-voltovye-platformy.html" class="art-nav-item art-nav-next">
+        <a href="/articles/zeekr-bmw-i-gonka-za-900-voltovye-platformy.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Zeekr, BMW и гонка за 900-вольтовые платформы</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="nissan-rogue-hybrid-2027-goda-debyutiruet-s-raskhodom-topliva-38-mil-na-gallon-n.html" class="card-link"></a>
+                                <a href="/articles/nissan-rogue-hybrid-2027-goda-debyutiruet-s-raskhodom-topliva-38-mil-na-gallon-n.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-149.jpg" alt="Nissan Rogue Hybrid 2027 года дебютирует с расходом топлива 38 миль на галлон. Но это не традиционный гибрид" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="149" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="mini-otpravlyaet-zemlyaka-s-palatkoy-na-kryshe-na-ralli-rebelle.html" class="card-link"></a>
+                                <a href="/articles/mini-otpravlyaet-zemlyaka-s-palatkoy-na-kryshe-na-ralli-rebelle.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-157.jpg" alt="Mini отправляет земляка с палаткой на крыше на ралли Rebelle" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="157" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="pozolochennyy-cadillac-1953-goda-prodan-za-1-275-000-dollarov-ustanoviv-auktsion.html" class="card-link"></a>
+                                <a href="/articles/pozolochennyy-cadillac-1953-goda-prodan-za-1-275-000-dollarov-ustanoviv-auktsion.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-135.jpg" alt="Позолоченный Cadillac 1953 года продан за 1 275 000 долларов, установив аукционный рекорд" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="135" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

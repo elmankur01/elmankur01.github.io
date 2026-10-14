@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#market">Новости рынка</a>
@@ -342,11 +347,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="atom-rossiyskiy-elektromobil-vykhodit-na-dorogi.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/atom-rossiyskiy-elektromobil-vykhodit-na-dorogi.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">«Атом»: российский электромобиль выходит на дороги</span>
         </a>
-        <a href="euro-7-novye-ekologicheskie-normy-dlya-avtomobiley.html" class="art-nav-item art-nav-next">
+        <a href="/articles/euro-7-novye-ekologicheskie-normy-dlya-avtomobiley.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Euro 7: новые экологические нормы для автомобилей</span>
         </a>
@@ -357,7 +362,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo.html" class="card-link"></a>
+                                <a href="/articles/pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-80.jpg" alt="Спорткар Porsche 911 Carrera S" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="80" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -373,7 +378,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="subaru-wrx-demonstriruet-ogromnyy-rost-prodazh.html" class="card-link"></a>
+                                <a href="/articles/subaru-wrx-demonstriruet-ogromnyy-rost-prodazh.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-113.jpg" alt="Subaru WRX демонстрирует огромный рост продаж" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="113" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -389,7 +394,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="novyy-giperkar-porsche-demonstriruet-krasnuyu-chertu-na-8000-ob-min-video.html" class="card-link"></a>
+                                <a href="/articles/novyy-giperkar-porsche-demonstriruet-krasnuyu-chertu-na-8000-ob-min-video.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-188.jpg" alt="Новый гиперкар Porsche демонстрирует красную черту на 8000 об/мин: видео" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="188" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -485,6 +490,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

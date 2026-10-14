@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -336,11 +341,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="tyuner-bmw-ac-schnitzer-poluchaet-vtoroy-shans-posle-pochti-zakrytiya.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/tyuner-bmw-ac-schnitzer-poluchaet-vtoroy-shans-posle-pochti-zakrytiya.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Тюнер BMW AC Schnitzer получает второй шанс после почти закрытия</span>
         </a>
-        <a href="bmw-sokrashchaet-svoy-model-nyy-ryad-chtoby-osvobodit-mesto-dlya-bolee-krupnogo-.html" class="art-nav-item art-nav-next">
+        <a href="/articles/bmw-sokrashchaet-svoy-model-nyy-ryad-chtoby-osvobodit-mesto-dlya-bolee-krupnogo-.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">BMW сокращает свой модельный ряд, чтобы освободить место для более крупного внедорожника</span>
         </a>
@@ -351,7 +356,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="tesla-i-profsoyuzy-v-evrope-zavershenie-zabastovki-v-shvetsii.html" class="card-link"></a>
+                                <a href="/articles/tesla-i-profsoyuzy-v-evrope-zavershenie-zabastovki-v-shvetsii.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-74.jpg" alt="Завод Tesla в Европе" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="74" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -367,7 +372,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="haval-h3.html" class="card-link"></a>
+                                <a href="/articles/haval-h3.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-75.jpg" alt="Обновленный Haval H3" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="75" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -383,7 +388,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="jeep-tol-ko-chto-predstavil-novyy-cherokee-no-eshche-odin-uzhe-v-puti.html" class="card-link"></a>
+                                <a href="/articles/jeep-tol-ko-chto-predstavil-novyy-cherokee-no-eshche-odin-uzhe-v-puti.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-84.jpg" alt="Внедорожник Jeep Grand Cherokee нового поколения" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="84" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -479,6 +484,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

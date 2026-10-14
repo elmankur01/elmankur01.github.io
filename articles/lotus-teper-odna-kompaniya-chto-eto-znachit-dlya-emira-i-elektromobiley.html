@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="land-rover-deniela-kreyga-1959-goda-s-rukopisnoy-zapiskoy-vystavlen-na-auktsion.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/land-rover-deniela-kreyga-1959-goda-s-rukopisnoy-zapiskoy-vystavlen-na-auktsion.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Land Rover Дэниела Крейга 1959 года с рукописной запиской выставлен на аукцион</span>
         </a>
-        <a href="lincoln-corsair-vozvrashchaetsya-v-2027-godu-kak-gibrid-kitayskogo-proizvodstva.html" class="art-nav-item art-nav-next">
+        <a href="/articles/lincoln-corsair-vozvrashchaetsya-v-2027-godu-kak-gibrid-kitayskogo-proizvodstva.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Lincoln Corsair возвращается в 2027 году как гибрид китайского производства</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="krupnaya-sdelka-honda-i-nissan-po-programmnomu-obespecheniyu-posle-ikh-neudachno.html" class="card-link"></a>
+                                <a href="/articles/krupnaya-sdelka-honda-i-nissan-po-programmnomu-obespecheniyu-posle-ikh-neudachno.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-108.jpg" alt="Крупная сделка Honda и Nissan по программному обеспечению после их неудачного слияния" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="108" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="grok-ot-tesla-teper-vypolnyaet-116-golosovykh-komand-no-mnogie-vladel-tsy-zablok.html" class="card-link"></a>
+                                <a href="/articles/grok-ot-tesla-teper-vypolnyaet-116-golosovykh-komand-no-mnogie-vladel-tsy-zablok.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-112.jpg" alt="Мультимедийная система Tesla с голосовым ассистентом Grok" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="112" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="audi-chetyre-koltsa-i-legenda-quattro.html" class="card-link"></a>
+                                <a href="/articles/audi-chetyre-koltsa-i-legenda-quattro.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-45.jpg" alt="Audi: четыре кольца и легенда quattro" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="45" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

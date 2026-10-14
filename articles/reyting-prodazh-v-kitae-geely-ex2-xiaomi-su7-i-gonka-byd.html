@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -343,11 +348,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="nadezhnost-kitayskikh-mashin-pochemu-servisy-zagruzheny-na-51.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/nadezhnost-kitayskikh-mashin-pochemu-servisy-zagruzheny-na-51.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Надёжность китайских машин: почему сервисы загружены на 51%</span>
         </a>
-        <a href="esteo-v27-gibrid-na-456-l-s-za-5-75-mln-rubley.html" class="art-nav-item art-nav-next">
+        <a href="/articles/esteo-v27-gibrid-na-456-l-s-za-5-75-mln-rubley.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">ESTEO V27: гибрид на 456 л.с. за 5,75 млн рублей</span>
         </a>
@@ -358,7 +363,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="general-nyy-direktor-stellantis-vidit-ogromnye-vozmozhnosti-dlya-deshevykh-avtom.html" class="card-link"></a>
+                                <a href="/articles/general-nyy-direktor-stellantis-vidit-ogromnye-vozmozhnosti-dlya-deshevykh-avtom.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-174.jpg" alt="Доступный компактный электромобиль Fiat 500e от концерна Stellantis" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="174" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -374,7 +379,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="mercedes-otkazyvaetsya-ot-trekh-modeley-k-2027-godu.html" class="card-link"></a>
+                                <a href="/articles/mercedes-otkazyvaetsya-ot-trekh-modeley-k-2027-godu.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-176.jpg" alt="Mercedes отказывается от трех моделей к 2027 году" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="176" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -390,7 +395,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="zaryadnye-stantsii-gde-zaryazhatsya-v-doroge-i-skolko-eto-stoit.html" class="card-link"></a>
+                                <a href="/articles/zaryadnye-stantsii-gde-zaryazhatsya-v-doroge-i-skolko-eto-stoit.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-06.jpg" alt="Зарядные станции: где заряжаться в дороге и сколько это стоит" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="6" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -486,6 +491,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

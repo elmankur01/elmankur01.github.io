@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="byd-atto-8-debyutiruet-s-devyatiminutnoy-bystroy-zaryadkoy.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/byd-atto-8-debyutiruet-s-devyatiminutnoy-bystroy-zaryadkoy.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">BYD Atto 8 дебютирует с девятиминутной быстрой зарядкой</span>
         </a>
-        <a href="elektromobili-v-2026-godu-gonka-za-zapasom-khoda-v-1000-km.html" class="art-nav-item art-nav-next">
+        <a href="/articles/elektromobili-v-2026-godu-gonka-za-zapasom-khoda-v-1000-km.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Электромобили в 2026 году: гонка за запасом хода в 1000 км</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="euro-7-novye-ekologicheskie-normy-dlya-avtomobiley.html" class="card-link"></a>
+                                <a href="/articles/euro-7-novye-ekologicheskie-normy-dlya-avtomobiley.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-67.jpg" alt="Экологический стандарт Евро-7" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="67" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km.html" class="card-link"></a>
+                                <a href="/articles/kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-70.jpg" alt="Kia EV3 электрокроссовер" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="70" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="subaru-wrx-demonstriruet-ogromnyy-rost-prodazh.html" class="card-link"></a>
+                                <a href="/articles/subaru-wrx-demonstriruet-ogromnyy-rost-prodazh.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-113.jpg" alt="Subaru WRX демонстрирует огромный рост продаж" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="113" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

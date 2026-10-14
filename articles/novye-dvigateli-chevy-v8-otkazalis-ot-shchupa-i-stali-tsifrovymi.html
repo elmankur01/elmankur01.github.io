@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Вы можете купить шестиколесный Ford EcoSport 2019 года без резерва</span>
         </a>
-        <a href="sleduyushchimi-elektromobilyami-maserati-mogut-stat-bol-shoy-gt-i-vnedorozhnik-o.html" class="art-nav-item art-nav-next">
+        <a href="/articles/sleduyushchimi-elektromobilyami-maserati-mogut-stat-bol-shoy-gt-i-vnedorozhnik-o.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Следующими электромобилями Maserati могут стать большой GT и внедорожник: отчет</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="card-link"></a>
+                                <a href="/articles/li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-21.jpg" alt="Li Auto: электронное шасси и запас хода до 1650 км" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="21" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="zeekr-bmw-i-gonka-za-900-voltovye-platformy.html" class="card-link"></a>
+                                <a href="/articles/zeekr-bmw-i-gonka-za-900-voltovye-platformy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-25.jpg" alt="Zeekr, BMW и гонка за 900-вольтовые платформы" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="25" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n.html" class="card-link"></a>
+                                <a href="/articles/ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-109.jpg" alt="Внедорожник Ford Bronco Sport" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="109" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

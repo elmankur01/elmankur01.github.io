@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="tseny-na-benzin-vyrosli-kak-i-prodazhi-elektromobiley.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/tseny-na-benzin-vyrosli-kak-i-prodazhi-elektromobiley.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Цены на бензин выросли, как и продажи электромобилей</span>
         </a>
-        <a href="dzheremi-klarkson-prodaet-tri-svoikh-samykh-znamenitykh-avtomobilya-grand-tour.html" class="art-nav-item art-nav-next">
+        <a href="/articles/dzheremi-klarkson-prodaet-tri-svoikh-samykh-znamenitykh-avtomobilya-grand-tour.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Джереми Кларксон продает три своих самых знаменитых автомобиля Grand Tour</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="card-link"></a>
+                                <a href="/articles/lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-89.jpg" alt="Lamborghini Temerario Tricolore зажёг краску на галечном пляже" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="89" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="pochemu-glavnyy-dizayner-tesla-sokhranil-svoy-pled-001-model-s.html" class="card-link"></a>
+                                <a href="/articles/pochemu-glavnyy-dizayner-tesla-sokhranil-svoy-pled-001-model-s.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-90.jpg" alt="Почему главный дизайнер Tesla сохранил свой плед №001 Model S" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="90" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="honda-passport-trailsport-2027-goda-stala-namnogo-bolee-funktsional-noy.html" class="card-link"></a>
+                                <a href="/articles/honda-passport-trailsport-2027-goda-stala-namnogo-bolee-funktsional-noy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-127.jpg" alt="Кроссовер Honda Passport TrailSport" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="127" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

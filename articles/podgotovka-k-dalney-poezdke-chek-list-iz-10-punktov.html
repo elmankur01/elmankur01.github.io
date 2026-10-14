@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#tips">Авто лайфхаки</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="nissan-ot-datsun-do-mirovogo-lidera-i-obratno.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/nissan-ot-datsun-do-mirovogo-lidera-i-obratno.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Nissan: от Datsun до мирового лидера и обратно</span>
         </a>
-        <a href="kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km.html" class="art-nav-item art-nav-next">
+        <a href="/articles/kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Kia EV3: доступный электрокроссовер с запасом хода до 516 км</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="tyuner-bmw-ac-schnitzer-poluchaet-vtoroy-shans-posle-pochti-zakrytiya.html" class="card-link"></a>
+                                <a href="/articles/tyuner-bmw-ac-schnitzer-poluchaet-vtoroy-shans-posle-pochti-zakrytiya.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-166.jpg" alt="Тюнер BMW AC Schnitzer получает второй шанс после почти закрытия" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="166" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ford-rassmatrivaet-vozmozhnost-sozdaniya-deshevogo-ralliynogo-avtomobilya-konech.html" class="card-link"></a>
+                                <a href="/articles/ford-rassmatrivaet-vozmozhnost-sozdaniya-deshevogo-ralliynogo-avtomobilya-konech.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-91.jpg" alt="Ford рассматривает возможность создания дешевого раллийного автомобиля? Конечно, звучит так" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="91" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ford-ranger-super-duty-uzhe-stal-ogromnym-khitom-v-avstralii.html" class="card-link"></a>
+                                <a href="/articles/ford-ranger-super-duty-uzhe-stal-ogromnym-khitom-v-avstralii.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-102.jpg" alt="Пикап Ford Ranger Super Duty" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="102" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -446,14 +446,37 @@ function initBurger() {
 
 // ===== Кнопка «наверх» =====
 function initScrollTop() {
-    const btn = document.getElementById('scrollTop');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.__scrollTopInitialized) return;
+    window.__scrollTopInitialized = true;
+
+    let btn = document.getElementById('scrollTop');
+    if (!btn) {
+        btn = document.createElement('button');
+        btn.className = 'scroll-top';
+        btn.id = 'scrollTop';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Наверх');
+        btn.setAttribute('title', 'Наверх');
+        btn.innerHTML = '↑';
+        document.body.appendChild(btn);
+    }
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        try {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (err) {
+            window.scrollTo(0, 0);
+        }
     });
-    window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
-    });
+
+    const checkScroll = () => {
+        const y = window.scrollY || window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0;
+        btn.classList.toggle('visible', y > 300);
+    };
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
 }
 
 // ===== Появление секций =====

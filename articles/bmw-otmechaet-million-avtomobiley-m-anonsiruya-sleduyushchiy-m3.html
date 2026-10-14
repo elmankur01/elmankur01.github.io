@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Ford заявляет, что его грузовик Fathom стоимостью 30 000 долларов потребует «чертовски усилий»</span>
         </a>
-        <a href="range-rover-sport-otozvan-iz-za-zadnikh-podramnikov-kotorye-mogut-tresnut.html" class="art-nav-item art-nav-next">
+        <a href="/articles/range-rover-sport-otozvan-iz-za-zadnikh-podramnikov-kotorye-mogut-tresnut.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Range Rover Sport отозван из-за задних подрамников, которые могут треснуть</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="eto-mustang-kotoryy-kak-my-khotim-postroil-ford.html" class="card-link"></a>
+                                <a href="/articles/eto-mustang-kotoryy-kak-my-khotim-postroil-ford.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-106.jpg" alt="Спорткупе Ford Mustang Dark Horse" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="106" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n.html" class="card-link"></a>
+                                <a href="/articles/ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-109.jpg" alt="Внедорожник Ford Bronco Sport" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="109" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="video-genesis-magma-gt-zvuchit-kak-nastoyashchiy-superkar.html" class="card-link"></a>
+                                <a href="/articles/video-genesis-magma-gt-zvuchit-kak-nastoyashchiy-superkar.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-133.jpg" alt="Спортивное купе Genesis Magma Concept" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="133" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

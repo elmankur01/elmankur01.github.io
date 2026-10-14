@@ -43,6 +43,14 @@ document.addEventListener('click', function (e) {
     if (headBtn) {
         headBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
+    const bodyEl = box.querySelector('.ugc-collapsible-body');
+    if (bodyEl) {
+        if (isOpen) {
+            bodyEl.removeAttribute('hidden');
+        } else {
+            bodyEl.setAttribute('hidden', '');
+        }
+    }
 });
 
 // ── 1. Интерактивный опрос в статье ──

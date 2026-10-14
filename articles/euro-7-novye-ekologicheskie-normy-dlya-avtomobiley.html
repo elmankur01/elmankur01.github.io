@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="rossiyskiy-avtorynok-v-iyule-2026-rost-lidery-i-dolya-kitaytsev.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/rossiyskiy-avtorynok-v-iyule-2026-rost-lidery-i-dolya-kitaytsev.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Российский авторынок в июле 2026: рост, лидеры и доля китайцев</span>
         </a>
-        <a href="nissan-ot-datsun-do-mirovogo-lidera-i-obratno.html" class="art-nav-item art-nav-next">
+        <a href="/articles/nissan-ot-datsun-do-mirovogo-lidera-i-obratno.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Nissan: от Datsun до мирового лидера и обратно</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="za-rubezhom-novyy-pajero-na-udivlenie-dorog-eto-mozhet-byt-plokhoy-novost-yu-dly.html" class="card-link"></a>
+                                <a href="/articles/za-rubezhom-novyy-pajero-na-udivlenie-dorog-eto-mozhet-byt-plokhoy-novost-yu-dly.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-120.jpg" alt="Внедорожник Mitsubishi Pajero" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="120" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="u-polestar-novyy-oblik-i-eto-ne-napugaet-pokupateley-govorit-dizayner.html" class="card-link"></a>
+                                <a href="/articles/u-polestar-novyy-oblik-i-eto-ne-napugaet-pokupateley-govorit-dizayner.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-122.jpg" alt="У Polestar новый облик, и это не напугает покупателей, говорит дизайнер" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="122" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="card-link"></a>
+                                <a href="/articles/toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-03.jpg" alt="Toyota: путь от ткацкого станка до мирового лидера" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="3" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

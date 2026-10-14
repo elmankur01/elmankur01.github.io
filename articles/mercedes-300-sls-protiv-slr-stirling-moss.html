@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -336,11 +341,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="ferrari-luce-prodan-za-40-millionov-dollarov.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/ferrari-luce-prodan-za-40-millionov-dollarov.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Благотворительный суперкар Ferrari Luce продан за рекордные 40 миллионов долларов</span>
         </a>
-        <a href="novyy-mercedes-c-class-ne-vernet-amg-c63-v8.html" class="art-nav-item art-nav-next">
+        <a href="/articles/novyy-mercedes-c-class-ne-vernet-amg-c63-v8.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Новый Mercedes C-Class не вернет AMG C63 V8</span>
         </a>
@@ -351,7 +356,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="bespilotnye-taksi-gde-oni-uzhe-vozyat-passazhirov.html" class="card-link"></a>
+                                <a href="/articles/bespilotnye-taksi-gde-oni-uzhe-vozyat-passazhirov.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-48.jpg" alt="Беспилотные такси: где они уже возят пассажиров" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="48" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -367,7 +372,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="vodorod-protiv-batarei-vtoroy-shans-h2-tekhnologiy.html" class="card-link"></a>
+                                <a href="/articles/vodorod-protiv-batarei-vtoroy-shans-h2-tekhnologiy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-49.jpg" alt="Водород против батареи: второй шанс H2-технологий" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="49" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -383,7 +388,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="tol-ko-odin-ferrari-enzo-byl-postroen-v-matovo-chernom-tsvete-i-teper-vystavlen-.html" class="card-link"></a>
+                                <a href="/articles/tol-ko-odin-ferrari-enzo-byl-postroen-v-matovo-chernom-tsvete-i-teper-vystavlen-.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-124.jpg" alt="Только один Ferrari Enzo был построен в матово-черном цвете и теперь выставлен на частную продажу" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="124" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -479,6 +484,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Новые модели</a>
@@ -343,11 +348,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="porsche-911-60-let-odnoy-legende.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/porsche-911-60-let-odnoy-legende.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Porsche 911: 60 лет одной легенде</span>
         </a>
-        <a href="gibridy-2026-bolshe-ne-perekhodnyy-etap-a-samostoyatelnyy-klass.html" class="art-nav-item art-nav-next">
+        <a href="/articles/gibridy-2026-bolshe-ne-perekhodnyy-etap-a-samostoyatelnyy-klass.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Гибриды 2026: больше не «переходный этап», а самостоятельный класс</span>
         </a>
@@ -358,7 +363,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="audi-s-moshchnost-yu-bolee-987-l-s-debyutiruet-v-italii.html" class="card-link"></a>
+                                <a href="/articles/audi-s-moshchnost-yu-bolee-987-l-s-debyutiruet-v-italii.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-126.jpg" alt="Спортивный электрокар Audi RS e-tron GT" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="126" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -374,7 +379,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-.html" class="card-link"></a>
+                                <a href="/articles/noveyshaya-shina-firestone-obeshchaet-uvelichit-probeg-i-uluchshit-stseplenie-s-.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-140.jpg" alt="Внедорожная резина Firestone" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="140" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -390,7 +395,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="land-rover-deniela-kreyga-1959-goda-s-rukopisnoy-zapiskoy-vystavlen-na-auktsion.html" class="card-link"></a>
+                                <a href="/articles/land-rover-deniela-kreyga-1959-goda-s-rukopisnoy-zapiskoy-vystavlen-na-auktsion.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-99.jpg" alt="Land Rover Дэниела Крейга 1959 года с рукописной запиской выставлен на аукцион" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="99" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -486,6 +491,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

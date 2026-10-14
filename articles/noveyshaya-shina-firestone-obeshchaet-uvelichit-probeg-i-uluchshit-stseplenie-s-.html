@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Новые модели</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Porsche Cayenne Electric 2027 выходит на новый уровень благодаря автоматическим дверям и многому другому</span>
         </a>
-        <a href="vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva.html" class="art-nav-item art-nav-next">
+        <a href="/articles/vy-mozhete-kupit-shestikolesnyy-ford-ecosport-2019-goda-bez-rezerva.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Вы можете купить шестиколесный Ford EcoSport 2019 года без резерва</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="premery-goda-glavnye-avto-kotorye-vyydut-na-rynok.html" class="card-link"></a>
+                                <a href="/articles/premery-goda-glavnye-avto-kotorye-vyydut-na-rynok.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-02.jpg" alt="Премьеры года: главные авто, которые выйдут на рынок" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="2" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="krossovery-2026-chto-vybirayut-semi.html" class="card-link"></a>
+                                <a href="/articles/krossovery-2026-chto-vybirayut-semi.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-07.jpg" alt="Кроссоверы 2026: что выбирают семьи" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="7" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="card-link"></a>
+                                <a href="/articles/li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-21.jpg" alt="Li Auto: электронное шасси и запас хода до 1650 км" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="21" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

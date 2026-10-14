@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Li Auto: электронное шасси и запас хода до 1650 км</span>
         </a>
-        <a href="reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="art-nav-item art-nav-next">
+        <a href="/articles/reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Рейтинг продаж в Китае: Geely EX2, Xiaomi SU7 и гонка BYD</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="vash-novyy-avtomobil-peredaet-vashi-lichnye-dannye-bez-tvoego-vedoma.html" class="card-link"></a>
+                                <a href="/articles/vash-novyy-avtomobil-peredaet-vashi-lichnye-dannye-bez-tvoego-vedoma.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-169.jpg" alt="Цифровой сенсорный салон современного подключенного автомобиля" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="169" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c.html" class="card-link"></a>
+                                <a href="/articles/ford-zayavlyaet-chto-ego-gruzovik-fathom-stoimost-yu-30-000-dollarov-potrebuet-c.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-171.jpg" alt="Современный электрический пикап Ford F-150 Lightning" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="171" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="elektromobili-v-2026-godu-gonka-za-zapasom-khoda-v-1000-km.html" class="card-link"></a>
+                                <a href="/articles/elektromobili-v-2026-godu-gonka-za-zapasom-khoda-v-1000-km.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-01.jpg" alt="Электромобили в 2026 году: гонка за запасом хода в 1000 км" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="1" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

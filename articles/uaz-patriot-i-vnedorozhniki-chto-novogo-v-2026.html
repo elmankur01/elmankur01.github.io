@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="lada-vesta-2026-chto-izmenilos-v-glavnoy-modeli-avtovaza.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/lada-vesta-2026-chto-izmenilos-v-glavnoy-modeli-avtovaza.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Лада Vesta 2026: что изменилось в главной модели АвтоВАЗа</span>
         </a>
-        <a href="avtovaz-2026-novye-modeli-i-plany-kontserna.html" class="art-nav-item art-nav-next">
+        <a href="/articles/avtovaz-2026-novye-modeli-i-plany-kontserna.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">АвтоВАЗ 2026: новые модели и планы концерна</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="card-link"></a>
+                                <a href="/articles/reyting-prodazh-v-kitae-geely-ex2-xiaomi-su7-i-gonka-byd.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-23.jpg" alt="Рейтинг продаж в Китае: Geely EX2, Xiaomi SU7 и гонка BYD" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="23" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="atom-rossiyskiy-elektromobil-vykhodit-na-dorogi.html" class="card-link"></a>
+                                <a href="/articles/atom-rossiyskiy-elektromobil-vykhodit-na-dorogi.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-65.jpg" alt="«Атом»: российский электромобиль выходит на дороги" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="65" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="rossiyskiy-avtorynok-v-iyule-2026-rost-lidery-i-dolya-kitaytsev.html" class="card-link"></a>
+                                <a href="/articles/rossiyskiy-avtorynok-v-iyule-2026-rost-lidery-i-dolya-kitaytsev.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-66.jpg" alt="Российский авторынок в июле 2026: рост, лидеры и доля китайцев" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="66" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

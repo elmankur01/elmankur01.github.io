@@ -999,6 +999,46 @@ a:focus-visible, button:focus-visible {
     color: var(--muted);
 }
 
+.crumb-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--bg-soft, #0e1520);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    border-radius: 8px;
+    color: var(--text, #e2e8f0);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.crumb-back-btn:hover {
+    background: var(--accent, #e8433c);
+    color: #fff;
+    border-color: var(--accent, #e8433c);
+    transform: translateX(-3px);
+}
+
+.crumb-back-arrow {
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.crumb-back-btn:hover .crumb-back-arrow {
+    transform: translateX(-2px);
+}
+
+.crumb-divider {
+    color: var(--border, rgba(255, 255, 255, 0.2));
+    font-weight: 300;
+    margin: 0 2px;
+}
+
 .breadcrumbs a {
     color: var(--accent);
     text-decoration: none;
@@ -1343,22 +1383,57 @@ a:focus-visible, button:focus-visible {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--accent);
     color: #fff;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
     cursor: pointer;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: all 0.3s;
-    box-shadow: var(--shadow);
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, background 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-align: center;
+    transform: translateY(10px);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.scroll-top.visible { opacity: 1; pointer-events: auto; }
-.scroll-top:hover { background: var(--accent-hover); }
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+}
+
+.scroll-top:active {
+    transform: translateY(0) scale(0.95);
+}
+
+@media (max-width: 640px) {
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+}
 
 /* ===== Reveal animation ===== */
 .reveal {

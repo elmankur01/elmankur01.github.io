@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Stellantis задержался: Jeep EREV и Ram REV открывают новую хронологию</span>
         </a>
-        <a href="nebol-shoy-rabochiy-furgon-ram-vernetsya-v-2027-godu-po-tsene-menee-40-000-dolla.html" class="art-nav-item art-nav-next">
+        <a href="/articles/nebol-shoy-rabochiy-furgon-ram-vernetsya-v-2027-godu-po-tsene-menee-40-000-dolla.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Небольшой рабочий фургон Ram вернется в 2027 году по цене менее 40 000 долларов</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="ukradennyy-corvette-c7-grand-sport-nayden-posle-pyati-let-pod-vodoy.html" class="card-link"></a>
+                                <a href="/articles/ukradennyy-corvette-c7-grand-sport-nayden-posle-pyati-let-pod-vodoy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-180.jpg" alt="Украденный Corvette C7 Grand Sport найден после пяти лет под водой" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="180" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="nismo-otkryvaet-svoy-pervyy-kontsertnyy-tsentr-za-predelami-yaponii.html" class="card-link"></a>
+                                <a href="/articles/nismo-otkryvaet-svoy-pervyy-kontsertnyy-tsentr-za-predelami-yaponii.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-181.jpg" alt="Суперкар Nissan GT-R Nismo на международной выставке" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="181" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="nissan-rogue-hybrid-2027-poyavitsya-v-noyabre-s-sovershenno-drugoy-transmissiey.html" class="card-link"></a>
+                                <a href="/articles/nissan-rogue-hybrid-2027-poyavitsya-v-noyabre-s-sovershenno-drugoy-transmissiey.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-165.jpg" alt="Nissan Rogue Hybrid 2027 появится в ноябре с совершенно другой трансмиссией" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="165" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

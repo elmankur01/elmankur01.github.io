@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="lotus-vozvrashchaet-toplivo-s-novym-gibridnym-superkarom.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/lotus-vozvrashchaet-toplivo-s-novym-gibridnym-superkarom.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Lotus возвращает топливо с новым гибридным суперкаром</span>
         </a>
-        <a href="ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n.html" class="art-nav-item art-nav-next">
+        <a href="/articles/ford-bronco-sport-i-maverick-poluchat-snizhenie-tsen-k-2027-godu-no-poteryayut-n.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Ford Bronco Sport и Maverick получат снижение цен к 2027 году, но потеряют некоторые функции</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="lfp-protiv-troynogo-litiya-kakaya-batareya-zhivet-dolshe.html" class="card-link"></a>
+                                <a href="/articles/lfp-protiv-troynogo-litiya-kakaya-batareya-zhivet-dolshe.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-29.jpg" alt="LFP против тройного лития: какая батарея живёт дольше" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="29" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="rezhim-odnoy-pedali-chto-takoe-rekuperatsiya-i-kak-ey-polzovatsya.html" class="card-link"></a>
+                                <a href="/articles/rezhim-odnoy-pedali-chto-takoe-rekuperatsiya-i-kak-ey-polzovatsya.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-30.jpg" alt="Режим одной педали: что такое рекуперация и как ей пользоваться" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="30" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="kaliforniya-utverdila-novye-pravila-effektivnosti-zameny-shin-vot-chto-eto-znach.html" class="card-link"></a>
+                                <a href="/articles/kaliforniya-utverdila-novye-pravila-effektivnosti-zameny-shin-vot-chto-eto-znach.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-88.jpg" alt="Калифорния утвердила новые правила эффективности замены шин. Вот что это значит" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="88" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

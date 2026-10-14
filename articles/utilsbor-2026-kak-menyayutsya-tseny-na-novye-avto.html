@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -338,11 +343,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="audi-chetyre-koltsa-i-legenda-quattro.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/audi-chetyre-koltsa-i-legenda-quattro.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Audi: четыре кольца и легенда quattro</span>
         </a>
-        <a href="kitayskie-elektrokary-zakhvatyvayut-evropu.html" class="art-nav-item art-nav-next">
+        <a href="/articles/kitayskie-elektrokary-zakhvatyvayut-evropu.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Китайские электрокары захватывают Европу</span>
         </a>
@@ -353,7 +358,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="bentley-otkazyvaetsya-ot-ekranov-perednego-passazhira-tekhnologii-dolzhny-povysh.html" class="card-link"></a>
+                                <a href="/articles/bentley-otkazyvaetsya-ot-ekranov-perednego-passazhira-tekhnologii-dolzhny-povysh.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-154.jpg" alt="Салон премиум-класса Bentley Flying Spur" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="154" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -369,7 +374,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="subaru-vozrozhdaet-bazovuyu-impreza-i-snizhaet-startovuyu-tsenu-na-2027-god.html" class="card-link"></a>
+                                <a href="/articles/subaru-vozrozhdaet-bazovuyu-impreza-i-snizhaet-startovuyu-tsenu-na-2027-god.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-156.jpg" alt="Subaru возрождает базовую Impreza и снижает стартовую цену на 2027 год" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="156" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -385,7 +390,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="batarei-budushchego-natriy-tverdyy-elektrolit-i-lfp.html" class="card-link"></a>
+                                <a href="/articles/batarei-budushchego-natriy-tverdyy-elektrolit-i-lfp.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-15.jpg" alt="Батареи будущего: натрий, твёрдый электролит и LFP" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="15" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -481,6 +486,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -338,11 +343,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/bmw-eshche-ne-zakonchila-s-m2-predpolozhitel-no-vyydet-novaya-versiya.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">BMW еще не закончила с M2. Предположительно выйдет новая версия</span>
         </a>
-        <a href="lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="art-nav-item art-nav-next">
+        <a href="/articles/lamborghini-temerario-tricolore-zazhyog-krasku-na-galechnom-plyazhe.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Lamborghini Temerario Tricolore зажёг краску на галечном пляже</span>
         </a>
@@ -353,7 +358,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="mercedes-300-sls-protiv-slr-stirling-moss.html" class="card-link"></a>
+                                <a href="/articles/mercedes-300-sls-protiv-slr-stirling-moss.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-82.jpg" alt="Суперкар Mercedes-Benz SLR Stirling Moss" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="82" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -369,7 +374,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota.html" class="card-link"></a>
+                                <a href="/articles/sdelano-vsego-2500-ekzemplyarov-toyota-corolla-posvyashchennaya-60-letiyu-toyota.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-85.jpg" alt="Сделано всего 2500 экземпляров: Toyota Corolla, посвященная 60-летию Toyota, является гибридом" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="85" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -385,7 +390,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="corvette-2027-goda-uzhe-poluchaet-povyshenie-tsen.html" class="card-link"></a>
+                                <a href="/articles/corvette-2027-goda-uzhe-poluchaet-povyshenie-tsen.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-185.jpg" alt="Corvette 2027 года уже получает повышение цен" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="185" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -481,6 +486,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

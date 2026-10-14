@@ -65,6 +65,11 @@ function enc(s) {
 
 function breadcrumbs(article, slug) {
     return `<nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#${tagAnchor(article.tag)}">${esc(article.tag)}</a>
@@ -286,11 +291,11 @@ function articleNav(n) {
 
     return `
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="${prevSlug}.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/${prevSlug}.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">${esc(prevA.title)}</span>
         </a>
-        <a href="${nextSlug}.html" class="art-nav-item art-nav-next">
+        <a href="/articles/${nextSlug}.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">${esc(nextA.title)}</span>
         </a>
@@ -585,7 +590,7 @@ function page(article, n) {
                                 ? `<div class="card-media"><img src="${esc(rImg.url)}" alt="${esc(rImg.alt || a.title)}" loading="lazy" width="800" height="450"></div>`
                                 : '';
                             return `<article class="article-card">
-                                <a href="${rSlug}.html" class="card-link"></a>
+                                <a href="/articles/${rSlug}.html" class="card-link"></a>
                                 ${rMedia}
                                 <span class="card-tag">${esc(a.tag)}</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="${ri}" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -682,6 +687,8 @@ function page(article, n) {
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
@@ -882,7 +889,7 @@ function generateBrandPages() {
                 <a href="/">Главная</a>
             </p>
         </div>
-    </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
     <script src="/search.js?v=1" defer></script>
@@ -1025,6 +1032,11 @@ function generateBrandPages() {
     <main>
         <div class="container" style="padding-top:24px;">
             <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="javascript:history.length>1?history.back():location.href='/brands/'" class="crumb-back-btn" aria-label="Назад">
+                    <span class="crumb-back-arrow">←</span>
+                    <span class="crumb-back-text">Назад</span>
+                </a>
+                <span class="crumb-divider">|</span>
                 <a href="/">Главная</a>
                 <span class="crumb-sep" aria-hidden="true">→</span>
                 <a href="/brands/">Каталог марок</a>
@@ -1076,6 +1088,7 @@ function generateBrandPages() {
             </p>
         </div>
     </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
     <script src="/favorites.js" defer></script>
@@ -1237,6 +1250,7 @@ function generateTagPages() {
             </p>
         </div>
     </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
     <script src="/search.js?v=1" defer></script>
@@ -1370,6 +1384,11 @@ function generateTagPages() {
     <main>
         <div class="container" style="padding-top:24px;">
             <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="javascript:history.length>1?history.back():location.href='/tags/'" class="crumb-back-btn" aria-label="Назад">
+                    <span class="crumb-back-arrow">←</span>
+                    <span class="crumb-back-text">Назад</span>
+                </a>
+                <span class="crumb-divider">|</span>
                 <a href="/">Главная</a>
                 <span class="crumb-sep" aria-hidden="true">→</span>
                 <a href="/tags/">Теги</a>
@@ -1413,6 +1432,7 @@ function generateTagPages() {
             </p>
         </div>
     </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
     <script src="/favorites.js" defer></script>

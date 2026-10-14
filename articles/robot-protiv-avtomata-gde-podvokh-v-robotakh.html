@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Двигатели</a>
@@ -338,11 +343,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="kak-ekonomit-toplivo-10-privychek-voditelya.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/kak-ekonomit-toplivo-10-privychek-voditelya.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Как экономить топливо: 10 привычек водителя</span>
         </a>
-        <a href="bmw-ot-aviatsionnykh-dvigateley-do-troyki.html" class="art-nav-item art-nav-next">
+        <a href="/articles/bmw-ot-aviatsionnykh-dvigateley-do-troyki.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">BMW: от авиационных двигателей до «тройки»</span>
         </a>
@@ -353,7 +358,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="federaly-rasshiryayut-rassledovanie-problemnykh-dvigateley-v8-gm.html" class="card-link"></a>
+                                <a href="/articles/federaly-rasshiryayut-rassledovanie-problemnykh-dvigateley-v8-gm.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-92.jpg" alt="Федералы расширяют расследование проблемных двигателей V8 GM" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="92" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -369,7 +374,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="dodge-durango-stanet-temnee-v-2027-godu-s-novoy-kraskoy.html" class="card-link"></a>
+                                <a href="/articles/dodge-durango-stanet-temnee-v-2027-godu-s-novoy-kraskoy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-118.jpg" alt="Dodge Durango станет темнее в 2027 году с новой краской" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="118" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -385,7 +390,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="vodorod-protiv-batarei-vtoroy-shans-h2-tekhnologiy.html" class="card-link"></a>
+                                <a href="/articles/vodorod-protiv-batarei-vtoroy-shans-h2-tekhnologiy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-49.jpg" alt="Водород против батареи: второй шанс H2-технологий" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="49" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -481,6 +486,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

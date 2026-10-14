@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Киберкабина Tesla без руля появится в Остине 3 сентября</span>
         </a>
-        <a href="hyundai-bukval-no-podnimaet-kryshu-novym-elitnym-palisade.html" class="art-nav-item art-nav-next">
+        <a href="/articles/hyundai-bukval-no-podnimaet-kryshu-novym-elitnym-palisade.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Hyundai буквально поднимает крышу новым элитным Palisade</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="b-u-elektromobil-na-chto-smotret-pri-pokupke.html" class="card-link"></a>
+                                <a href="/articles/b-u-elektromobil-na-chto-smotret-pri-pokupke.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-31.jpg" alt="Б/у электромобиль: на что смотреть при покупке" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="31" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="domashnyaya-zaryadka-stavim-zaryadnuyu-stantsiyu-bez-lishnikh-trat.html" class="card-link"></a>
+                                <a href="/articles/domashnyaya-zaryadka-stavim-zaryadnuyu-stantsiyu-bez-lishnikh-trat.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-51.jpg" alt="Домашняя зарядка: ставим зарядную станцию без лишних трат" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="51" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="changan-cs75-plus-awd-lokalizatsiya-i-polnyy-privod.html" class="card-link"></a>
+                                <a href="/articles/changan-cs75-plus-awd-lokalizatsiya-i-polnyy-privod.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-26.jpg" alt="Changan CS75 Plus AWD: локализация и полный привод" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="26" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

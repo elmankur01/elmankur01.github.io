@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="kuda-ukhodit-vtorichnyy-rynok-trendy-b-u-avtomobiley.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/kuda-ukhodit-vtorichnyy-rynok-trendy-b-u-avtomobiley.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Куда уходит вторичный рынок: тренды Б/у автомобилей</span>
         </a>
-        <a href="chevrolet-kak-amerika-stroila-svoi-legendy.html" class="art-nav-item art-nav-next">
+        <a href="/articles/chevrolet-kak-amerika-stroila-svoi-legendy.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Chevrolet: как Америка строила свои легенды</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="gibridnoe-budushchee-lamborghini-obretaet-formu-i-odna-strana-mozhet-sygrat-bole.html" class="card-link"></a>
+                                <a href="/articles/gibridnoe-budushchee-lamborghini-obretaet-formu-i-odna-strana-mozhet-sygrat-bole.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-86.jpg" alt="Гибридное будущее Lamborghini обретает форму, и одна страна может сыграть более важную роль" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="86" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya.html" class="card-link"></a>
+                                <a href="/articles/kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-96.jpg" alt="Беспилотная киберкабина Tesla Cybercab без руля и педалей" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="96" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="gm-gotovit-masshtabnuyu-modernizatsiyu-transmissii-dlya-svoikh-gruzovikov-hd-otc.html" class="card-link"></a>
+                                <a href="/articles/gm-gotovit-masshtabnuyu-modernizatsiyu-transmissii-dlya-svoikh-gruzovikov-hd-otc.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-125.jpg" alt="Пикап Chevrolet Silverado HD" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="125" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

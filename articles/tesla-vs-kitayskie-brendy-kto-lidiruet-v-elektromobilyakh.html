@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -342,11 +347,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="ferrari-kak-malenkaya-masterskaya-stala-simvolom-skorosti.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/ferrari-kak-malenkaya-masterskaya-stala-simvolom-skorosti.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Ferrari: как маленькая мастерская стала символом скорости</span>
         </a>
-        <a href="ekologicheskie-normy-kak-avtoprom-gotovitsya-k-zapretu-dvs.html" class="art-nav-item art-nav-next">
+        <a href="/articles/ekologicheskie-normy-kak-avtoprom-gotovitsya-k-zapretu-dvs.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Экологические нормы: как автопром готовится к запрету ДВС</span>
         </a>
@@ -357,7 +362,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="sleduyushchiy-audi-a4-otlozhen-do-2029-goda-poskol-ku-novaya-platforma-elektromo.html" class="card-link"></a>
+                                <a href="/articles/sleduyushchiy-audi-a4-otlozhen-do-2029-goda-poskol-ku-novaya-platforma-elektromo.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-145.jpg" alt="Седан Audi A4" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="145" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -373,7 +378,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="zakazy-volkswagen-na-elektromobili-operezhayut-zakazy-na-benzinovye-avtomobili-v.html" class="card-link"></a>
+                                <a href="/articles/zakazy-volkswagen-na-elektromobili-operezhayut-zakazy-na-benzinovye-avtomobili-v.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-151.jpg" alt="Электрокроссовер Volkswagen ID.4" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="151" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -389,7 +394,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="osago-i-kasko-dlya-novykh-avtomobiley-chto-izmenilos.html" class="card-link"></a>
+                                <a href="/articles/osago-i-kasko-dlya-novykh-avtomobiley-chto-izmenilos.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-64.jpg" alt="ОСАГО и каско для новых автомобилей: что изменилось" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="64" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -485,6 +490,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

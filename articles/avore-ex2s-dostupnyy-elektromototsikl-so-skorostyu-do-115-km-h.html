@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -336,11 +341,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/tseny-i-komplektatsii-kia-ev3-novyy-lider-v-dostupnom-segmente.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Цены и комплектации Kia EV3: новый лидер в доступном сегменте</span>
         </a>
-        <a href="trevoga-zapasa-khoda-pochemu-strakh-pered-batareyami-ukhodit-v-proshloe.html" class="art-nav-item art-nav-next">
+        <a href="/articles/trevoga-zapasa-khoda-pochemu-strakh-pered-batareyami-ukhodit-v-proshloe.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">«Тревога запаса хода»: почему страх перед батареями уходит в прошлое</span>
         </a>
@@ -351,7 +356,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="aston-martin-poyman-na-testirovanii-svoego-konkurenta-porsche-911-gt3-video.html" class="card-link"></a>
+                                <a href="/articles/aston-martin-poyman-na-testirovanii-svoego-konkurenta-porsche-911-gt3-video.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-111.jpg" alt="Спорткар Aston Martin Vantage" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="111" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -367,7 +372,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="novye-avtomobil-nye-kamery-gm-teper-zapisyvayut-passazhirov-posle-ota-obnovleniy.html" class="card-link"></a>
+                                <a href="/articles/novye-avtomobil-nye-kamery-gm-teper-zapisyvayut-passazhirov-posle-ota-obnovleniy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-114.jpg" alt="Цифровой салон автомобиля General Motors" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="114" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -383,7 +388,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="sportkary-2026-elektricheskie-i-gibridnye-bestsellery.html" class="card-link"></a>
+                                <a href="/articles/sportkary-2026-elektricheskie-i-gibridnye-bestsellery.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-32.jpg" alt="Спорткары 2026: электрические и гибридные бестселлеры" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="32" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -479,6 +484,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

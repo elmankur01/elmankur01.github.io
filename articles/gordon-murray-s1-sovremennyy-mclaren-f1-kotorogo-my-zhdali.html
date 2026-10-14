@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Двигатели</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="spyker-vozvrashchaetsya-debyut-c8-preliator-xxv-moshchnost-yu-789-l-s.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/spyker-vozvrashchaetsya-debyut-c8-preliator-xxv-moshchnost-yu-789-l-s.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Spyker возвращается: дебют C8 Preliator XXV мощностью 789 л.с.</span>
         </a>
-        <a href="pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo.html" class="art-nav-item art-nav-next">
+        <a href="/articles/pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Покупатели 911 GT3 помогли убедить Porsche сохранить «механику» для Carrera S</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="kak-ekonomit-toplivo-10-privychek-voditelya.html" class="card-link"></a>
+                                <a href="/articles/kak-ekonomit-toplivo-10-privychek-voditelya.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-39.jpg" alt="Как экономить топливо: 10 привычек водителя" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="39" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="robot-protiv-avtomata-gde-podvokh-v-robotakh.html" class="card-link"></a>
+                                <a href="/articles/robot-protiv-avtomata-gde-podvokh-v-robotakh.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-40.jpg" alt="Робот против автомата: где подвох в «роботах»" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="40" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov.html" class="card-link"></a>
+                                <a href="/articles/podgotovka-k-dalney-poezdke-chek-list-iz-10-punktov.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-69.jpg" alt="Дорога в дальнюю поездку" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Авто лайфхаки</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="69" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

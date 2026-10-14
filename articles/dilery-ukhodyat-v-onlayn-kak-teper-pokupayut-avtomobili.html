@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#market">Новости рынка</a>
@@ -337,11 +342,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="reyting-marok-po-prodazham-v-rossii-2026.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/reyting-marok-po-prodazham-v-rossii-2026.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Рейтинг марок по продажам в России 2026</span>
         </a>
-        <a href="osago-i-kasko-dlya-novykh-avtomobiley-chto-izmenilos.html" class="art-nav-item art-nav-next">
+        <a href="/articles/osago-i-kasko-dlya-novykh-avtomobiley-chto-izmenilos.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">ОСАГО и каско для новых автомобилей: что изменилось</span>
         </a>
@@ -352,7 +357,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="pobediteli-i-proigravshie-sentyabr-skikh-prodazh-avtomobiley.html" class="card-link"></a>
+                                <a href="/articles/pobediteli-i-proigravshie-sentyabr-skikh-prodazh-avtomobiley.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-175.jpg" alt="Автосалон с рядами новых автомобилей в продаже" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="175" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -368,7 +373,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="prodazhi-nissan-v-ssha-rastut-19-y-mesyats-podryad.html" class="card-link"></a>
+                                <a href="/articles/prodazhi-nissan-v-ssha-rastut-19-y-mesyats-podryad.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-177.jpg" alt="Продажи Nissan в США растут 19-й месяц подряд" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="177" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -384,7 +389,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="lamborghini-prodolzhaet-namekat-na-vremennyy-sterrato.html" class="card-link"></a>
+                                <a href="/articles/lamborghini-prodolzhaet-namekat-na-vremennyy-sterrato.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-159.jpg" alt="Lamborghini продолжает намекать на временный Sterrato" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="159" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -480,6 +485,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

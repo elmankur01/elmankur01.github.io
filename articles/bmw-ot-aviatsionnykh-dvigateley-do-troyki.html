@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#history">История марок</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="robot-protiv-avtomata-gde-podvokh-v-robotakh.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/robot-protiv-avtomata-gde-podvokh-v-robotakh.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Робот против автомата: где подвох в «роботах»</span>
         </a>
-        <a href="mercedes-benz-rozhdenie-trekhluchevoy-zvezdy.html" class="art-nav-item art-nav-next">
+        <a href="/articles/mercedes-benz-rozhdenie-trekhluchevoy-zvezdy.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Mercedes-Benz: рождение трёхлучевой звезды</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="volkswagen-narodnyy-avtomobil-i-ego-nasledie.html" class="card-link"></a>
+                                <a href="/articles/volkswagen-narodnyy-avtomobil-i-ego-nasledie.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-12.jpg" alt="Volkswagen: «народный автомобиль» и его наследие" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="12" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="porsche-911-60-let-odnoy-legende.html" class="card-link"></a>
+                                <a href="/articles/porsche-911-60-let-odnoy-legende.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/porsche-911.jpg" alt="Porsche 911 GT3 (992)" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="16" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="lada-vesta-2026-chto-izmenilos-v-glavnoy-modeli-avtovaza.html" class="card-link"></a>
+                                <a href="/articles/lada-vesta-2026-chto-izmenilos-v-glavnoy-modeli-avtovaza.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-53.jpg" alt="Лада Vesta 2026: что изменилось в главной модели АвтоВАЗа" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="53" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

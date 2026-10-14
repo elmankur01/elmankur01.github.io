@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Двигатели</a>
@@ -342,11 +347,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Toyota: путь от ткацкого станка до мирового лидера</span>
         </a>
-        <a href="avtoprom-budushchego-bespilotniki-karshering-i-novye-rynki.html" class="art-nav-item art-nav-next">
+        <a href="/articles/avtoprom-budushchego-bespilotniki-karshering-i-novye-rynki.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Автопром будущего: беспилотники, каршеринг и новые рынки</span>
         </a>
@@ -357,7 +362,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="genesis-g70-teryaet-svoy-luchshiy-dvigatel.html" class="card-link"></a>
+                                <a href="/articles/genesis-g70-teryaet-svoy-luchshiy-dvigatel.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-93.jpg" alt="Genesis G70 теряет свой лучший двигатель" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="93" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -373,7 +378,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="lincoln-corsair-vozvrashchaetsya-v-2027-godu-kak-gibrid-kitayskogo-proizvodstva.html" class="card-link"></a>
+                                <a href="/articles/lincoln-corsair-vozvrashchaetsya-v-2027-godu-kak-gibrid-kitayskogo-proizvodstva.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-101.jpg" alt="Lincoln Corsair возвращается в 2027 году как гибрид китайского производства" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="101" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -389,7 +394,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="zeekr-bmw-i-gonka-za-900-voltovye-platformy.html" class="card-link"></a>
+                                <a href="/articles/zeekr-bmw-i-gonka-za-900-voltovye-platformy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-25.jpg" alt="Zeekr, BMW и гонка за 900-вольтовые платформы" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="25" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -485,6 +490,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

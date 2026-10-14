@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="range-rover-sport-otozvan-iz-za-zadnikh-podramnikov-kotorye-mogut-tresnut.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/range-rover-sport-otozvan-iz-za-zadnikh-podramnikov-kotorye-mogut-tresnut.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Range Rover Sport отозван из-за задних подрамников, которые могут треснуть</span>
         </a>
-        <a href="pobediteli-i-proigravshie-sentyabr-skikh-prodazh-avtomobiley.html" class="art-nav-item art-nav-next">
+        <a href="/articles/pobediteli-i-proigravshie-sentyabr-skikh-prodazh-avtomobiley.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Победители и проигравшие сентябрьских продаж автомобилей</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="za-rubezhom-novyy-pajero-na-udivlenie-dorog-eto-mozhet-byt-plokhoy-novost-yu-dly.html" class="card-link"></a>
+                                <a href="/articles/za-rubezhom-novyy-pajero-na-udivlenie-dorog-eto-mozhet-byt-plokhoy-novost-yu-dly.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-120.jpg" alt="Внедорожник Mitsubishi Pajero" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="120" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ford-ne-skazhet-smozhet-li-fathom-za-29-945-dollarov-buksirovat-vash-pritsep.html" class="card-link"></a>
+                                <a href="/articles/ford-ne-skazhet-smozhet-li-fathom-za-29-945-dollarov-buksirovat-vash-pritsep.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-121.jpg" alt="Тяжелый пикап Ford Super Duty с прицепом" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="121" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s.html" class="card-link"></a>
+                                <a href="/articles/modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-153.jpg" alt="Пикап Chevrolet Colorado с мотором TurboMax" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="153" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

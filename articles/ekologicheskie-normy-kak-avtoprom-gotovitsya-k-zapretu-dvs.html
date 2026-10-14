@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="tesla-vs-kitayskie-brendy-kto-lidiruet-v-elektromobilyakh.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/tesla-vs-kitayskie-brendy-kto-lidiruet-v-elektromobilyakh.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Tesla vs китайские бренды: кто лидирует в электромобилях</span>
         </a>
-        <a href="volkswagen-narodnyy-avtomobil-i-ego-nasledie.html" class="art-nav-item art-nav-next">
+        <a href="/articles/volkswagen-narodnyy-avtomobil-i-ego-nasledie.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Volkswagen: «народный автомобиль» и его наследие</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="u-mitsubishi-skoro-poyavitsya-7-novykh-modeley-vot-oni-vse.html" class="card-link"></a>
+                                <a href="/articles/u-mitsubishi-skoro-poyavitsya-7-novykh-modeley-vot-oni-vse.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-104.jpg" alt="У Mitsubishi скоро появится 7 новых моделей. Вот они все" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="104" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="istoriya-proiskhozhdeniya-maserati-poluchila-gollivudskoe-osveshchenie-v-novom-f.html" class="card-link"></a>
+                                <a href="/articles/istoriya-proiskhozhdeniya-maserati-poluchila-gollivudskoe-osveshchenie-v-novom-f.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-105.jpg" alt="Суперкар Maserati MC20" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="105" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo.html" class="card-link"></a>
+                                <a href="/articles/pokupateli-911-gt3-pomogli-ubedit-porsche-dat-carrera-s-rukovodstvo.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-80.jpg" alt="Спорткар Porsche 911 Carrera S" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="80" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

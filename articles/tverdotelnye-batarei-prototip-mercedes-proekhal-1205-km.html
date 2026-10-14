@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="bystraya-zaryadka-vazhnee-zapasa-khoda-epokha-800v-i-900v.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/bystraya-zaryadka-vazhnee-zapasa-khoda-epokha-800v-i-900v.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Быстрая зарядка важнее запаса хода: эпоха 800V и 900V</span>
         </a>
-        <a href="li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="art-nav-item art-nav-next">
+        <a href="/articles/li-auto-elektronnoe-shassi-i-zapas-khoda-do-1650-km.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Li Auto: электронное шасси и запас хода до 1650 км</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu.html" class="card-link"></a>
+                                <a href="/articles/stellantis-zaderzhalsya-jeep-erev-i-ram-rev-otkryvayut-novuyu-khronologiyu.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-130.jpg" alt="Stellantis задержался: Jeep EREV и Ram REV открывают новую хронологию" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="130" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski.html" class="card-link"></a>
+                                <a href="/articles/porsche-cayenne-electric-2027-vykhodit-na-novyy-uroven-blagodarya-avtomaticheski.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-139.jpg" alt="Кроссовер Porsche Cayenne GTS" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="139" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="honda-passport-trailsport-2027-goda-stala-namnogo-bolee-funktsional-noy.html" class="card-link"></a>
+                                <a href="/articles/honda-passport-trailsport-2027-goda-stala-namnogo-bolee-funktsional-noy.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-127.jpg" alt="Кроссовер Honda Passport TrailSport" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="127" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="pokupateli-elektromobiley-po-prezhnemu-khotyat-bol-shego-zapasa-khoda-chem-im-nu.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/pokupateli-elektromobiley-po-prezhnemu-khotyat-bol-shego-zapasa-khoda-chem-im-nu.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Покупатели электромобилей по-прежнему хотят большего запаса хода, чем им нужно, показало исследование BMW</span>
         </a>
-        <a href="brend-stellantis-ds-automobiles-podaet-priznaki-zhizni-s-novym-kontsept-karom.html" class="art-nav-item art-nav-next">
+        <a href="/articles/brend-stellantis-ds-automobiles-podaet-priznaki-zhizni-s-novym-kontsept-karom.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Бренд Stellantis DS Automobiles подает признаки жизни с новым концепт-каром</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="utilsbor-2026-kak-menyayutsya-tseny-na-novye-avto.html" class="card-link"></a>
+                                <a href="/articles/utilsbor-2026-kak-menyayutsya-tseny-na-novye-avto.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-46.jpg" alt="Утильсбор 2026: как меняются цены на новые авто" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="46" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="kitayskie-elektrokary-zakhvatyvayut-evropu.html" class="card-link"></a>
+                                <a href="/articles/kitayskie-elektrokary-zakhvatyvayut-evropu.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-47.jpg" alt="Китайские электрокары захватывают Европу" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="47" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="novaya-chernaya-seriya-mercedes-budet-ispol-zovat-dikiy-ploskiy-v8.html" class="card-link"></a>
+                                <a href="/articles/novaya-chernaya-seriya-mercedes-budet-ispol-zovat-dikiy-ploskiy-v8.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-76.jpg" alt="Mercedes-AMG Black Series V8" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="76" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

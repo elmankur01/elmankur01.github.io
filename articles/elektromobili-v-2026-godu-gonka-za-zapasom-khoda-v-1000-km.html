@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Электромобили</a>
@@ -342,11 +347,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="sleduyushchiy-malen-kiy-vnedorozhnik-jeep-mozhet-vozrodit-svoi-korni-willys.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/sleduyushchiy-malen-kiy-vnedorozhnik-jeep-mozhet-vozrodit-svoi-korni-willys.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Следующий маленький внедорожник Jeep может возродить свои корни Willys</span>
         </a>
-        <a href="premery-goda-glavnye-avto-kotorye-vyydut-na-rynok.html" class="art-nav-item art-nav-next">
+        <a href="/articles/premery-goda-glavnye-avto-kotorye-vyydut-na-rynok.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Премьеры года: главные авто, которые выйдут на рынок</span>
         </a>
@@ -357,7 +362,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="bystraya-zaryadka-vazhnee-zapasa-khoda-epokha-800v-i-900v.html" class="card-link"></a>
+                                <a href="/articles/bystraya-zaryadka-vazhnee-zapasa-khoda-epokha-800v-i-900v.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-19.jpg" alt="Быстрая зарядка важнее запаса хода: эпоха 800V и 900V" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="19" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -373,7 +378,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="tverdotelnye-batarei-prototip-mercedes-proekhal-1205-km.html" class="card-link"></a>
+                                <a href="/articles/tverdotelnye-batarei-prototip-mercedes-proekhal-1205-km.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-20.jpg" alt="Твёрдотельные батареи: прототип Mercedes проехал 1205 км" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="20" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -389,7 +394,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="turbo-ili-atmosfernik-chto-nadezhnee-na-samom-dele.html" class="card-link"></a>
+                                <a href="/articles/turbo-ili-atmosfernik-chto-nadezhnee-na-samom-dele.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-08.jpg" alt="Двигатель V8 4.0 TFSI с двойным турбонаддувом" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="8" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -485,6 +490,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

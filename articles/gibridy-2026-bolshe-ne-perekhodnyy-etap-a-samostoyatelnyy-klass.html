@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Двигатели</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="kitayskie-brendy-shturmuyut-rynok-haval-exeed-i-geely-v-liderakh.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/kitayskie-brendy-shturmuyut-rynok-haval-exeed-i-geely-v-liderakh.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Китайские бренды штурмуют рынок: HAVAL, EXEED и Geely в лидерах</span>
         </a>
-        <a href="bystraya-zaryadka-vazhnee-zapasa-khoda-epokha-800v-i-900v.html" class="art-nav-item art-nav-next">
+        <a href="/articles/bystraya-zaryadka-vazhnee-zapasa-khoda-epokha-800v-i-900v.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Быстрая зарядка важнее запаса хода: эпоха 800V и 900V</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="gordon-murray-s1-sovremennyy-mclaren-f1-kotorogo-my-zhdali.html" class="card-link"></a>
+                                <a href="/articles/gordon-murray-s1-sovremennyy-mclaren-f1-kotorogo-my-zhdali.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-79.jpg" alt="Gordon Murray S1" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="79" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="novyy-mercedes-c-class-ne-vernet-amg-c63-v8.html" class="card-link"></a>
+                                <a href="/articles/novyy-mercedes-c-class-ne-vernet-amg-c63-v8.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-83.jpg" alt="Новый Mercedes C-Class не вернет AMG C63 V8" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="83" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="eto-mustang-kotoryy-kak-my-khotim-postroil-ford.html" class="card-link"></a>
+                                <a href="/articles/eto-mustang-kotoryy-kak-my-khotim-postroil-ford.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-106.jpg" alt="Спорткупе Ford Mustang Dark Horse" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="106" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#history">История марок</a>
@@ -338,11 +343,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="honda-ot-mopedov-do-legendarnogo-nsx.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/honda-ot-mopedov-do-legendarnogo-nsx.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Honda: от мопедов до легендарного NSX</span>
         </a>
-        <a href="audi-chetyre-koltsa-i-legenda-quattro.html" class="art-nav-item art-nav-next">
+        <a href="/articles/audi-chetyre-koltsa-i-legenda-quattro.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Audi: четыре кольца и легенда quattro</span>
         </a>
@@ -353,7 +358,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="card-link"></a>
+                                <a href="/articles/toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-03.jpg" alt="Toyota: путь от ткацкого станка до мирового лидера" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="3" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -369,7 +374,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="ferrari-kak-malenkaya-masterskaya-stala-simvolom-skorosti.html" class="card-link"></a>
+                                <a href="/articles/ferrari-kak-malenkaya-masterskaya-stala-simvolom-skorosti.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/ferrari.jpg" alt="Ferrari 250 GTO — легендарная модель марки" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="9" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -385,7 +390,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="moskvich-i-vozrozhdenie-rossiyskikh-avtobrendov.html" class="card-link"></a>
+                                <a href="/articles/moskvich-i-vozrozhdenie-rossiyskikh-avtobrendov.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-56.jpg" alt="Москвич и возрождение российских автобрендов" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="56" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -481,6 +486,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="zakazy-volkswagen-na-elektromobili-operezhayut-zakazy-na-benzinovye-avtomobili-v.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/zakazy-volkswagen-na-elektromobili-operezhayut-zakazy-na-benzinovye-avtomobili-v.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Заказы Volkswagen на электромобили опережают заказы на бензиновые автомобили в Германии, но это создает проблему</span>
         </a>
-        <a href="modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s.html" class="art-nav-item art-nav-next">
+        <a href="/articles/modernizatsiya-turbomax-ot-gm-daet-kolorado-i-kan-onu-350-l-s.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Модернизация TurboMax от GM дает Колорадо и Каньону 350 л.с.</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="novyy-general-nyy-direktor-apple-avtomobil-nyy-paren-emu-prinadlezhit-odin-iz-sa.html" class="card-link"></a>
+                                <a href="/articles/novyy-general-nyy-direktor-apple-avtomobil-nyy-paren-emu-prinadlezhit-odin-iz-sa.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-148.jpg" alt="Легендарный суперкар Porsche 959" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="148" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="porsche-rabotaet-nad-avtomaticheskoy-korobkoy-peredach-kotoraya-vydaet-sebya-za-.html" class="card-link"></a>
+                                <a href="/articles/porsche-rabotaet-nad-avtomaticheskoy-korobkoy-peredach-kotoraya-vydaet-sebya-za-.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-150.jpg" alt="Коробка передач Porsche PDK" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="150" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="bentley-otkazyvaetsya-ot-sroka-vypuska-elektromobiley-k-2030-godu-sokhranyaya-ga.html" class="card-link"></a>
+                                <a href="/articles/bentley-otkazyvaetsya-ot-sroka-vypuska-elektromobiley-k-2030-godu-sokhranyaya-ga.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-155.jpg" alt="Внедорожник Bentley Bentayga" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="155" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

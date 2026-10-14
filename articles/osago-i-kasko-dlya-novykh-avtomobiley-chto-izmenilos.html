@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#market">Новости рынка</a>
@@ -338,11 +343,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="dilery-ukhodyat-v-onlayn-kak-teper-pokupayut-avtomobili.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/dilery-ukhodyat-v-onlayn-kak-teper-pokupayut-avtomobili.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Дилеры уходят в онлайн: как теперь покупают автомобили</span>
         </a>
-        <a href="atom-rossiyskiy-elektromobil-vykhodit-na-dorogi.html" class="art-nav-item art-nav-next">
+        <a href="/articles/atom-rossiyskiy-elektromobil-vykhodit-na-dorogi.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">«Атом»: российский электромобиль выходит на дороги</span>
         </a>
@@ -353,7 +358,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="rynok-novykh-avtomobiley-v-rossii-itogi-polugodiya-2026.html" class="card-link"></a>
+                                <a href="/articles/rynok-novykh-avtomobiley-v-rossii-itogi-polugodiya-2026.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-59.jpg" alt="Рынок новых автомобилей в России: итоги полугодия 2026" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="59" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -369,7 +374,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="pochemu-dorozhayut-avtomobili-faktory-tsen-2026.html" class="card-link"></a>
+                                <a href="/articles/pochemu-dorozhayut-avtomobili-faktory-tsen-2026.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-60.jpg" alt="Автосалон и формирование цен на автомобили" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новости рынка</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="60" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -385,7 +390,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="patent-tesla-roadster-pokazyvaet-skrytoe-krylo-kotoroe-mozhet-sozdavat-1543-funt.html" class="card-link"></a>
+                                <a href="/articles/patent-tesla-roadster-pokazyvaet-skrytoe-krylo-kotoroe-mozhet-sozdavat-1543-funt.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-163.jpg" alt="Патент Tesla Roadster показывает скрытое крыло, которое может создавать 1543 фунта прижимной силы" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Электромобили</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="163" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -481,6 +486,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

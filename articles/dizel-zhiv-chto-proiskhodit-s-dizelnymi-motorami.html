@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Двигатели</a>
@@ -341,11 +346,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="gibridy-protiv-elektrichestva-schitaem-chto-vygodnee.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/gibridy-protiv-elektrichestva-schitaem-chto-vygodnee.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Гибриды против электричества: считаем, что выгоднее</span>
         </a>
-        <a href="batarei-budushchego-natriy-tverdyy-elektrolit-i-lfp.html" class="art-nav-item art-nav-next">
+        <a href="/articles/batarei-budushchego-natriy-tverdyy-elektrolit-i-lfp.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Батареи будущего: натрий, твёрдый электролит и LFP</span>
         </a>
@@ -356,7 +361,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="poslushayte-kak-jensen-interceptor-moshchnost-yu-960-l-s-raskryvaet-svoy-v8-s-na.html" class="card-link"></a>
+                                <a href="/articles/poslushayte-kak-jensen-interceptor-moshchnost-yu-960-l-s-raskryvaet-svoy-v8-s-na.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-158.jpg" alt="Послушайте, как Jensen Interceptor мощностью 960 л.с. раскрывает свой V8 с наддувом" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="158" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -372,7 +377,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="nissan-rogue-hybrid-2027-poyavitsya-v-noyabre-s-sovershenno-drugoy-transmissiey.html" class="card-link"></a>
+                                <a href="/articles/nissan-rogue-hybrid-2027-poyavitsya-v-noyabre-s-sovershenno-drugoy-transmissiey.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-165.jpg" alt="Nissan Rogue Hybrid 2027 появится в ноябре с совершенно другой трансмиссией" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Двигатели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="165" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -388,7 +393,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="mercedes-300-sls-protiv-slr-stirling-moss.html" class="card-link"></a>
+                                <a href="/articles/mercedes-300-sls-protiv-slr-stirling-moss.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-82.jpg" alt="Суперкар Mercedes-Benz SLR Stirling Moss" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="82" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -484,6 +489,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/kia-ev3-dostupnyy-elektrokrossover-s-zapasom-khoda-do-516-km.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Kia EV3: доступный электрокроссовер с запасом хода до 516 км</span>
         </a>
-        <a href="avore-ex2s-dostupnyy-elektromototsikl-so-skorostyu-do-115-km-h.html" class="art-nav-item art-nav-next">
+        <a href="/articles/avore-ex2s-dostupnyy-elektromototsikl-so-skorostyu-do-115-km-h.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Avore EX2S: доступный электромотоцикл со скоростью до 115 км/ч</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="lexus-lx-2027-goda-poluchit-novye-tsveta-krasnye-tormoza-i-drugie-standartnye-te.html" class="card-link"></a>
+                                <a href="/articles/lexus-lx-2027-goda-poluchit-novye-tsveta-krasnye-tormoza-i-drugie-standartnye-te.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-152.jpg" alt="Lexus LX 2027 года получит новые цвета, красные тормоза и другие стандартные технологии" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="152" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="acura-zayavila-chto-ne-budet-proizvodit-sportivnye-avtomobili-teper-dver-otkryta.html" class="card-link"></a>
+                                <a href="/articles/acura-zayavila-chto-ne-budet-proizvodit-sportivnye-avtomobili-teper-dver-otkryta.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-103.jpg" alt="Acura заявила, что не будет производить спортивные автомобили. Теперь дверь открыта" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="103" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="xiaomi-su7-kak-telefonnyy-gigant-vorvalsya-v-avtoprom.html" class="card-link"></a>
+                                <a href="/articles/xiaomi-su7-kak-telefonnyy-gigant-vorvalsya-v-avtoprom.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-27.jpg" alt="Xiaomi SU7: как телефонный гигант ворвался в автопром" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="27" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

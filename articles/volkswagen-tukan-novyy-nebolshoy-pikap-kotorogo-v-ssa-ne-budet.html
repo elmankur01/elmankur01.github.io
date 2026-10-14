@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#topics">Новые модели</a>
@@ -340,11 +345,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="bmw-ubila-vse-nadezhdy-na-novuyu-8-yu-seriyu-nevozmozhno.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/bmw-ubila-vse-nadezhdy-na-novuyu-8-yu-seriyu-nevozmozhno.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">BMW убила все надежды на новую 8-ю серию: «невозможно»</span>
         </a>
-        <a href="kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya.html" class="art-nav-item art-nav-next">
+        <a href="/articles/kiberkabina-tesla-bez-rulya-poyavitsya-v-ostine-3-sentyabrya.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">Киберкабина Tesla без руля появится в Остине 3 сентября</span>
         </a>
@@ -355,7 +360,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="changan-cs75-plus-awd-lokalizatsiya-i-polnyy-privod.html" class="card-link"></a>
+                                <a href="/articles/changan-cs75-plus-awd-lokalizatsiya-i-polnyy-privod.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-26.jpg" alt="Changan CS75 Plus AWD: локализация и полный привод" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="26" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -371,7 +376,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="sportkary-2026-elektricheskie-i-gibridnye-bestsellery.html" class="card-link"></a>
+                                <a href="/articles/sportkary-2026-elektricheskie-i-gibridnye-bestsellery.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-32.jpg" alt="Спорткары 2026: электрические и гибридные бестселлеры" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Новые модели</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="32" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -387,7 +392,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="porsche-rabotaet-nad-avtomaticheskoy-korobkoy-peredach-kotoraya-vydaet-sebya-za-.html" class="card-link"></a>
+                                <a href="/articles/porsche-rabotaet-nad-avtomaticheskoy-korobkoy-peredach-kotoraya-vydaet-sebya-za-.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-150.jpg" alt="Коробка передач Porsche PDK" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="150" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -483,6 +488,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>

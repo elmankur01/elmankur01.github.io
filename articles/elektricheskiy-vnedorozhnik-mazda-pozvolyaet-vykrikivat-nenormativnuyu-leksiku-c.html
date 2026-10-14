@@ -191,6 +191,11 @@
         <section class="article-page section">
             <div class="container">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <a href="javascript:history.length>1?history.back():location.href='/'" class="crumb-back-btn" aria-label="Назад">
+                            <span class="crumb-back-arrow">←</span>
+                            <span class="crumb-back-text">Назад</span>
+                        </a>
+                        <span class="crumb-divider">|</span>
                         <a href="/">Главная</a>
                         <span class="crumb-sep" aria-hidden="true">→</span>
                         <a href="/#world">Мировые новости</a>
@@ -339,11 +344,11 @@
                         </div>
                     
     <nav class="article-nav" aria-label="Навигация по статьям">
-        <a href="prodazhi-nissan-v-ssha-rastut-19-y-mesyats-podryad.html" class="art-nav-item art-nav-prev">
+        <a href="/articles/prodazhi-nissan-v-ssha-rastut-19-y-mesyats-podryad.html" class="art-nav-item art-nav-prev">
             <span class="art-nav-label">← Предыдущая статья</span>
             <span class="art-nav-title">Продажи Nissan в США растут 19-й месяц подряд</span>
         </a>
-        <a href="v-etom-godu-kolichestvo-ugonov-avtomobiley-snizilos-vo-vsekh-50-shtatakh.html" class="art-nav-item art-nav-next">
+        <a href="/articles/v-etom-godu-kolichestvo-ugonov-avtomobiley-snizilos-vo-vsekh-50-shtatakh.html" class="art-nav-item art-nav-next">
             <span class="art-nav-label">Следующая статья →</span>
             <span class="art-nav-title">В этом году количество угонов автомобилей снизилось во всех 50 штатах</span>
         </a>
@@ -354,7 +359,7 @@
                     <h2>Читайте также</h2>
                     <div class="articles-grid">
                         <article class="article-card">
-                                <a href="dzheremi-klarkson-prodaet-tri-svoikh-samykh-znamenitykh-avtomobilya-grand-tour.html" class="card-link"></a>
+                                <a href="/articles/dzheremi-klarkson-prodaet-tri-svoikh-samykh-znamenitykh-avtomobilya-grand-tour.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-146.jpg" alt="Классический спорткар Alfa Romeo" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="146" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -370,7 +375,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="vpervye-za-shest-let-ford-ne-vyigraet-premiyu-gruzovik-goda-v-severnoy-amerike.html" class="card-link"></a>
+                                <a href="/articles/vpervye-za-shest-let-ford-ne-vyigraet-premiyu-gruzovik-goda-v-severnoy-amerike.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/auto/art-147.jpg" alt="Электрический пикап Ford F-150 Lightning" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">Мировые новости</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="147" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -386,7 +391,7 @@
                                 </div>
                             </article>
                         <article class="article-card">
-                                <a href="toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="card-link"></a>
+                                <a href="/articles/toyota-put-ot-tkatskogo-stanka-do-mirovogo-lidera.html" class="card-link"></a>
                                 <div class="card-media"><img src="/images/art-03.jpg" alt="Toyota: путь от ткацкого станка до мирового лидера" loading="lazy" width="800" height="450"></div>
                                 <span class="card-tag">История марок</span>
                                 <button type="button" class="bookmark-btn card-bookmark-btn" data-id="3" title="Сохранить в избранное" aria-label="Сохранить в избранное">
@@ -482,6 +487,8 @@
             <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
         </div>
     </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
     <script src="/script.js?v=3" defer></script>
