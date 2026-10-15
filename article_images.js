@@ -296,6 +296,8 @@ const IMAGES = {
     193: { url: "/images/auto/art-193.jpg", alt: "Acura обещает три новых внедорожника, включая модель, готовую к приключениям", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 ,
     194: { url: "/images/auto/art-194.jpg", alt: "Помните спортивный автомобиль Zenos E10? оно вернулось", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+,
+    195: { url: "/images/auto/art-195.jpg", alt: "Электрический Lexus LFA может получить поддельную секвентальную коробку передач", credit: "Фото: TTTNIS, CC0" }
 
 };
 
@@ -611,6 +613,8 @@ const SLUGS = {
     193: "acura-obeshchaet-tri-novykh-vnedorozhnika-vklyuchaya-model-gotovuyu-k-priklyuche"
 ,
     194: "pomnite-sportivnyy-avtomobil-zenos-e10-ono-vernulos"
+,
+    195: "elektricheskiy-lexus-lfa-mozhet-poluchit-poddel-nuyu-sekvental-nuyu-korobku-pere"
 
 };
 
