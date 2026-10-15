@@ -298,6 +298,8 @@ const IMAGES = {
     194: { url: "/images/auto/art-194.jpg", alt: "Помните спортивный автомобиль Zenos E10? оно вернулось", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 ,
     195: { url: "/images/auto/art-195.jpg", alt: "Электрический Lexus LFA может получить поддельную секвентальную коробку передач", credit: "Фото: TTTNIS, CC0" }
+,
+    196: { url: "/images/auto/art-196.jpg", alt: "Сегодня вечером дебютирует Tesla Roadster: смотрите прямую трансляцию", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
 
 };
 
@@ -615,6 +617,8 @@ const SLUGS = {
     194: "pomnite-sportivnyy-avtomobil-zenos-e10-ono-vernulos"
 ,
     195: "elektricheskiy-lexus-lfa-mozhet-poluchit-poddel-nuyu-sekvental-nuyu-korobku-pere"
+,
+    196: "segodnya-vecherom-debyutiruet-tesla-roadster-smotrite-pryamuyu-translyatsiyu"
 
 };
 
