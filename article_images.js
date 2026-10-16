@@ -300,6 +300,8 @@ const IMAGES = {
     195: { url: "/images/auto/art-195.jpg", alt: "Электрический Lexus LFA может получить поддельную секвентальную коробку передач", credit: "Фото: TTTNIS, CC0" }
 ,
     196: { url: "/images/auto/art-196.jpg", alt: "Сегодня вечером дебютирует Tesla Roadster: смотрите прямую трансляцию", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
+,
+    197: { url: "/images/auto/art-197.jpg", alt: "Ford восстановил рекорд Нюрбургринга, но Corvette не будет сопротивляться", credit: "Фото: General Electric Company, Public domain" }
 
 };
 
@@ -619,6 +621,8 @@ const SLUGS = {
     195: "elektricheskiy-lexus-lfa-mozhet-poluchit-poddel-nuyu-sekvental-nuyu-korobku-pere"
 ,
     196: "segodnya-vecherom-debyutiruet-tesla-roadster-smotrite-pryamuyu-translyatsiyu"
+,
+    197: "ford-vosstanovil-rekord-nyurburgringa-no-corvette-ne-budet-soprotivlyat-sya"
 
 };
 
