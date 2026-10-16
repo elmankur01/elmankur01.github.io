@@ -302,6 +302,8 @@ const IMAGES = {
     196: { url: "/images/auto/art-196.jpg", alt: "Сегодня вечером дебютирует Tesla Roadster: смотрите прямую трансляцию", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
 ,
     197: { url: "/images/auto/art-197.jpg", alt: "Ford восстановил рекорд Нюрбургринга, но Corvette не будет сопротивляться", credit: "Фото: General Electric Company, Public domain" }
+,
+    198: { url: "/images/auto/art-198.jpg", alt: "Лучшие (и худшие) города для владения электромобилем: исследование", credit: "Фото: IFCAR, Public domain" }
 
 };
 
@@ -623,6 +625,8 @@ const SLUGS = {
     196: "segodnya-vecherom-debyutiruet-tesla-roadster-smotrite-pryamuyu-translyatsiyu"
 ,
     197: "ford-vosstanovil-rekord-nyurburgringa-no-corvette-ne-budet-soprotivlyat-sya"
+,
+    198: "luchshie-i-khudshie-goroda-dlya-vladeniya-elektromobilem-issledovanie"
 
 };
 
