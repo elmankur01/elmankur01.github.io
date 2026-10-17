@@ -306,6 +306,8 @@ const IMAGES = {
     198: { url: "/images/auto/art-198.jpg", alt: "Лучшие (и худшие) города для владения электромобилем: исследование", credit: "Фото: IFCAR, Public domain" }
 ,
     199: { url: "/images/auto/art-199.jpg", alt: "Послушайте загадочный двигатель Porsche Mission S Rev: видео", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
+,
+    200: { url: "/images/auto/art-200.jpg", alt: "Представлен внедорожник Mercedes-AMG GT: до 1153 л.с. и три электродвигателя", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 
 };
 
@@ -631,6 +633,8 @@ const SLUGS = {
     198: "luchshie-i-khudshie-goroda-dlya-vladeniya-elektromobilem-issledovanie"
 ,
     199: "poslushayte-zagadochnyy-dvigatel-porsche-mission-s-rev-video"
+,
+    200: "predstavlen-vnedorozhnik-mercedes-amg-gt-do-1153-l-s-i-tri-elektrodvigatelya"
 
 };
 
