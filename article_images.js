@@ -304,6 +304,8 @@ const IMAGES = {
     197: { url: "/images/auto/art-197.jpg", alt: "Ford восстановил рекорд Нюрбургринга, но Corvette не будет сопротивляться", credit: "Фото: General Electric Company, Public domain" }
 ,
     198: { url: "/images/auto/art-198.jpg", alt: "Лучшие (и худшие) города для владения электромобилем: исследование", credit: "Фото: IFCAR, Public domain" }
+,
+    199: { url: "/images/auto/art-199.jpg", alt: "Послушайте загадочный двигатель Porsche Mission S Rev: видео", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 
 };
 
@@ -627,6 +629,8 @@ const SLUGS = {
     197: "ford-vosstanovil-rekord-nyurburgringa-no-corvette-ne-budet-soprotivlyat-sya"
 ,
     198: "luchshie-i-khudshie-goroda-dlya-vladeniya-elektromobilem-issledovanie"
+,
+    199: "poslushayte-zagadochnyy-dvigatel-porsche-mission-s-rev-video"
 
 };
 
