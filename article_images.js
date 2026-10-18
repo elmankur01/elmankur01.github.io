@@ -308,6 +308,8 @@ const IMAGES = {
     199: { url: "/images/auto/art-199.jpg", alt: "Послушайте загадочный двигатель Porsche Mission S Rev: видео", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 ,
     200: { url: "/images/auto/art-200.jpg", alt: "Представлен внедорожник Mercedes-AMG GT: до 1153 л.с. и три электродвигателя", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    201: { url: "/images/auto/art-201.jpg", alt: "Porsche Mission S может получить руководство, если оно понадобится клиентам", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 
 };
 
@@ -635,6 +637,8 @@ const SLUGS = {
     199: "poslushayte-zagadochnyy-dvigatel-porsche-mission-s-rev-video"
 ,
     200: "predstavlen-vnedorozhnik-mercedes-amg-gt-do-1153-l-s-i-tri-elektrodvigatelya"
+,
+    201: "porsche-mission-s-mozhet-poluchit-rukovodstvo-esli-ono-ponadobitsya-klientam"
 
 };
 
