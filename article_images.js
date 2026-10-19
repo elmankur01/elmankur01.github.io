@@ -314,6 +314,8 @@ const IMAGES = {
     202: { url: "/images/auto/art-202.jpg", alt: "Полиция Дубая пополнила свой автопарк Lamborghini мощностью 907 ​​л.с.", credit: "Фото: AngMoKio, CC BY-SA 3.0" }
 ,
     203: { url: "/images/auto/art-203.jpg", alt: "GTA VI выйдет ровно через месяц. Финальный трейлер выглядит потрясающе", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+,
+    204: { url: "/images/auto/art-204.jpg", alt: "Mercedes заявляет, что внедорожники-купе никуда не денутся: «есть фанаты»", credit: "Фото: Charlie from United Kingdom, CC BY 2.0" }
 
 };
 
@@ -647,6 +649,8 @@ const SLUGS = {
     202: "politsiya-dubaya-popolnila-svoy-avtopark-lamborghini-moshchnost-yu-907-l-s"
 ,
     203: "gta-vi-vyydet-rovno-cherez-mesyats-final-nyy-treyler-vyglyadit-potryasayushche"
+,
+    204: "mercedes-zayavlyaet-chto-vnedorozhniki-kupe-nikuda-ne-denutsya-est-fanaty"
 
 };
 
