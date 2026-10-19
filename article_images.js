@@ -312,6 +312,8 @@ const IMAGES = {
     201: { url: "/images/auto/art-201.jpg", alt: "Porsche Mission S может получить руководство, если оно понадобится клиентам", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 ,
     202: { url: "/images/auto/art-202.jpg", alt: "Полиция Дубая пополнила свой автопарк Lamborghini мощностью 907 ​​л.с.", credit: "Фото: AngMoKio, CC BY-SA 3.0" }
+,
+    203: { url: "/images/auto/art-203.jpg", alt: "GTA VI выйдет ровно через месяц. Финальный трейлер выглядит потрясающе", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 
 };
 
@@ -643,6 +645,8 @@ const SLUGS = {
     201: "porsche-mission-s-mozhet-poluchit-rukovodstvo-esli-ono-ponadobitsya-klientam"
 ,
     202: "politsiya-dubaya-popolnila-svoy-avtopark-lamborghini-moshchnost-yu-907-l-s"
+,
+    203: "gta-vi-vyydet-rovno-cherez-mesyats-final-nyy-treyler-vyglyadit-potryasayushche"
 
 };
 
