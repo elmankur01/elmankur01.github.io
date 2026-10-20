@@ -316,6 +316,8 @@ const IMAGES = {
     203: { url: "/images/auto/art-203.jpg", alt: "GTA VI выйдет ровно через месяц. Финальный трейлер выглядит потрясающе", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 ,
     204: { url: "/images/auto/art-204.jpg", alt: "Mercedes заявляет, что внедорожники-купе никуда не денутся: «есть фанаты»", credit: "Фото: Charlie from United Kingdom, CC BY 2.0" }
+,
+    205: { url: "/images/auto/art-205.jpg", alt: "Bugatti восстанавливает уникальный Veyron с зеркальным алюминиевым кузовом", credit: "Фото: MrWalkr, CC BY-SA 4.0" }
 
 };
 
@@ -651,6 +653,8 @@ const SLUGS = {
     203: "gta-vi-vyydet-rovno-cherez-mesyats-final-nyy-treyler-vyglyadit-potryasayushche"
 ,
     204: "mercedes-zayavlyaet-chto-vnedorozhniki-kupe-nikuda-ne-denutsya-est-fanaty"
+,
+    205: "bugatti-vosstanavlivaet-unikal-nyy-veyron-s-zerkal-nym-alyuminievym-kuzovom"
 
 };
 
