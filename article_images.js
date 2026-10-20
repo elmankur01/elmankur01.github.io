@@ -318,6 +318,8 @@ const IMAGES = {
     204: { url: "/images/auto/art-204.jpg", alt: "Mercedes заявляет, что внедорожники-купе никуда не денутся: «есть фанаты»", credit: "Фото: Charlie from United Kingdom, CC BY 2.0" }
 ,
     205: { url: "/images/auto/art-205.jpg", alt: "Bugatti восстанавливает уникальный Veyron с зеркальным алюминиевым кузовом", credit: "Фото: MrWalkr, CC BY-SA 4.0" }
+,
+    206: { url: "/images/auto/art-206.jpg", alt: "Фотографии: Концепт Porsche Mission S покоряет Нью-Йорк", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 
 };
 
@@ -655,6 +657,8 @@ const SLUGS = {
     204: "mercedes-zayavlyaet-chto-vnedorozhniki-kupe-nikuda-ne-denutsya-est-fanaty"
 ,
     205: "bugatti-vosstanavlivaet-unikal-nyy-veyron-s-zerkal-nym-alyuminievym-kuzovom"
+,
+    206: "fotografii-kontsept-porsche-mission-s-pokoryaet-n-yu-york"
 
 };
 
