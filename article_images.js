@@ -322,6 +322,8 @@ const IMAGES = {
     206: { url: "/images/auto/art-206.jpg", alt: "Фотографии: Концепт Porsche Mission S покоряет Нью-Йорк", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 ,
     207: { url: "/images/auto/art-207.jpg", alt: "Родстер Tesla заново изобретает выдвижные фары. Типа", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
+,
+    208: { url: "/images/auto/art-208.jpg", alt: "GM превращает OnStar в помощника с искусственным интеллектом для вашего автомобиля", credit: "Фото: General Electric Company, Public domain" }
 
 };
 
@@ -663,6 +665,8 @@ const SLUGS = {
     206: "fotografii-kontsept-porsche-mission-s-pokoryaet-n-yu-york"
 ,
     207: "rodster-tesla-zanovo-izobretaet-vydvizhnye-fary-tipa"
+,
+    208: "gm-prevrashchaet-onstar-v-pomoshchnika-s-iskusstvennym-intellektom-dlya-vashego-"
 
 };
 
