@@ -320,6 +320,8 @@ const IMAGES = {
     205: { url: "/images/auto/art-205.jpg", alt: "Bugatti восстанавливает уникальный Veyron с зеркальным алюминиевым кузовом", credit: "Фото: MrWalkr, CC BY-SA 4.0" }
 ,
     206: { url: "/images/auto/art-206.jpg", alt: "Фотографии: Концепт Porsche Mission S покоряет Нью-Йорк", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
+,
+    207: { url: "/images/auto/art-207.jpg", alt: "Родстер Tesla заново изобретает выдвижные фары. Типа", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
 
 };
 
@@ -659,6 +661,8 @@ const SLUGS = {
     205: "bugatti-vosstanavlivaet-unikal-nyy-veyron-s-zerkal-nym-alyuminievym-kuzovom"
 ,
     206: "fotografii-kontsept-porsche-mission-s-pokoryaet-n-yu-york"
+,
+    207: "rodster-tesla-zanovo-izobretaet-vydvizhnye-fary-tipa"
 
 };
 
