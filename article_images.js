@@ -326,6 +326,8 @@ const IMAGES = {
     208: { url: "/images/auto/art-208.jpg", alt: "GM превращает OnStar в помощника с искусственным интеллектом для вашего автомобиля", credit: "Фото: General Electric Company, Public domain" }
 ,
     209: { url: "/images/auto/art-209.jpg", alt: "Отзыв Toyota Land Cruiser распространяется на 105 000 внедорожников из-за риска возгорания из-за утечки топлива", credit: "Фото: Christopher Crouzet, CC BY-SA 4.0" }
+,
+    210: { url: "/images/auto/art-210.jpg", alt: "Форд объясняет, почему так сложно давать названия автомобилям: «У каждого есть свое мнение»", credit: "Фото: FOTO:Fortepan — ID 16747 : Adományozó/Donor: Unknown. archiv, Public domain" }
 
 };
 
@@ -671,6 +673,8 @@ const SLUGS = {
     208: "gm-prevrashchaet-onstar-v-pomoshchnika-s-iskusstvennym-intellektom-dlya-vashego-"
 ,
     209: "otzyv-toyota-land-cruiser-rasprostranyaetsya-na-105-000-vnedorozhnikov-iz-za-ris"
+,
+    210: "ford-ob-yasnyaet-pochemu-tak-slozhno-davat-nazvaniya-avtomobilyam-u-kazhdogo-est"
 
 };
 
