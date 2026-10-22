@@ -324,6 +324,8 @@ const IMAGES = {
     207: { url: "/images/auto/art-207.jpg", alt: "Родстер Tesla заново изобретает выдвижные фары. Типа", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
 ,
     208: { url: "/images/auto/art-208.jpg", alt: "GM превращает OnStar в помощника с искусственным интеллектом для вашего автомобиля", credit: "Фото: General Electric Company, Public domain" }
+,
+    209: { url: "/images/auto/art-209.jpg", alt: "Отзыв Toyota Land Cruiser распространяется на 105 000 внедорожников из-за риска возгорания из-за утечки топлива", credit: "Фото: Christopher Crouzet, CC BY-SA 4.0" }
 
 };
 
@@ -667,6 +669,8 @@ const SLUGS = {
     207: "rodster-tesla-zanovo-izobretaet-vydvizhnye-fary-tipa"
 ,
     208: "gm-prevrashchaet-onstar-v-pomoshchnika-s-iskusstvennym-intellektom-dlya-vashego-"
+,
+    209: "otzyv-toyota-land-cruiser-rasprostranyaetsya-na-105-000-vnedorozhnikov-iz-za-ris"
 
 };
 
