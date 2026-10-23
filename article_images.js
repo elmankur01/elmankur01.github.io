@@ -328,6 +328,8 @@ const IMAGES = {
     209: { url: "/images/auto/art-209.jpg", alt: "Отзыв Toyota Land Cruiser распространяется на 105 000 внедорожников из-за риска возгорания из-за утечки топлива", credit: "Фото: Christopher Crouzet, CC BY-SA 4.0" }
 ,
     210: { url: "/images/auto/art-210.jpg", alt: "Форд объясняет, почему так сложно давать названия автомобилям: «У каждого есть свое мнение»", credit: "Фото: FOTO:Fortepan — ID 16747 : Adományozó/Donor: Unknown. archiv, Public domain" }
+,
+    211: { url: "/images/auto/art-211.jpg", alt: "Едва управляемый Ferrari 499P Modificata выставлен на аукцион за более чем 8 миллионов долларов", credit: "Фото: MarcelX42, CC BY-SA 4.0" }
 
 };
 
@@ -675,6 +677,8 @@ const SLUGS = {
     209: "otzyv-toyota-land-cruiser-rasprostranyaetsya-na-105-000-vnedorozhnikov-iz-za-ris"
 ,
     210: "ford-ob-yasnyaet-pochemu-tak-slozhno-davat-nazvaniya-avtomobilyam-u-kazhdogo-est"
+,
+    211: "edva-upravlyaemyy-ferrari-499p-modificata-vystavlen-na-auktsion-za-bolee-chem-8-"
 
 };
 
