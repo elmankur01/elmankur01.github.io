@@ -332,6 +332,8 @@ const IMAGES = {
     211: { url: "/images/auto/art-211.jpg", alt: "Едва управляемый Ferrari 499P Modificata выставлен на аукцион за более чем 8 миллионов долларов", credit: "Фото: MarcelX42, CC BY-SA 4.0" }
 ,
     212: { url: "/images/auto/art-212.jpg", alt: "Новый Hyundai Tucson может стать самым популярным", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+,
+    213: { url: "/images/auto/art-213.jpg", alt: "Легендарный AMG Hammer может вернуться", credit: "Фото: General Electric Company, Public domain" }
 
 };
 
@@ -683,6 +685,8 @@ const SLUGS = {
     211: "edva-upravlyaemyy-ferrari-499p-modificata-vystavlen-na-auktsion-za-bolee-chem-8-"
 ,
     212: "novyy-hyundai-tucson-mozhet-stat-samym-populyarnym"
+,
+    213: "legendarnyy-amg-hammer-mozhet-vernut-sya"
 
 };
 
