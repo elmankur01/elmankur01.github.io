@@ -334,6 +334,8 @@ const IMAGES = {
     212: { url: "/images/auto/art-212.jpg", alt: "Новый Hyundai Tucson может стать самым популярным", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     213: { url: "/images/auto/art-213.jpg", alt: "Легендарный AMG Hammer может вернуться", credit: "Фото: General Electric Company, Public domain" }
+,
+    214: { url: "/images/auto/art-214.jpg", alt: "Генеральный директор Ferrari хвалит родстер Tesla: «Мы должны продолжать мечтать»", credit: "Фото: Clemens Vasters from Viersen, Germany, Germany, CC BY 2.0" }
 
 };
 
@@ -687,6 +689,8 @@ const SLUGS = {
     212: "novyy-hyundai-tucson-mozhet-stat-samym-populyarnym"
 ,
     213: "legendarnyy-amg-hammer-mozhet-vernut-sya"
+,
+    214: "general-nyy-direktor-ferrari-khvalit-rodster-tesla-my-dolzhny-prodolzhat-mechtat"
 
 };
 
