@@ -338,6 +338,8 @@ const IMAGES = {
     214: { url: "/images/auto/art-214.jpg", alt: "Генеральный директор Ferrari хвалит родстер Tesla: «Мы должны продолжать мечтать»", credit: "Фото: Clemens Vasters from Viersen, Germany, Germany, CC BY 2.0" }
 ,
     215: { url: "/images/auto/art-215.jpg", alt: "Audi потратит 4 миллиарда долларов на новый завод в США по производству больших внедорожников", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
+,
+    216: { url: "/images/auto/art-216.jpg", alt: "Каждая деталь упакована в первое издание Bentley Torcal", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 
 };
 
@@ -695,6 +697,8 @@ const SLUGS = {
     214: "general-nyy-direktor-ferrari-khvalit-rodster-tesla-my-dolzhny-prodolzhat-mechtat"
 ,
     215: "audi-potratit-4-milliarda-dollarov-na-novyy-zavod-v-ssha-po-proizvodstvu-bol-shi"
+,
+    216: "kazhdaya-detal-upakovana-v-pervoe-izdanie-bentley-torcal"
 
 };
 
