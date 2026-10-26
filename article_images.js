@@ -342,6 +342,8 @@ const IMAGES = {
     216: { url: "/images/auto/art-216.jpg", alt: "Каждая деталь упакована в первое издание Bentley Torcal", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 ,
     217: { url: "/images/auto/art-217.jpg", alt: "Mitsubishi превратила Outlander во внедорожный внедорожник для SEMA", credit: "Фото: Kzaral , cropped and altered by uploader Mr.choppers, CC BY 2.0" }
+,
+    218: { url: "/images/auto/art-218.jpg", alt: "Следующий четырехместный спортивный автомобиль Alpine откажется от ретро-стиля", credit: "Фото: General Electric Company, Public domain" }
 
 };
 
@@ -703,6 +705,8 @@ const SLUGS = {
     216: "kazhdaya-detal-upakovana-v-pervoe-izdanie-bentley-torcal"
 ,
     217: "mitsubishi-prevratila-outlander-vo-vnedorozhnyy-vnedorozhnik-dlya-sema"
+,
+    218: "sleduyushchiy-chetyrekhmestnyy-sportivnyy-avtomobil-alpine-otkazhetsya-ot-retro-"
 
 };
 
