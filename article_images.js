@@ -340,6 +340,8 @@ const IMAGES = {
     215: { url: "/images/auto/art-215.jpg", alt: "Audi потратит 4 миллиарда долларов на новый завод в США по производству больших внедорожников", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
 ,
     216: { url: "/images/auto/art-216.jpg", alt: "Каждая деталь упакована в первое издание Bentley Torcal", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+,
+    217: { url: "/images/auto/art-217.jpg", alt: "Mitsubishi превратила Outlander во внедорожный внедорожник для SEMA", credit: "Фото: Kzaral , cropped and altered by uploader Mr.choppers, CC BY 2.0" }
 
 };
 
@@ -699,6 +701,8 @@ const SLUGS = {
     215: "audi-potratit-4-milliarda-dollarov-na-novyy-zavod-v-ssha-po-proizvodstvu-bol-shi"
 ,
     216: "kazhdaya-detal-upakovana-v-pervoe-izdanie-bentley-torcal"
+,
+    217: "mitsubishi-prevratila-outlander-vo-vnedorozhnyy-vnedorozhnik-dlya-sema"
 
 };
 
