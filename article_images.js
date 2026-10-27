@@ -346,6 +346,8 @@ const IMAGES = {
     218: { url: "/images/auto/art-218.jpg", alt: "Следующий четырехместный спортивный автомобиль Alpine откажется от ретро-стиля", credit: "Фото: General Electric Company, Public domain" }
 ,
     219: { url: "/images/auto/art-219.jpg", alt: "Toyota установила снежные гусеницы на пять своих грузовиков и внедорожников. Почему бы и нет?", credit: "Фото: Greg Gjerdingen from Willmar, USA, CC BY 2.0" }
+,
+    220: { url: "/images/auto/art-220.jpg", alt: "Koenigsegg отозвал все модели CC850 в Америке. Все семь из них", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 
 };
 
@@ -711,6 +713,8 @@ const SLUGS = {
     218: "sleduyushchiy-chetyrekhmestnyy-sportivnyy-avtomobil-alpine-otkazhetsya-ot-retro-"
 ,
     219: "toyota-ustanovila-snezhnye-gusenitsy-na-pyat-svoikh-gruzovikov-i-vnedorozhnikov-"
+,
+    220: "koenigsegg-otozval-vse-modeli-cc850-v-amerike-vse-sem-iz-nikh"
 
 };
 
