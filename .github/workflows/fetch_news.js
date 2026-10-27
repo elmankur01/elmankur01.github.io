@@ -232,30 +232,95 @@ function slugify(title) {
     return slug;
 }
 
-// ---------- Дедупликация похожих тем ----------
+// ---------- Дедупликация похожих тем и моделей ----------
 
 const DEDUP_STOP = new Set([
     'в','на','и','с','по','для','о','от','до','за','из','у','же','не','что','как','это','эта','этот',
     'новый','новая','новое','новые','будет','будут','своих','очень','после','также','более','самых',
+    'может','могут','всего','почему','зачем','только','станет','первый','первая','первое',
     'the','a','an','of','in','for','to','on','with','and','is','are','was','were','new','its','his'
 ]);
 
-function titleWordSet(title) {
-    const words = String(title || '')
+const BRAND_SYNONYMS = {
+    'порше': 'porsche', 'porsche': 'porsche',
+    'тесла': 'tesla', 'tesla': 'tesla',
+    'форд': 'ford', 'ford': 'ford',
+    'бмв': 'bmw', 'bmw': 'bmw',
+    'мерседес': 'mercedes', 'mercedes': 'mercedes', 'amg': 'mercedes',
+    'ауди': 'audi', 'audi': 'audi',
+    'феррари': 'ferrari', 'ferrari': 'ferrari',
+    'тойота': 'toyota', 'toyota': 'toyota',
+    'бугатти': 'bugatti', 'bugatti': 'bugatti',
+    'кёнигсегг': 'koenigsegg', 'кенигсегг': 'koenigsegg', 'koenigsegg': 'koenigsegg',
+    'хендэ': 'hyundai', 'хёндэ': 'hyundai', 'хендай': 'hyundai', 'hyundai': 'hyundai',
+    'джили': 'geely', 'geely': 'geely',
+    'хавал': 'haval', 'haval': 'haval',
+    'чери': 'chery', 'chery': 'chery',
+    'зикр': 'zeekr', 'zeekr': 'zeekr',
+    'сяоми': 'xiaomi', 'xiaomi': 'xiaomi',
+    'киа': 'kia', 'kia': 'kia',
+    'мазда': 'mazda', 'mazda': 'mazda',
+    'субару': 'subaru', 'subaru': 'subaru',
+    'лексус': 'lexus', 'lexus': 'lexus',
+    'вольво': 'volvo', 'volvo': 'volvo',
+    'шевроле': 'chevrolet', 'chevrolet': 'chevrolet', 'corvette': 'chevrolet',
+    'бентли': 'bentley', 'bentley': 'bentley',
+    'альпин': 'alpine', 'alpine': 'alpine'
+};
+
+function extractCarBrandAndKeywords(title) {
+    const rawWords = String(title || '')
         .toLowerCase()
         .replace(/ё/g, 'е')
         .replace(/[^a-zа-я0-9\s]/g, ' ')
         .split(/\s+/)
-        .filter(w => w.length > 2 && !DEDUP_STOP.has(w))
-        .map(w => w.slice(0, 6));
-    return new Set(words);
+        .filter(w => w.length > 2 && !DEDUP_STOP.has(w));
+    
+    let brand = null;
+    const keywords = new Set();
+    for (const w of rawWords) {
+        if (!brand && BRAND_SYNONYMS[w]) {
+            brand = BRAND_SYNONYMS[w];
+        } else {
+            keywords.add(w.slice(0, 6));
+        }
+    }
+    return { brand, keywords, rawWords: new Set(rawWords.map(w => w.slice(0, 6))) };
 }
 
-function titlesSimilar(aSet, bSet) {
-    if (!aSet.size || !bSet.size) return false;
+function titlesSimilar(aTitle, bTitle, checkModelMatch = true) {
+    const a = extractCarBrandAndKeywords(aTitle);
+    const b = extractCarBrandAndKeywords(bTitle);
+
+    // 1. Совпадение марки и модели (кулдаун на одну и ту же модель)
+    if (checkModelMatch && a.brand && b.brand && a.brand === b.brand) {
+        for (const kw of a.keywords) {
+            if (b.keywords.has(kw)) return true;
+        }
+    }
+
+    // 2. Общее сходство заголовков (порог 0.45)
+    if (!a.rawWords.size || !b.rawWords.size) return false;
     let inter = 0;
-    for (const w of aSet) if (bSet.has(w)) inter++;
-    return inter / Math.min(aSet.size, bSet.size) >= 0.6;
+    for (const w of a.rawWords) if (b.rawWords.has(w)) inter++;
+    return (inter / Math.min(a.rawWords.size, b.rawWords.size)) >= 0.45;
+}
+
+function isDuplicateTopic(newTitle, bank, acceptedTitles) {
+    // Проверка против текущей партии
+    for (const t of acceptedTitles) {
+        if (titlesSimilar(newTitle, t, true)) return t;
+    }
+    // Проверка последних 35 статей банка на ту же модель
+    const recentBank = bank.slice(-35);
+    for (const a of recentBank) {
+        if (titlesSimilar(newTitle, a.title, true)) return a.title;
+    }
+    // Проверка всего банка на высокое общее совпадение заголовка
+    for (const a of bank) {
+        if (titlesSimilar(newTitle, a.title, false)) return a.title;
+    }
+    return null;
 }
 
 // ---------- Разбивка текста на абзацы ----------
@@ -460,9 +525,8 @@ async function main() {
     if (!m) { console.error('ARTICLE_BANK не найден в script.js'); process.exit(1); }
     const bank = parseArrayLiteral(m[1], 'ARTICLE_BANK');
     const base = bank.length;
-    const bankTitleSets = bank.map(a => titleWordSet(a.title));
     const usedSlugs = new Set();
-    const acceptedSets = [];
+    const acceptedTitles = [];
 
     const articles = [];
     const retryLinks = [];
@@ -486,14 +550,14 @@ async function main() {
 
         console.log('Переведено [' + it.source + ']: ' + ruTitle);
 
-        // Дедупликация тем: слишком похожий заголовок уже есть в банке или в этой партии
-        const wordSet = titleWordSet(ruTitle);
-        const isDup = bankTitleSets.some(set => titlesSimilar(wordSet, set)) || acceptedSets.some(set => titlesSimilar(wordSet, set));
-        if (isDup) {
-            console.log('Пропуск — дубликат темы: ' + ruTitle);
+        // Интеллектуальная дедупликация тем и моделей авто
+        const dupMatch = isDuplicateTopic(ruTitle, bank, acceptedTitles);
+        if (dupMatch) {
+            console.log('Пропуск — дубликат темы/модели (похоже на: "' + dupMatch + '"): ' + ruTitle);
             state.links.push(it.link);
             continue;
         }
+        acceptedTitles.push(ruTitle);
 
         const num = base + articles.length + 1;
         const tag = detectTag(ruTitle, bodyRu);
@@ -515,8 +579,6 @@ async function main() {
         usedSlugs.add(slug);
 
         const readTime = Math.max(1, Math.round(totalChars / 1100));
-
-        acceptedSets.push(wordSet);
 
         articles.push({
             title: ruTitle,

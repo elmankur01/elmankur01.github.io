@@ -2,6 +2,8 @@
 # Pre-commit hook for АвтоТема (https://avtotema-news.online)
 # Automatically runs before every "git commit" to protect against leaks, syntax bugs, and SEO issues.
 
+export PATH="$PATH:/opt/homebrew/bin:/usr/local/bin:$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node 2>/dev/null | tail -n 1)/bin"
+
 echo "🔍 [Pre-Commit] Запуск обязательного аудита качества и безопасности..."
 
 # 1. Проверка на утечки секретов и токенов

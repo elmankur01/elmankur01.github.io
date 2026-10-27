@@ -601,13 +601,22 @@ function cardHTML(a, idx, featured, meta) {
         </article>`;
 }
 
-// «Главные новости дня»: 3 главные статьи дня (меняются раз в сутки)
+// Реестр уже отображённых статей на странице (гарантирует 100% отсутствие дублей карточек на одном экране)
+var renderedArticleIds = new Set();
+
+// «Главные новости дня»: 3 самые свежие и актуальные статьи
 function renderTopNews() {
     const grid = document.getElementById('topNewsGrid');
     if (!grid || !ARTICLE_BANK.length) return;
-    const offset = dayOffset();
-    grid.innerHTML = [0, 1, 2].map(i => {
-        const idx = (offset + i) % ARTICLE_BANK.length;
+    renderedArticleIds.clear();
+
+    const topIndices = [];
+    for (let i = ARTICLE_BANK.length - 1; i >= 0 && topIndices.length < 3; i--) {
+        topIndices.push(i);
+        renderedArticleIds.add(i + 1);
+    }
+
+    grid.innerHTML = topIndices.map((idx, i) => {
         const a = ARTICLE_BANK[idx];
         return cardHTML(a, idx, i === 0, `${a.readTime} мин · ${dateLabel(i)}`);
     }).join('');
@@ -615,11 +624,20 @@ function renderTopNews() {
     if (typeof initLikes === 'function') initLikes();
 }
 
-// Разделы по рубрикам: «Мировые новости» и «Новости рынка»
+// Разделы по рубрикам: «Мировые новости» и «Новости рынка» (только свежие статьи без дублей)
 function renderCategoryGrid(id, tag, count) {
     const grid = document.getElementById(id);
     if (!grid) return;
-    const items = ARTICLE_BANK.map((a, i) => ({ a, i })).filter(x => x.a.tag === tag).slice(0, count);
+    const items = [];
+    // Идём от самых свежих к более старым, пропуская уже отображённые на странице
+    for (let i = ARTICLE_BANK.length - 1; i >= 0 && items.length < count; i--) {
+        const a = ARTICLE_BANK[i];
+        const articleId = i + 1;
+        if (a.tag === tag && !renderedArticleIds.has(articleId)) {
+            items.push({ a, i });
+            renderedArticleIds.add(articleId);
+        }
+    }
     grid.innerHTML = items.map(({ a, i }) => cardHTML(a, i, false, `${a.readTime} мин`)).join('');
     if (typeof updateFavUI === 'function') updateFavUI();
     if (typeof initLikes === 'function') initLikes();
@@ -651,12 +669,15 @@ function renderDailyArticles() {
     const grid = document.getElementById('dailyGrid') || document.querySelector('.articles-grid');
     if (!grid || !ARTICLE_BANK.length) return;
 
-    const offset = slotOffset();
     const html = [];
-    for (let i = 0; i < VISIBLE_ARTICLES; i++) {
-        const idx = (offset + i) % ARTICLE_BANK.length;
-        const a = ARTICLE_BANK[idx];
-        html.push(cardHTML(a, idx, i === 0, `${a.readTime} мин · ${dateLabel(i)}`));
+    // Показываем следующие свежие статьи, пропуская те, что уже попали в топ дня
+    for (let i = ARTICLE_BANK.length - 1; i >= 0 && html.length < VISIBLE_ARTICLES; i--) {
+        const a = ARTICLE_BANK[i];
+        const articleId = i + 1;
+        if (!renderedArticleIds.has(articleId)) {
+            renderedArticleIds.add(articleId);
+            html.push(cardHTML(a, i, html.length === 0, `${a.readTime} мин · ${dateLabel(html.length)}`));
+        }
     }
     grid.innerHTML = html.join('');
     if (typeof updateFavUI === 'function') updateFavUI();
@@ -686,6 +707,7 @@ function initSearchAndFilter() {
 
         if (!query && activeTag === 'all') {
             if (meta) meta.hidden = true;
+            renderTopNews();
             renderDailyArticles();
             return;
         }
