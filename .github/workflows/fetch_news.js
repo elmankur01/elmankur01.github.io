@@ -17,6 +17,7 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const crypto = require('crypto');
 
 const ROOT = path.join(__dirname, '..', '..');
 const STATE_FILE = path.join(ROOT, 'state', 'seen_news.json');
@@ -422,11 +423,29 @@ function commonsQuery(enTitle) {
     return '';
 }
 
-async function fetchCommonsImage(query, usedThumbs = new Set()) {
+function getAllExistingImageHashes() {
+    const hashes = new Set();
+    const dirs = [path.join(ROOT, 'images', 'auto'), path.join(ROOT, 'images')];
+    dirs.forEach(d => {
+        if (fs.existsSync(d)) {
+            fs.readdirSync(d).forEach(f => {
+                if (f.endsWith('.jpg') || f.endsWith('.png') || f.endsWith('.jpeg') || f.endsWith('.webp')) {
+                    try {
+                        const buf = fs.readFileSync(path.join(d, f));
+                        hashes.add(crypto.createHash('md5').update(buf).digest('hex'));
+                    } catch (e) {}
+                }
+            });
+        }
+    });
+    return hashes;
+}
+
+async function fetchCommonsImage(query, usedThumbs = new Set(), existingHashes = new Set()) {
     if (!query) return null;
     const api = 'https://commons.wikimedia.org/w/api.php?action=query&format=json'
         + '&generator=search&gsrsearch=' + encodeURIComponent('filetype:bitmap ' + query)
-        + '&gsrnamespace=6&gsrlimit=12&prop=imageinfo&iiprop=url|mime|size|extmetadata&iiurlwidth=1280';
+        + '&gsrnamespace=6&gsrlimit=15&prop=imageinfo&iiprop=url|mime|size|extmetadata&iiurlwidth=1280';
     try {
         const res = await fetch(api, Object.assign({ signal: AbortSignal.timeout(20000) }, UA));
         if (!res.ok) return null;
@@ -448,11 +467,32 @@ async function fetchCommonsImage(query, usedThumbs = new Set()) {
                 continue;
             }
 
-            const meta = ii.extmetadata || {};
-            let artist = stripHtml((meta.Artist && meta.Artist.value) || '').slice(0, 60) || 'Wikimedia Commons';
-            if (/sucks|troll/i.test(artist)) artist = 'Wikimedia Commons';
-            const lic = stripHtml((meta.LicenseShortName && meta.LicenseShortName.value) || '') || 'Wikimedia Commons';
-            return { thumb: thumbUrl, credit: ('Фото: ' + artist + ', ' + lic).slice(0, 140) };
+            // Скачиваем буфер и строго проверяем MD5 хэш на отсутствие дубликатов
+            try {
+                const imgRes = await fetch(thumbUrl, Object.assign({ signal: AbortSignal.timeout(25000) }, UA));
+                if (!imgRes.ok) continue;
+                const buf = Buffer.from(await imgRes.arrayBuffer());
+                if (buf.length < 15000 || buf.length > 6 * 1024 * 1024) continue;
+
+                const hash = crypto.createHash('md5').update(buf).digest('hex');
+                if (existingHashes && existingHashes.has(hash)) {
+                    console.log(`[Дубликат фото пропущен] hash ${hash} для "${query}"`);
+                    continue;
+                }
+
+                if (existingHashes) existingHashes.add(hash);
+                if (usedThumbs) usedThumbs.add(thumbUrl);
+
+                const meta = ii.extmetadata || {};
+                let artist = stripHtml((meta.Artist && meta.Artist.value) || '').slice(0, 60) || 'Wikimedia Commons';
+                if (/sucks|troll/i.test(artist)) artist = 'Wikimedia Commons';
+                const lic = stripHtml((meta.LicenseShortName && meta.LicenseShortName.value) || '') || 'Wikimedia Commons';
+                const credit = ('Фото: ' + artist + ', ' + lic).slice(0, 140);
+
+                return { thumb: thumbUrl, credit, buf, hash };
+            } catch (dlErr) {
+                continue;
+            }
         }
     } catch (e) {
         console.log('Поиск фото Commons не удался: ' + e.message);
@@ -460,13 +500,18 @@ async function fetchCommonsImage(query, usedThumbs = new Set()) {
     return null;
 }
 
-async function downloadImage(localPath, url) {
-    const res = await fetch(url, Object.assign({ signal: AbortSignal.timeout(30000) }, UA));
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const buf = Buffer.from(await res.arrayBuffer());
-    if (buf.length < 10000 || buf.length > 6 * 1024 * 1024) throw new Error('подозрительный размер файла');
-    fs.mkdirSync(path.dirname(path.join(ROOT, '.' + localPath)), { recursive: true });
-    fs.writeFileSync(path.join(ROOT, '.' + localPath), buf);
+async function saveOrDownloadImage(localPath, found) {
+    const fullPath = path.join(ROOT, '.' + localPath);
+    fs.mkdirSync(path.dirname(fullPath), { recursive: true });
+    if (found.buf) {
+        fs.writeFileSync(fullPath, found.buf);
+    } else if (found.thumb) {
+        const res = await fetch(found.thumb, Object.assign({ signal: AbortSignal.timeout(30000) }, UA));
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const buf = Buffer.from(await res.arrayBuffer());
+        if (buf.length < 10000 || buf.length > 6 * 1024 * 1024) throw new Error('подозрительный размер файла');
+        fs.writeFileSync(fullPath, buf);
+    }
 }
 
 function insertBeforeClosing(src, marker, closing, block) {
@@ -609,51 +654,46 @@ async function main() {
 
     console.log('Добавляю статей: ' + articles.length);
 
-    // Подбираем фото: сперва Wikimedia Commons (по бренду/типу), при неудаче — тематический fallback сайта.
+    // Подбираем фото: строгая гарантия 100% уникальности по MD5 и URL (повторы фото категорически запрещены)
     const usedThumbs = new Set();
+    const existingHashes = getAllExistingImageHashes();
+    console.log(`База хэшей проверена: ${existingHashes.size} уникальных изображений на сайте`);
+
     for (const a of articles) {
         const query = commonsQuery(a.origTitle);
         if (DRY_RUN) {
-            console.log('[DRY RUN] фото: ' + (query ? 'искали бы «' + query + '»' : 'бренда/типа кузова нет — сразу fallback') + ', рубрика ' + a.tag);
-            a.image = { url: FALLBACK_POOLS[a.tag] ? FALLBACK_POOLS[a.tag][a.num % FALLBACK_POOLS[a.tag].length] : FALLBACK_DEFAULT[a.num % FALLBACK_DEFAULT.length], alt: a.title, credit: 'Фото: АвтоТема' };
+            console.log('[DRY RUN] фото: ' + (query ? 'искали бы «' + query + '»' : 'поиск по рубрике') + ', рубрика ' + a.tag);
+            a.image = { url: '/images/auto/art-' + a.num + '.jpg', alt: a.title, credit: 'Фото: Wikimedia Commons' };
             continue;
         }
-        const found = query ? await fetchCommonsImage(query, usedThumbs) : null;
-        let image = null;
+
+        // 1. Поиск по марке и модели автомобиля в Wikimedia Commons
+        let found = query ? await fetchCommonsImage(query, usedThumbs, existingHashes) : null;
+
+        // 2. Поиск по рубрике автомобиля
+        if (!found) {
+            const tagQuery = a.tag === 'Электромобили' ? 'electric car automobile' : (a.tag === 'Двигатели' ? 'car engine motor automobile' : 'modern automobile car');
+            found = await fetchCommonsImage(tagQuery, usedThumbs, existingHashes);
+        }
+
+        // 3. Расширенный авто-поиск (всегда находит уникальное высокое качество без повторов)
+        if (!found) {
+            const genericQueries = ['concept car automobile', 'sports car automobile track', 'motor show car automobile', 'modern luxury vehicle car'];
+            for (const gq of genericQueries) {
+                found = await fetchCommonsImage(gq, usedThumbs, existingHashes);
+                if (found) break;
+            }
+        }
+
         if (found) {
-            usedThumbs.add(found.thumb);
             const localUrl = '/images/auto/art-' + a.num + '.jpg';
-            try {
-                await downloadImage(localUrl, found.thumb);
-                image = { url: localUrl, alt: a.title, credit: found.credit };
-            } catch (e) {
-                console.log('Скачивание фото не удалось (' + e.message + '), берём fallback');
-            }
+            await saveOrDownloadImage(localUrl, found);
+            a.image = { url: localUrl, alt: a.title, credit: found.credit };
+        } else {
+            throw new Error(`Не удалось найти уникальное фото для статьи #${a.num} (${a.title}). Повторы строго запрещены.`);
         }
-        if (!image) {
-            // Расширенный поиск по рубрике в Wikimedia Commons, если поиск по марке не нашёл
-            const tagQuery = a.tag === 'Электромобили' ? 'electric car automobile' : (a.tag === 'Двигатели' ? 'car engine motor' : 'modern automobile car');
-            const tagFound = await fetchCommonsImage(tagQuery, usedThumbs);
-            if (tagFound) {
-                usedThumbs.add(tagFound.thumb);
-                const localUrl = '/images/auto/art-' + a.num + '.jpg';
-                try {
-                    await downloadImage(localUrl, tagFound.thumb);
-                    image = { url: localUrl, alt: a.title, credit: tagFound.credit };
-                } catch (e) {}
-            }
-        }
-        if (!image) {
-            // Если и поиск по рубрике не сработал, ищем неиспользованный URL из пула
-            const allUsed = new Set(Object.values(images).map(x => x.url));
-            articles.forEach(art => { if (art.image) allUsed.add(art.image.url); });
-            const pool = (FALLBACK_POOLS[a.tag] || []).concat(FALLBACK_DEFAULT);
-            const fresh = pool.find(u => !allUsed.has(u));
-            const chosen = fresh || pool[a.num % pool.length];
-            image = { url: chosen, alt: a.title, credit: 'Фото: АвтоТема' };
-        }
-        a.image = image;
-        console.log('  #' + a.num + ' [' + a.sourceName + ' / ' + a.tag + '] ' + a.title + ' | фото: ' + a.image.url);
+
+        console.log('  #' + a.num + ' [' + a.sourceName + ' / ' + a.tag + '] ' + a.title + ' | фото: ' + a.image.url + ' (' + a.image.credit + ')');
     }
 
     if (DRY_RUN) {

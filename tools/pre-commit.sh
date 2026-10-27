@@ -13,14 +13,21 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# 2. Проверка синтаксиса ключевых JS файлов
+# 2. Проверка уникальности изображений (строгий запрет повторов фото)
+node tools/check_duplicate_images.js
+if [ $? -ne 0 ]; then
+    echo "❌ [Pre-Commit ОШИБКА] Найдены повторяющиеся изображения! Коммит отменён."
+    exit 1
+fi
+
+# 3. Проверка синтаксиса ключевых JS файлов
 node -c script.js 2>/dev/null
 if [ $? -ne 0 ]; then
     echo "❌ [Pre-Commit ОШИБКА] Синтаксическая ошибка в script.js! Коммит отменён."
     exit 1
 fi
 
-# 3. Базовый SEO аудит главной страницы
+# 4. Базовый SEO аудит главной страницы
 node .agents/skills/seo-auditor/scripts/audit-seo.js index.html >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "⚠️ [Pre-Commit ПРЕДУПРЕЖДЕНИЕ] Найдены замечания в SEO index.html, но коммит разрешён."

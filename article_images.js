@@ -243,7 +243,7 @@ const IMAGES = {
 ,
     167: { url: "/images/auto/art-167.jpg", alt: "Американский бензовоз-цистерна для перевозки топлива Kenworth", credit: "Фото: Mark Holloway, CC BY 2.0 (Wikimedia Commons)" }
 ,
-    168: { url: "/images/auto/art-168.jpg", alt: "BMW сокращает свой модельный ряд, чтобы освободить место для более крупного внедорожника", credit: "Фото: Diego Delso, CC BY-SA 3.0" }
+    168: { url: "/images/auto/art-168.jpg", alt: "BMW сокращает свой модельный ряд, чтобы освободить место для более крупного внедорожника", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 ,
     169: { url: "/images/auto/art-169.jpg", alt: "Цифровой сенсорный салон современного подключенного автомобиля", credit: "Фото: S5A-0043, CC BY-SA 4.0 (Wikimedia Commons)" }
 ,
@@ -283,7 +283,7 @@ const IMAGES = {
 ,
     187: { url: "/images/auto/art-187.jpg", alt: "Покупатели электромобилей по-прежнему хотят большего запаса хода, чем им нужно, показало исследование BMW", credit: "Фото: Motacilla, CC BY-SA 4.0" }
 ,
-    188: { url: "/images/auto/art-188.jpg", alt: "Новый гиперкар Porsche демонстрирует красную черту на 8000 об/мин: видео", credit: "Фото: David Villarreal Fernández, CC BY-SA 2.0" }
+    188: { url: "/images/auto/art-188.jpg", alt: "Новый гиперкар Porsche демонстрирует красную черту на 8000 об/мин: видео", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     189: { url: "/images/auto/art-189.jpg", alt: "Концепт-кар DS SM Tribute от бренда DS Automobiles", credit: "Фото: Y.Leclercq, CC BY-SA 4.0" }
 ,
@@ -295,11 +295,11 @@ const IMAGES = {
 ,
     193: { url: "/images/auto/art-193.jpg", alt: "Acura обещает три новых внедорожника, включая модель, готовую к приключениям", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
 ,
-    194: { url: "/images/auto/art-194.jpg", alt: "Помните спортивный автомобиль Zenos E10? оно вернулось", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+    194: { url: "/images/auto/art-194.jpg", alt: "Помните спортивный автомобиль Zenos E10? оно вернулось", credit: "Фото: Calreyn88, CC BY-SA 4.0" }
 ,
-    195: { url: "/images/auto/art-195.jpg", alt: "Электрический Lexus LFA может получить поддельную секвентальную коробку передач", credit: "Фото: TTTNIS, CC0" }
+    195: { url: "/images/auto/art-195.jpg", alt: "Электрический Lexus LFA может получить поддельную секвентальную коробку передач", credit: "Фото: skinnylawyer from Los Angeles, California, USA, CC BY-SA 2.0" }
 ,
-    196: { url: "/images/auto/art-196.jpg", alt: "Сегодня вечером дебютирует Tesla Roadster: смотрите прямую трансляцию", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
+    196: { url: "/images/auto/art-196.jpg", alt: "Сегодня вечером дебютирует Tesla Roadster: смотрите прямую трансляцию", credit: "Фото: Smnt, CC BY-SA 4.0" }
 ,
     197: { url: "/images/auto/art-197.jpg", alt: "Ford восстановил рекорд Нюрбургринга, но Corvette не будет сопротивляться", credit: "Фото: General Electric Company, Public domain" }
 ,
@@ -313,17 +313,17 @@ const IMAGES = {
 ,
     202: { url: "/images/auto/art-202.jpg", alt: "Полиция Дубая пополнила свой автопарк Lamborghini мощностью 907 ​​л.с.", credit: "Фото: AngMoKio, CC BY-SA 3.0" }
 ,
-    203: { url: "/images/auto/art-203.jpg", alt: "GTA VI выйдет ровно через месяц. Финальный трейлер выглядит потрясающе", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+    203: { url: "/images/auto/art-203.jpg", alt: "GTA VI выйдет ровно через месяц. Финальный трейлер выглядит потрясающе", credit: "Фото: Pedro Ribeiro Simões from Lisboa, Portugal, CC BY 2.0" }
 ,
     204: { url: "/images/auto/art-204.jpg", alt: "Mercedes заявляет, что внедорожники-купе никуда не денутся: «есть фанаты»", credit: "Фото: Charlie from United Kingdom, CC BY 2.0" }
 ,
     205: { url: "/images/auto/art-205.jpg", alt: "Bugatti восстанавливает уникальный Veyron с зеркальным алюминиевым кузовом", credit: "Фото: MrWalkr, CC BY-SA 4.0" }
 ,
-    206: { url: "/images/auto/art-206.jpg", alt: "Фотографии: Концепт Porsche Mission S покоряет Нью-Йорк", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
+    206: { url: "/images/auto/art-206.jpg", alt: "Фотографии: Концепт Porsche Mission S покоряет Нью-Йорк", credit: "Фото: mark.rider's, CC BY 2.0" }
 ,
-    207: { url: "/images/auto/art-207.jpg", alt: "Родстер Tesla заново изобретает выдвижные фары. Типа", credit: "Фото: Ralf Roletschek, GFDL 1.2" }
+    207: { url: "/images/auto/art-207.jpg", alt: "Родстер Tesla заново изобретает выдвижные фары. Типа", credit: "Фото: Editor928, CC BY-SA 4.0" }
 ,
-    208: { url: "/images/auto/art-208.jpg", alt: "GM превращает OnStar в помощника с искусственным интеллектом для вашего автомобиля", credit: "Фото: General Electric Company, Public domain" }
+    208: { url: "/images/auto/art-208.jpg", alt: "GM превращает OnStar в помощника с искусственным интеллектом для вашего автомобиля", credit: "Фото: Monja Klarić, CC BY-SA 4.0" }
 ,
     209: { url: "/images/auto/art-209.jpg", alt: "Отзыв Toyota Land Cruiser распространяется на 105 000 внедорожников из-за риска возгорания из-за утечки топлива", credit: "Фото: Christopher Crouzet, CC BY-SA 4.0" }
 ,
@@ -331,23 +331,23 @@ const IMAGES = {
 ,
     211: { url: "/images/auto/art-211.jpg", alt: "Едва управляемый Ferrari 499P Modificata выставлен на аукцион за более чем 8 миллионов долларов", credit: "Фото: MarcelX42, CC BY-SA 4.0" }
 ,
-    212: { url: "/images/auto/art-212.jpg", alt: "Новый Hyundai Tucson может стать самым популярным", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
+    212: { url: "/images/auto/art-212.jpg", alt: "Новый Hyundai Tucson может стать самым популярным", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
-    213: { url: "/images/auto/art-213.jpg", alt: "Легендарный AMG Hammer может вернуться", credit: "Фото: General Electric Company, Public domain" }
+    213: { url: "/images/auto/art-213.jpg", alt: "Легендарный AMG Hammer может вернуться", credit: "Фото: nakhon100, CC BY 2.0" }
 ,
     214: { url: "/images/auto/art-214.jpg", alt: "Генеральный директор Ferrari хвалит родстер Tesla: «Мы должны продолжать мечтать»", credit: "Фото: Clemens Vasters from Viersen, Germany, Germany, CC BY 2.0" }
 ,
     215: { url: "/images/auto/art-215.jpg", alt: "Audi потратит 4 миллиарда долларов на новый завод в США по производству больших внедорожников", credit: "Фото: Photograph taken by: Thomas Wolf ( Der Wolf im Wald ) Retouc, CC BY-SA 3.0" }
 ,
-    216: { url: "/images/auto/art-216.jpg", alt: "Каждая деталь упакована в первое издание Bentley Torcal", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+    216: { url: "/images/auto/art-216.jpg", alt: "Каждая деталь упакована в первое издание Bentley Torcal", credit: "Фото: Alexander-93, CC BY-SA 4.0" }
 ,
     217: { url: "/images/auto/art-217.jpg", alt: "Mitsubishi превратила Outlander во внедорожный внедорожник для SEMA", credit: "Фото: Kzaral , cropped and altered by uploader Mr.choppers, CC BY 2.0" }
 ,
-    218: { url: "/images/auto/art-218.jpg", alt: "Следующий четырехместный спортивный автомобиль Alpine откажется от ретро-стиля", credit: "Фото: General Electric Company, Public domain" }
+    218: { url: "/images/auto/art-218.jpg", alt: "Следующий четырехместный спортивный автомобиль Alpine откажется от ретро-стиля", credit: "Фото: Lothar Spurzem, CC BY-SA 2.0 de" }
 ,
     219: { url: "/images/auto/art-219.jpg", alt: "Toyota установила снежные гусеницы на пять своих грузовиков и внедорожников. Почему бы и нет?", credit: "Фото: Greg Gjerdingen from Willmar, USA, CC BY 2.0" }
 ,
-    220: { url: "/images/auto/art-220.jpg", alt: "Koenigsegg отозвал все модели CC850 в Америке. Все семь из них", credit: "Фото: Dorothea Lange / Adam Cuerden, Public domain" }
+    220: { url: "/images/auto/art-220.jpg", alt: "Koenigsegg отозвал все модели CC850 в Америке. Все семь из них", credit: "Фото: Ank Kumar, CC BY-SA 4.0" }
 
 };
 
