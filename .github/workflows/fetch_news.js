@@ -478,6 +478,13 @@ function insertBeforeClosing(src, marker, closing, block) {
 }
 
 async function main() {
+    // Защита: автопилот не выпускает статьи после 20:00 и до 08:00 МСК
+    const mskHour = (new Date().getUTCHours() + 3) % 24;
+    if (process.env.FORCE_PUBLISH !== '1' && process.env.NEWS_DRY_RUN !== '1' && (mskHour >= 20 || mskHour < 8)) {
+        console.log(`[Тихий час] Текущее время ${mskHour}ч МСК. Выпуск статей после 20:00 запрещен.`);
+        process.exit(0);
+    }
+
     const state = loadSeen();
     const seen = new Set(state.links);
     const perFeed = [];

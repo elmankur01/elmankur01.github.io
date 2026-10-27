@@ -12,6 +12,13 @@ if (!token || !chatId) {
     process.exit(1);
 }
 
+// Защита от ночных постов: баттлы не публикуются после 20:00 и до 08:00 МСК
+const mskHour = (new Date().getUTCHours() + 3) % 24;
+if (process.env.FORCE_PUBLISH !== '1' && (mskHour >= 20 || mskHour < 8)) {
+    console.log(`[Тихий час] Текущее время ${mskHour}ч МСК. Публикация после 20:00 запрещена.`);
+    process.exit(0);
+}
+
 const STATE_FILE = path.join(__dirname, '..', '..', 'state', 'posted_battles.json');
 
 function loadPostedBattles() {

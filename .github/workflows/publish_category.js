@@ -29,6 +29,12 @@ try {
 } catch (e) {}
 
 const now = new Date();
+const mskHour = (now.getUTCHours() + 3) % 24;
+if (process.env.FORCE_PUBLISH !== '1' && (mskHour >= 20 || mskHour < 8)) {
+    console.log(`[Тихий час] Текущее время ${mskHour}ч МСК. Публикация после 20:00 запрещена.`);
+    process.exit(0);
+}
+
 const startOfYear = new Date(now.getUTCFullYear(), 0, 1);
 const dayOfYear = Math.floor((now - startOfYear) / 86400000);
 // Основной постинг (daily_post) сегодня отправит 4 статьи по слоту (0, 6, 12, 18 UTC).

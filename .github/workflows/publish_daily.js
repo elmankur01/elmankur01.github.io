@@ -27,6 +27,13 @@ try {
     bodies = require('../../article_content.js').BODIES || [];
 } catch (e) {}
 
+// Защита от ночных постов: публикации строго запрещены с 20:00 до 08:00 МСК
+const mskHour = (new Date().getUTCHours() + 3) % 24;
+if (process.env.FORCE_PUBLISH !== '1' && (mskHour >= 20 || mskHour < 8)) {
+    console.log(`[Тихий час] Текущее время ${mskHour}ч МСК. Публикация после 20:00 запрещена.`);
+    process.exit(0);
+}
+
 // Свежие неопубликованные — первыми: ищем максимальный номер вне posted.json
 const posted = new Set(loadPosted());
 let nextN = 0;
