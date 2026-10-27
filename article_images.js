@@ -344,6 +344,8 @@ const IMAGES = {
     217: { url: "/images/auto/art-217.jpg", alt: "Mitsubishi превратила Outlander во внедорожный внедорожник для SEMA", credit: "Фото: Kzaral , cropped and altered by uploader Mr.choppers, CC BY 2.0" }
 ,
     218: { url: "/images/auto/art-218.jpg", alt: "Следующий четырехместный спортивный автомобиль Alpine откажется от ретро-стиля", credit: "Фото: General Electric Company, Public domain" }
+,
+    219: { url: "/images/auto/art-219.jpg", alt: "Toyota установила снежные гусеницы на пять своих грузовиков и внедорожников. Почему бы и нет?", credit: "Фото: Greg Gjerdingen from Willmar, USA, CC BY 2.0" }
 
 };
 
@@ -707,6 +709,8 @@ const SLUGS = {
     217: "mitsubishi-prevratila-outlander-vo-vnedorozhnyy-vnedorozhnik-dlya-sema"
 ,
     218: "sleduyushchiy-chetyrekhmestnyy-sportivnyy-avtomobil-alpine-otkazhetsya-ot-retro-"
+,
+    219: "toyota-ustanovila-snezhnye-gusenitsy-na-pyat-svoikh-gruzovikov-i-vnedorozhnikov-"
 
 };
 
