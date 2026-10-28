@@ -348,6 +348,8 @@ const IMAGES = {
     219: { url: "/images/auto/art-219.jpg", alt: "Toyota установила снежные гусеницы на пять своих грузовиков и внедорожников. Почему бы и нет?", credit: "Фото: Greg Gjerdingen from Willmar, USA, CC BY 2.0" }
 ,
     220: { url: "/images/auto/art-220.jpg", alt: "Koenigsegg отозвал все модели CC850 в Америке. Все семь из них", credit: "Фото: Ank Kumar, CC BY-SA 4.0" }
+,
+    221: { url: "/images/auto/art-221.jpg", alt: "Китайский бренд Zeekr хочет посоревноваться с BMW и Mercedes: интервью", credit: "Фото: DrUtrecht, CC0" }
 
 };
 
@@ -715,6 +717,8 @@ const SLUGS = {
     219: "toyota-ustanovila-snezhnye-gusenitsy-na-pyat-svoikh-gruzovikov-i-vnedorozhnikov-"
 ,
     220: "koenigsegg-otozval-vse-modeli-cc850-v-amerike-vse-sem-iz-nikh"
+,
+    221: "kitayskiy-brend-zeekr-khochet-posorevnovat-sya-s-bmw-i-mercedes-interv-yu"
 
 };
 
