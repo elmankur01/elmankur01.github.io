@@ -350,6 +350,8 @@ const IMAGES = {
     220: { url: "/images/auto/art-220.jpg", alt: "Koenigsegg отозвал все модели CC850 в Америке. Все семь из них", credit: "Фото: Ank Kumar, CC BY-SA 4.0" }
 ,
     221: { url: "/images/auto/art-221.jpg", alt: "Китайский бренд Zeekr хочет посоревноваться с BMW и Mercedes: интервью", credit: "Фото: DrUtrecht, CC0" }
+,
+    222: { url: "/images/auto/art-222.jpg", alt: "Цена на Jeep Compass 2027 года поднимется из-за улучшения стандартных функций", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 
 };
 
@@ -719,6 +721,8 @@ const SLUGS = {
     220: "koenigsegg-otozval-vse-modeli-cc850-v-amerike-vse-sem-iz-nikh"
 ,
     221: "kitayskiy-brend-zeekr-khochet-posorevnovat-sya-s-bmw-i-mercedes-interv-yu"
+,
+    222: "tsena-na-jeep-compass-2027-goda-podnimetsya-iz-za-uluchsheniya-standartnykh-funk"
 
 };
 
