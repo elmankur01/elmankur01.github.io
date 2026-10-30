@@ -352,6 +352,8 @@ const IMAGES = {
     221: { url: "/images/auto/art-221.jpg", alt: "Китайский бренд Zeekr хочет посоревноваться с BMW и Mercedes: интервью", credit: "Фото: DrUtrecht, CC0" }
 ,
     222: { url: "/images/auto/art-222.jpg", alt: "Цена на Jeep Compass 2027 года поднимется из-за улучшения стандартных функций", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
+,
+    223: { url: "/images/auto/art-223.jpg", alt: "Классический Datsun 240Z получит двигатель Twin-Turbo и кузов из углеродного волокна", credit: "Фото: Rankin Kennedy C.E., Public domain" }
 
 };
 
@@ -723,6 +725,8 @@ const SLUGS = {
     221: "kitayskiy-brend-zeekr-khochet-posorevnovat-sya-s-bmw-i-mercedes-interv-yu"
 ,
     222: "tsena-na-jeep-compass-2027-goda-podnimetsya-iz-za-uluchsheniya-standartnykh-funk"
+,
+    223: "klassicheskiy-datsun-240z-poluchit-dvigatel-twin-turbo-i-kuzov-iz-uglerodnogo-vo"
 
 };
 
