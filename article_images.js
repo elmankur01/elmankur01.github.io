@@ -354,6 +354,8 @@ const IMAGES = {
     222: { url: "/images/auto/art-222.jpg", alt: "Цена на Jeep Compass 2027 года поднимется из-за улучшения стандартных функций", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     223: { url: "/images/auto/art-223.jpg", alt: "Классический Datsun 240Z получит двигатель Twin-Turbo и кузов из углеродного волокна", credit: "Фото: Rankin Kennedy C.E., Public domain" }
+,
+    224: { url: "/images/auto/art-224.jpg", alt: "GM предположительно продала ваши данные о вождении. Теперь компания должна выплатить $220 млн.", credit: "Фото: Shixart1985, CC BY 2.0" }
 
 };
 
@@ -727,6 +729,8 @@ const SLUGS = {
     222: "tsena-na-jeep-compass-2027-goda-podnimetsya-iz-za-uluchsheniya-standartnykh-funk"
 ,
     223: "klassicheskiy-datsun-240z-poluchit-dvigatel-twin-turbo-i-kuzov-iz-uglerodnogo-vo"
+,
+    224: "gm-predpolozhitel-no-prodala-vashi-dannye-o-vozhdenii-teper-kompaniya-dolzhna-vy"
 
 };
 
