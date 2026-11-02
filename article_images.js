@@ -356,6 +356,8 @@ const IMAGES = {
     223: { url: "/images/auto/art-223.jpg", alt: "Классический Datsun 240Z получит двигатель Twin-Turbo и кузов из углеродного волокна", credit: "Фото: Rankin Kennedy C.E., Public domain" }
 ,
     224: { url: "/images/auto/art-224.jpg", alt: "GM предположительно продала ваши данные о вождении. Теперь компания должна выплатить $220 млн.", credit: "Фото: Shixart1985, CC BY 2.0" }
+,
+    225: { url: "/images/auto/art-225.jpg", alt: "Nissan построил три потрясающих внедорожника для SEMA", credit: "Фото: Nana Kwadwo Safo Jnr, CC BY-SA 4.0" }
 
 };
 
@@ -731,6 +733,8 @@ const SLUGS = {
     223: "klassicheskiy-datsun-240z-poluchit-dvigatel-twin-turbo-i-kuzov-iz-uglerodnogo-vo"
 ,
     224: "gm-predpolozhitel-no-prodala-vashi-dannye-o-vozhdenii-teper-kompaniya-dolzhna-vy"
+,
+    225: "nissan-postroil-tri-potryasayushchikh-vnedorozhnika-dlya-sema"
 
 };
 
