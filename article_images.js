@@ -358,6 +358,8 @@ const IMAGES = {
     224: { url: "/images/auto/art-224.jpg", alt: "GM предположительно продала ваши данные о вождении. Теперь компания должна выплатить $220 млн.", credit: "Фото: Shixart1985, CC BY 2.0" }
 ,
     225: { url: "/images/auto/art-225.jpg", alt: "Nissan построил три потрясающих внедорожника для SEMA", credit: "Фото: Nana Kwadwo Safo Jnr, CC BY-SA 4.0" }
+,
+    226: { url: "/images/auto/art-226.jpg", alt: "Mazda отказывается позволить Mazda3 с механической коробкой передач умереть", credit: "Фото: Jeremy Kupfuwa (Remy Shoots), CC BY-SA 4.0" }
 
 };
 
@@ -735,6 +737,8 @@ const SLUGS = {
     224: "gm-predpolozhitel-no-prodala-vashi-dannye-o-vozhdenii-teper-kompaniya-dolzhna-vy"
 ,
     225: "nissan-postroil-tri-potryasayushchikh-vnedorozhnika-dlya-sema"
+,
+    226: "mazda-otkazyvaetsya-pozvolit-mazda3-s-mekhanicheskoy-korobkoy-peredach-umeret"
 
 };
 
