@@ -360,6 +360,8 @@ const IMAGES = {
     225: { url: "/images/auto/art-225.jpg", alt: "Nissan построил три потрясающих внедорожника для SEMA", credit: "Фото: Nana Kwadwo Safo Jnr, CC BY-SA 4.0" }
 ,
     226: { url: "/images/auto/art-226.jpg", alt: "Mazda отказывается позволить Mazda3 с механической коробкой передач умереть", credit: "Фото: Jeremy Kupfuwa (Remy Shoots), CC BY-SA 4.0" }
+,
+    227: { url: "/images/auto/art-227.jpg", alt: "GM отзывает 67 000 электромобилей Chevy Blazer и Cadillac Lyriq из-за опасной проблемы с тормозами", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 
 };
 
@@ -739,6 +741,8 @@ const SLUGS = {
     225: "nissan-postroil-tri-potryasayushchikh-vnedorozhnika-dlya-sema"
 ,
     226: "mazda-otkazyvaetsya-pozvolit-mazda3-s-mekhanicheskoy-korobkoy-peredach-umeret"
+,
+    227: "gm-otzyvaet-67-000-elektromobiley-chevy-blazer-i-cadillac-lyriq-iz-za-opasnoy-pr"
 
 };
 
