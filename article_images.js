@@ -362,6 +362,8 @@ const IMAGES = {
     226: { url: "/images/auto/art-226.jpg", alt: "Mazda отказывается позволить Mazda3 с механической коробкой передач умереть", credit: "Фото: Jeremy Kupfuwa (Remy Shoots), CC BY-SA 4.0" }
 ,
     227: { url: "/images/auto/art-227.jpg", alt: "GM отзывает 67 000 электромобилей Chevy Blazer и Cadillac Lyriq из-за опасной проблемы с тормозами", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
+,
+    228: { url: "/images/auto/art-228.jpg", alt: "GM патентует камеру, которая следит за перетаскивающими полосами и автоматически запускает ваш автомобиль", credit: "Фото: Andy Dingley (scanner), Public domain" }
 
 };
 
@@ -743,6 +745,8 @@ const SLUGS = {
     226: "mazda-otkazyvaetsya-pozvolit-mazda3-s-mekhanicheskoy-korobkoy-peredach-umeret"
 ,
     227: "gm-otzyvaet-67-000-elektromobiley-chevy-blazer-i-cadillac-lyriq-iz-za-opasnoy-pr"
+,
+    228: "gm-patentuet-kameru-kotoraya-sledit-za-peretaskivayushchimi-polosami-i-avtomatic"
 
 };
 
