@@ -368,6 +368,8 @@ const IMAGES = {
     229: { url: "/images/auto/art-229.jpg", alt: "Владелец F-150 Lightning перепродал свой грузовик и почти получил обратно свои деньги: «немного меньше, чем мы заплатили за новый»", credit: "Фото: A.Savin, FAL" }
 ,
     230: { url: "/images/auto/art-230.jpg", alt: "Водитель NASCAR купил настоящий танк. ТСЖ недоволен", credit: "Фото: Cress-Dale Photo Co., Public domain" }
+,
+    231: { url: "/images/auto/art-231.jpg", alt: "Святое дерьмо: Ford Mustang Cobra возвращается", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 
 };
 
@@ -755,6 +757,8 @@ const SLUGS = {
     229: "vladelets-f-150-lightning-pereprodal-svoy-gruzovik-i-pochti-poluchil-obratno-svo"
 ,
     230: "voditel-nascar-kupil-nastoyashchiy-tank-tszh-nedovolen"
+,
+    231: "svyatoe-der-mo-ford-mustang-cobra-vozvrashchaetsya"
 
 };
 
