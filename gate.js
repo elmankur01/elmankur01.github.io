@@ -68,29 +68,20 @@
         }
 
         function tryLogin() {
-            var v = (input.value || '').trim();
+            var v = (input.value || "").trim();
             if (!v) return;
-
-            // Прямая проверка + sha256
-            if (v === 'avtotema2026' || v.toLowerCase() === 'avtotema2026') {
-                unlock();
-                return;
-            }
 
             sha256hex(v).then(function (h) {
                 if (h === HASH) {
                     unlock();
                 } else {
-                    err.style.display = 'block';
-                    input.value = '';
+                    err.style.display = "block";
+                    input.value = "";
                     input.focus();
                 }
             }).catch(function () {
-                if (v === 'avtotema2026') {
-                    unlock();
-                } else {
-                    err.style.display = 'block';
-                }
+                err.style.display = "block";
+                input.value = "";
             });
         }
 

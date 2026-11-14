@@ -21,11 +21,15 @@ if [ $? -ne 0 ]; then
 fi
 
 # 3. Проверка синтаксиса ключевых JS файлов
-node -c script.js 2>/dev/null
-if [ $? -ne 0 ]; then
-    echo "❌ [Pre-Commit ОШИБКА] Синтаксическая ошибка в script.js! Коммит отменён."
-    exit 1
-fi
+for jsfile in script.js admin.js gate.js advisor.js generate_articles.js sw.js; do
+    if [ -f "$jsfile" ]; then
+        node -c "$jsfile" 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo "❌ [Pre-Commit ОШИБКА] Синтаксическая ошибка в $jsfile! Коммит отменён."
+            exit 1
+        fi
+    fi
+done
 
 # 4. Базовый SEO аудит главной страницы
 node .agents/skills/seo-auditor/scripts/audit-seo.js index.html >/dev/null 2>&1
