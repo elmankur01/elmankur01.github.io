@@ -5,6 +5,7 @@
 //    версии файлов задаются query-параметрами (?v=N), поэтому обновление подхватывается автоматически;
 //  - служебные страницы (админка, статистика) и запросы не GET не перехватываются.
 const VERSION = 'v3';
+const CACHE_NAME = 'avtotema-cache-' + VERSION;
 const STATIC_CACHE = 'avtotema-static-' + VERSION;
 const PAGE_CACHE = 'avtotema-pages-' + VERSION;
 

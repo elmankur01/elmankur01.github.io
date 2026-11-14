@@ -418,7 +418,7 @@ function page(article, n) {
     <div class="reading-progress" id="progress"></div>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" fetchpriority="high"></span>Авто<span>Тема</span></a>
             <nav class="nav" id="mainNav">
                 <ul class="nav-list" id="navList">
                     <li><a href="/#news">Новости</a></li>
@@ -615,7 +615,7 @@ function page(article, n) {
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-brand">
-                <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+                <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" loading="lazy"></span>Авто<span>Тема</span></a>
                 <p>Все права защищены &copy; <span id="year">2026</span></p>
             </div>
             <div class="footer-socials">
@@ -781,7 +781,7 @@ function generateBrandPages() {
 <body>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" fetchpriority="high"></span>Авто<span>Тема</span></a>
             <nav class="nav" id="mainNav">
                 <ul class="nav-list" id="navList">
                     <li><a href="/#news">Новости</a></li>
@@ -961,7 +961,7 @@ function generateBrandPages() {
 <body>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" fetchpriority="high"></span>Авто<span>Тема</span></a>
             <nav class="nav" id="mainNav">
                 <ul class="nav-list" id="navList">
                     <li><a href="/#news">Новости</a></li>
@@ -1149,7 +1149,7 @@ function generateTagPages() {
 <body>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" fetchpriority="high"></span>Авто<span>Тема</span></a>
             <nav class="nav" id="mainNav">
                 <ul class="nav-list" id="navList">
                     <li><a href="/#news">Новости</a></li>
@@ -1313,7 +1313,7 @@ function generateTagPages() {
 <body>
     <header class="header">
         <div class="container header-inner">
-            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span></a>
+            <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" fetchpriority="high"></span>Авто<span>Тема</span></a>
             <nav class="nav" id="mainNav">
                 <ul class="nav-list" id="navList">
                     <li><a href="/#news">Новости</a></li>
