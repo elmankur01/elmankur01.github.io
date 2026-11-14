@@ -372,6 +372,8 @@ const IMAGES = {
     231: { url: "/images/auto/art-231.jpg", alt: "Святое дерьмо: Ford Mustang Cobra возвращается", credit: "Фото: Alexander Migl, CC BY-SA 4.0" }
 ,
     232: { url: "/images/auto/art-232.jpg", alt: "Электрический внедорожник Lucid стоимостью менее 50 000 долларов окажется в центре внимания в новом тизере", credit: "Фото: Jan Engelhardt, CC BY-SA 4.0" }
+,
+    233: { url: "/images/auto/art-233.jpg", alt: "Новый суперкар Porsche уже замечен на Нюрбургринге", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
 
 };
 
@@ -763,6 +765,8 @@ const SLUGS = {
     231: "svyatoe-der-mo-ford-mustang-cobra-vozvrashchaetsya"
 ,
     232: "elektricheskiy-vnedorozhnik-lucid-stoimost-yu-menee-50-000-dollarov-okazhetsya-v"
+,
+    233: "novyy-superkar-porsche-uzhe-zamechen-na-nyurburgringe"
 
 };
 
