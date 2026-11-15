@@ -374,6 +374,8 @@ const IMAGES = {
     232: { url: "/images/auto/art-232.jpg", alt: "Электрический внедорожник Lucid стоимостью менее 50 000 долларов окажется в центре внимания в новом тизере", credit: "Фото: Jan Engelhardt, CC BY-SA 4.0" }
 ,
     233: { url: "/images/auto/art-233.jpg", alt: "Новый суперкар Porsche уже замечен на Нюрбургринге", credit: "Фото: Matti Blume, CC BY-SA 4.0" }
+,
+    234: { url: "/images/auto/art-234.jpg", alt: "Десятки тысяч долларов спустя эта перепроектированная реактивная турбина предотвращает попадание пыли в кузова грузовиков", credit: "Фото: Dllu, CC BY-SA 4.0" }
 
 };
 
@@ -767,6 +769,8 @@ const SLUGS = {
     232: "elektricheskiy-vnedorozhnik-lucid-stoimost-yu-menee-50-000-dollarov-okazhetsya-v"
 ,
     233: "novyy-superkar-porsche-uzhe-zamechen-na-nyurburgringe"
+,
+    234: "desyatki-tysyach-dollarov-spustya-eta-pereproektirovannaya-reaktivnaya-turbina-p"
 
 };
 
