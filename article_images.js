@@ -378,6 +378,8 @@ const IMAGES = {
     234: { url: "/images/auto/art-234.jpg", alt: "Десятки тысяч долларов спустя эта перепроектированная реактивная турбина предотвращает попадание пыли в кузова грузовиков", credit: "Фото: Dllu, CC BY-SA 4.0" }
 ,
     235: { url: "/images/auto/art-235.jpg", alt: "Есть новый Джеймс Бонд", credit: "Фото: Jan Engelhardt, CC BY-SA 4.0" }
+,
+    236: { url: "/images/auto/art-236.jpg", alt: "Мы играли в GTA 6. Это рай для автолюбителей", credit: "Фото: Andy Dingley (scanner), Public domain" }
 
 };
 
@@ -775,6 +777,8 @@ const SLUGS = {
     234: "desyatki-tysyach-dollarov-spustya-eta-pereproektirovannaya-reaktivnaya-turbina-p"
 ,
     235: "est-novyy-dzheyms-bond"
+,
+    236: "my-igrali-v-gta-6-eto-ray-dlya-avtolyubiteley"
 
 };
 
