@@ -380,6 +380,8 @@ const IMAGES = {
     235: { url: "/images/auto/art-235.jpg", alt: "Есть новый Джеймс Бонд", credit: "Фото: Jan Engelhardt, CC BY-SA 4.0" }
 ,
     236: { url: "/images/auto/art-236.jpg", alt: "Мы играли в GTA 6. Это рай для автолюбителей", credit: "Фото: Andy Dingley (scanner), Public domain" }
+,
+    237: { url: "/images/auto/art-237.jpg", alt: "Koenigsegg теперь стоит 1,4 миллиарда долларов после новых инвестиций", credit: "Фото: Retired electrician, CC0" }
 
 };
 
@@ -779,6 +781,8 @@ const SLUGS = {
     235: "est-novyy-dzheyms-bond"
 ,
     236: "my-igrali-v-gta-6-eto-ray-dlya-avtolyubiteley"
+,
+    237: "koenigsegg-teper-stoit-1-4-milliarda-dollarov-posle-novykh-investitsiy"
 
 };
 
