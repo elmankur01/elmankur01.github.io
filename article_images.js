@@ -382,6 +382,8 @@ const IMAGES = {
     236: { url: "/images/auto/art-236.jpg", alt: "Мы играли в GTA 6. Это рай для автолюбителей", credit: "Фото: Andy Dingley (scanner), Public domain" }
 ,
     237: { url: "/images/auto/art-237.jpg", alt: "Koenigsegg теперь стоит 1,4 миллиарда долларов после новых инвестиций", credit: "Фото: Retired electrician, CC0" }
+,
+    238: { url: "/images/auto/art-238.jpg", alt: "Квадратный внедорожник BYD запрещен в ЕС после решения о подражании Land Rover Defender", credit: "Фото: Retired electrician, CC0" }
 
 };
 
@@ -783,6 +785,8 @@ const SLUGS = {
     236: "my-igrali-v-gta-6-eto-ray-dlya-avtolyubiteley"
 ,
     237: "koenigsegg-teper-stoit-1-4-milliarda-dollarov-posle-novykh-investitsiy"
+,
+    238: "kvadratnyy-vnedorozhnik-byd-zapreshchen-v-es-posle-resheniya-o-podrazhanii-land-"
 
 };
 
