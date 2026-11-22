@@ -384,6 +384,8 @@ const IMAGES = {
     237: { url: "/images/auto/art-237.jpg", alt: "Koenigsegg теперь стоит 1,4 миллиарда долларов после новых инвестиций", credit: "Фото: Retired electrician, CC0" }
 ,
     238: { url: "/images/auto/art-238.jpg", alt: "Квадратный внедорожник BYD запрещен в ЕС после решения о подражании Land Rover Defender", credit: "Фото: Retired electrician, CC0" }
+,
+    239: { url: "/images/auto/art-239.jpg", alt: "Новый Ferrari 296 Challenge Stradale — гоночный автомобиль мощностью 670 л.с., на котором можно ездить домой", credit: "Фото: ermell, CC BY-SA 4.0" }
 
 };
 
@@ -787,6 +789,8 @@ const SLUGS = {
     237: "koenigsegg-teper-stoit-1-4-milliarda-dollarov-posle-novykh-investitsiy"
 ,
     238: "kvadratnyy-vnedorozhnik-byd-zapreshchen-v-es-posle-resheniya-o-podrazhanii-land-"
+,
+    239: "novyy-ferrari-296-challenge-stradale-gonochnyy-avtomobil-moshchnost-yu-670-l-s-n"
 
 };
 
