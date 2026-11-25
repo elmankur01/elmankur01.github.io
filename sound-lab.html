@@ -32,7 +32,7 @@
 
     <title>Лаборатория звука моторов (Engine Sound Lab) — Синтезатор звука двигателей | АвтоТема</title>
 
-    <link rel="stylesheet" href="/styles.css?v=10">
+    <link rel="stylesheet" href="/styles.css?v=11">
     <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
@@ -341,11 +341,11 @@
                             <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px; padding-top:16px; border-top:1px solid var(--border);">
                                 <div>
                                     <div style="font-size:0.75rem; color:var(--muted);">Архитектура:</div>
-                                    <div style="font-weight:700; font-size:0.88rem; color:var(--text);">V8 • 90° Crossplane</div>
+                                    <div style="font-weight:700; font-size:0.88rem; color:var(--text);" id="activeEngineArch">V8 • 90° Crossplane</div>
                                 </div>
                                 <div>
                                     <div style="font-size:0.75rem; color:var(--muted);">Порядок работы:</div>
-                                    <div style="font-weight:700; font-size:0.88rem; color:var(--text);">1-8-4-3-6-5-7-2</div>
+                                    <div style="font-weight:700; font-size:0.88rem; color:var(--text);" id="activeEngineFiring">1-8-4-3-6-5-7-2</div>
                                 </div>
                             </div>
                         </div>
@@ -364,9 +364,9 @@
                         Каждый мотор имеет уникальную модель гармоник, частоту резонанса и порядок работы цилиндров.
                     </p>
 
-                    <div class="engine-presets-grid">
+                    <div class="engine-presets-grid" role="group" aria-label="Пресеты двигателей">
                         <!-- 1. V8 Muscle -->
-                        <div class="engine-card active" data-engine="v8-muscle">
+                        <div class="engine-card active" data-engine="v8-muscle" role="button" tabindex="0" aria-label="Выбрать 6.2L V8 Supercharged">
                             <div class="engine-card-header">
                                 <span class="engine-card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444;">V8 • 6.2L</span>
                                 <span style="font-size:0.75rem; color:var(--muted);">6 800 RPM</span>
@@ -377,7 +377,7 @@
                         </div>
 
                         <!-- 2. Inline-6 Turbo -->
-                        <div class="engine-card" data-engine="inline6-turbo">
+                        <div class="engine-card" data-engine="inline6-turbo" role="button" tabindex="0" aria-label="Выбрать 3.0L Twin-Turbo Inline-6">
                             <div class="engine-card-header">
                                 <span class="engine-card-badge" style="background:rgba(59,130,246,0.15); color:#3b82f6;">I6 • 3.0L</span>
                                 <span style="font-size:0.75rem; color:var(--muted);">7 600 RPM</span>
@@ -388,7 +388,7 @@
                         </div>
 
                         <!-- 3. V10 Screamer -->
-                        <div class="engine-card" data-engine="v10-screamer">
+                        <div class="engine-card" data-engine="v10-screamer" role="button" tabindex="0" aria-label="Выбрать 5.2L Screamer V10">
                             <div class="engine-card-header">
                                 <span class="engine-card-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b;">V10 • 5.2L</span>
                                 <span style="font-size:0.75rem; color:var(--muted);">9 200 RPM</span>
@@ -399,7 +399,7 @@
                         </div>
 
                         <!-- 4. Boxer-6 GT3 -->
-                        <div class="engine-card" data-engine="boxer6-gt3">
+                        <div class="engine-card" data-engine="boxer6-gt3" role="button" tabindex="0" aria-label="Выбрать 4.0L Naturally Aspirated Boxer-6">
                             <div class="engine-card-header">
                                 <span class="engine-card-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">Flat-6 • 4.0L</span>
                                 <span style="font-size:0.75rem; color:var(--muted);">9 000 RPM</span>
@@ -410,7 +410,7 @@
                         </div>
 
                         <!-- 5. Rotary 13B -->
-                        <div class="engine-card" data-engine="rotary-13b">
+                        <div class="engine-card" data-engine="rotary-13b" role="button" tabindex="0" aria-label="Выбрать 1.3L Twin-Rotor Wankel 13B">
                             <div class="engine-card-header">
                                 <span class="engine-card-badge" style="background:rgba(236,72,153,0.15); color:#ec4899;">Rotary • 1.3L</span>
                                 <span style="font-size:0.75rem; color:var(--muted);">9 800 RPM</span>
@@ -421,7 +421,7 @@
                         </div>
 
                         <!-- 6. Hyper-EV Pulse -->
-                        <div class="engine-card" data-engine="hyper-ev">
+                        <div class="engine-card" data-engine="hyper-ev" role="button" tabindex="0" aria-label="Выбрать Dual-Motor Warp Pulse EV">
                             <div class="engine-card-header">
                                 <span class="engine-card-badge" style="background:rgba(6,182,212,0.15); color:#06b6d4;">Dual-Motor • EV</span>
                                 <span style="font-size:0.75rem; color:var(--muted);">8 000 RPM</span>
@@ -510,6 +510,6 @@
     <script src="/script.js?v=4" defer></script>
     <script src="/favorites.js?v=2" defer></script>
     <script src="/search.js?v=1" defer></script>
-    <script src="/sound_lab.js?v=4" defer></script>
+    <script src="/sound_lab.js?v=5" defer></script>
 </body>
 </html>

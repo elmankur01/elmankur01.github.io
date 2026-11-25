@@ -4,7 +4,7 @@
 //  - статика (CSS/JS/шрифты/картинки): stale-while-revalidate (мгновенно из кэша + фоновое обновление);
 //    версии файлов задаются query-параметрами (?v=N), поэтому обновление подхватывается автоматически;
 //  - служебные страницы (админка, статистика) и запросы не GET не перехватываются.
-const VERSION = 'v6';
+const VERSION = 'v7';
 const CACHE_NAME = 'avtotema-cache-' + VERSION;
 const STATIC_CACHE = 'avtotema-static-' + VERSION;
 const PAGE_CACHE = 'avtotema-pages-' + VERSION;
@@ -12,7 +12,7 @@ const PAGE_CACHE = 'avtotema-pages-' + VERSION;
 // Ядро для офлайна: главная и ключевые ресурсы
 const PRECACHE_URLS = [
     '/',
-    '/styles.css?v=10',
+    '/styles.css?v=11',
     '/brands_tags.css?v=2',
     '/theme.js',
     '/script.js?v=4',

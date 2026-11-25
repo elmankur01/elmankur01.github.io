@@ -19,6 +19,8 @@
             name: '6.2L V8 Supercharged (Crossplane)',
             car: 'Dodge Challenger Hellcat / Corvette Stingray',
             desc: 'Классический американский V8 с крестообразным коленвалом. Утробный, вибрирующий низкочастотный рокот на холостых и громоподобный рык на верхах.',
+            arch: 'V8 • 90° Crossplane',
+            firing: '1-8-4-3-6-5-7-2',
             idleRpm: 750,
             maxRpm: 6800,
             redline: 6200,
@@ -39,6 +41,8 @@
             name: '3.0L Twin-Power Turbo Inline-6',
             car: 'BMW M3 (S58) / Toyota Supra (2JZ-GTE)',
             desc: 'Идеально сбалансированная рядная «шестерка». Шелковистый механический звук, переходящий в яростный металлический вой со свистом турбины и стравливанием вейстгейта.',
+            arch: 'Рядная 6-ка (Twin-Turbo)',
+            firing: '1-5-3-6-2-4',
             idleRpm: 800,
             maxRpm: 7600,
             redline: 7000,
@@ -59,6 +63,8 @@
             name: '5.2L Naturally Aspirated V10',
             car: 'Lexus LFA / Lamborghini Huracán / Audi R8',
             desc: 'Высокооборотный формульный V10. Пронзительный акустический визг, напоминающий болиды Формулы-1 золотой эры, с отсечкой на 9000 об/мин.',
+            arch: 'V10 • 72° Even-Fire',
+            firing: '1-6-5-10-2-7-3-8-4-9',
             idleRpm: 950,
             maxRpm: 9200,
             redline: 8700,
@@ -78,6 +84,8 @@
             name: '4.0L Flat-6 Naturally Aspirated',
             car: 'Porsche 911 GT3 RS (992)',
             desc: 'Оппозитная шестёрка без турбин. Сухой гортанный скрежет, переходящий в чистейшую симфонию трекового спорткара при 9000 об/мин.',
+            arch: 'Flat-6 • Оппозитный атмосферник',
+            firing: '1-6-2-4-3-5',
             idleRpm: 850,
             maxRpm: 9000,
             redline: 8400,
@@ -97,6 +105,8 @@
             name: '1.3L Twin-Rotor Wankel (13B-REW)',
             car: 'Mazda RX-7 (FD3S) / RX-8',
             desc: 'Роторно-поршневой мотор Ванкеля с агрессивным портингом. Легендарный рваный холостой ход «brap-brap-brap» и бешеный высокочастотный вой до 10 000 об/мин.',
+            arch: '2-секционный Wankel (13B-REW)',
+            firing: '180° фазовый сдвиг эксцентриков',
             idleRpm: 1100,
             maxRpm: 9800,
             redline: 9000,
@@ -118,6 +128,8 @@
             name: 'Dual-Motor Warp Pulse (Electric)',
             car: 'Porsche Taycan Turbo GT / Zeekr 001 FR',
             desc: 'Футуристический синтетический импульс гипер-электромобиля. Мощный низкочастотный резонанс с полифонической модуляцией катушек инвертора.',
+            arch: '2 синхронных электромотора (PMSM)',
+            firing: 'Векторный ШИМ 16 кГц',
             idleRpm: 0,
             maxRpm: 8000,
             redline: 7500,
@@ -198,6 +210,8 @@
         els.engineTitle = document.getElementById('activeEngineTitle');
         els.engineCar = document.getElementById('activeEngineCar');
         els.engineDesc = document.getElementById('activeEngineDesc');
+        els.engineArch = document.getElementById('activeEngineArch');
+        els.engineFiring = document.getElementById('activeEngineFiring');
         els.volumeSlider = document.getElementById('engineVolume');
         els.flameLeft = document.getElementById('flameLeft');
         els.flameRight = document.getElementById('flameRight');
@@ -749,6 +763,18 @@
         isRunning = false;
         isStopping = false;
         isStarting = false;
+        isGasPressed = false;
+        isLaunchControlActive = false;
+        currentGear = 1;
+
+        if (els.btnLaunch) els.btnLaunch.classList.remove('active');
+        if (els.btnGas) els.btnGas.classList.remove('gas-active');
+        if (els.gearDisplay) {
+            const engine = ENGINES[currentEngineKey];
+            els.gearDisplay.textContent = (engine && engine.type === 'ev' ? 'DIRECT DRIVE' : '1 ПЕРЕДАЧА');
+            els.gearDisplay.style.transform = '';
+        }
+
         // Восстановление кривой дисторшна для следующего запуска
         if (driveDistortion) {
             driveDistortion.curve = makeDistortionCurve(EXHAUST_PROFILES[currentExhaust].distortion);
@@ -933,11 +959,24 @@
     // Симуляция переключения передачи
     function simulateGearShift() {
         if (!isRunning || isShiftSimulating) return;
-        isShiftSimulating = true;
-
         const engine = ENGINES[currentEngineKey];
+
+        if (engine.type === 'ev') {
+            if (els.gearDisplay) {
+                els.gearDisplay.textContent = 'DIRECT DRIVE';
+                els.gearDisplay.style.transform = 'scale(1.15)';
+                setTimeout(() => { if (els.gearDisplay) els.gearDisplay.style.transform = ''; }, 180);
+            }
+            return;
+        }
+
+        isShiftSimulating = true;
         currentGear = currentGear >= 6 ? 1 : currentGear + 1;
-        if (els.gearDisplay) els.gearDisplay.textContent = currentGear + ' ПЕРЕДАЧА';
+        if (els.gearDisplay) {
+            els.gearDisplay.textContent = currentGear + ' ПЕРЕДАЧА';
+            els.gearDisplay.style.transform = 'scale(1.15)';
+            setTimeout(() => { if (els.gearDisplay) els.gearDisplay.style.transform = ''; }, 180);
+        }
 
         const preRpm = currentRpm;
         targetRpm = Math.max(engine.idleRpm, preRpm * 0.65);
@@ -1177,6 +1216,22 @@
         if (els.engineTitle) els.engineTitle.textContent = engine.name;
         if (els.engineCar) els.engineCar.textContent = engine.car;
         if (els.engineDesc) els.engineDesc.textContent = engine.desc;
+        if (els.engineArch) els.engineArch.textContent = engine.arch;
+        if (els.engineFiring) els.engineFiring.textContent = engine.firing;
+        if (els.rpmSlider) {
+            els.rpmSlider.max = engine.maxRpm;
+            els.rpmSlider.value = isRunning ? Math.round(currentRpm) : 0;
+        }
+        if (els.gearDisplay) {
+            currentGear = 1;
+            els.gearDisplay.textContent = (engine.type === 'ev' ? 'DIRECT DRIVE' : '1 ПЕРЕДАЧА');
+        }
+        if (els.rpmGaugeNeedle) {
+            els.rpmGaugeNeedle.style.stroke = engine.accentColor;
+        }
+        if (!isRunning) {
+            updateRpmDisplay();
+        }
 
         if (isRunning) {
             stopEngine();
@@ -1212,16 +1267,19 @@
             const pressGas = (e) => {
                 if (e.cancelable) e.preventDefault();
                 if (isStarting || isStopping) return;
-                if (!isRunning) startEngine();
+                if (!isRunning) {
+                    startEngine();
+                }
                 isGasPressed = true;
                 els.btnGas.classList.add('gas-active');
             };
             const releaseGas = (e) => {
                 if (e && e.cancelable) e.preventDefault();
-                if (isStarting || isStopping) return;
                 const wasHigh = currentRpm > 4200;
                 isGasPressed = false;
-                els.btnGas.classList.remove('gas-active');
+                if (els.btnGas) els.btnGas.classList.remove('gas-active');
+
+                if (isStarting || isStopping || !isRunning) return;
 
                 // Если мотор турбированный — триггерим flutter при сбросе газа
                 const engine = ENGINES[currentEngineKey];
@@ -1249,7 +1307,10 @@
         if (els.btnPop) {
             els.btnPop.addEventListener('click', () => {
                 if (isStarting || isStopping) return;
-                if (!isRunning) startEngine();
+                if (!isRunning) {
+                    startEngine();
+                    return;
+                }
                 triggerPopBang();
             });
         }
@@ -1257,7 +1318,10 @@
         if (els.btnShift) {
             els.btnShift.addEventListener('click', () => {
                 if (isStarting || isStopping) return;
-                if (!isRunning) startEngine();
+                if (!isRunning) {
+                    startEngine();
+                    return;
+                }
                 simulateGearShift();
             });
         }
@@ -1272,7 +1336,10 @@
         if (els.btnFlutter) {
             els.btnFlutter.addEventListener('click', () => {
                 if (isStarting || isStopping) return;
-                if (!isRunning) startEngine();
+                if (!isRunning) {
+                    startEngine();
+                    return;
+                }
                 triggerTurboFlutter();
             });
         }
@@ -1287,12 +1354,18 @@
             });
         }
 
-        // Выбор мотора
+        // Выбор мотора (клик мышью / тапом и клавиатурный ввод)
         if (els.engineCards) {
             els.engineCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const k = card.getAttribute('data-engine');
                     switchEngine(k);
+                });
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
                 });
             });
         }
@@ -1317,15 +1390,18 @@
                 if (els.btnGas) els.btnGas.classList.add('gas-active');
             } else if (e.code === 'KeyP') {
                 if (isStarting || isStopping) return;
+                if (!isRunning) { startEngine(); return; }
                 triggerPopBang();
             } else if (e.code === 'KeyS') {
                 if (isStarting || isStopping) return;
+                if (!isRunning) { startEngine(); return; }
                 simulateGearShift();
             } else if (e.code === 'KeyL') {
                 if (isStarting || isStopping) return;
                 toggleLaunchControl();
             } else if (e.code === 'KeyF') {
                 if (isStarting || isStopping) return;
+                if (!isRunning) { startEngine(); return; }
                 triggerTurboFlutter();
             } else if (e.code === 'Escape') {
                 if (isStarting || isStopping) return;
@@ -1335,10 +1411,10 @@
 
         window.addEventListener('keyup', (e) => {
             if (e.code === 'Space') {
-                if (isStarting || isStopping) return;
                 const wasHigh = currentRpm > 4200;
                 isGasPressed = false;
                 if (els.btnGas) els.btnGas.classList.remove('gas-active');
+                if (isStarting || isStopping || !isRunning) return;
                 const engine = ENGINES[currentEngineKey];
                 if (wasHigh && engine.hasTurbo) triggerTurboFlutter();
                 else if (wasHigh) triggerPopBang();
