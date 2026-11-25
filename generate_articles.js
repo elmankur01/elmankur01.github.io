@@ -328,7 +328,7 @@ function page(article, n) {
     <meta property="og:image:alt" content="${esc(article.title)}">
     <title>${esc(article.title)} | АвтоТема</title>
     <link rel="canonical" href="${SITE}/articles/${slug}.html">
-    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/styles.css?v=9">
     <link rel="stylesheet" href="/ugc.css?v=3">
     <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
@@ -719,7 +719,7 @@ function generateBrandPages() {
         }
     }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/styles.css?v=9">
     <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
@@ -892,7 +892,7 @@ function generateBrandPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/styles.css?v=9">
     <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
@@ -1127,7 +1127,7 @@ function generateTagPages() {
         }
     }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/styles.css?v=9">
     <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
@@ -1303,7 +1303,7 @@ function generateTagPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/styles.css?v=9">
     <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
