@@ -239,14 +239,23 @@
         targetRpm = engine.idleRpm;
         if (els.rpmSlider) els.rpmSlider.value = currentRpm;
 
+        // Синхронный запуск узлов в момент тапа (критично для iOS Safari)
+        setupEngineNodes(engine, true);
+        isRunning = true;
+        updatePowerUi(true);
+        updateRpmDisplay();
+
         playStarterSound(() => {
-            setupEngineNodes(engine);
-            isRunning = true;
-            updatePowerUi(true);
-            updateRpmDisplay();
-            requestAnimationFrame(engineLoop);
-            requestAnimationFrame(drawVisualizer);
+            if (!isRunning || !audioCtx || !masterGain) return;
+            const vol = els.volumeSlider ? parseFloat(els.volumeSlider.value) : 0.75;
+            const now = audioCtx.currentTime;
+            masterGain.gain.cancelScheduledValues(now);
+            masterGain.gain.setValueAtTime(0.01, now);
+            masterGain.gain.exponentialRampToValueAtTime(vol * 0.42, now + 0.35);
         });
+
+        requestAnimationFrame(engineLoop);
+        requestAnimationFrame(drawVisualizer);
     }
 
     function playStarterSound(onComplete) {
@@ -277,7 +286,7 @@
         setTimeout(onComplete, 350);
     }
 
-    function setupEngineNodes(engine) {
+    function setupEngineNodes(engine, duringStarter) {
         const now = audioCtx.currentTime;
 
         osc1 = audioCtx.createOscillator();
@@ -319,10 +328,14 @@
         oscSub.start(now);
         lfoNode.start(now);
 
-        const vol = els.volumeSlider ? parseFloat(els.volumeSlider.value) : 0.75;
         masterGain.gain.cancelScheduledValues(now);
-        masterGain.gain.setValueAtTime(0.01, now);
-        masterGain.gain.exponentialRampToValueAtTime(vol * 0.42, now + 0.3);
+        if (duringStarter) {
+            masterGain.gain.setValueAtTime(0.0001, now);
+        } else {
+            const vol = els.volumeSlider ? parseFloat(els.volumeSlider.value) : 0.75;
+            masterGain.gain.setValueAtTime(0.01, now);
+            masterGain.gain.exponentialRampToValueAtTime(vol * 0.42, now + 0.3);
+        }
     }
 
     function stopEngine() {
@@ -781,6 +794,9 @@
         if (els.rpmSlider) {
             els.rpmSlider.addEventListener('mousedown', () => { els.rpmSliderMouseHold = true; });
             window.addEventListener('mouseup', () => { els.rpmSliderMouseHold = false; });
+            els.rpmSlider.addEventListener('touchstart', () => { els.rpmSliderMouseHold = true; }, { passive: true });
+            window.addEventListener('touchend', () => { els.rpmSliderMouseHold = false; }, { passive: true });
+            window.addEventListener('touchcancel', () => { els.rpmSliderMouseHold = false; }, { passive: true });
             els.rpmSlider.addEventListener('input', (e) => {
                 if (!isRunning) startEngine();
                 targetRpm = parseFloat(e.target.value);
@@ -788,16 +804,16 @@
             });
         }
 
-        // Педаль «Газ в пол»
+        // Педаль «Газ в пол» (полная поддержка iOS WebKit и Android Touch)
         if (els.btnGas) {
             const pressGas = (e) => {
-                e.preventDefault();
+                if (e.cancelable) e.preventDefault();
                 if (!isRunning) startEngine();
                 isGasPressed = true;
                 els.btnGas.classList.add('gas-active');
             };
             const releaseGas = (e) => {
-                e.preventDefault();
+                if (e && e.cancelable) e.preventDefault();
                 const wasHigh = currentRpm > 4200;
                 isGasPressed = false;
                 els.btnGas.classList.remove('gas-active');
@@ -811,10 +827,18 @@
                 }
             };
 
-            els.btnGas.addEventListener('mousedown', pressGas);
-            window.addEventListener('mouseup', releaseGas);
-            els.btnGas.addEventListener('touchstart', pressGas, { passive: false });
-            window.addEventListener('touchend', releaseGas, { passive: false });
+            if (window.PointerEvent) {
+                els.btnGas.addEventListener('pointerdown', pressGas);
+                window.addEventListener('pointerup', releaseGas);
+                window.addEventListener('pointercancel', releaseGas);
+            } else {
+                els.btnGas.addEventListener('mousedown', pressGas);
+                window.addEventListener('mouseup', releaseGas);
+                els.btnGas.addEventListener('touchstart', pressGas, { passive: false });
+                window.addEventListener('touchend', releaseGas, { passive: false });
+                window.addEventListener('touchcancel', releaseGas, { passive: false });
+            }
+            window.addEventListener('blur', releaseGas);
         }
 
         if (els.btnPop) {
