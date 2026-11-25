@@ -37,17 +37,21 @@
         const baseViews = 380 + (slugHash % 890);
 
         // 2. Локальный органический прирост для читателя
-        let userHits = parseInt(localStorage.getItem(storageKey), 10) || 0;
-        const hasSessionHit = sessionStorage.getItem(sessionKey) === '1';
+        let userHits = 0;
+        let hasSessionHit = false;
+        try {
+            userHits = parseInt(localStorage.getItem(storageKey), 10) || 0;
+            hasSessionHit = sessionStorage.getItem(sessionKey) === '1';
 
-        if (!hasSessionHit) {
-            userHits += 1;
-            sessionStorage.setItem(sessionKey, '1');
-            localStorage.setItem(storageKey, userHits);
-        } else if (userHits === 0) {
-            userHits = 1;
-            localStorage.setItem(storageKey, 1);
-        }
+            if (!hasSessionHit) {
+                userHits += 1;
+                sessionStorage.setItem(sessionKey, '1');
+                localStorage.setItem(storageKey, userHits);
+            } else if (userHits === 0) {
+                userHits = 1;
+                localStorage.setItem(storageKey, 1);
+            }
+        } catch (e) {}
 
         const totalViews = baseViews + userHits;
 

@@ -121,14 +121,15 @@ function initFontSizeControls() {
     const buttons = document.querySelectorAll('.font-btn');
     if (!buttons.length) return;
 
-    const savedSize = localStorage.getItem('avtotema_font_size') || 'normal';
+    let savedSize = 'normal';
+    try { savedSize = localStorage.getItem('avtotema_font_size') || 'normal'; } catch (e) {}
     applyFontSize(savedSize);
 
     buttons.forEach(btn => {
         btn.addEventListener('click', function () {
             const size = this.dataset.size;
             applyFontSize(size);
-            localStorage.setItem('avtotema_font_size', size);
+            try { localStorage.setItem('avtotema_font_size', size); } catch (e) {}
         });
     });
 

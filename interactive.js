@@ -212,12 +212,15 @@ const POLL_CHOICE_KEY = 'avtotema_poll_choice_v2';
 function initPoll(widget) {
     if (!widget) return;
     const votes = loadPollVotes();
-    const voted = localStorage.getItem(POLL_CHOICE_KEY);
+    let voted = null;
+    try { voted = localStorage.getItem(POLL_CHOICE_KEY); } catch (e) {}
 
     function saveVote(option) {
         votes[option] = (votes[option] || 0) + 1;
-        localStorage.setItem(POLL_STORAGE_KEY, JSON.stringify(votes));
-        localStorage.setItem(POLL_CHOICE_KEY, option);
+        try {
+            localStorage.setItem(POLL_STORAGE_KEY, JSON.stringify(votes));
+            localStorage.setItem(POLL_CHOICE_KEY, option);
+        } catch (e) {}
     }
 
     function render() {

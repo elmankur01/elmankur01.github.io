@@ -76,7 +76,12 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
 
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -185,6 +190,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
+    padding-top: env(safe-area-inset-top, 0);
 }
 
 .header-inner {
@@ -1334,7 +1340,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .footer {
     border-top: 1px solid var(--border);
     background: var(--bg-soft);
-    padding: 48px 0 24px;
+    padding: 48px 0 calc(24px + env(safe-area-inset-bottom, 0px));
 }
 
 .footer-inner {
@@ -1456,8 +1462,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* ===== Scroll top ===== */
 .scroll-top {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    right: calc(24px + env(safe-area-inset-right, 0px));
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -4446,7 +4452,19 @@ button:active,
     transition: transform 0.1s ease;
 }
 
-.range-slider-input::-webkit-slider-thumb:hover {
+.range-slider-input::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--card);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.range-slider-input::-webkit-slider-thumb:hover,
+.range-slider-input::-moz-range-thumb:hover {
     transform: scale(1.15);
 }
 

@@ -73,7 +73,8 @@ function initInArticlePoll(articleKey, tag) {
     if (!pollData) return;
 
     const storageKey = 'avtotema_poll_' + articleKey;
-    let savedVoteIdx = localStorage.getItem(storageKey);
+    let savedVoteIdx = null;
+    try { savedVoteIdx = localStorage.getItem(storageKey); } catch (e) {}
 
     const questionEl = document.getElementById('pollQuestion');
     const optionsWrap = document.getElementById('pollOptionsList');
@@ -118,8 +119,10 @@ function initInArticlePoll(articleKey, tag) {
         }
 
         btn.addEventListener('click', function () {
-            if (localStorage.getItem(storageKey) !== null) return;
-            localStorage.setItem(storageKey, idx);
+            try {
+                if (localStorage.getItem(storageKey) !== null) return;
+                localStorage.setItem(storageKey, idx);
+            } catch (e) {}
             initInArticlePoll(articleKey, tag);
         });
 
@@ -299,7 +302,8 @@ function initArticleComments(articleKey) {
             card.className = 'comment-card';
 
             const likedKey = 'avtotema_com_liked_' + articleKey + '_' + idx;
-            const isLiked = localStorage.getItem(likedKey) === '1';
+            let isLiked = false;
+            try { isLiked = localStorage.getItem(likedKey) === '1'; } catch (e) {}
 
             card.innerHTML = `
                 <div class="comment-card-top">
@@ -320,13 +324,14 @@ function initArticleComments(articleKey) {
             const likeBtn = card.querySelector('.comment-like-btn');
             if (likeBtn) {
                 likeBtn.addEventListener('click', function () {
-                    const currentLiked = localStorage.getItem(likedKey) === '1';
+                    let currentLiked = false;
+                    try { currentLiked = localStorage.getItem(likedKey) === '1'; } catch (e) {}
                     if (!currentLiked) {
-                        localStorage.setItem(likedKey, '1');
+                        try { localStorage.setItem(likedKey, '1'); } catch (e) {}
                         c.likes = (c.likes || 0) + 1;
                         this.classList.add('liked');
                     } else {
-                        localStorage.removeItem(likedKey);
+                        try { localStorage.removeItem(likedKey); } catch (e) {}
                         c.likes = Math.max(0, (c.likes || 0) - 1);
                         this.classList.remove('liked');
                     }

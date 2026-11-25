@@ -311,7 +311,7 @@ function page(article, n) {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#e8433c">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.github.io; script-src 'self' 'unsafe-inline' https://*.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:; object-src 'none'; base-uri 'self'">
@@ -692,7 +692,7 @@ function generateBrandPages() {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#e8433c">
     <meta name="robots" content="index, follow">
     <title>Каталог марок автомобилей | АвтоТема</title>
@@ -879,7 +879,7 @@ function generateBrandPages() {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#e8433c">
     <meta name="robots" content="index, follow">
     <title>Автомобили ${esc(b.name)}: новости, обзоры, история марки | АвтоТема</title>
@@ -1100,7 +1100,7 @@ function generateTagPages() {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#e8433c">
     <meta name="robots" content="index, follow">
     <title>Тематические теги и рубрики | АвтоТема</title>
@@ -1290,7 +1290,7 @@ function generateTagPages() {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#e8433c">
     <meta name="robots" content="index, follow">
     <title>${esc(t.name)} (${esc(t.hashtag)}) — статьи и обзоры | АвтоТема</title>
@@ -1532,7 +1532,7 @@ function redirectStub(article, n) {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>${esc(article.title)} | АвтоТема</title>
     <meta name="robots" content="noindex, follow">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'self'">
