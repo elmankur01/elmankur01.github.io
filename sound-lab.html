@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Лаборатория звука моторов (Engine Sound Lab): интерактивный онлайн-синтезатор звука легендарных двигателей V8, Inline-6, V10, Boxer-6 и Rotary на Web Audio API. Живой тахометр, педаль газа и отстрелы выхлопа.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Лаборатория звука моторов (Engine Sound Lab) | АвтоТема">
+    <meta property="og:description" content="Слушайте и управляйте рёвом легендарных моторов V8, V10 LFA, 2JZ, GT3 и 13B Rotary в реальном времени. Живой тахометр, педаль в пол и отстрелы выхлопа.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:url" content="https://avtotema-news.online/sound-lab.html">
+    <meta property="og:image" content="https://avtotema-news.online/og-image.png">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Лаборатория звука моторов (Engine Sound Lab) | АвтоТема">
+    <meta name="twitter:description" content="Интерактивный симулятор звука V8, V10, Inline-6 и ротора на Web Audio API. Попробуйте прямо в браузере!">
+    <meta name="twitter:image" content="https://avtotema-news.online/og-image.png">
+
+    <link rel="canonical" href="https://avtotema-news.online/sound-lab.html">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>Лаборатория звука моторов (Engine Sound Lab) — Синтезатор звука двигателей | АвтоТема</title>
+
+    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/brands_tags.css?v=2">
+    <script>
+    (function(){
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
+
+    <!-- Schema.org WebApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Лаборатория звука моторов (Engine Sound Lab)",
+        "url": "https://avtotema-news.online/sound-lab.html",
+        "description": "Интерактивный аудио-синтезатор звуков легендарных автомобильных двигателей V8, V10, Inline-6, Boxer-6 и Wankel Rotary на Web Audio API.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://avtotema-news.online/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Интерактивные лаборатории",
+                "item": "https://avtotema-news.online/#labs"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Лаборатория звука моторов",
+                "item": "https://avtotema-news.online/sound-lab.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Как работает синтез звука моторов в Лаборатории АвтоТемы?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Синтез работает в реальном времени через Web Audio API с помощью генераторов полифонических гармоник, частотных фильтров резонанса выхлопного тракта, сатураторов овердрайва и имитаторов перекрытия фаз газораспределения (Cam Lope)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Почему американский V8 звучит басовито, а европейский V8 — пронзительно?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Разница кроется в конструкции коленвала. Американские V8 (Crossplane) имеют угол шеек 90°, что даёт неравномерный порядок вспышек в каждом полублоке и утробный бурлящий рокот. Европейские суперкары (Ferrari, McLaren) используют плоский коленвал Flatplane 180°, работающий как спарка двух рядных четвёрок с пронзительным гоночным воем."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Откуда берутся отстрелы выхлопа (Pop & Bang)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Отстрелы происходят, когда микропорции несгоревшей топливно-воздушной смеси попадают в раскалённый выпускной коллектор при резком сбросе газа или переключении передачи и детонируют там."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo" aria-label="АвтоТема — на главную">
+                <span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32"></span>Авто<span>Тема</span>
+            </a>
+            <nav class="nav" aria-label="Основная навигация">
+                <a href="/#latest" class="nav-link">Новости</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn" aria-expanded="false">Лаборатории ▾</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="/sound-lab.html" class="active">🔊 Лаборатория звука</a>
+                        <a href="/calc-range.html">❄️ Морозный радар EV</a>
+                        <a href="/calc-xray.html">🔬 Рентген цены 2026</a>
+                        <a href="/calc-tco.html">📊 Стоимость владения</a>
+                        <a href="/calc-customs.html">🛃 Растаможка 2026</a>
+                        <a href="/calc-tax.html">📋 Транспортный налог</a>
+                        <a href="/compare.html">⚖️ Сравнение авто</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn" aria-expanded="false">Каталог ▾</button>
+                    <div class="nav-dropdown-menu">
+                        <a href="/brands/">Все марки</a>
+                        <a href="/tags/">Все рубрики</a>
+                    </div>
+                </div>
+                <button class="nav-search-btn" id="searchBtn" aria-label="Поиск по сайту">🔍</button>
+                <a href="/#favorites" class="nav-fav-link" id="favCountLink" aria-label="Закладки">⭐ <span id="favCountBadge" class="fav-badge">0</span></a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="section">
+            <div class="container">
+                <!-- Хлебные крошки -->
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <ol>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/#labs">Лаборатории</a></li>
+                        <li aria-current="page">Лаборатория звука моторов</li>
+                    </ol>
+                </nav>
+
+                <div class="section-header" style="text-align:center; max-width: 860px; margin: 0 auto 30px;">
+                    <div class="category-pill" style="margin-bottom:12px;background:rgba(239,68,68,0.15);color:#ef4444;border-color:rgba(239,68,68,0.3);">
+                        🔊 ЭКСКЛЮЗИВ АВТОТЕМЫ • WEB AUDIO SYNTHESIZER
+                    </div>
+                    <h1 class="section-title" style="font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15;">
+                        Лаборатория звука моторов <span style="color:#ef4444;">(Sound Lab)</span>
+                    </h1>
+                    <p class="section-subtitle" style="font-size: 1.05rem; color: var(--muted); margin-top: 8px;">
+                        Аудиофизический синтезатор в реальном времени: заведите легендарный V8, визжащий V10 LFA, рядный 2JZ турбо или роторный 13B. Нажимайте педаль в пол, переключайте передачи и наслаждайтесь чистой симфонией выхлопа.
+                    </p>
+                </div>
+
+                <!-- КОКПИТ УПРАВЛЕНИЯ -->
+                <div class="sound-lab-cockpit">
+                    <!-- ЛЕВАЯ КОЛОНКА: ТАХОМЕТР И ОРГАНЫ УПРАВЛЕНИЯ -->
+                    <div class="tacho-gauge-card">
+                        <span class="tacho-gear-badge" id="gearDisplay">1 ПЕРЕДАЧА</span>
+
+                        <!-- SVG ТАХОМЕТР -->
+                        <div class="tacho-svg-wrap">
+                            <svg viewBox="0 0 260 260" width="100%" height="100%">
+                                <!-- Фоновая шкала -->
+                                <circle cx="130" cy="130" r="110" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="16" />
+                                
+                                <!-- Шкала оборотов (дуга 240 градусов) -->
+                                <circle cx="130" cy="130" r="110" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="6"
+                                        stroke-dasharray="460 240" stroke-dashoffset="-70" stroke-linecap="round" />
+                                
+                                <!-- Красная зона Redline -->
+                                <circle cx="130" cy="130" r="110" fill="none" stroke="#ef4444" stroke-width="8"
+                                        stroke-dasharray="90 610" stroke-dashoffset="-380" stroke-linecap="round" />
+
+                                <!-- Деления тахометра -->
+                                <g stroke="rgba(255,255,255,0.4)" stroke-width="2">
+                                    <line x1="45" y1="185" x2="57" y2="178" />
+                                    <line x1="30" y1="130" x2="44" y2="130" />
+                                    <line x1="45" y1="75" x2="57" y2="82" />
+                                    <line x1="85" y1="38" x2="93" y2="50" />
+                                    <line x1="130" y1="24" x2="130" y2="38" />
+                                    <line x1="175" y1="38" x2="167" y2="50" />
+                                    <line x1="215" y1="75" x2="203" y2="82" />
+                                    <line x1="230" y1="130" x2="216" y2="130" stroke="#ef4444" />
+                                    <line x1="215" y1="185" x2="203" y2="178" stroke="#ef4444" />
+                                </g>
+
+                                <!-- Стрелка тахометра -->
+                                <line id="rpmNeedle" class="tacho-needle" x1="130" y1="130" x2="130" y2="36" 
+                                      stroke="#ef4444" stroke-width="4" stroke-linecap="round" />
+                                
+                                <!-- Центр оси -->
+                                <circle cx="130" cy="130" r="12" fill="#0f172a" stroke="rgba(255,255,255,0.3)" stroke-width="3" />
+                            </svg>
+
+                            <!-- Цифровой индикатор по центру -->
+                            <div class="tacho-center-hub">
+                                <div class="tacho-rpm-val" id="rpmGaugeVal">0</div>
+                                <div class="tacho-rpm-unit">ОБ / МИН</div>
+                            </div>
+                        </div>
+
+                        <!-- КНОПКА ЗАПУСКА ДВИГАТЕЛЯ (START / STOP) -->
+                        <button class="engine-start-btn" id="btnEnginePower" aria-label="Запуск двигателя">
+                            <span class="engine-start-led" id="enginePowerLed"></span>
+                            <span class="engine-start-text" id="enginePowerLabel">ENGINE START</span>
+                        </button>
+
+                        <!-- ПОЛЗУНОК ОБОРТОВ И ГРОМКОСТИ -->
+                        <div style="width: 100%; margin-top: 14px;">
+                            <div class="calc-label-row">
+                                <span style="font-size:0.85rem;color:var(--muted);">Педаль газа (RPM Slider):</span>
+                                <span style="font-size:0.75rem;color:var(--muted);">Горячая клавиша: Пробел</span>
+                            </div>
+                            <input type="range" class="range-slider-input" id="engineRpmSlider" min="0" max="9500" value="0" step="25" aria-label="Обороты двигателя">
+                        </div>
+
+                        <!-- ОРГАНЫ УПРАВЛЕНИЯ -->
+                        <div class="sound-controls-row">
+                            <button class="btn-gas-pedal" id="btnGasPedal" aria-label="Педаль газа в пол">
+                                <span>🔥</span> ГАЗ В ПОЛ (УДЕРЖИВАТЬ)
+                            </button>
+                            <button class="btn-sound-action" id="btnPopBang" aria-label="Отстрелы выхлопа">
+                                <span>💥</span> Pop & Bang (P)
+                            </button>
+                            <button class="btn-sound-action" id="btnShiftGear" aria-label="Переключение передачи">
+                                <span>🕹️</span> Передача (S)
+                            </button>
+                        </div>
+
+                        <!-- ГРОМКОСТЬ -->
+                        <div style="width: 100%; margin-top: 18px; display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size:0.85rem;color:var(--muted);">🔊 Громкость:</span>
+                            <input type="range" id="engineVolume" min="0" max="1" step="0.05" value="0.75" style="flex:1; cursor:pointer;" aria-label="Громкость">
+                        </div>
+                    </div>
+
+                    <!-- ПРАВАЯ КОЛОНКА: ВИЗУАЛИЗАТОР И ТТХ ДВИГАТЕЛЯ -->
+                    <div style="display:flex; flex-direction:column; gap:20px;">
+                        <!-- ЭКРАН ВИЗУАЛИЗАТОРА АКУСТИКИ -->
+                        <div class="visualizer-card">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                <h3 style="font-size:0.95rem; font-weight:800; color:var(--text); margin:0;">
+                                    📊 Акустическая осциллограмма выхлопа
+                                </h3>
+                                <span style="font-size:0.75rem; color:#10b981; font-weight:700;">● LIVE 60 FPS</span>
+                            </div>
+                            
+                            <div class="sound-canvas-frame">
+                                <canvas id="soundVisualizer"></canvas>
+                            </div>
+                            <div style="font-size:0.75rem; color:var(--muted); margin-top:8px; text-align:right;">
+                                FFT Analyser • Анализ спектра в реальном времени
+                            </div>
+                        </div>
+
+                        <!-- ПАСПОРТ АКТИВНОГО ДВИГАТЕЛЯ -->
+                        <div class="calc-card" style="padding: 24px; border-radius: 20px;">
+                            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                                <span style="font-size:1.3rem;">⚙️</span>
+                                <h2 id="activeEngineTitle" style="font-size:1.25rem; font-weight:900; color:var(--text); margin:0;">
+                                    6.2L V8 Supercharged (Crossplane)
+                                </h2>
+                            </div>
+                            <div id="activeEngineCar" style="font-size:0.9rem; font-weight:700; color:#ef4444; margin-bottom:12px;">
+                                Dodge Challenger Hellcat / Corvette Stingray
+                            </div>
+                            <p id="activeEngineDesc" style="font-size:0.88rem; color:var(--muted); line-height:1.55; margin:0;">
+                                Классический американский V8 с крестообразным коленвалом. Утробный, вибрирующий низкочастотный рокот на холостых и громоподобный рык на верхах.
+                            </p>
+
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px; padding-top:16px; border-top:1px solid var(--border);">
+                                <div>
+                                    <div style="font-size:0.75rem; color:var(--muted);">Архитектура:</div>
+                                    <div style="font-weight:700; font-size:0.88rem; color:var(--text);">V8 • 90° Crossplane</div>
+                                </div>
+                                <div>
+                                    <div style="font-size:0.75rem; color:var(--muted);">Порядок работы:</div>
+                                    <div style="font-weight:700; font-size:0.88rem; color:var(--text);">1-8-4-3-6-5-7-2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ВЫБОР ДВИГАТЕЛЯ (6 ПРЕСЕТОВ) -->
+                <div style="margin-top: 48px;">
+                    <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--text); margin-bottom: 8px;">
+                        Выберите легендарный двигатель для теста:
+                    </h2>
+                    <p style="font-size: 0.92rem; color: var(--muted); margin-bottom: 20px;">
+                        Каждый двигатель имеет уникальную математическую модель гармоник, частоту резонанса и порядок работы цилиндров.
+                    </p>
+
+                    <div class="engine-presets-grid">
+                        <!-- 1. V8 Muscle -->
+                        <div class="engine-card active" data-engine="v8-muscle">
+                            <div class="engine-card-header">
+                                <span class="engine-card-badge" style="background:rgba(239,68,68,0.15); color:#ef4444;">V8 • 6.2L</span>
+                                <span style="font-size:0.75rem; color:var(--muted);">6 800 RPM</span>
+                            </div>
+                            <h3 class="engine-card-title">6.2L V8 Supercharged</h3>
+                            <div class="engine-card-car">Dodge Hellcat / Corvette V8</div>
+                            <p class="engine-card-desc">Крестообразный коленвал, утробный бас и знаменитый неровный холостой ход Cam Lope.</p>
+                        </div>
+
+                        <!-- 2. Inline-6 Turbo -->
+                        <div class="engine-card" data-engine="inline6-turbo">
+                            <div class="engine-card-header">
+                                <span class="engine-card-badge" style="background:rgba(59,130,246,0.15); color:#3b82f6;">I6 • 3.0L</span>
+                                <span style="font-size:0.75rem; color:var(--muted);">7 600 RPM</span>
+                            </div>
+                            <h3 class="engine-card-title">3.0L Twin-Turbo Inline-6</h3>
+                            <div class="engine-card-car">BMW M3 S58 / Supra 2JZ-GTE</div>
+                            <p class="engine-card-desc">Идеальный баланс без вибраций. Шелковистый механический тембр со свистом турбины.</p>
+                        </div>
+
+                        <!-- 3. V10 Screamer -->
+                        <div class="engine-card" data-engine="v10-screamer">
+                            <div class="engine-card-header">
+                                <span class="engine-card-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b;">V10 • 5.2L</span>
+                                <span style="font-size:0.75rem; color:var(--muted);">9 200 RPM</span>
+                            </div>
+                            <h3 class="engine-card-title">5.2L Screamer V10</h3>
+                            <div class="engine-card-car">Lexus LFA / Huracán / Carrera GT</div>
+                            <p class="engine-card-desc">Формульный пронзительный визг. Высокооборотная симфония до 9000 об/мин.</p>
+                        </div>
+
+                        <!-- 4. Boxer-6 GT3 -->
+                        <div class="engine-card" data-engine="boxer6-gt3">
+                            <div class="engine-card-header">
+                                <span class="engine-card-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">Flat-6 • 4.0L</span>
+                                <span style="font-size:0.75rem; color:var(--muted);">9 000 RPM</span>
+                            </div>
+                            <h3 class="engine-card-title">4.0L Naturally Aspirated Boxer-6</h3>
+                            <div class="engine-card-car">Porsche 911 GT3 RS</div>
+                            <p class="engine-card-desc">Оппозитное расположение цилиндров. Сухой гортанный механический звон трекового болида.</p>
+                        </div>
+
+                        <!-- 5. Rotary 13B -->
+                        <div class="engine-card" data-engine="rotary-13b">
+                            <div class="engine-card-header">
+                                <span class="engine-card-badge" style="background:rgba(236,72,153,0.15); color:#ec4899;">Rotary • 1.3L</span>
+                                <span style="font-size:0.75rem; color:var(--muted);">9 800 RPM</span>
+                            </div>
+                            <h3 class="engine-card-title">1.3L Twin-Rotor Wankel (13B)</h3>
+                            <div class="engine-card-car">Mazda RX-7 FD3S</div>
+                            <p class="engine-card-desc">Роторный мотор с агрессивным портингом. Легендарный рваный холостой «brap-brap».</p>
+                        </div>
+
+                        <!-- 6. Hyper-EV Pulse -->
+                        <div class="engine-card" data-engine="hyper-ev">
+                            <div class="engine-card-header">
+                                <span class="engine-card-badge" style="background:rgba(6,182,212,0.15); color:#06b6d4;">Dual-Motor • EV</span>
+                                <span style="font-size:0.75rem; color:var(--muted);">8 000 RPM</span>
+                            </div>
+                            <h3 class="engine-card-title">Dual-Motor Warp Pulse</h3>
+                            <div class="engine-card-car">Porsche Taycan / Zeekr 001 FR</div>
+                            <p class="engine-card-desc">Синтетический звук электрического будущего с полифонической модуляцией катушек инвертора.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ОБРАЗОВАТЕЛЬНЫЙ БЛОК: ФИЗИКА ЗВУКА ВЫХЛОПА -->
+                <div style="margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--border);">
+                    <div class="category-pill" style="margin-bottom: 12px;">🎓 ИНЖЕНЕРНЫЙ РАЗБОР</div>
+                    <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--text); margin-bottom: 10px;">
+                        Акустическая физика: почему моторы звучат по-разному?
+                    </h2>
+                    <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; max-width: 800px;">
+                        Звук автомобильного двигателя — это не случайный шум, а точная математика частот, зависящая от порядка вспышек, длины выпускных коллекторов и конструкции коленвала.
+                    </p>
+
+                    <div class="calc-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                        <div class="calc-card" style="padding: 20px;">
+                            <div style="font-size: 1.5rem; margin-bottom: 8px;">🇺🇸 vs 🇮🇹</div>
+                            <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 8px;">
+                                Crossplane против Flatplane V8
+                            </h3>
+                            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.55;">
+                                В американских V8 (Crossplane 90°) вспышки распределены неравномерно по сторонам блока (L-R-L-L-R-L-R-R). Это порождает столкновение ударных волн в коллекторе и фирменный «бубнёж». Напротив, Ferrari и Corvette Z06 используют плоский коленвал Flatplane (180°), где вспышки идеально чередуются лево-право, рождая визг гоночного формульного болида.
+                            </p>
+                        </div>
+
+                        <div class="calc-card" style="padding: 20px;">
+                            <div style="font-size: 1.5rem; margin-bottom: 8px;">⚖️</div>
+                            <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 8px;">
+                                Почему рядная шестёрка так бархатиста?
+                            </h3>
+                            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.55;">
+                                Двигатели Inline-6 (BMW, Supra 2JZ) обладают идеальным первичным и вторичным динамическим балансом. Движение поршней 1-6, 2-5 и 3-4 взаимно гасит паразитные моменты сил инерции. В результате в салоне нет низкочастотной вибрации, а на выхлопе звучит чистейшая непрерывная третья гармоника.
+                            </p>
+                        </div>
+
+                        <div class="calc-card" style="padding: 20px;">
+                            <div style="font-size: 1.5rem; margin-bottom: 8px;">🌀</div>
+                            <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 8px;">
+                                Тайна звука «brap-brap» ротора Ванкеля
+                            </h3>
+                            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.55;">
+                                В тюнингованных моторах Mazda RX-7 растачивают впускные окна (Bridgeport или Peripheral port). Из-за огромного перекрытия фаз на холостых оборотах выхлопные газы забрасывает обратно во впуск. Смесь прогорает с перебоями, заставляя мотор буквально захлёбываться звуком «brap-brap-brap» перед раскруткой до 10 000 об/мин.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" loading="lazy"></span>Авто<span>Тема</span></a>
+                <p class="footer-tagline">Независимый автомобильный портал: новости, обзоры и интерактивные лаборатории.</p>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 АвтоТема. Все права защищены.</p>
+                <p class="footer-links">
+                    <a href="/sound-lab.html">Лаборатория звука</a> ·
+                    <a href="/calc-range.html">Морозный радар</a> ·
+                    <a href="/calc-xray.html">Рентген цены 2026</a> ·
+                    <a href="/calc-tco.html">Стоимость владения</a> ·
+                    <a href="/calc-customs.html">Растаможка 2026</a> ·
+                    <a href="/calc-tax.html">Калькулятор налога</a> ·
+                    <a href="/compare.html">Сравнение авто</a> ·
+                    <a href="/brands/">Марки</a> ·
+                    <a href="/privacy.html">Конфиденциальность</a> ·
+                    <a href="/terms.html">Условия</a>
+                </p>
+                <p class="age-mark"><span class="age-badge">0+</span> Сайт не содержит материалов, причиняющих вред здоровью и развитию детей (436-ФЗ)</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
+
+    <script src="/theme.js"></script>
+    <script src="/script.js?v=4" defer></script>
+    <script src="/favorites.js?v=2" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/sound_lab.js?v=1" defer></script>
+</body>
+</html>

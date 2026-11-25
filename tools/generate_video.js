@@ -13,6 +13,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const vm = require('vm');
 const { execFileSync, spawnSync } = require('child_process');
 const readline = require('readline');
 
@@ -38,7 +39,7 @@ const { BODIES, IMAGES, SLUGS } = require(path.join(ROOT, 'article_content.js'))
 const scriptSrc = fs.readFileSync(path.join(ROOT, 'script.js'), 'utf8');
 const mBank = scriptSrc.match(/const ARTICLE_BANK = (\[[\s\S]*?\]);/);
 if (!mBank) { console.error('ARTICLE_BANK не найден в script.js'); process.exit(1); }
-const ARTICLE_BANK = eval('(' + mBank[1] + ')');
+const ARTICLE_BANK = vm.runInNewContext('(' + mBank[1] + ')', Object.create(null), { timeout: 3000 });
 
 // ── Утилиты ──────────────────────────────────────────────────────
 function tmpDir() {

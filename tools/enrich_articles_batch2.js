@@ -1,3 +1,4 @@
+const vm = require('vm');
 const fs = require('fs');
 
 // High-quality, authoritative Russian automotive journalism bodies for Articles 96-120 (indices 95 to 119)
@@ -161,8 +162,7 @@ let content = fs.readFileSync(contentPath, 'utf8');
 const m = content.match(/const BODIES = (\[[\s\S]*?\n\];)/);
 if (!m) { console.error('BODIES not found'); process.exit(1); }
 
-let bodies;
-eval('bodies = ' + m[1]);
+const bodies = vm.runInNewContext(m[1].replace(/;$/, ''), Object.create(null));
 console.log('Original bodies length:', bodies.length);
 
 for (const [idxStr, paras] of Object.entries(BATCH_2)) {

@@ -73,7 +73,7 @@ function scanFile(filePath) {
   // 1. Secret Scanning
   for (const { name, regex } of SECRET_PATTERNS) {
     // Ignore self-references inside this scanner or test scripts
-    if (relPath.includes('security-scan.js') || relPath.includes('SKILL.md')) continue;
+    if (relPath.includes('security-scan.js') || relPath.includes('audit-security.js') || relPath.includes('SKILL.md')) continue;
 
     const gRegex = new RegExp(regex.source, (regex.flags || '') + (regex.flags && regex.flags.includes('g') ? '' : 'g'));
     const matches = content.matchAll(gRegex);
@@ -88,7 +88,7 @@ function scanFile(filePath) {
   // 2. DOM XSS / Insecure APIs (JS and HTML files)
   if (filePath.endsWith('.js') || filePath.endsWith('.html')) {
     // Exclude security scanner itself
-    if (!relPath.includes('security-scan.js')) {
+    if (!relPath.includes('security-scan.js') && !relPath.includes('audit-security.js')) {
       for (const { name, regex } of DANGEROUS_DOM_PATTERNS) {
         const match = content.match(regex);
         if (match) {

@@ -431,6 +431,14 @@ function page(article, n) {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/sound-lab.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🔊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Лаборатория звука</strong>
+                                    <small>Синтезатор моторов V8, V10, 2JZ</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">NEW</span>
+                            </a>
                             <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🩻</span>
                                 <span class="nav-drop-text">
@@ -738,6 +746,14 @@ function generateBrandPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/sound-lab.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🔊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Лаборатория звука</strong>
+                                    <small>Синтезатор моторов V8, V10, 2JZ</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">NEW</span>
+                            </a>
                             <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🩻</span>
                                 <span class="nav-drop-text">
@@ -923,6 +939,14 @@ function generateBrandPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/sound-lab.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🔊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Лаборатория звука</strong>
+                                    <small>Синтезатор моторов V8, V10, 2JZ</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">NEW</span>
+                            </a>
                             <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🩻</span>
                                 <span class="nav-drop-text">
@@ -1130,13 +1154,36 @@ function generateTagPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/sound-lab.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🔊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Лаборатория звука</strong>
+                                    <small>Синтезатор моторов V8, V10, 2JZ</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">NEW</span>
+                            </a>
+                            <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🩻</span>
+                                <span class="nav-drop-text">
+                                    <strong>Рентген цены 2026</strong>
+                                    <small>Себестоимость, утильсбор и маржа</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">HOT</span>
+                            </a>
+                            <a href="/calc-range.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">❄️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Морозный радар EV</strong>
+                                    <small>Реальный пробег при -20°C</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#3b82f6;">2026</span>
+                            </a>
                             <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">📊</span>
                                 <span class="nav-drop-text">
                                     <strong>Стоимость владения (TCO)</strong>
                                     <small>Расчёт стоимости 1 км пути</small>
                                 </span>
-                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
                             </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
@@ -1294,13 +1341,36 @@ function generateTagPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/sound-lab.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🔊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Лаборатория звука</strong>
+                                    <small>Синтезатор моторов V8, V10, 2JZ</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">NEW</span>
+                            </a>
+                            <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🩻</span>
+                                <span class="nav-drop-text">
+                                    <strong>Рентген цены 2026</strong>
+                                    <small>Себестоимость, утильсбор и маржа</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">HOT</span>
+                            </a>
+                            <a href="/calc-range.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">❄️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Морозный радар EV</strong>
+                                    <small>Реальный пробег при -20°C</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#3b82f6;">2026</span>
+                            </a>
                             <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">📊</span>
                                 <span class="nav-drop-text">
                                     <strong>Стоимость владения (TCO)</strong>
                                     <small>Расчёт стоимости 1 км пути</small>
                                 </span>
-                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
                             </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
@@ -1419,6 +1489,7 @@ function sitemap() {
     entries.push({ loc: `${SITE}/`, freq: 'daily', priority: '1.0' });
 
     const legal = [
+        { path: 'sound-lab.html', freq: 'weekly', priority: '0.95' },
         { path: 'calc-xray.html', freq: 'weekly', priority: '0.95' },
         { path: 'calc-range.html', freq: 'weekly', priority: '0.95' },
         { path: 'calc-tco.html', freq: 'weekly', priority: '0.95' },
