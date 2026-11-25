@@ -37,11 +37,24 @@ function getHtmlFiles(target) {
   if (fs.existsSync(articlesDir)) {
     try {
       const artFiles = fs.readdirSync(articlesDir)
-        .filter(f => f.endsWith('.html'))
+        .filter(f => f.endsWith('.html') && !/^article-\d+\.html$/.test(f))
         .map(f => path.join(articlesDir, f));
       files.push(...artFiles);
     } catch (e) {
       // Permission or read error handling
+    }
+  }
+
+  // Also include brands and tags hubs
+  for (const dirName of ['brands', 'tags']) {
+    const hubDir = path.join(rootDir, dirName);
+    if (fs.existsSync(hubDir)) {
+      try {
+        const hubFiles = fs.readdirSync(hubDir)
+          .filter(f => f.endsWith('.html'))
+          .map(f => path.join(hubDir, f));
+        files.push(...hubFiles);
+      } catch (e) {}
     }
   }
   return files;

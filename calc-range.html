@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Морозный радар электромобилей и гибридов: онлайн симулятор реального запаса хода зимой в мороз до -30°C и летом. LFP vs NMC батареи, тест маршрутов и скорость.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b0f14">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Морозный радар EV: реальный запас хода электромобиля зимой и в жару">
+    <meta property="og:description" content="Узнайте, сколько реально проедет электромобиль или гибрид при -20°C с печкой на трассе. Физический симулятор расхода АвтоТемы.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="АвтоТема">
+    <meta property="og:url" content="https://avtotema-news.online/calc-range.html">
+    <meta property="og:image" content="https://avtotema-news.online/og-image.png">
+    <meta property="og:locale" content="ru_RU">
+
+    <link rel="canonical" href="https://avtotema-news.online/calc-range.html">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <title>Морозный радар EV: реальный запас хода зимой и в жару | АвтоТема</title>
+
+    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/brands_tags.css?v=2">
+    <script>
+    (function(){
+        var t = null;
+        try { t = localStorage.getItem('avtotema_theme'); } catch (e) {}
+        if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Морозный радар запаса хода EV",
+        "url": "https://avtotema-news.online/calc-range.html",
+        "description": "Физический симулятор запаса хода электромобилей и гибридов с учётом температуры за бортом, скорости, типа батареи и печки.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Главная",
+                "item": "https://avtotema-news.online/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Морозный радар запаса хода",
+                "item": "https://avtotema-news.online/calc-range.html"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" fetchpriority="high"></span>
+                Авто<span>Тема</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nav-list" id="navList">
+                    <li><a href="/#latest">Статьи</a></li>
+                    <li><a href="/brands/">Марки</a></li>
+                    <li class="nav-item-dropdown">
+                        <button type="button" class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+                            <span>Сервисы</span>
+                            <svg class="nav-dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🩻</span>
+                                <span class="nav-drop-text">
+                                    <strong>Рентген цены 2026</strong>
+                                    <small>Себестоимость, утильсбор и маржа</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">HOT</span>
+                            </a>
+                            <a href="/calc-range.html" class="nav-dropdown-item active" role="menuitem">
+                                <span class="nav-drop-icon">❄️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Морозный радар EV</strong>
+                                    <small>Реальный пробег при -20°C</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#3b82f6;">2026</span>
+                            </a>
+                            <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">📊</span>
+                                <span class="nav-drop-text">
+                                    <strong>Стоимость владения (TCO)</strong>
+                                    <small>Расчёт стоимости 1 км пути</small>
+                                </span>
+                            </a>
+                            <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🛃</span>
+                                <span class="nav-drop-text">
+                                    <strong>Растаможка и утильсбор</strong>
+                                    <small>Ставки Минпромторга 2026</small>
+                                </span>
+                            </a>
+                            <a href="/calc-tax.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🧮</span>
+                                <span class="nav-drop-text">
+                                    <strong>Транспортный налог</strong>
+                                    <small>По регионам РФ и л.с.</small>
+                                </span>
+                            </a>
+                            <a href="/compare.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">⚔️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Сравнение авто</strong>
+                                    <small>Баттл характеристик</small>
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="/#advisor">АвтоСоветник</a></li>
+                    <li><a href="/tags/">Теги</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button type="button" class="search-nav-btn site-search-open" aria-label="Поиск по статьям" title="Поиск (Cmd+K)"><span class="search-nav-btn-icon">🔍</span><span class="search-nav-btn-label">Поиск</span><span class="search-nav-kbd">⌘K</span></button>
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Переключить тему" title="Светлая / тёмная тема">
+                    <span class="theme-icon-dark">🌙</span>
+                    <span class="theme-icon-light" hidden>☀️</span>
+                </button>
+                <button type="button" class="fav-nav-btn fav-modal-open" title="Избранные статьи">
+                    ⭐ <span class="fav-count" hidden>0</span>
+                </button>
+                <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки" style="margin-bottom:1.5rem;">
+                    <a href="/">Главная</a>
+                    <span class="crumb-sep" aria-hidden="true">→</span>
+                    <span class="current" aria-current="page">Морозный радар запаса хода EV</span>
+                </nav>
+
+                <div class="section-head" style="text-align:left;margin-bottom:2rem;">
+                    <span class="section-eyebrow">❄️ Уникальная лаборатория АвтоТемы</span>
+                    <h1 class="section-title" style="margin-bottom:0.75rem;">Морозный радар: Симулятор реального запаса хода электрокаров и гибридов</h1>
+                    <p class="section-sub" style="margin:0;max-width:850px;">Паспортные циклы CLTC и WLTP тестируются при идеальных +22°C. Узнайте, сколько машина реально проедет зимой в мороз при -20°C с включенной печкой на трассе.</p>
+                </div>
+
+                <!-- Быстрые пресеты популярных электрокаров -->
+                <div class="calc-presets-bar">
+                    <span class="presets-label">⚡ Выберите модель для теста:</span>
+                    <div class="presets-list">
+                        <button type="button" class="calc-car-preset-pill range-preset-pill active" data-preset="zeekr001">Zeekr 001 (100 кВт·ч)</button>
+                        <button type="button" class="calc-car-preset-pill range-preset-pill" data-preset="xiaomisu7">Xiaomi SU7 Max (101 кВт·ч)</button>
+                        <button type="button" class="calc-car-preset-pill range-preset-pill" data-preset="li7">Li Auto L7 (Электро-режим)</button>
+                        <button type="button" class="calc-car-preset-pill range-preset-pill" data-preset="teslamodely">Tesla Model Y LR</button>
+                        <button type="button" class="calc-car-preset-pill range-preset-pill" data-preset="voyahfree">Voyah Free</button>
+                        <button type="button" class="calc-car-preset-pill range-preset-pill" data-preset="elargus">Lada e-Largus (LFP)</button>
+                    </div>
+                </div>
+
+                <div class="calc-tax-layout">
+                    <!-- ЛЕВАЯ КОЛОНКА: УСЛОВИЯ ПОЕЗДКИ -->
+                    <div class="calc-tax-card">
+                        <h2 class="calc-tax-card-title">Условия поездки и погода</h2>
+
+                        <!-- ПОЛЗУНОК ТЕМПЕРАТУРЫ -->
+                        <div class="range-temp-control-wrap">
+                            <label style="font-weight:700;display:block;margin-bottom:4px;">Температура за бортом:</label>
+                            <div class="range-temp-display" id="rangeTempDisplay">-15°C</div>
+                            <input type="range" id="rangeTempSlider" min="-30" max="40" step="1" value="-15" class="range-slider-input">
+                            <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--muted);margin-top:6px;">
+                                <span>-30°C (Суровый мороз)</span>
+                                <span>+20°C (Идеал)</span>
+                                <span>+40°C (Жара)</span>
+                            </div>
+                        </div>
+
+                        <!-- СКОРОСТЬ ДВИЖЕНИЯ -->
+                        <div class="calc-form-group">
+                            <label for="rangeSpeedSelect">Скорость и режим движения:</label>
+                            <select id="rangeSpeedSelect" class="calc-tax-select">
+                                <option value="40">40 км/ч — Город, светофоры, пробки (рекуперация)</option>
+                                <option value="90" selected>90 км/ч — Загородное шоссе (комфорт)</option>
+                                <option value="110">110 км/ч — Автострада</option>
+                                <option value="130">130 км/ч — Скоростная автомагистраль (М-11/М-12)</option>
+                            </select>
+                        </div>
+
+                        <!-- ПАСПОРТНЫЙ ЗАПАС И ЦИКЛ -->
+                        <div class="calc-form-group">
+                            <label for="rangeNominalInput">Паспортный запас хода и стандарт:</label>
+                            <div class="calc-currency-input-wrap">
+                                <input type="number" id="rangeNominalInput" class="calc-num-input" style="flex:1;font-size:1.15rem;font-weight:700;" value="705" min="50" max="1500" step="10">
+                                <select id="rangeStdSelect" class="calc-tax-select" style="width:130px;">
+                                    <option value="CLTC" selected>CLTC (КНР)</option>
+                                    <option value="WLTP">WLTP (ЕС)</option>
+                                    <option value="NEDC">NEDC</option>
+                                    <option value="EPA">EPA (США)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- КЛИМАТ И ОБОГРЕВ -->
+                        <div class="calc-form-group">
+                            <label for="rangeClimateSelect">Климат-контроль салона:</label>
+                            <select id="rangeClimateSelect" class="calc-tax-select">
+                                <option value="eco" selected>Комфорт (+21°C) — авто-режим</option>
+                                <option value="max">Интенсивный обогрев / кондиционер на полную</option>
+                                <option value="off">Выключен (вентиляция без подогрева)</option>
+                            </select>
+                        </div>
+
+                        <!-- ТИП БАТАРЕИ -->
+                        <div class="calc-form-group">
+                            <label for="rangeBatterySelect">Химия ячеек батареи:</label>
+                            <select id="rangeBatterySelect" class="calc-tax-select">
+                                <option value="nmc" selected>NMC (Тройной никель-кобальт, лучше держит холод)</option>
+                                <option value="lfp">LFP (Литий-железо-фосфат, сильнее замерзает)</option>
+                                <option value="naion">Натрий-ионная (Na-ion, инновация 2026, не боится мороза)</option>
+                            </select>
+                        </div>
+
+                        <!-- ШИНЫ И ЗАГРУЗКА -->
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+                            <div class="calc-form-group" style="margin-bottom:0;">
+                                <label for="rangeTiresSelect">Тип шин:</label>
+                                <select id="rangeTiresSelect" class="calc-tax-select">
+                                    <option value="summer">Летняя резина</option>
+                                    <option value="friction" selected>Зимняя липучка</option>
+                                    <option value="studded">Зимние шипы (+8% трения)</option>
+                                </select>
+                            </div>
+                            <div style="display:flex;align-items:center;margin-top:22px;">
+                                <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer;">
+                                    <input type="checkbox" id="rangePayloadCheck" style="width:18px;height:18px;accent-color:var(--accent);">
+                                    <span>Полная загрузка (4 чел + багаж)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ПРАВАЯ КОЛОНКА: РЕЗУЛЬТАТ И МАРШРУТЫ -->
+                    <div class="calc-tax-card" style="border-color:rgba(59,130,246,0.35);">
+                        <h2 class="calc-tax-card-title">Реальный пробег на одном заряде</h2>
+
+                        <!-- ЦИФРОВОЙ СПИДОМЕТР / ОСТАТОК КМ -->
+                        <div class="range-gauge-card">
+                            <div class="range-gauge-val" id="resRealRangeVal">395 км</div>
+                            <div class="range-gauge-sub">вместо паспортных <span id="nominalEcho">705</span> км</div>
+                            <div id="resLossBadge" class="range-loss-badge">Потеря от паспорта: -44%</div>
+                        </div>
+
+                        <!-- МАРШРУТНЫЙ СИМУЛЯТОР ПО РФ -->
+                        <h3 style="font-size:1.05rem;font-weight:800;color:var(--text);margin-top:20px;">Тест популярных маршрутов:</h3>
+                        <div class="routes-list">
+                            <div class="route-item">
+                                <div>
+                                    <strong>Москва — Тверь</strong>
+                                    <div style="font-size:0.75rem;color:var(--muted);" id="descTver">170 км по трассе М-11</div>
+                                </div>
+                                <span class="route-badge route-badge-ok" id="badgeTver">Доедет без подзарядки</span>
+                            </div>
+
+                            <div class="route-item">
+                                <div>
+                                    <strong>Москва — Владимир</strong>
+                                    <div style="font-size:0.75rem;color:var(--muted);" id="descVladimir">190 км по трассе М-12</div>
+                                </div>
+                                <span class="route-badge route-badge-warn" id="badgeVladimir">Впритык</span>
+                            </div>
+
+                            <div class="route-item">
+                                <div>
+                                    <strong>Москва — Санкт-Петербург</strong>
+                                    <div style="font-size:0.75rem;color:var(--muted);" id="descSpb">705 км по автомагистрали</div>
+                                </div>
+                                <span class="route-badge route-badge-stop" id="badgeSpb">Нужно 2–3 остановки</span>
+                            </div>
+                        </div>
+
+                        <!-- СОВЕТ ЭКСПЕРТА -->
+                        <div class="tax-tip-box" style="margin-top:24px;border-color:rgba(59,130,246,0.3);">
+                            <span class="tax-tip-icon">❄️</span>
+                            <div id="resRangeTip">
+                                <b>Совет для зимы:</b> Прогревайте салон и тяговую батарею от зарядной станции за 15 минут до выезда. Это сбережёт до 15% запаса хода!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo"><span class="logo-icon"><img src="/logo-icon.svg" alt="АвтоТема" width="32" height="32" loading="lazy"></span>Авто<span>Тема</span></a>
+                <p class="footer-tagline">Независимый автомобильный портал: новости, обзоры и интерактивные лаборатории.</p>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 АвтоТема. Все права защищены.</p>
+                <p class="footer-links">
+                    <a href="/calc-range.html">Морозный радар</a> ·
+                    <a href="/calc-xray.html">Рентген цены 2026</a> ·
+                    <a href="/calc-tco.html">Стоимость владения</a> ·
+                    <a href="/calc-customs.html">Растаможка 2026</a> ·
+                    <a href="/calc-tax.html">Калькулятор налога</a> ·
+                    <a href="/compare.html">Сравнение авто</a> ·
+                    <a href="/brands/">Марки</a> ·
+                    <a href="/privacy.html">Конфиденциальность</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
+
+    <script src="/theme.js"></script>
+    <script src="/script.js?v=4" defer></script>
+    <script src="/favorites.js?v=2" defer></script>
+    <script src="/search.js?v=1" defer></script>
+    <script src="/calc_range.js?v=1" defer></script>
+</body>
+</html>

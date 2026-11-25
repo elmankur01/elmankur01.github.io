@@ -328,9 +328,9 @@ function page(article, n) {
     <meta property="og:image:alt" content="${esc(article.title)}">
     <title>${esc(article.title)} | АвтоТема</title>
     <link rel="canonical" href="${SITE}/articles/${slug}.html">
-    <link rel="stylesheet" href="/styles.css?v=6">
+    <link rel="stylesheet" href="/styles.css?v=8">
     <link rel="stylesheet" href="/ugc.css?v=3">
-    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
         var t = null;
@@ -431,13 +431,28 @@ function page(article, n) {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🩻</span>
+                                <span class="nav-drop-text">
+                                    <strong>Рентген цены 2026</strong>
+                                    <small>Себестоимость, утильсбор и маржа</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">HOT</span>
+                            </a>
+                            <a href="/calc-range.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">❄️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Морозный радар EV</strong>
+                                    <small>Реальный пробег при -20°C</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#3b82f6;">2026</span>
+                            </a>
                             <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">📊</span>
                                 <span class="nav-drop-text">
                                     <strong>Стоимость владения (TCO)</strong>
                                     <small>Расчёт стоимости 1 км пути</small>
                                 </span>
-                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
                             </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
@@ -445,7 +460,6 @@ function page(article, n) {
                                     <strong>Растаможка и утильсбор</strong>
                                     <small>Ставки Минпромторга 2026</small>
                                 </span>
-                                <span class="nav-drop-badge">2026</span>
                             </a>
                             <a href="/calc-tax.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🧮</span>
@@ -453,7 +467,6 @@ function page(article, n) {
                                     <strong>Транспортный налог</strong>
                                     <small>По регионам РФ и л.с.</small>
                                 </span>
-                                <span class="nav-drop-badge">2026</span>
                             </a>
                             <a href="/compare.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">⚔️</span>
@@ -462,17 +475,9 @@ function page(article, n) {
                                     <small>Баттл характеристик</small>
                                 </span>
                             </a>
-                            <a href="/#calculator" class="nav-dropdown-item" role="menuitem">
-                                <span class="nav-drop-icon">⛽</span>
-                                <span class="nav-drop-text">
-                                    <strong>Расход топлива</strong>
-                                    <small>Калькулятор поездок</small>
-                                </span>
-                            </a>
                         </div>
                     </li>
-                    <li><a href="/#tips">Лайфхаки</a></li>
-                    <li><a href="/#market">Рынок</a></li>
+                    <li><a href="/#advisor">АвтоСоветник</a></li>
                     <li><a href="/tags/">Теги</a></li>
                 </ul>
             </nav>
@@ -514,43 +519,7 @@ function page(article, n) {
                     ${reactionsBlock(article, n)}
                     ${shareBlock(article, slug)}
 
-                    <!-- UGC COLLAPSIBLE 1: LIVE POLL (OPEN BY DEFAULT) -->
-                    <div class="ugc-collapsible-box open" id="articlePollBox">
-                        <button type="button" class="ugc-collapsible-header" aria-expanded="true" aria-controls="pollCollapseBody">
-                            <span class="ugc-header-left">
-                                <span class="ugc-icon">📊</span>
-                                <span class="ugc-title">Опрос читателей</span>
-                            </span>
-                            <span class="ugc-toggle-arrow">▼</span>
-                        </button>
-                        <div class="ugc-collapsible-body" id="pollCollapseBody">
-                            <h3 class="poll-question" id="pollQuestion">Загрузка опроса…</h3>
-                            <div class="poll-options-list" id="pollOptionsList"></div>
-                            <div class="poll-footer-info">
-                                <span id="pollTotalVotes">Всего голосов: 0</span>
-                                <span>🔒 Анонимное голосование</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- UGC COLLAPSIBLE 2: OWNER REVIEWS -->
-                    <div class="ugc-collapsible-box" id="articleReviewsBox">
-                        <div class="ugc-collapsible-header-wrap">
-                            <button type="button" class="ugc-collapsible-header" aria-expanded="false" aria-controls="reviewsCollapseBody">
-                                <span class="ugc-header-left">
-                                    <span class="ugc-icon">⭐</span>
-                                    <span class="ugc-title">Отзывы реальных владельцев</span>
-                                </span>
-                                <span class="ugc-toggle-arrow">▼</span>
-                            </button>
-                            <button type="button" class="btn-add-review" id="openReviewModalBtn">✍️ Оставить отзыв</button>
-                        </div>
-                        <div class="ugc-collapsible-body" id="reviewsCollapseBody" hidden>
-                            <div class="reviews-list-wrap" id="reviewsListWrap"></div>
-                        </div>
-                    </div>
-
-                    <!-- UGC COLLAPSIBLE 3: COMMUNITY COMMENTS -->
+                    <!-- UGC COLLAPSIBLE: COMMUNITY COMMENTS -->
                     <div class="ugc-collapsible-box" id="articleCommentsBox">
                         <button type="button" class="ugc-collapsible-header" aria-expanded="false" aria-controls="commentsCollapseBody">
                             <span class="ugc-header-left">
@@ -649,49 +618,10 @@ function page(article, n) {
         </div>
     </footer>
 
-    <!-- REVIEW MODAL -->
-    <div class="modal-review-backdrop" id="reviewModalBackdrop">
-        <div class="modal-review-card">
-            <button type="button" class="modal-close-btn" id="closeReviewModalBtn">&times;</button>
-            <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:6px;">✍️ Отзыв реального владельца</h3>
-            <p style="color:var(--muted);font-size:0.85rem;margin-bottom:16px;">Поделитесь вашим личным опытом эксплуатации автомобиля</p>
-
-            <div style="margin-bottom:12px;">
-                <label style="font-size:0.85rem;font-weight:700;display:block;margin-bottom:4px;">Ваша оценка:</label>
-                <div class="star-rating-select" id="starRatingSelect">
-                    <span data-val="1">★</span>
-                    <span data-val="2">★</span>
-                    <span data-val="3">★</span>
-                    <span data-val="4">★</span>
-                    <span data-val="5">★</span>
-                </div>
-            </div>
-
-            <div style="margin-bottom:10px;">
-                <input type="text" id="revAuthorInput" class="comment-input-field" placeholder="Ваше имя или никнейм *" required>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-                <input type="text" id="revCarInput" class="comment-input-field" placeholder="Марка и модель (напр. Chery Tiggo 7) *" required>
-                <input type="text" id="revMileageInput" class="comment-input-field" placeholder="Пробег (напр. 35 000 км)">
-            </div>
-            <div style="margin-bottom:10px;">
-                <input type="text" id="revProsInput" class="comment-input-field" placeholder="Главные плюсы (через запятую)">
-            </div>
-            <div style="margin-bottom:10px;">
-                <input type="text" id="revConsInput" class="comment-input-field" placeholder="Главные минусы (через запятую)">
-            </div>
-            <div style="margin-bottom:16px;">
-                <textarea id="revTextInput" class="comment-textarea-field" style="min-height:80px;" placeholder="Ваш подробный отзыв о надёжности, расходе топлива и комфорте… *" required></textarea>
-            </div>
-
-            <button type="button" class="btn btn-primary" id="submitReviewBtn" style="width:100%;">Опубликовать отзыв</button>
-        </div>
-    </div>
-
     <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
 
     <script src="/theme.js"></script>
-    <script src="/script.js?v=3" defer></script>
+    <script src="/script.js?v=4" defer></script>
     <script src="/article_images.js?v=2" defer></script>
     <script src="/speech.js?v=1" defer></script>
     <script src="/views.js?v=3" defer></script>
@@ -767,8 +697,22 @@ function generateBrandPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=7">
-    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Каталог марок автомобилей | АвтоТема",
+        "description": "Полный каталог автомобильных брендов: китайские, европейские, российские и японские марки. Новости, обзоры, сравнения и характеристики.",
+        "url": "${SITE}/brands/",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "АвтоТема",
+            "url": "${SITE}/"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
         var t = null;
@@ -794,13 +738,28 @@ function generateBrandPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🩻</span>
+                                <span class="nav-drop-text">
+                                    <strong>Рентген цены 2026</strong>
+                                    <small>Себестоимость, утильсбор и маржа</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">HOT</span>
+                            </a>
+                            <a href="/calc-range.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">❄️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Морозный радар EV</strong>
+                                    <small>Реальный пробег при -20°C</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#3b82f6;">2026</span>
+                            </a>
                             <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">📊</span>
                                 <span class="nav-drop-text">
                                     <strong>Стоимость владения (TCO)</strong>
                                     <small>Расчёт стоимости 1 км пути</small>
                                 </span>
-                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
                             </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
@@ -808,7 +767,6 @@ function generateBrandPages() {
                                     <strong>Растаможка и утильсбор</strong>
                                     <small>Ставки Минпромторга 2026</small>
                                 </span>
-                                <span class="nav-drop-badge">2026</span>
                             </a>
                             <a href="/calc-tax.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🧮</span>
@@ -816,7 +774,6 @@ function generateBrandPages() {
                                     <strong>Транспортный налог</strong>
                                     <small>По регионам РФ и л.с.</small>
                                 </span>
-                                <span class="nav-drop-badge">2026</span>
                             </a>
                             <a href="/compare.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">⚔️</span>
@@ -825,17 +782,9 @@ function generateBrandPages() {
                                     <small>Баттл характеристик</small>
                                 </span>
                             </a>
-                            <a href="/#calculator" class="nav-dropdown-item" role="menuitem">
-                                <span class="nav-drop-icon">⛽</span>
-                                <span class="nav-drop-text">
-                                    <strong>Расход топлива</strong>
-                                    <small>Калькулятор поездок</small>
-                                </span>
-                            </a>
                         </div>
                     </li>
-                    <li><a href="/#tips">Лайфхаки</a></li>
-                    <li><a href="/#market">Рынок</a></li>
+                    <li><a href="/#advisor">АвтоСоветник</a></li>
                     <li><a href="/tags/">Теги</a></li>
                 </ul>
             </nav>
@@ -891,7 +840,7 @@ function generateBrandPages() {
         </div>
     <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
-    <script src="/script.js?v=3" defer></script>
+    <script src="/script.js?v=4" defer></script>
     <script src="/search.js?v=1" defer></script>
     <script src="/lightbox.js?v=1" defer></script>
 </body>
@@ -927,8 +876,8 @@ function generateBrandPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=7">
-    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
         var t = null;
@@ -974,13 +923,28 @@ function generateBrandPages() {
                             </svg>
                         </button>
                         <div class="nav-dropdown-menu" role="menu">
+                            <a href="/calc-xray.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">🩻</span>
+                                <span class="nav-drop-text">
+                                    <strong>Рентген цены 2026</strong>
+                                    <small>Себестоимость, утильсбор и маржа</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#ef4444;">HOT</span>
+                            </a>
+                            <a href="/calc-range.html" class="nav-dropdown-item" role="menuitem">
+                                <span class="nav-drop-icon">❄️</span>
+                                <span class="nav-drop-text">
+                                    <strong>Морозный радар EV</strong>
+                                    <small>Реальный пробег при -20°C</small>
+                                </span>
+                                <span class="nav-drop-badge" style="background:#3b82f6;">2026</span>
+                            </a>
                             <a href="/calc-tco.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">📊</span>
                                 <span class="nav-drop-text">
                                     <strong>Стоимость владения (TCO)</strong>
                                     <small>Расчёт стоимости 1 км пути</small>
                                 </span>
-                                <span class="nav-drop-badge" style="background:#10b981;">NEW</span>
                             </a>
                             <a href="/calc-customs.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🛃</span>
@@ -988,7 +952,6 @@ function generateBrandPages() {
                                     <strong>Растаможка и утильсбор</strong>
                                     <small>Ставки Минпромторга 2026</small>
                                 </span>
-                                <span class="nav-drop-badge">2026</span>
                             </a>
                             <a href="/calc-tax.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">🧮</span>
@@ -996,7 +959,6 @@ function generateBrandPages() {
                                     <strong>Транспортный налог</strong>
                                     <small>По регионам РФ и л.с.</small>
                                 </span>
-                                <span class="nav-drop-badge">2026</span>
                             </a>
                             <a href="/compare.html" class="nav-dropdown-item" role="menuitem">
                                 <span class="nav-drop-icon">⚔️</span>
@@ -1005,17 +967,9 @@ function generateBrandPages() {
                                     <small>Баттл характеристик</small>
                                 </span>
                             </a>
-                            <a href="/#calculator" class="nav-dropdown-item" role="menuitem">
-                                <span class="nav-drop-icon">⛽</span>
-                                <span class="nav-drop-text">
-                                    <strong>Расход топлива</strong>
-                                    <small>Калькулятор поездок</small>
-                                </span>
-                            </a>
                         </div>
                     </li>
-                    <li><a href="/#tips">Лайфхаки</a></li>
-                    <li><a href="/#market">Рынок</a></li>
+                    <li><a href="/#advisor">АвтоСоветник</a></li>
                     <li><a href="/tags/">Теги</a></li>
                 </ul>
             </nav>
@@ -1090,7 +1044,7 @@ function generateBrandPages() {
     </footer>
     <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
-    <script src="/script.js?v=3" defer></script>
+    <script src="/script.js?v=4" defer></script>
     <script src="/favorites.js" defer></script>
     <script src="/likes.js" defer></script>
     <script src="/search.js?v=1" defer></script>
@@ -1135,8 +1089,22 @@ function generateTagPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=7">
-    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Тематические теги и рубрики | АвтоТема",
+        "description": "Облако тегов и тем автопортала АвтоТема: полный привод, электромобили, гибриды, вариаторы, кроссоверы и китайские авто.",
+        "url": "${SITE}/tags/",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "АвтоТема",
+            "url": "${SITE}/"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
         var t = null;
@@ -1252,7 +1220,7 @@ function generateTagPages() {
     </footer>
     <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
-    <script src="/script.js?v=3" defer></script>
+    <script src="/script.js?v=4" defer></script>
     <script src="/search.js?v=1" defer></script>
     <script src="/lightbox.js?v=1" defer></script>
 </body>
@@ -1288,8 +1256,8 @@ function generateTagPages() {
     <meta property="og:site_name" content="АвтоТема">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:image" content="${SITE}/og-image.png">
-    <link rel="stylesheet" href="/styles.css?v=7">
-    <link rel="stylesheet" href="/brands_tags.css?v=1">
+    <link rel="stylesheet" href="/styles.css?v=8">
+    <link rel="stylesheet" href="/brands_tags.css?v=2">
     <script>
     (function(){
         var t = null;
@@ -1434,7 +1402,7 @@ function generateTagPages() {
     </footer>
     <button class="scroll-top" id="scrollTop" aria-label="Наверх" title="Наверх">↑</button>
     <script src="/theme.js"></script>
-    <script src="/script.js?v=3" defer></script>
+    <script src="/script.js?v=4" defer></script>
     <script src="/favorites.js" defer></script>
     <script src="/likes.js" defer></script>
     <script src="/search.js?v=1" defer></script>
@@ -1451,6 +1419,8 @@ function sitemap() {
     entries.push({ loc: `${SITE}/`, freq: 'daily', priority: '1.0' });
 
     const legal = [
+        { path: 'calc-xray.html', freq: 'weekly', priority: '0.95' },
+        { path: 'calc-range.html', freq: 'weekly', priority: '0.95' },
         { path: 'calc-tco.html', freq: 'weekly', priority: '0.95' },
         { path: 'calc-customs.html', freq: 'weekly', priority: '0.9' },
         { path: 'calc-tax.html', freq: 'weekly', priority: '0.9' },

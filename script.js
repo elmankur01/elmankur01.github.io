@@ -414,7 +414,7 @@ const ARTICLE_BANK = [
 ];
 
 // Количество карточек статей на главной
-const VISIBLE_ARTICLES = 6;
+const VISIBLE_ARTICLES = 9;
 // Базовая дата запуска блога (для счётчика «статей опубликовано»)
 const LAUNCH_DATE = new Date('2026-08-07');
 
@@ -461,11 +461,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavDropdowns();
     initScrollTop();
     initReveal();
-    renderTopNews();
     renderDailyArticles();
-    renderCategoryGrid('worldGrid', 'Мировые новости', 6);
-    renderCategoryGrid('marketGrid', 'Новости рынка', 6);
-    renderTipOfDay();
     initSearchAndFilter();
 });
 
@@ -706,19 +702,18 @@ function renderTipOfDay() {
 function renderDailyArticles() {
     const grid = document.getElementById('dailyGrid') || document.querySelector('.articles-grid');
     if (!grid || !ARTICLE_BANK.length) return;
+    renderedArticleIds.clear();
 
     const html = [];
-    // Показываем следующие свежие статьи, пропуская те, что уже попали в топ дня
     for (let i = ARTICLE_BANK.length - 1; i >= 0 && html.length < VISIBLE_ARTICLES; i--) {
         const a = ARTICLE_BANK[i];
         const articleId = i + 1;
-        if (!renderedArticleIds.has(articleId)) {
-            renderedArticleIds.add(articleId);
-            html.push(cardHTML(a, i, html.length === 0, `${a.readTime} мин · ${dateLabel(html.length)}`));
-        }
+        renderedArticleIds.add(articleId);
+        html.push(cardHTML(a, i, html.length === 0, `${a.readTime} мин · ${dateLabel(html.length)}`));
     }
     grid.innerHTML = html.join('');
     if (typeof updateFavUI === 'function') updateFavUI();
+    if (typeof initLikes === 'function') initLikes();
 }
 
 // Подпись даты: сегодня / вчера / N дней назад
@@ -745,7 +740,6 @@ function initSearchAndFilter() {
 
         if (!query && activeTag === 'all') {
             if (meta) meta.hidden = true;
-            renderTopNews();
             renderDailyArticles();
             return;
         }

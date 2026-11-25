@@ -52,6 +52,11 @@
     box-shadow: 0 3px 10px rgba(232, 67, 60, 0.3);
 }
 
+.tag-pill:active {
+    transform: scale(0.95);
+    transition-duration: 0.1s;
+}
+
 /* ── Хаб-страницы брендов и тегов ── */
 .hub-page-hero {
     background: linear-gradient(135deg, var(--card) 0%, rgba(232, 67, 60, 0.05) 100%);
@@ -151,6 +156,12 @@
     box-shadow: 0 4px 14px rgba(232, 67, 60, 0.35);
 }
 
+.hub-btn-primary:active,
+.hub-btn-secondary:active {
+    transform: scale(0.96);
+    transition-duration: 0.1s;
+}
+
 .hub-btn-secondary {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -179,13 +190,18 @@
     align-items: center;
     gap: 14px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .brand-catalog-card:hover {
     border-color: var(--accent);
     transform: translateY(-3px);
     box-shadow: var(--shadow);
+}
+
+.brand-catalog-card:active {
+    transform: scale(0.98);
+    transition-duration: 0.1s;
 }
 
 .brand-card-logo {
@@ -240,6 +256,11 @@
     border-color: var(--accent);
     color: var(--accent);
     transform: translateY(-2px);
+}
+
+.tag-cloud-card:active {
+    transform: scale(0.96);
+    transition-duration: 0.1s;
 }
 
 .tag-card-count {
