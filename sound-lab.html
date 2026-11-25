@@ -179,6 +179,9 @@
                     <p class="section-subtitle" style="font-size: 1.05rem; color: var(--muted); margin-top: 8px;">
                         Аудиофизический синтезатор в реальном времени: заведите легендарный V8, визжащий V10 LFA, рядный 2JZ турбо или роторный 13B. Нажимайте педаль в пол, переключайте передачи и наслаждайтесь чистой симфонией выхлопа.
                     </p>
+                    <div class="headphones-pill">
+                        🎧 Рекомендуется слушать в наушниках для глубокого саб-баса и стереоэффекта
+                    </div>
                 </div>
 
                 <!-- КОКПИТ УПРАВЛЕНИЯ -->
@@ -255,6 +258,24 @@
                             <button class="btn-sound-action" id="btnShiftGear" aria-label="Переключение передачи">
                                 <span>🕹️</span> Передача (S)
                             </button>
+                            <button class="btn-sound-action" id="btnLaunchControl" aria-label="Launch Control">
+                                <span>🚀</span> Launch (L)
+                            </button>
+                            <button class="btn-sound-action" id="btnTurboFlutter" aria-label="Сброс турбины Blow-off">
+                                <span>🌀</span> Flutter (F)
+                            </button>
+                        </div>
+
+                        <!-- КОНФИГУРАЦИЯ ВЫХЛОПА -->
+                        <div style="width: 100%; margin-top: 16px;">
+                            <div class="calc-label-row">
+                                <span style="font-size:0.85rem;color:var(--muted);">Выхлопная система:</span>
+                            </div>
+                            <div class="exhaust-modes-row">
+                                <button type="button" class="btn-exhaust-mode" data-exhaust="stock">Stock (Тихий)</button>
+                                <button type="button" class="btn-exhaust-mode active" data-exhaust="sport">Sport Cat-Back</button>
+                                <button type="button" class="btn-exhaust-mode" data-exhaust="straight">Прямоток 🔥</button>
+                            </div>
                         </div>
 
                         <!-- ГРОМКОСТЬ -->
@@ -280,6 +301,22 @@
                             </div>
                             <div style="font-size:0.75rem; color:var(--muted); margin-top:8px; text-align:right;">
                                 FFT Analyser • Анализ спектра в реальном времени
+                            </div>
+                        </div>
+
+                        <!-- СДВОЕННЫЕ ВЫХЛОПНЫЕ ПАТРУБКИ С ОГНЁМ -->
+                        <div class="exhaust-pipes-card" id="exhaustPipesBox">
+                            <div style="display:flex; flex-direction:column;">
+                                <span style="font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; font-weight:700;">Выхлопной тракт:</span>
+                                <span style="font-size:0.95rem; font-weight:800; color:var(--text);">Двойной выпуск • Активные заслонки</span>
+                            </div>
+                            <div style="display:flex; gap:16px; align-items:center;">
+                                <div class="exhaust-tip" title="Левый патрубок">
+                                    <div class="exhaust-flame" id="flameLeft"></div>
+                                </div>
+                                <div class="exhaust-tip" title="Правый патрубок">
+                                    <div class="exhaust-flame" id="flameRight"></div>
+                                </div>
                             </div>
                         </div>
 
@@ -467,6 +504,6 @@
     <script src="/script.js?v=4" defer></script>
     <script src="/favorites.js?v=2" defer></script>
     <script src="/search.js?v=1" defer></script>
-    <script src="/sound_lab.js?v=1" defer></script>
+    <script src="/sound_lab.js?v=2" defer></script>
 </body>
 </html>
