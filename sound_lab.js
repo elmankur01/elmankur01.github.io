@@ -27,7 +27,13 @@
             baseFreqFactor: 4 / 60,
             camLope: true,
             timbre: { low: 1.8, mid: 1.2, high: 0.5 },
-            accentColor: '#ef4444'
+            accentColor: '#ef4444',
+            crankRpm: 220,
+            starterFreq: 145,
+            crankPulses: 12,
+            starterDuration: 850,
+            flareRpm: 1750,
+            flareDuration: 620
         },
         'inline6-turbo': {
             name: '3.0L Twin-Power Turbo Inline-6',
@@ -41,7 +47,13 @@
             baseFreqFactor: 3 / 60,
             hasTurbo: true,
             timbre: { low: 1.1, mid: 1.6, high: 1.4 },
-            accentColor: '#3b82f6'
+            accentColor: '#3b82f6',
+            crankRpm: 235,
+            starterFreq: 165,
+            crankPulses: 10,
+            starterDuration: 800,
+            flareRpm: 1650,
+            flareDuration: 560
         },
         'v10-screamer': {
             name: '5.2L Naturally Aspirated V10',
@@ -54,7 +66,13 @@
             type: 'v10',
             baseFreqFactor: 5 / 60,
             timbre: { low: 0.8, mid: 1.9, high: 2.2 },
-            accentColor: '#f59e0b'
+            accentColor: '#f59e0b',
+            crankRpm: 260,
+            starterFreq: 195,
+            crankPulses: 15,
+            starterDuration: 850,
+            flareRpm: 2250,
+            flareDuration: 680
         },
         'boxer6-gt3': {
             name: '4.0L Flat-6 Naturally Aspirated',
@@ -67,7 +85,13 @@
             type: 'boxer6',
             baseFreqFactor: 3 / 60,
             timbre: { low: 1.0, mid: 1.7, high: 1.8 },
-            accentColor: '#10b981'
+            accentColor: '#10b981',
+            crankRpm: 240,
+            starterFreq: 155,
+            crankPulses: 11,
+            starterDuration: 780,
+            flareRpm: 1850,
+            flareDuration: 580
         },
         'rotary-13b': {
             name: '1.3L Twin-Rotor Wankel (13B-REW)',
@@ -82,7 +106,13 @@
             hasTurbo: true,
             brapIdle: true,
             timbre: { low: 0.6, mid: 2.1, high: 2.4 },
-            accentColor: '#ec4899'
+            accentColor: '#ec4899',
+            crankRpm: 290,
+            starterFreq: 230,
+            crankPulses: 16,
+            starterDuration: 750,
+            flareRpm: 2150,
+            flareDuration: 650
         },
         'hyper-ev': {
             name: 'Dual-Motor Warp Pulse (Electric)',
@@ -95,7 +125,13 @@
             type: 'ev',
             baseFreqFactor: 1 / 60,
             timbre: { low: 2.0, mid: 1.0, high: 1.5 },
-            accentColor: '#06b6d4'
+            accentColor: '#06b6d4',
+            crankRpm: 0,
+            starterFreq: 0,
+            crankPulses: 0,
+            starterDuration: 580,
+            flareRpm: 450,
+            flareDuration: 400
         }
     };
 
@@ -108,6 +144,8 @@
 
     let audioCtx = null;
     let isRunning = false;
+    let isStarting = false;
+    let isStopping = false;
     let currentEngineKey = 'v8-muscle';
     let currentExhaust = 'sport';
     let currentRpm = 750;
@@ -120,6 +158,7 @@
     let currentGear = 1;
 
     // Звуковые узлы Web Audio API
+    let mainOut = null;
     let masterGain = null;
     let exhaustFilter = null;
     let driveDistortion = null;
@@ -196,8 +235,16 @@
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
         audioCtx = new AudioContextClass();
 
+        // Главный выход громкости
+        mainOut = audioCtx.createGain();
+        const vol = els.volumeSlider ? parseFloat(els.volumeSlider.value) : 0.75;
+        mainOut.gain.setValueAtTime(vol, audioCtx.currentTime);
+        mainOut.connect(audioCtx.destination);
+
+        // Мастер-фейдер рабочего двигателя
         masterGain = audioCtx.createGain();
-        masterGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        masterGain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        masterGain.connect(mainOut);
 
         analyserNode = audioCtx.createAnalyser();
         analyserNode.fftSize = 256;
@@ -225,65 +272,354 @@
         }
 
         analyserNode.connect(masterGain);
-        masterGain.connect(audioCtx.destination);
+    }
+
+    // Реле и контакторы высокого напряжения Hyper-EV
+    function playEvContactor(isPowerUp) {
+        if (!audioCtx || !mainOut) return;
+        const now = audioCtx.currentTime;
+
+        // Щелчок контактов
+        const dur = 0.022;
+        const buf = audioCtx.createBuffer(1, Math.floor(audioCtx.sampleRate * dur), audioCtx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.16));
+        }
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buf;
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(2600, now);
+        filter.Q.setValueAtTime(2.8, now);
+        const nGain = audioCtx.createGain();
+        nGain.gain.setValueAtTime(0.35, now);
+        nGain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+
+        noise.connect(filter);
+        filter.connect(nGain);
+        nGain.connect(mainOut);
+        noise.start(now);
+
+        // Соленоидный механический удар
+        const osc = audioCtx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(isPowerUp ? 115 : 85, now);
+        osc.frequency.exponentialRampToValueAtTime(isPowerUp ? 35 : 22, now + 0.04);
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0.48, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+
+        osc.connect(gain);
+        gain.connect(mainOut);
+        osc.start(now);
+        osc.stop(now + 0.05);
+    }
+
+    // Включение Hyper-EV (резонансный свист инвертора)
+    function playEvPowerUp(onComplete) {
+        if (!audioCtx || !mainOut) return onComplete();
+        const now = audioCtx.currentTime;
+        playEvContactor(true);
+
+        const dur = 0.52;
+        const osc1 = audioCtx.createOscillator();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(220, now + 0.05);
+        osc1.frequency.exponentialRampToValueAtTime(880, now + 0.05 + dur);
+
+        const osc2 = audioCtx.createOscillator();
+        osc2.type = 'triangle';
+        osc2.frequency.setValueAtTime(440, now + 0.05);
+        osc2.frequency.exponentialRampToValueAtTime(1760, now + 0.05 + dur);
+
+        const gain1 = audioCtx.createGain();
+        gain1.gain.setValueAtTime(0.0001, now);
+        gain1.gain.setValueAtTime(0.01, now + 0.05);
+        gain1.gain.linearRampToValueAtTime(0.25, now + 0.22);
+        gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.05 + dur);
+
+        const gain2 = audioCtx.createGain();
+        gain2.gain.setValueAtTime(0.0001, now);
+        gain2.gain.setValueAtTime(0.01, now + 0.05);
+        gain2.gain.linearRampToValueAtTime(0.12, now + 0.22);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.05 + dur);
+
+        osc1.connect(gain1);
+        gain1.connect(mainOut);
+        osc2.connect(gain2);
+        gain2.connect(mainOut);
+
+        osc1.start(now + 0.05);
+        osc2.start(now + 0.05);
+        osc1.stop(now + 0.05 + dur);
+        osc2.stop(now + 0.05 + dur);
+
+        setTimeout(onComplete, Math.floor((dur + 0.06) * 1000));
+    }
+
+    // Выключение Hyper-EV (разряд инвертора)
+    function playEvPowerDown(onComplete) {
+        if (!audioCtx || !mainOut) return onComplete();
+        const now = audioCtx.currentTime;
+        playEvContactor(false);
+
+        const dur = 0.62;
+        const osc = audioCtx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(680, now + 0.03);
+        osc.frequency.exponentialRampToValueAtTime(28, now + 0.03 + dur);
+
+        const gain = audioCtx.createGain();
+        gain.gain.setValueAtTime(0.2, now + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.03 + dur);
+
+        osc.connect(gain);
+        gain.connect(mainOut);
+        osc.start(now + 0.03);
+        osc.stop(now + 0.03 + dur);
+
+        setTimeout(onComplete, Math.floor((dur + 0.06) * 1000));
+    }
+
+    // Компрессионный механический толчок (такты сжатия поршней в цилиндрах)
+    function playCompressionThump(gainMultiplier, isFinal) {
+        if (!audioCtx || !mainOut) return;
+        const now = audioCtx.currentTime;
+        const mult = gainMultiplier || 1.0;
+
+        // Саб-басовый толчок воздуха в камере сгорания
+        const osc = audioCtx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(isFinal ? 46 : 68, now);
+        osc.frequency.exponentialRampToValueAtTime(18, now + (isFinal ? 0.07 : 0.045));
+
+        const oscGain = audioCtx.createGain();
+        oscGain.gain.setValueAtTime(0.38 * mult, now);
+        oscGain.gain.exponentialRampToValueAtTime(0.001, now + (isFinal ? 0.075 : 0.05));
+
+        osc.connect(oscGain);
+        oscGain.connect(mainOut);
+        osc.start(now);
+        osc.stop(now + (isFinal ? 0.08 : 0.055));
+
+        // Механический глухой хлопок клапанов и колец
+        const dur = isFinal ? 0.038 : 0.026;
+        const buf = audioCtx.createBuffer(1, Math.floor(audioCtx.sampleRate * dur), audioCtx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.22));
+        }
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buf;
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(isFinal ? 380 : 280, now);
+
+        const nGain = audioCtx.createGain();
+        nGain.gain.setValueAtTime(0.28 * mult, now);
+        nGain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+
+        noise.connect(filter);
+        filter.connect(nGain);
+        nGain.connect(mainOut);
+        noise.start(now);
+    }
+
+    // Первоначальный выхлопной рык и хлопок при схватывании зажигания
+    function playStartupBark(engine) {
+        if (!audioCtx || !mainOut) return;
+        const now = audioCtx.currentTime;
+
+        // 1. Острый импульс вспышки смеси
+        const dur = 0.14;
+        const buf = audioCtx.createBuffer(1, Math.floor(audioCtx.sampleRate * dur), audioCtx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+            data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.18));
+        }
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buf;
+
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'highpass';
+        filter.frequency.setValueAtTime(150, now);
+
+        const bGain = audioCtx.createGain();
+        bGain.gain.setValueAtTime(0.75, now);
+        bGain.gain.exponentialRampToValueAtTime(0.001, now + dur);
+
+        noise.connect(filter);
+        filter.connect(bGain);
+        bGain.connect(mainOut);
+        noise.start(now);
+
+        // 2. Глубокий резонанс выхлопного тракта
+        const boom = audioCtx.createOscillator();
+        boom.type = 'sine';
+        boom.frequency.setValueAtTime(125, now);
+        boom.frequency.exponentialRampToValueAtTime(32, now + 0.13);
+
+        const boomGain = audioCtx.createGain();
+        boomGain.gain.setValueAtTime(0.55, now);
+        boomGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+        boom.connect(boomGain);
+        boomGain.connect(mainOut);
+        boom.start(now);
+        boom.stop(now + 0.16);
+    }
+
+    // Реалистичный электростартер с компрессионными толчками и просадкой оборотов
+    function playRealisticStarter(engine, onCatch) {
+        if (engine.type === 'ev') {
+            playEvPowerUp(onCatch);
+            return;
+        }
+        if (!audioCtx || !mainOut) return onCatch();
+
+        const now = audioCtx.currentTime;
+        const durMs = engine.starterDuration || 820;
+        const durSec = durMs / 1000;
+
+        // 1. Электромотор стартера (обмотка + редуктор)
+        const starterOsc = audioCtx.createOscillator();
+        starterOsc.type = 'sawtooth';
+        starterOsc.frequency.setValueAtTime(engine.starterFreq || 150, now);
+
+        // Зубчатый свист шестерни бендикса
+        const gearOsc = audioCtx.createOscillator();
+        gearOsc.type = 'sine';
+        gearOsc.frequency.setValueAtTime((engine.starterFreq || 150) * 3.75, now);
+
+        const gearFilter = audioCtx.createBiquadFilter();
+        gearFilter.type = 'bandpass';
+        gearFilter.frequency.setValueAtTime(760, now);
+        gearFilter.Q.setValueAtTime(3.0, now);
+
+        // Просадка оборотов стартера при прохождении каждой ВМТ (компрессионная модуляция)
+        const crankPulses = engine.crankPulses || 12;
+        const pulseCadence = crankPulses / durSec;
+        const starterMod = audioCtx.createOscillator();
+        starterMod.type = 'sine';
+        starterMod.frequency.setValueAtTime(pulseCadence, now);
+
+        const starterModGain = audioCtx.createGain();
+        starterModGain.gain.setValueAtTime(18, now); // просадка на 18 Гц при сжатии
+        starterMod.connect(starterModGain);
+        starterModGain.connect(starterOsc.frequency);
+
+        const sFilter = audioCtx.createBiquadFilter();
+        sFilter.type = 'lowpass';
+        sFilter.frequency.setValueAtTime(680, now);
+
+        const sGain = audioCtx.createGain();
+        sGain.gain.setValueAtTime(0.0001, now);
+        sGain.gain.linearRampToValueAtTime(0.32, now + 0.04);
+        sGain.gain.setValueAtTime(0.32, now + durSec - 0.06);
+        sGain.gain.exponentialRampToValueAtTime(0.001, now + durSec);
+
+        starterOsc.connect(sFilter);
+        sFilter.connect(sGain);
+        gearOsc.connect(gearFilter);
+        gearFilter.connect(sGain);
+        sGain.connect(mainOut);
+
+        starterOsc.start(now);
+        gearOsc.start(now);
+        starterMod.start(now);
+
+        starterOsc.stop(now + durSec);
+        gearOsc.stop(now + durSec);
+        starterMod.stop(now + durSec);
+
+        // 2. Ритмичные компрессионные толчки и колебания стрелки тахометра
+        const pulseInterval = durMs / crankPulses;
+        for (let i = 0; i < crankPulses; i++) {
+            const delay = Math.round(i * pulseInterval);
+            setTimeout(() => {
+                if (!isStarting) return;
+                playCompressionThump(0.42, false);
+                currentRpm = (engine.crankRpm || 230) + (Math.random() - 0.5) * 35;
+                updateRpmDisplay();
+            }, delay);
+        }
+
+        setTimeout(() => {
+            onCatch();
+        }, durMs);
     }
 
     function startEngine() {
+        if (isStarting || isStopping) return;
         initAudio();
         if (audioCtx.state === 'suspended') {
             audioCtx.resume();
         }
 
         const engine = ENGINES[currentEngineKey];
-        currentRpm = engine.idleRpm;
-        targetRpm = engine.idleRpm;
+        isStarting = true;
+        isRunning = true;
+        currentRpm = engine.crankRpm || 200;
+        targetRpm = engine.crankRpm || 200;
         if (els.rpmSlider) els.rpmSlider.value = currentRpm;
+
+        updatePowerUi(true, true, false);
+        updateRpmDisplay();
 
         // Синхронный запуск узлов в момент тапа (критично для iOS Safari)
         setupEngineNodes(engine, true);
-        isRunning = true;
-        updatePowerUi(true);
-        updateRpmDisplay();
-
-        playStarterSound(() => {
-            if (!isRunning || !audioCtx || !masterGain) return;
-            const vol = els.volumeSlider ? parseFloat(els.volumeSlider.value) : 0.75;
-            const now = audioCtx.currentTime;
-            masterGain.gain.cancelScheduledValues(now);
-            masterGain.gain.setValueAtTime(0.01, now);
-            masterGain.gain.exponentialRampToValueAtTime(vol * 0.42, now + 0.35);
-        });
 
         requestAnimationFrame(engineLoop);
         requestAnimationFrame(drawVisualizer);
-    }
 
-    function playStarterSound(onComplete) {
-        if (!audioCtx) return onComplete();
+        playRealisticStarter(engine, () => {
+            if (!isRunning || !audioCtx || !masterGain) return;
 
-        const bufferSize = audioCtx.sampleRate * 0.45;
-        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-        const data = buffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-            data[i] = (Math.random() * 2 - 1) * Math.sin((i / bufferSize) * Math.PI);
-        }
+            // Схватывание зажигания
+            if (engine.type !== 'ev') {
+                playStartupBark(engine);
+                triggerExhaustFlame(220);
+            }
 
-        const noise = audioCtx.createBufferSource();
-        noise.buffer = buffer;
-        const noiseFilter = audioCtx.createBiquadFilter();
-        noiseFilter.type = 'bandpass';
-        noiseFilter.frequency.value = 850;
+            const flareTarget = engine.flareRpm || (engine.idleRpm * 1.8);
+            const flareDur = engine.flareDuration || 600;
+            const now = audioCtx.currentTime;
 
-        const noiseGain = audioCtx.createGain();
-        noiseGain.gain.setValueAtTime(0.35, audioCtx.currentTime);
-        noiseGain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.42);
+            // Открытие громкости выхлопа
+            masterGain.gain.cancelScheduledValues(now);
+            masterGain.gain.setValueAtTime(0.04, now);
+            masterGain.gain.exponentialRampToValueAtTime(0.42, now + 0.16);
 
-        noise.connect(noiseFilter);
-        noiseFilter.connect(noiseGain);
-        noiseGain.connect(audioCtx.destination);
+            // Резкое раскрытие выхлопного фильтра на вспышке
+            exhaustFilter.frequency.cancelScheduledValues(now);
+            exhaustFilter.frequency.setValueAtTime(2200, now);
+            exhaustFilter.frequency.exponentialRampToValueAtTime(450, now + 0.65);
 
-        noise.start();
-        setTimeout(onComplete, 350);
+            // Анимация стартовой перегазовки (Rev Flare): резкий бросок вверх и плавный выход на холостые
+            const flareStartTime = performance.now();
+            const startFlareRpm = currentRpm;
+
+            function animateFlare(time) {
+                const elapsed = time - flareStartTime;
+                if (elapsed < 160) {
+                    const t = elapsed / 160;
+                    currentRpm = startFlareRpm + (flareTarget - startFlareRpm) * Math.sin(t * Math.PI * 0.5);
+                    requestAnimationFrame(animateFlare);
+                } else if (elapsed < flareDur) {
+                    const t = (elapsed - 160) / (flareDur - 160);
+                    currentRpm = flareTarget - (flareTarget - engine.idleRpm) * Math.sin(t * Math.PI * 0.5);
+                    requestAnimationFrame(animateFlare);
+                } else {
+                    currentRpm = engine.idleRpm;
+                    targetRpm = engine.idleRpm;
+                    isStarting = false;
+                    updatePowerUi(true, false, false);
+                }
+                updateRpmDisplay();
+            }
+            requestAnimationFrame(animateFlare);
+        });
     }
 
     function setupEngineNodes(engine, duringStarter) {
@@ -339,34 +675,87 @@
     }
 
     function stopEngine() {
-        if (!isRunning || !audioCtx) return;
-        isRunning = false;
+        if (!isRunning || isStopping || isStarting) return;
+        isStopping = true;
         isGasPressed = false;
         isLaunchControlActive = false;
 
-        const now = audioCtx.currentTime;
-        if (masterGain) {
-            masterGain.gain.cancelScheduledValues(now);
-            masterGain.gain.setValueAtTime(masterGain.gain.value, now);
-            masterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.4);
+        const engine = ENGINES[currentEngineKey];
+        updatePowerUi(false, false, true);
+
+        if (engine.type === 'ev') {
+            playEvPowerDown(() => {
+                finishStopEngine();
+            });
+            return;
         }
 
-        setTimeout(() => {
-            try {
-                if (osc1) { osc1.stop(); osc1.disconnect(); }
-                if (osc2) { osc2.stop(); osc2.disconnect(); }
-                if (oscSub) { oscSub.stop(); oscSub.disconnect(); }
-                if (turboOsc) { turboOsc.stop(); turboOsc.disconnect(); }
-                if (lfoNode) { lfoNode.stop(); lfoNode.disconnect(); }
-            } catch (e) {}
+        // Остановка ДВС
+        const now = audioCtx.currentTime;
 
-            osc1 = null; osc2 = null; oscSub = null; turboOsc = null; lfoNode = null;
-            currentRpm = 0;
-            targetRpm = 0;
-            updatePowerUi(false);
-            updateRpmDisplay();
-            hideExhaustFlame();
-        }, 450);
+        // 1. Мгновенное прекращение воспламенения (отсечка топлива и искры)
+        driveDistortion.curve = makeDistortionCurve(0);
+        exhaustFilter.frequency.cancelScheduledValues(now);
+        exhaustFilter.frequency.setTargetAtTime(180, now, 0.08);
+        if (turboGain) {
+            turboGain.gain.cancelScheduledValues(now);
+            turboGain.gain.setTargetAtTime(0.0001, now, 0.06);
+        }
+
+        // 2. Инерционный выбег коленвала (Spin-Down)
+        const spinStartTime = performance.now();
+        const spinDuration = 860;
+        const initialSpinRpm = Math.max(engine.idleRpm, currentRpm);
+
+        masterGain.gain.cancelScheduledValues(now);
+        masterGain.gain.setValueAtTime(masterGain.gain.value, now);
+        masterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.85);
+
+        // 3. Затухающие финальные такты сжатия поршней
+        setTimeout(() => { if (isStopping) playCompressionThump(0.34, false); }, 420);
+        setTimeout(() => { if (isStopping) playCompressionThump(0.24, false); }, 630);
+        setTimeout(() => { if (isStopping) playCompressionThump(0.18, true); }, 790);
+
+        function animateSpinDown(time) {
+            const elapsed = time - spinStartTime;
+            if (elapsed < spinDuration) {
+                const progress = elapsed / spinDuration;
+                currentRpm = Math.max(0, initialSpinRpm * Math.pow(1 - progress, 1.55));
+                updateRpmDisplay();
+                updateAudioParameters();
+                requestAnimationFrame(animateSpinDown);
+            } else {
+                currentRpm = 0;
+                targetRpm = 0;
+                updateRpmDisplay();
+                finishStopEngine();
+            }
+        }
+        requestAnimationFrame(animateSpinDown);
+    }
+
+    function finishStopEngine() {
+        try {
+            if (osc1) { osc1.stop(); osc1.disconnect(); }
+            if (osc2) { osc2.stop(); osc2.disconnect(); }
+            if (oscSub) { oscSub.stop(); oscSub.disconnect(); }
+            if (turboOsc) { turboOsc.stop(); turboOsc.disconnect(); }
+            if (lfoNode) { lfoNode.stop(); lfoNode.disconnect(); }
+        } catch (e) {}
+
+        osc1 = null; osc2 = null; oscSub = null; turboOsc = null; lfoNode = null;
+        currentRpm = 0;
+        targetRpm = 0;
+        isRunning = false;
+        isStopping = false;
+        isStarting = false;
+        // Восстановление кривой дисторшна для следующего запуска
+        if (driveDistortion) {
+            driveDistortion.curve = makeDistortionCurve(EXHAUST_PROFILES[currentExhaust].distortion);
+        }
+        updatePowerUi(false, false, false);
+        updateRpmDisplay();
+        hideExhaustFlame();
     }
 
     function updateAudioParameters() {
@@ -610,6 +999,13 @@
     // Физический цикл обновления оборотов (Hardcut Rev Limiter & Inertia)
     function engineLoop(timestamp) {
         if (!isRunning) return;
+        if (isStarting || isStopping) {
+            updateAudioParameters();
+            updateRpmDisplay();
+            requestAnimationFrame(engineLoop);
+            return;
+        }
+
         const engine = ENGINES[currentEngineKey];
 
         // 1. Режим Launch Control
@@ -665,7 +1061,7 @@
         const displayRpm = Math.round(currentRpm);
 
         if (els.rpmGaugeVal) {
-            els.rpmGaugeVal.textContent = isRunning ? displayRpm.toLocaleString('ru-RU') : '0';
+            els.rpmGaugeVal.textContent = (isRunning || isStarting || isStopping) ? displayRpm.toLocaleString('ru-RU') : '0';
         }
 
         if (els.rpmSlider && !els.rpmSliderMouseHold) {
@@ -686,15 +1082,20 @@
         }
     }
 
-    function updatePowerUi(active) {
+    function updatePowerUi(active, isCranking, isStoppingState) {
         if (els.btnPower) {
-            els.btnPower.classList.toggle('active', active);
+            els.btnPower.classList.toggle('active', active && !isCranking);
+            els.btnPower.classList.toggle('cranking', !!isCranking);
         }
         if (els.powerLabel) {
-            els.powerLabel.textContent = active ? 'ENGINE RUNNING (STOP)' : 'ENGINE START';
+            if (isCranking) els.powerLabel.textContent = 'CRANKING...';
+            else if (isStoppingState) els.powerLabel.textContent = 'STOPPING...';
+            else if (active) els.powerLabel.textContent = 'ENGINE RUNNING (STOP)';
+            else els.powerLabel.textContent = 'ENGINE START';
         }
         if (els.powerLed) {
-            els.powerLed.classList.toggle('led-active', active);
+            els.powerLed.classList.toggle('led-active', active && !isCranking);
+            els.powerLed.classList.toggle('led-cranking', !!isCranking);
         }
     }
 
@@ -763,7 +1164,7 @@
     }
 
     function switchEngine(key) {
-        if (!ENGINES[key]) return;
+        if (!ENGINES[key] || isStarting || isStopping) return;
         currentEngineKey = key;
         const engine = ENGINES[key];
 
@@ -779,13 +1180,14 @@
 
         if (isRunning) {
             stopEngine();
-            setTimeout(startEngine, 500);
+            setTimeout(startEngine, 950);
         }
     }
 
     function bindEvents() {
         if (els.btnPower) {
             els.btnPower.addEventListener('click', () => {
+                if (isStarting || isStopping) return;
                 if (isRunning) stopEngine();
                 else startEngine();
             });
@@ -798,6 +1200,7 @@
             window.addEventListener('touchend', () => { els.rpmSliderMouseHold = false; }, { passive: true });
             window.addEventListener('touchcancel', () => { els.rpmSliderMouseHold = false; }, { passive: true });
             els.rpmSlider.addEventListener('input', (e) => {
+                if (isStarting || isStopping) return;
                 if (!isRunning) startEngine();
                 targetRpm = parseFloat(e.target.value);
                 currentRpm = targetRpm;
@@ -808,12 +1211,14 @@
         if (els.btnGas) {
             const pressGas = (e) => {
                 if (e.cancelable) e.preventDefault();
+                if (isStarting || isStopping) return;
                 if (!isRunning) startEngine();
                 isGasPressed = true;
                 els.btnGas.classList.add('gas-active');
             };
             const releaseGas = (e) => {
                 if (e && e.cancelable) e.preventDefault();
+                if (isStarting || isStopping) return;
                 const wasHigh = currentRpm > 4200;
                 isGasPressed = false;
                 els.btnGas.classList.remove('gas-active');
@@ -843,6 +1248,7 @@
 
         if (els.btnPop) {
             els.btnPop.addEventListener('click', () => {
+                if (isStarting || isStopping) return;
                 if (!isRunning) startEngine();
                 triggerPopBang();
             });
@@ -850,6 +1256,7 @@
 
         if (els.btnShift) {
             els.btnShift.addEventListener('click', () => {
+                if (isStarting || isStopping) return;
                 if (!isRunning) startEngine();
                 simulateGearShift();
             });
@@ -857,12 +1264,14 @@
 
         if (els.btnLaunch) {
             els.btnLaunch.addEventListener('click', () => {
+                if (isStarting || isStopping) return;
                 toggleLaunchControl();
             });
         }
 
         if (els.btnFlutter) {
             els.btnFlutter.addEventListener('click', () => {
+                if (isStarting || isStopping) return;
                 if (!isRunning) startEngine();
                 triggerTurboFlutter();
             });
@@ -890,9 +1299,9 @@
 
         if (els.volumeSlider) {
             els.volumeSlider.addEventListener('input', (e) => {
-                if (masterGain && audioCtx) {
-                    const vol = parseFloat(e.target.value);
-                    masterGain.gain.setValueAtTime(vol * 0.42, audioCtx.currentTime);
+                const vol = parseFloat(e.target.value);
+                if (mainOut && audioCtx) {
+                    mainOut.gain.setValueAtTime(vol, audioCtx.currentTime);
                 }
             });
         }
@@ -902,24 +1311,31 @@
             if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
             if (e.code === 'Space') {
                 e.preventDefault();
+                if (isStarting || isStopping) return;
                 if (!isRunning) startEngine();
                 isGasPressed = true;
                 if (els.btnGas) els.btnGas.classList.add('gas-active');
             } else if (e.code === 'KeyP') {
+                if (isStarting || isStopping) return;
                 triggerPopBang();
             } else if (e.code === 'KeyS') {
+                if (isStarting || isStopping) return;
                 simulateGearShift();
             } else if (e.code === 'KeyL') {
+                if (isStarting || isStopping) return;
                 toggleLaunchControl();
             } else if (e.code === 'KeyF') {
+                if (isStarting || isStopping) return;
                 triggerTurboFlutter();
             } else if (e.code === 'Escape') {
+                if (isStarting || isStopping) return;
                 stopEngine();
             }
         });
 
         window.addEventListener('keyup', (e) => {
             if (e.code === 'Space') {
+                if (isStarting || isStopping) return;
                 const wasHigh = currentRpm > 4200;
                 isGasPressed = false;
                 if (els.btnGas) els.btnGas.classList.remove('gas-active');

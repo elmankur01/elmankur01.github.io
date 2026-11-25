@@ -4813,6 +4813,12 @@ button:active,
     box-shadow: 0 0 25px rgba(239, 68, 68, 0.5), inset 0 2px 6px rgba(255, 255, 255, 0.3);
 }
 
+.engine-start-btn.cranking {
+    border-color: #f59e0b;
+    box-shadow: 0 0 22px rgba(245, 158, 11, 0.6), inset 0 2px 6px rgba(255, 255, 255, 0.3);
+    animation: starterJitter 0.08s infinite alternate;
+}
+
 .engine-start-led {
     width: 10px;
     height: 10px;
@@ -4825,6 +4831,22 @@ button:active,
 .engine-start-led.led-active {
     background: #ef4444;
     box-shadow: 0 0 10px #ef4444;
+}
+
+.engine-start-led.led-cranking {
+    background: #f59e0b;
+    box-shadow: 0 0 12px #f59e0b;
+    animation: starterLedBlink 0.12s infinite alternate;
+}
+
+@keyframes starterJitter {
+    0% { transform: scale(0.97) rotate(-0.5deg); }
+    100% { transform: scale(1.01) rotate(0.5deg); }
+}
+
+@keyframes starterLedBlink {
+    0% { opacity: 0.4; }
+    100% { opacity: 1.0; }
 }
 
 .engine-start-text {
