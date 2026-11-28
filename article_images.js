@@ -386,6 +386,8 @@ const IMAGES = {
     238: { url: "/images/auto/art-238.jpg", alt: "Квадратный внедорожник BYD запрещен в ЕС после решения о подражании Land Rover Defender", credit: "Фото: Retired electrician, CC0" }
 ,
     239: { url: "/images/auto/art-239.jpg", alt: "Новый Ferrari 296 Challenge Stradale — гоночный автомобиль мощностью 670 л.с., на котором можно ездить домой", credit: "Фото: ermell, CC BY-SA 4.0" }
+,
+    240: { url: "/images/auto/art-240.jpg", alt: "В этом массивном кемпере-внедорожнике есть стиральная машина. и две кухни", credit: "Фото: Retired electrician, CC0" }
 
 };
 
@@ -791,6 +793,8 @@ const SLUGS = {
     238: "kvadratnyy-vnedorozhnik-byd-zapreshchen-v-es-posle-resheniya-o-podrazhanii-land-"
 ,
     239: "novyy-ferrari-296-challenge-stradale-gonochnyy-avtomobil-moshchnost-yu-670-l-s-n"
+,
+    240: "v-etom-massivnom-kempere-vnedorozhnike-est-stiral-naya-mashina-i-dve-kukhni"
 
 };
 
